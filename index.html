@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Aria brings patient payments, spending, banking, funding, and supply buying into one place for small, independent healthcare practices. Join the waitlist.">
+<meta property="og:title" content="Aria | Finance for independent healthcare practices">
+<meta property="og:description" content="Aria brings patient payments, spending, banking, funding, and supply buying into one place for small, independent healthcare practices. Join the waitlist.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#2438E0">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M9 0h14a9 9 0 0 1 9 9v14a9 9 0 0 1-9 9H0V9a9 9 0 0 1 9-9z' fill='%232438E0'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23fff'/%3E%3C/svg%3E">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Aria | Finance for independent healthcare practices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Albert+Sans:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: left-aligned editorial column on a cool paper ground; one solid ultramarine "stage"
+   behind the hero dashboard is the only loud surface. Product UI is drawn in HTML, never photos. */
+:root{
+  --bg:#F5F6F9; --surface:#FFFFFF; --sunk:#ECEEF4;
+  --ink:#0F1730; --body:#3C4563; --muted:#6A7391; --line:#DCE0EB;
+  --accent:#2438E0; --accent-ink:#1B2BB8; --on-accent:#FFFFFF; --accent-soft:#E6E9FD;
+  --stage:#2438E0; --stage-ink:#FFFFFF; --stage-line:rgba(255,255,255,.22);
+  --pos:#0B7A53; --pos-soft:#DDF3EA; --warn:#96590A; --warn-soft:#FBEBCF;
+  --shadow:0 1px 2px rgba(15,23,48,.06),0 12px 32px -12px rgba(15,23,48,.22);
+  --display:"Bricolage Grotesque","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --text:"Albert Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  --r:14px; --r-sm:9px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0B0E1A; --surface:#141829; --sunk:#1B2036;
+  --ink:#F1F3FB; --body:#BCC3DC; --muted:#8C94B3; --line:#2A3050;
+  --accent:#8F9CFF; --accent-ink:#B4BDFF; --on-accent:#0B0E1A; --accent-soft:#1E2550;
+  --stage:#1A2380; --stage-ink:#FFFFFF; --stage-line:rgba(255,255,255,.2);
+  --pos:#4FD3A1; --pos-soft:#0F3328; --warn:#F2B755; --warn-soft:#3A2A0C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 36px -14px rgba(0,0,0,.7);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0B0E1A; --surface:#141829; --sunk:#1B2036;
+  --ink:#F1F3FB; --body:#BCC3DC; --muted:#8C94B3; --line:#2A3050;
+  --accent:#8F9CFF; --accent-ink:#B4BDFF; --on-accent:#0B0E1A; --accent-soft:#1E2550;
+  --stage:#1A2380; --stage-ink:#FFFFFF; --stage-line:rgba(255,255,255,.2);
+  --pos:#4FD3A1; --pos-soft:#0F3328; --warn:#F2B755; --warn-soft:#3A2A0C;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 16px 36px -14px rgba(0,0,0,.7);
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--bg);color:var(--body);font-family:var(--text);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,dl,dd,figure,table{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:20px}
+section{padding-block:clamp(56px,9vw,112px)}
+h1,h2,h3{font-family:var(--display);color:var(--ink);text-wrap:balance;letter-spacing:-.02em}
+h1{font-size:clamp(2.6rem,6.6vw,4.9rem);line-height:.98;font-weight:700;letter-spacing:-.035em}
+h2{font-size:clamp(1.95rem,4.2vw,3.1rem);line-height:1.04;font-weight:600}
+h3{font-size:1.3rem;line-height:1.2;font-weight:600}
+.lede{font-size:clamp(1.1rem,1.6vw,1.3rem);line-height:1.5;max-width:34em}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-ink)}
+.head{display:grid;gap:16px;max-width:44rem;margin-bottom:clamp(32px,5vw,56px)}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;font:600 1rem var(--text);text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .15s,border-color .15s}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--accent);color:var(--on-accent)}
+.btn-primary:hover{background:var(--accent-ink)}
+.btn-ghost{border-color:var(--line);color:var(--ink);background:transparent}
+.btn-ghost:hover{border-color:var(--ink)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:.94rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+.logo{display:inline-flex;align-items:center;gap:9px;font:700 1.45rem var(--display);letter-spacing:-.03em;color:var(--ink);text-decoration:none}
+.logo i{width:22px;height:22px;border-radius:6px 6px 6px 0;background:var(--accent);display:block;position:relative}
+.logo i::after{content:"";position:absolute;inset:6px 6px 6px 6px;border-radius:50%;background:var(--bg)}
+.top nav{display:flex;gap:28px;font-size:.96rem;font-weight:500}
+.top nav a{text-decoration:none;color:var(--body)}
+.top nav a:hover{color:var(--ink)}
+@media (max-width:760px){.top nav{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,6vw,80px) 0;overflow:hidden}
+.hero-grid{display:grid;gap:clamp(32px,5vw,56px);grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center}
+.hero-copy{display:grid;gap:24px;min-width:0;padding-bottom:clamp(40px,6vw,80px)}
+.hero-note{font-size:.92rem;color:var(--muted)}
+.stage{background:var(--stage);border-radius:28px 28px 0 0;padding:clamp(18px,3vw,36px) clamp(14px,3vw,36px) 0;min-width:0;align-self:end}
+@media (max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}.hero-copy{padding-bottom:0}}
+
+/* product UI primitives */
+.ui{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);color:var(--body);font-size:.9rem;line-height:1.4;min-width:0}
+.ui-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.ui-bar b{color:var(--ink);font-weight:600}
+.ui-body{padding:16px;display:grid;gap:14px}
+.lab{font-size:.76rem;color:var(--muted);font-weight:500}
+.big{font:500 1.55rem/1.1 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.pill{display:inline-flex;align-items:center;gap:6px;padding:3px 9px;border-radius:999px;font-size:.74rem;font-weight:600;white-space:nowrap}
+.pill.pos{background:var(--pos-soft);color:var(--pos)}
+.pill.warn{background:var(--warn-soft);color:var(--warn)}
+.pill.acc{background:var(--accent-soft);color:var(--accent-ink)}
+.pill.mut{background:var(--sunk);color:var(--muted)}
+.tile{background:var(--sunk);border-radius:var(--r-sm);padding:12px 14px;display:grid;gap:6px;min-width:0}
+.rows{display:grid}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row > div{min-width:0}
+.row b{display:block;color:var(--ink);font-weight:600;font-size:.9rem}
+.row small{color:var(--muted);font-size:.78rem}
+.row .amt{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);white-space:nowrap;font-size:.88rem;text-align:right}
+.caption{font-size:.78rem;color:var(--muted);margin-top:10px}
+.stage .caption{color:var(--stage-ink);opacity:.8;padding-bottom:14px;margin-top:12px}
+
+.dash{border-radius:var(--r) var(--r) 0 0;border-bottom:0}
+.dash-tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.aging{display:grid;gap:8px}
+.aging div{display:grid;grid-template-columns:5.2em minmax(0,1fr) 5.4em;gap:10px;align-items:center;font-size:.78rem;color:var(--muted)}
+.aging i{display:block;height:8px;border-radius:4px;background:var(--accent)}
+.aging span:last-child{text-align:right;color:var(--ink)}
+@media (max-width:420px){.dash-tiles{grid-template-columns:minmax(0,1fr)}}
+
+/* problem */
+.problem{background:var(--surface);border-block:1px solid var(--line)}
+.plist{display:grid;border-top:1px solid var(--line)}
+.plist li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:8px 32px;padding-block:22px;border-bottom:1px solid var(--line)}
+.plist h3{font-size:1.25rem}
+@media (max-width:700px){.plist li{grid-template-columns:minmax(0,1fr)}}
+.patch{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:clamp(28px,4vw,44px)}
+.patch span{padding:8px 14px;border:1.5px dashed var(--muted);border-radius:8px;font:500 .84rem var(--mono);color:var(--body);background:var(--bg)}
+.patch span:nth-child(odd){transform:rotate(-2deg)}
+.patch span:nth-child(3n){transform:rotate(2.5deg) translateY(4px)}
+
+/* compare */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.cmp th,.cmp td{text-align:left;vertical-align:top;padding:18px 20px;border-top:1px solid var(--line)}
+.cmp thead th{border-top:0;font:500 .78rem var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.cmp thead th:last-child,.cmp td:last-child{background:var(--accent-soft)}
+.cmp thead th:last-child{color:var(--accent-ink)}
+.cmp tbody th{font:600 1.05rem var(--display);color:var(--ink);width:20%}
+.cmp td:last-child{color:var(--ink);font-weight:500}
+@media (max-width:760px){
+  .cmp,.cmp tbody,.cmp tr,.cmp th,.cmp td{display:block;width:auto}
+  .cmp thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .cmp tr{border-top:1px solid var(--line)}
+  .cmp tr:first-child{border-top:0}
+  .cmp tbody th{width:auto;padding-bottom:6px;border-top:0}
+  .cmp td{border-top:0;padding-top:6px}
+  .cmp td::before{content:attr(data-l);display:block;font:500 .72rem var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .cmp td:last-child::before{color:var(--accent-ink)}
+}
+
+/* pillars */
+.pillars{display:grid;gap:clamp(56px,8vw,104px)}
+.pillar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,72px);align-items:center}
+.pillar-copy{display:grid;gap:16px;min-width:0;max-width:30rem}
+.pillar-copy h3{font-size:clamp(1.6rem,3vw,2.3rem);line-height:1.06}
+.pillar-vis{min-width:0;background:var(--sunk);border-radius:22px;padding:clamp(16px,3vw,32px)}
+.pillar:nth-child(even) .pillar-vis{order:-1}
+@media (max-width:820px){.pillar{grid-template-columns:minmax(0,1fr)}.pillar:nth-child(even) .pillar-vis{order:0}}
+.pillar-vis .ui{max-width:400px;margin-inline:auto}
+.total{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-top:12px;border-top:1.5px solid var(--ink)}
+.total b{color:var(--ink)}
+.cardviz{background:var(--stage);color:var(--stage-ink);border-radius:var(--r);padding:16px;display:grid;gap:26px;max-width:400px;margin:0 auto 12px}
+.cardviz div{display:flex;justify-content:space-between;align-items:center;font:500 .82rem var(--mono)}
+.cardviz b{font:700 1.2rem var(--display);letter-spacing:-.03em}
+.mini{min-height:30px;padding:0 12px;border-radius:999px;background:var(--accent);color:var(--on-accent);font:600 .78rem var(--text);display:inline-flex;align-items:center;white-space:nowrap}
+.gap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));position:relative;font-size:.76rem;color:var(--muted);text-align:center;gap:4px}
+.gap::before{content:"";position:absolute;left:16.6%;right:16.6%;top:6px;border-top:2px dashed var(--line)}
+.gap span::before{content:"";display:block;width:14px;height:14px;border-radius:50%;background:var(--surface);border:3px solid var(--muted);margin:0 auto 8px;position:relative}
+.gap span:last-child::before{border-color:var(--pos)}
+.bridge{background:var(--accent-soft);color:var(--accent-ink);border-radius:var(--r-sm);padding:10px 12px;font-size:.8rem;font-weight:600;text-align:center}
+.soon{margin-top:clamp(48px,7vw,88px);display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding:20px 24px;border:1.5px dashed var(--line);border-radius:var(--r)}
+.soon p{flex:1 1 18rem;min-width:0}
+.soon b{color:var(--ink)}
+
+/* how */
+.how{background:var(--surface);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;counter-reset:s}
+.steps li{display:grid;gap:10px;align-content:start;counter-increment:s;border-top:2px solid var(--ink);padding-top:18px}
+.steps li::before{content:counter(s);font:700 2.6rem/1 var(--display);color:var(--accent)}
+@media (max-width:760px){.steps{grid-template-columns:minmax(0,1fr)}}
+
+/* who */
+.who{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.who article{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:clamp(22px,3.5vw,40px);display:grid;gap:16px;align-content:start}
+.who h3{font-size:1.6rem}
+.who ul{display:grid;gap:10px}
+.who li{padding-left:26px;position:relative}
+.who li::before{content:"";position:absolute;left:2px;top:.5em;width:12px;height:7px;border-left:2.5px solid var(--accent);border-bottom:2.5px solid var(--accent);transform:rotate(-45deg)}
+@media (max-width:760px){.who{grid-template-columns:minmax(0,1fr)}}
+
+/* faq */
+.faq-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:32px 56px}
+.faq-grid .head{margin:0}
+@media (max-width:820px){.faq-grid{grid-template-columns:minmax(0,1fr)}}
+details{border-top:1px solid var(--line)}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:600 1.15rem var(--display);color:var(--ink)}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font:400 1.5rem var(--mono);color:var(--accent);flex:none;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 22px;max-width:38em}
+
+/* final */
+.final{background:var(--stage);color:var(--stage-ink);padding-block:clamp(56px,9vw,112px)}
+.final h2{color:var(--stage-ink)}
+.final-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(28px,5vw,72px);align-items:start}
+.final-copy{display:grid;gap:18px;min-width:0}
+.final-copy p{opacity:.9;max-width:28em}
+@media (max-width:860px){.final-grid{grid-template-columns:minmax(0,1fr)}}
+.form{background:var(--surface);color:var(--body);border-radius:22px;padding:clamp(20px,3vw,32px);display:grid;gap:16px;min-width:0;box-shadow:var(--shadow)}
+.seg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px;background:var(--sunk);padding:4px;border-radius:999px;border:0;margin:0}
+.seg label{display:block;position:relative}
+.seg input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.seg span{display:block;text-align:center;padding:9px 8px;border-radius:999px;font-weight:600;font-size:.94rem;color:var(--muted)}
+.seg input:checked + span{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.seg input:focus-visible + span{outline:3px solid var(--accent);outline-offset:2px}
+.f2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:480px){.f2{grid-template-columns:minmax(0,1fr)}}
+.field{display:grid;gap:6px;min-width:0}
+.field label{font-size:.88rem;font-weight:600;color:var(--ink)}
+.field input,.field select,.field textarea{width:100%;min-height:48px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:400 1rem var(--text)}
+.field textarea{min-height:88px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.form .btn{width:100%}
+.fine{font-size:.82rem;color:var(--muted)}
+.done{display:grid;gap:12px;justify-items:start}
+.done h3{font-size:1.6rem}
+
+.announce{background:var(--ink);color:var(--bg);font-size:.9rem;font-weight:500;text-align:center}
+.announce .wrap{padding-block:9px}
+.announce a{font-weight:600;text-underline-offset:3px;white-space:nowrap}
+.suite{background:var(--ink);color:var(--bg);padding-block:0}
+.suite ul{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
+.suite a{display:grid;gap:2px;padding:20px 16px 22px 0;text-decoration:none;border-top:3px solid transparent}
+.suite a:hover{border-top-color:var(--accent)}
+.suite b{font:600 1.2rem var(--display);letter-spacing:-.02em}
+.suite span{font-size:.84rem;opacity:.72}
+@media (max-width:820px){.suite ul{grid-template-columns:repeat(2,minmax(0,1fr))}.suite li:last-child{grid-column:1/-1}.suite a{padding-block:14px}}
+.trust{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.trust li{display:grid;gap:8px;align-content:start;border-top:2px solid var(--accent);padding-top:16px}
+.trust h3{font-size:1.15rem}
+.trust p{font-size:.98rem}
+@media (max-width:900px){.trust{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.trust{grid-template-columns:minmax(0,1fr)}}
+.band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;margin-top:clamp(40px,6vw,72px);padding:clamp(24px,4vw,40px);background:var(--accent-soft);border-radius:22px}
+.band h3{font-size:clamp(1.4rem,2.6vw,1.9rem);max-width:20em}
+.foot-cols{display:grid;grid-template-columns:minmax(0,2fr) repeat(3,minmax(0,1fr));gap:32px}
+.foot-cols > div{display:grid;gap:10px;align-content:start;min-width:0}
+.foot-cols h4{margin:0;font:500 .76rem var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--ink)}
+.foot-cols a{text-decoration:none}
+.foot-cols a:hover{color:var(--ink);text-decoration:underline}
+.foot-cols p{max-width:22em}
+@media (max-width:700px){.foot-cols{grid-template-columns:repeat(2,minmax(0,1fr))}.foot-cols > div:first-child{grid-column:1/-1}}
+footer{padding-block:56px 48px;font-size:.88rem;color:var(--muted)}
+footer .wrap{display:grid;gap:20px}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px}
+.foot-top nav{display:flex;flex-wrap:wrap;gap:20px}
+.legal{max-width:60em;border-top:1px solid var(--line);padding-top:20px;display:grid;gap:8px}
+</style>
+</head>
+<body>
+
+
+<div class="announce"><div class="wrap">Early access is opening to a limited number of practices. <a href="#waitlist" data-mode="waitlist">Reserve your spot</a></div></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Aria home"><i aria-hidden="true"></i>Aria</a>
+    <nav aria-label="Main">
+      <a href="#product">Product</a>
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <p class="eyebrow">Finance for independent practices</p>
+      <h1>Every dollar in your practice, in one place.</h1>
+      <p class="lede">Aria brings patient payments, spending, banking, funding, and supply buying together. Get paid sooner. Stop stitching tools together by hand.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
+        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
+      </div>
+      <p class="hero-note">Built for practices with 1 to 20 providers. Launching soon.</p>
+    </div>
+
+    <figure class="stage" aria-label="Preview of the Aria dashboard">
+      <div class="ui dash">
+        <div class="ui-bar"><b>Your practice</b><span class="pill pos">Books up to date</span></div>
+        <div class="ui-body">
+          <div class="dash-tiles">
+            <div class="tile"><span class="lab">Cash available</span><span class="big">$86,214.07</span></div>
+            <div class="tile"><span class="lab">Collected from patients today</span><span class="big">$1,945.00</span></div>
+          </div>
+          <div class="tile">
+            <span class="lab">Insurer payments you're waiting on</span>
+            <span class="big">$34,740.00</span>
+            <div class="aging num" role="img" aria-label="By age: 0 to 30 days $18,420. 31 to 60 days $9,860. 61 to 90 days $4,310. Over 90 days $2,150.">
+              <div><span>0–30 days</span><i style="width:100%"></i><span>$18,420</span></div>
+              <div><span>31–60</span><i style="width:53.5%"></i><span>$9,860</span></div>
+              <div><span>61–90</span><i style="width:23.4%"></i><span>$4,310</span></div>
+              <div><span>90+</span><i style="width:11.7%"></i><span>$2,150</span></div>
+            </div>
+          </div>
+          <div class="rows">
+            <div class="row"><div><b>Insurer payment</b><small>Matched to 14 claims</small></div><span class="amt">+$3,412.60</span></div>
+            <div class="row"><div><b>Supply order</b><small>Aria card · gloves, gauze</small></div><span class="amt">−$284.50</span></div>
+            <div class="row"><div><b>Copay at check-in</b><small>Card saved for balance</small></div><span class="amt">+$30.00</span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="caption">Illustrative preview with sample figures. Aria is in development.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="suite" aria-label="What Aria covers">
+  <div class="wrap">
+    <ul>
+      <li><a href="#get-paid"><b>Get paid</b><span>Patient payments</span></a></li>
+      <li><a href="#spend"><b>Spend</b><span>Card and bill pay</span></a></li>
+      <li><a href="#bank"><b>Bank</b><span>Accounts and books</span></a></li>
+      <li><a href="#borrow"><b>Borrow</b><span>Funding for the wait</span></a></li>
+      <li><a href="#save"><b>Save</b><span>Supply marketplace</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="problem" id="problem">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The problem</p>
+      <h2>You run a practice. You also run a patchwork.</h2>
+      <p class="lede">Care happens today. The money shows up later, in pieces, across tools that were never built for a medical office.</p>
+    </div>
+    <div class="patch" aria-hidden="true">
+      <span>Bank login</span><span>Business card</span><span>Card reader</span><span>Payroll</span><span>Accounting</span><span>Insurer portals</span><span>Supply vendors</span><span>Spreadsheet</span>
+    </div>
+    <ul class="plist">
+      <li><h3>Insurers pay late. Bills don't wait.</h3><p>Reimbursement arrives weeks or months after the visit. Payroll and rent are due now.</p></li>
+      <li><h3>Balances walk out the door.</h3><p>Once a patient leaves, what they owe gets much harder to collect.</p></li>
+      <li><h3>Nothing talks to anything.</h3><p>Bank, card, payroll, and accounting sit in separate tools. Your office manager connects them by hand.</p></li>
+      <li><h3>You pay full price for supplies.</h3><p>A small practice buys alone, without the purchasing power larger groups have.</p></li>
+      <li><h3>Your tools weren't made for you.</h3><p>Most cards and finance apps don't know what a claim, a copay, or an insurer payment is.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Today vs. with Aria</p>
+      <h2>Same practice. Far less chasing.</h2>
+    </div>
+    <table class="cmp">
+      <thead><tr><th scope="col">&nbsp;</th><th scope="col">Today</th><th scope="col">With Aria</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Patient payments</th><td data-l="Today">You mail statements and hope they get paid.</td><td data-l="With Aria">Collect the copay at check-in and keep a card on file for the rest.</td></tr>
+        <tr><th scope="row">Insurer delays</th><td data-l="Today">You float payroll and rent while claims sit unpaid.</td><td data-l="With Aria">Funding based on your own claims helps cover the wait.</td></tr>
+        <tr><th scope="row">The books</th><td data-l="Today">Someone matches deposits to claims line by line.</td><td data-l="With Aria">Insurer payments are matched to claims for you, in one dashboard.</td></tr>
+        <tr><th scope="row">Spending and bills</th><td data-l="Today">Receipts, invoices, and approvals live in email and paper.</td><td data-l="With Aria">One card, one inbox for bills, and approvals in a tap.</td></tr>
+        <tr><th scope="row">Supplies</th><td data-l="Today">You buy alone at list price.</td><td data-l="With Aria">You buy at group prices and earn extra rewards on the Aria card.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="product" style="padding-top:0">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The product</p>
+      <h2>Five jobs. One account.</h2>
+      <p class="lede">Start with the part that hurts most. Add the rest when you're ready.</p>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar" id="get-paid" style="scroll-margin-top:88px">
+        <div class="pillar-copy">
+          <p class="eyebrow">Get paid</p>
+          <h3>Get paid before the patient leaves.</h3>
+          <p>Collect copays at check-in, online or at the front desk, and keep a card on file for whatever remains. Patients see what was billed and what insurance paid, as it happens.</p>
+        </div>
+        <div class="pillar-vis">
+          <div class="ui">
+            <div class="ui-bar"><b>Your visit · Oct 6</b><span class="pill pos">Insurance processed</span></div>
+            <div class="ui-body">
+              <div class="rows">
+                <div class="row"><div><b>Office visit</b><small>Billed by your provider</small></div><span class="amt">$240.00</span></div>
+                <div class="row"><div><b>Plan discount</b></div><span class="amt">−$62.00</span></div>
+                <div class="row"><div><b>Insurance paid</b></div><span class="amt">−$128.00</span></div>
+                <div class="row"><div><b>Copay</b><small>Paid at check-in</small></div><span class="amt">−$30.00</span></div>
+              </div>
+              <div class="total"><b>You owe</b><span class="big">$20.00</span></div>
+              <span class="pill acc">Card on file will be charged Oct 20</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar" id="spend" style="scroll-margin-top:88px">
+        <div class="pillar-copy">
+          <p class="eyebrow">Spend</p>
+          <h3>One card. Every bill handled.</h3>
+          <p>A high-reward card made for practice expenses, with receipts and categories captured for you. Invoices come in, get approved, and get paid without the paper chase.</p>
+        </div>
+        <div class="pillar-vis">
+          <div class="cardviz" aria-hidden="true"><div><b>Aria</b><span>Practice card</span></div><div><span>•••• 4417</span><span>Front office</span></div></div>
+          <div class="ui">
+            <div class="ui-bar"><b>Bills</b><span class="pill warn">1 needs approval</span></div>
+            <div class="ui-body">
+              <div class="rows">
+                <div class="row"><div><b>Medical supplies</b><small>Invoice · due Oct 18</small></div><span class="mini">Approve $1,284.50</span></div>
+                <div class="row"><div><b>Lab fees</b><small>Scheduled for Oct 15</small></div><span class="amt">$640.00</span></div>
+                <div class="row"><div><b>Office rent</b><small>Paid Oct 1</small></div><span class="amt">$4,200.00</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar" id="bank" style="scroll-margin-top:88px">
+        <div class="pillar-copy">
+          <p class="eyebrow">Bank</p>
+          <h3>Know where you stand, every morning.</h3>
+          <p>Accounts, treasury, and accounting in one dashboard. Insurer payments are matched to the claims they cover, so the books stay current without the spreadsheet.</p>
+        </div>
+        <div class="pillar-vis">
+          <div class="ui">
+            <div class="ui-bar"><b>Insurer payments</b><span class="lab">This week</span></div>
+            <div class="ui-body">
+              <div class="rows">
+                <div class="row"><div><b class="num">$3,412.60</b><small>Commercial plan · 14 claims</small></div><span class="pill pos">Matched</span></div>
+                <div class="row"><div><b class="num">$1,208.15</b><small>Medicare · 6 claims</small></div><span class="pill pos">Matched</span></div>
+                <div class="row"><div><b class="num">$486.00</b><small>Commercial plan · 2 claims</small></div><span class="pill warn">Needs a look</span></div>
+              </div>
+              <div class="tile"><span class="lab">Posted to your books automatically</span><span class="big">20 of 22 claims</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar" id="borrow" style="scroll-margin-top:88px">
+        <div class="pillar-copy">
+          <p class="eyebrow">Borrow</p>
+          <h3>Cover the wait between care and payment.</h3>
+          <p>Funding that bridges reimbursement delays, priced on your practice's own claims and cash flow. See your options in the same place you see your claims.</p>
+          <p class="fine">All funding is subject to review and approval.</p>
+        </div>
+        <div class="pillar-vis">
+          <div class="ui">
+            <div class="ui-bar"><b>Funding</b><span class="pill mut">Sample offer</span></div>
+            <div class="ui-body">
+              <div class="tile"><span class="lab">Claims waiting on insurers</span><span class="big">$34,740.00</span></div>
+              <div class="gap" aria-hidden="true"><span>Visit</span><span>Claim sent</span><span>Insurer pays</span></div>
+              <div class="bridge">Funding covers the gap until insurers pay</div>
+              <div class="row" style="border-top:1px solid var(--line)"><div><b>Based on your claims history</b><small>Terms shown before you accept</small></div><span class="mini">Review offer</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="pillar" id="save" style="scroll-margin-top:88px">
+        <div class="pillar-copy">
+          <p class="eyebrow">Save</p>
+          <h3>Buy supplies like a much bigger practice.</h3>
+          <p>A medical supply marketplace with group-purchasing prices. Order on your Aria card and earn extra rewards on what you already buy.</p>
+        </div>
+        <div class="pillar-vis">
+          <div class="ui">
+            <div class="ui-bar"><b>Supply marketplace</b><span class="pill acc">Extra rewards on Aria card</span></div>
+            <div class="ui-body">
+              <div class="rows">
+                <div class="row"><div><b>Nitrile exam gloves</b><small>Box of 100 · medium</small></div><span class="pill pos">Group price</span></div>
+                <div class="row"><div><b>Gauze sponges, 4×4</b><small>Sleeve of 200</small></div><span class="pill pos">Group price</span></div>
+                <div class="row"><div><b>Surface disinfectant wipes</b><small>Canister of 160</small></div><span class="pill pos">Group price</span></div>
+              </div>
+              <div class="total"><b>Cart · 3 items</b><span class="mini">Reorder</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="soon">
+      <span class="pill acc">Coming soon</span>
+      <p><b>Payroll.</b> Pay your team from the same account, with the books updated for you.</p>
+    </div>
+    <p class="caption">Product visuals are illustrative and use sample figures.</p>
+    <div class="band">
+      <h3>See what Aria could look like for your practice.</h3>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
+        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How it works</p>
+      <h2>Three steps. No finance degree.</h2>
+    </div>
+    <ol class="steps">
+      <li><h3>Connect your practice system</h3><p>Link the scheduling and billing software you already use, so Aria can see visits, claims, and balances.</p></li>
+      <li><h3>Open your account</h3><p>Apply online. We'll ask for the basics about your practice and tell you what's needed next.</p></li>
+      <li><h3>Collect and spend in one place</h3><p>Take patient payments, pay bills, and watch insurer payments land. All of it shows up in one dashboard.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Who it's for</p>
+      <h2>Made for the two people who carry the money side.</h2>
+      <p class="lede">Primary care, dental, dermatology, physical therapy, plastic surgery, and practices like them.</p>
+    </div>
+    <div class="who">
+      <article>
+        <h3>Owner-physicians</h3>
+        <p>You trained to treat patients, not to manage cash flow at 9 p.m.</p>
+        <ul>
+          <li>See cash, claims, and spending on one screen.</li>
+          <li>Worry less about making payroll while insurers take their time.</li>
+          <li>Keep more of what your practice earns.</li>
+        </ul>
+      </article>
+      <article>
+        <h3>Office managers</h3>
+        <p>You are the integration. Aria takes that job off your desk.</p>
+        <ul>
+          <li>Stop matching deposits to claims by hand.</li>
+          <li>Collect at check-in and send fewer statements.</li>
+          <li>Approve and pay bills from one inbox.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="trust">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Why trust us with it</p>
+      <h2>Your money and your patients' data deserve care.</h2>
+    </div>
+    <ul class="trust">
+      <li><h3>Licensed partners hold the money</h3><p>Banking and lending services will be provided by licensed partner institutions.</p></li>
+      <li><h3>Designed for patient data</h3><p>We're building to healthcare privacy and card payment standards from the first line of code.</p></li>
+      <li><h3>Pricing you can read</h3><p>You'll see what Aria costs, in plain terms, before you commit to anything.</p></li>
+      <li><h3>A team you can reach</h3><p>Early practices work directly with the people building the product.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="head">
+      <p class="eyebrow">FAQ</p>
+      <h2>Fair questions.</h2>
+      <p>Have one we missed? <a href="#waitlist" data-mode="talk">Talk to us.</a></p>
+    </div>
+    <div>
+      <details><summary>What will Aria cost?</summary><p>Pricing isn't final yet. Practices on the waitlist will see it first, in plain terms, before committing to anything. Joining the waitlist is free and carries no obligation.</p></details>
+      <details><summary>How long does setup take?</summary><p>We're designing setup to be something you finish in a sitting, not a project you manage. We'll share a realistic timeline for your practice when we invite you in.</p></details>
+      <details><summary>Which practice systems do you work with?</summary><p>We're building connections to widely used practice management and billing systems, and choosing the order based on what waitlist practices use. Tell us yours when we reach out and we'll let you know where it stands.</p></details>
+      <details><summary>How do you keep our data secure?</summary><p>Aria handles patient and payment information, so security is part of the design from the start. That means encryption, strict access controls, and building to healthcare privacy and card payment standards. We'll publish our security practices before launch.</p></details>
+      <details><summary>Do we have to switch banks?</summary><p>No. You can start with patient payments or the card and keep your current bank. Move more over only if and when it makes sense for you.</p></details>
+      <details><summary>Is Aria a bank?</summary><p>No. Aria is a financial technology company. Banking and lending services will be provided by licensed partner institutions.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="waitlist">
+  <div class="wrap final-grid">
+    <div class="final-copy">
+      <h2>Be first in line when Aria opens.</h2>
+      <p>We're inviting practices in small groups before launch. Tell us a little about yours and we'll be in touch.</p>
+      <p>Prefer a conversation? Choose "Talk to us" and we'll set up a call.</p>
+    </div>
+
+    <form class="form" id="signup" aria-labelledby="form-title">
+      <h3 id="form-title" hidden>Join the waitlist</h3>
+      <fieldset class="seg">
+        <legend hidden>What would you like to do?</legend>
+        <label><input type="radio" name="mode" id="mode-waitlist" value="waitlist" checked><span>Join the waitlist</span></label>
+        <label><input type="radio" name="mode" id="mode-talk" value="talk"><span>Talk to us</span></label>
+      </fieldset>
+      <div class="f2">
+        <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-practice">Practice name</label><input id="f-practice" name="practice" autocomplete="organization" required></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="f-specialty">Specialty</label>
+          <select id="f-specialty" name="specialty" required>
+            <option value="">Choose one</option>
+            <option>Primary care</option><option>Dental</option><option>Dermatology</option><option>Physical therapy</option><option>Plastic surgery</option><option>Other</option>
+          </select></div>
+        <div class="field"><label for="f-providers">Number of providers</label>
+          <select id="f-providers" name="providers" required>
+            <option value="">Choose one</option>
+            <option>1</option><option>2–5</option><option>6–10</option><option>11–20</option><option>More than 20</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required></div>
+      <div class="field" id="msg-field" hidden><label for="f-msg">What would you like to talk about? <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-msg" name="message"></textarea></div>
+      <button class="btn btn-primary" type="submit" id="submit-btn">Join the waitlist</button>
+      <p class="fine">We'll only use this to contact you about Aria.</p>
+    </form>
+
+    <div class="form done" id="done" hidden role="status" aria-live="polite" tabindex="-1">
+      <span class="pill pos">Received</span>
+      <h3 id="done-title">You're on the list.</h3>
+      <p id="done-text"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-cols">
+      <div>
+        <a class="logo" href="#top" aria-label="Aria home"><i aria-hidden="true"></i>Aria</a>
+        <p>The all-in-one finance platform for independent healthcare practices.</p>
+        <a class="btn btn-primary btn-sm" href="#waitlist" data-mode="waitlist" style="justify-self:start">Join the waitlist</a>
+      </div>
+      <div><h4>Product</h4><a href="#get-paid">Get paid</a><a href="#spend">Spend</a><a href="#bank">Bank</a><a href="#borrow">Borrow</a><a href="#save">Save</a></div>
+      <div><h4>Company</h4><a href="#how">How it works</a><a href="#who">Who it's for</a><a href="#trust">Security and trust</a><a href="#faq">FAQ</a><a href="#waitlist" data-mode="talk">Talk to us</a></div>
+      <div><h4>Legal</h4><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
+    </div>
+    <div class="legal">
+      <p>Aria is a financial technology company, not a bank. Banking and lending services will be provided by licensed partner institutions. All funding and card products are subject to review and approval.</p>
+      <p>Aria is pre-launch. Features described on this page are planned and may change. Product visuals are illustrative.</p>
+      <p>© 2026 Aria</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var form=document.getElementById('signup'),done=document.getElementById('done'),
+      msg=document.getElementById('msg-field'),btn=document.getElementById('submit-btn'),
+      rW=document.getElementById('mode-waitlist'),rT=document.getElementById('mode-talk');
+  function sync(){var talk=rT.checked;msg.hidden=!talk;btn.textContent=talk?'Request a call':'Join the waitlist';}
+  rW.addEventListener('change',sync);rT.addEventListener('change',sync);
+  document.querySelectorAll('a[data-mode]').forEach(function(a){
+    a.addEventListener('click',function(){
+      (a.dataset.mode==='talk'?rT:rW).checked=true;sync();
+      if(!form.hidden)setTimeout(function(){document.getElementById('f-name').focus({preventScroll:true});},500);
+    });
+  });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){form.reportValidity();return;}
+    var first=form.elements.name.value.trim().split(/\s+/)[0],email=form.elements.email.value.trim(),talk=rT.checked;
+    document.getElementById('done-title').textContent=talk?'Thanks, '+first+'. We\'ll be in touch.':'You\'re on the list, '+first+'.';
+    document.getElementById('done-text').textContent=talk
+      ?'We\'ll email '+email+' to set up a time to talk.'
+      :'We\'ll email '+email+' when Aria is ready for '+form.elements.practice.value.trim()+'.';
+    form.hidden=true;done.hidden=false;done.focus();
+  });
+  sync();
+})();
+</script>
+
+</body>
+</html>
