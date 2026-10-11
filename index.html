@@ -386,12 +386,48 @@ summary{font-weight:600}
 .band{background:var(--sunk)}
 .eyebrow,.tag{font:600 1.02rem/1.3 var(--text);letter-spacing:-.005em;text-transform:none}
 .tag{font-size:.92rem}
+
+/* ---- fourth reference: far less copy, floating UI on soft gradient tiles, two-tone headline, rounded dark section ---- */
+.announce-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:var(--ink);color:var(--bg);font-size:.9rem;font-weight:500;text-decoration:none}
+.announce-pill::after{content:"\203A";font-size:1.1em;line-height:1}
+h1 .soft{color:var(--muted)}
+.hero .hero-grid{background:linear-gradient(180deg,var(--sunk),var(--accent-soft))}
+.head{margin-bottom:clamp(28px,4vw,48px)}
+.pcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 20px}
+.pcard{display:grid;gap:6px;align-content:start;text-decoration:none;color:inherit;min-width:0}
+.ptile{height:200px;border-radius:28px;background:linear-gradient(140deg,var(--accent-soft),var(--sunk));display:grid;place-items:center;padding:20px;margin-bottom:10px;transition:transform .2s}
+.pcard:hover .ptile{transform:translateY(-3px)}
+.float{background:var(--surface);border-radius:16px;box-shadow:var(--shadow);padding:14px 16px;display:grid;gap:8px;width:min(100%,260px);font-size:.84rem;min-width:0}
+.float .big{font-size:1.2rem}
+.float div{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pcard h3{font-size:1.35rem}
+.pcard .more{color:var(--accent-ink);font-weight:500}
+.pcard .more::after{content:" \203A"}
+.pcard:hover .more{text-decoration:underline}
+@media (max-width:900px){.pcards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.pcards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;padding-bottom:8px;scrollbar-width:none}.pcards::-webkit-scrollbar{display:none}.pcards li{flex:0 0 80%;scroll-snap-align:start;min-width:0}}
+.soonline{display:flex;justify-content:center;align-items:center;gap:10px;margin-top:clamp(28px,4vw,44px);font-weight:600;color:var(--ink)}
+.fam{display:grid;max-width:900px;margin-inline:auto;background:var(--surface);border-radius:28px;padding:6px clamp(18px,3vw,32px)}
+.fam li{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:6px 28px;align-items:center;padding:18px 0;border-top:1px solid var(--line)}
+.fam li:first-child{border-top:0}
+.fam q{font:600 1.1rem/1.3 var(--display);letter-spacing:-.01em;color:var(--ink);quotes:"\201C" "\201D"}
+.fam a{color:var(--accent-ink);text-decoration:none}
+.fam a::after{content:" \203A"}
+.fam a:hover{text-decoration:underline}
+.fam b{color:var(--ink);font-weight:600;margin-right:4px}
+@media (max-width:700px){.fam li{grid-template-columns:minmax(0,1fr)}}
+.who article{gap:14px}
+.steps li p,.feat li p{color:var(--muted)}
+.darksec{background:var(--stage);color:var(--stage-ink);border-radius:clamp(28px,5vw,56px) clamp(28px,5vw,56px) 0 0;padding-bottom:clamp(24px,4vw,48px)}
+.darksec h2,.darksec h3{color:var(--stage-ink)}
+.darksec .trust li{border:0;background:rgba(255,255,255,.08);border-radius:20px;padding:20px}
+.darksec .trust p{color:var(--stage-ink);opacity:.72}
+.final{padding-top:clamp(32px,5vw,64px)}
+.pq{gap:14px}
 </style>
 </head>
 <body>
 
-
-<div class="announce"><div class="wrap">Early access is opening to a limited number of practices. <a href="#waitlist" data-mode="waitlist">Reserve your spot</a></div></div>
 
 <header class="top">
   <div class="wrap">
@@ -414,16 +450,14 @@ summary{font-weight:600}
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Finance for independent practices</p>
-      <h1>Every dollar in your practice, in one place.</h1>
-      <p class="lede">Collect from patients at the visit. See exactly what insurers owe you. Cover the wait. Then run your card, bills, and supplies from the same account.</p>
+      <a class="announce-pill" href="#waitlist" data-mode="waitlist">Early access is opening soon</a>
+      <h1><span class="soft">Every dollar in your practice,</span> in one place.</h1>
+      <p class="lede">Get paid at the visit. See what insurers owe you. Run spending from one account.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
         <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
+        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
       </div>
-      <p class="status"><i aria-hidden="true"></i><span><b>Waitlist open</b> for practices with 1 to 20 providers</span></p>
     </div>
-
     <figure class="stage" aria-label="Preview of the Aria dashboard">
       <div class="ui dash">
         <div class="ui-bar"><b>Your practice</b><span class="pill pos">Books up to date</span></div>
@@ -454,133 +488,109 @@ summary{font-weight:600}
   </div>
 </section>
 
-<section class="suite" aria-label="What Aria covers">
+<section id="products">
   <div class="wrap">
-    <ul>
-      <li><a href="#get-paid"><b>Get paid</b><span>Patient payments</span></a></li>
-      <li><a href="#see"><b>See</b><span>What you're owed</span></a></li>
-      <li><a href="#borrow"><b>Borrow</b><span>Funding for the wait</span></a></li>
-      <li><a href="#spend"><b>Spend</b><span>Card and bill pay</span></a></li>
-      <li><a href="#save"><b>Save</b><span>Supply ordering</span></a></li>
-      <li><a href="#bank"><b>Bank</b><span>Accounts and books</span></a></li>
+    <div class="head"><h2>One account. Six jobs.</h2></div>
+    <ul class="pcards">
+      <li><a class="pcard" href="#get-paid">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Copay at check-in</span><div><span class="big">+$30.00</span><span class="pill pos">Paid</span></div></div></div>
+        <h3>Get paid</h3>
+        <p>Collect before the patient leaves.</p>
+        <span class="more">Learn more</span>
+      </a></li>
+      <li><a class="pcard" href="#see">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Insurer payment · 14 claims</span><div><span class="big">$3,412.60</span><span class="pill pos">Matched</span></div></div></div>
+        <h3>See</h3>
+        <p>Know what you're owed, claim by claim.</p>
+        <span class="more">Learn more</span>
+      </a></li>
+      <li><a class="pcard" href="#borrow">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Claims waiting on insurers</span><div><span class="big">$34,740</span><span class="pill acc">Funding offer</span></div></div></div>
+        <h3>Borrow</h3>
+        <p>Cover the wait for insurer payments.</p>
+        <span class="more">Learn more</span>
+      </a></li>
+      <li><a class="pcard" href="#spend">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Medical supplies invoice</span><div><span class="big">$1,284.50</span><span class="pill warn">Approve</span></div></div></div>
+        <h3>Spend</h3>
+        <p>One card. Every bill handled.</p>
+        <span class="more">Learn more</span>
+      </a></li>
+      <li><a class="pcard" href="#save">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Nitrile exam gloves · box of 100</span><div><b style="color:var(--ink)">3 suppliers, 1 cart</b><span class="pill pos">Group price</span></div></div></div>
+        <h3>Save</h3>
+        <p>Group prices in one cart.</p>
+        <span class="more">Learn more</span>
+      </a></li>
+      <li><a class="pcard" href="#bank">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Operating account</span><div><span class="big">$86,214.07</span><span class="pill pos">Books current</span></div></div></div>
+        <h3>Bank</h3>
+        <p>Close the month without six logins.</p>
+        <span class="more">Learn more</span>
+      </a></li>
     </ul>
+    <p class="soonline"><span class="pill tagk">Coming soon</span> Payroll</p>
   </div>
 </section>
 
 <section class="problem" id="problem">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Today vs. with Aria</p>
-      <h2>Care happens today. The money shows up later, in pieces.</h2>
-      <p class="lede">If you run an independent practice, you've probably said one of these. Here is what Aria does about each.</p>
-    </div>
-    <ul class="pairs">
-      <li class="pair">
-        <div><span class="tag">Today</span><q>We did the work in March and got paid in May.</q><p>Insurers pay weeks or months after care. Payroll and rent don't wait.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>Borrow</h3><p>Funding against the claims you've already submitted, to smooth out the gap.</p><a href="#borrow">See how</a></div>
-      </li>
-      <li class="pair">
-        <div><span class="tag">Today</span><q>Once the patient walks out, we rarely see that balance.</q><p>What patients owe keeps growing, and it's the hardest money to collect.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>Get paid</h3><p>Collect the copay at check-in and keep a card on file for the balance after insurance. Fewer balances go uncollected.</p><a href="#get-paid">See how</a></div>
-      </li>
-      <li class="pair">
-        <div><span class="tag">Today</span><q>Nobody can tell me what we're actually owed.</q><p>Insurer payments arrive in lump sums and get matched to claims by hand. Short payments slip by, and patients get confusing bills.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>See everything</h3><p>A live view of what was billed, what the insurer paid, and what the patient owes. Matching happens for you.</p><a href="#see">See how</a></div>
-      </li>
-      <li class="pair">
-        <div><span class="tag">Today</span><q>I log into six systems to close the month.</q><p>Bank, card, payroll, accounting, and your practice system don't connect.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>Run on one platform</h3><p>Accounts, card, bill pay, and accounting in one dashboard, synced to your practice system.</p><a href="#bank">See how</a></div>
-      </li>
-      <li class="pair">
-        <div><span class="tag">Today</span><q>We're paying more than the hospital down the street for the same gloves.</q><p>A small practice has little purchasing power and no time to price shop.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>Save</h3><p>One cart across suppliers, group pricing, a clear monthly budget, and extra rewards on your Aria card.</p><a href="#save">See how</a></div>
-      </li>
-      <li class="pair">
-        <div><span class="tag">Today</span><q>Our bank doesn't understand our business.</q><p>Generic cards and lenders overlook what your practice is built on: the insurance payments you're owed.</p></div>
-        <div class="with"><span class="tag">With Aria</span><h3>Built for healthcare</h3><p>Funding decisions, card controls, and rewards designed around how practices earn and spend.</p><a href="#spend">See how</a></div>
-      </li>
+    <div class="head"><h2>Sound familiar?</h2></div>
+    <ul class="fam">
+      <li><q>We did the work in March and got paid in May.</q><a href="#borrow"><b>Borrow</b> Funding against submitted claims</a></li>
+      <li><q>Once the patient walks out, we rarely see that balance.</q><a href="#get-paid"><b>Get paid</b> Copay at check-in, card on file</a></li>
+      <li><q>Nobody can tell me what we're actually owed.</q><a href="#see"><b>See</b> Every claim, matched for you</a></li>
+      <li><q>I log into six systems to close the month.</q><a href="#bank"><b>Bank</b> One dashboard, synced</a></li>
+      <li><q>We're paying more than the hospital down the street for the same gloves.</q><a href="#save"><b>Save</b> One cart, group prices</a></li>
+      <li><q>Our bank doesn't understand our business.</q><a href="#spend"><b>Spend</b> A card built for practices</a></li>
     </ul>
-    <div class="cta-row" style="margin-top:clamp(28px,4vw,44px)">
-      <a class="btn btn-primary" href="#get-paid">Start with Get paid</a>
-      <a class="btn btn-ghost" href="#how">How it works</a>
-    </div>
   </div>
 </section>
 
 <section id="who">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Who it's for</p>
-      <h2>No CFO. No finance team. Just the two of you.</h2>
-      <p class="lede">Primary care, dental, dermatology, physical therapy, plastic surgery, and practices like them.</p>
-    </div>
+    <div class="head"><h2>No CFO. No finance team. Just the two of you.</h2></div>
     <div class="who">
-      <article>
-        <h3>Owner-physicians</h3>
-        <p>You make the call. You shouldn't need a finance team to make it well.</p>
-        <ul>
-          <li>See cash, claims, and spending on one screen.</li>
-          <li>Know what insurers and patients owe you before payroll is due.</li>
-          <li>Keep your practice independent and on solid footing.</li>
-        </ul>
-      </article>
-      <article>
-        <h3>Office managers</h3>
-        <p>You do the work. Aria takes the stitching-together off your desk.</p>
-        <ul>
-          <li>Fewer logins, and no matching deposits to claims by hand.</li>
-          <li>Collect at check-in and send fewer statements.</li>
-          <li>Order supplies in one cart, inside a budget you can see.</li>
-        </ul>
-      </article>
+      <article><h3>Owner-physicians</h3><ul><li>Cash, claims, and spending on one screen.</li><li>Know what you're owed before payroll.</li><li>Stay independent.</li></ul></article>
+      <article><h3>Office managers</h3><ul><li>Fewer logins.</li><li>No matching deposits by hand.</li><li>One cart for supplies.</li></ul></article>
     </div>
   </div>
 </section>
 
 <section class="how" id="how">
   <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">How it works</p>
-      <h2>Three steps. No finance degree.</h2>
-    </div>
+    <div class="head"><h2>Three steps.</h2></div>
     <ol class="steps">
-      <li><h3>Connect your practice system</h3><p>Link the scheduling and billing software you already use, so Aria can see visits, claims, and balances.</p></li>
-      <li><h3>Open your account</h3><p>Apply online. We'll ask for the basics about your practice and tell you what's needed next.</p></li>
-      <li><h3>Collect and spend in one place</h3><p>Take patient payments, pay bills, and watch insurer payments land. All of it shows up in one dashboard.</p></li>
+      <li><h3>Connect your practice system</h3><p>Aria reads visits, claims, and balances.</p></li>
+      <li><h3>Open your account</h3><p>Apply online.</p></li>
+      <li><h3>Collect and spend in one place</h3><p>Everything shows up in one dashboard.</p></li>
     </ol>
-  </div>
-</section>
-
-<section id="trust">
-  <div class="wrap">
-    <div class="head">
-      <p class="eyebrow">Why trust us with it</p>
-      <h2>Your money and your patients' data deserve care.</h2>
-    </div>
-    <ul class="trust">
-      <li><h3>Licensed partners hold the money</h3><p>Banking and lending services will be provided by licensed partner institutions.</p></li>
-      <li><h3>Designed for patient data</h3><p>We're building to healthcare privacy and card payment standards from the first line of code.</p></li>
-      <li><h3>Pricing you can read</h3><p>You'll see what Aria costs, in plain terms, before you commit to anything.</p></li>
-      <li><h3>A team you can reach</h3><p>Early practices work directly with the people building the product.</p></li>
-    </ul>
   </div>
 </section>
 
 <section id="faq">
   <div class="wrap faq-grid">
-    <div class="head">
-      <p class="eyebrow">FAQ</p>
-      <h2>Fair questions.</h2>
-      <p>Have one we missed? <a href="#waitlist" data-mode="talk">Talk to us.</a></p>
-    </div>
+    <div class="head"><h2>Fair questions.</h2><p><a href="#waitlist" data-mode="talk">Talk to us</a> if we missed yours.</p></div>
     <div>
-      <details><summary>What will Aria cost?</summary><p>Pricing isn't final yet. Practices on the waitlist will see it first, in plain terms, before committing to anything. Joining the waitlist is free and carries no obligation.</p></details>
-      <details><summary>How long does setup take?</summary><p>We're designing setup to be something you finish in a sitting, not a project you manage. We'll share a realistic timeline for your practice when we invite you in.</p></details>
-      <details><summary>Which practice systems do you work with?</summary><p>We're building connections to widely used practice management and billing systems, and choosing the order based on what waitlist practices use. Tell us yours when we reach out and we'll let you know where it stands.</p></details>
-      <details><summary>How do you keep our data secure?</summary><p>Aria handles patient and payment information, so security is part of the design from the start. That means encryption, strict access controls, and building to healthcare privacy and card payment standards. We'll publish our security practices before launch.</p></details>
-      <details><summary>Do we have to switch banks?</summary><p>No. You can start with patient payments or the card and keep your current bank. Move more over only if and when it makes sense for you.</p></details>
+      <details><summary>What will Aria cost?</summary><p>Pricing isn't final. Waitlist practices will see it first, before committing to anything.</p></details>
+      <details><summary>How long does setup take?</summary><p>We're designing setup to take one sitting. We'll give you a realistic timeline when we invite you in.</p></details>
+      <details><summary>Which practice systems do you work with?</summary><p>We're building connections to widely used practice systems, prioritized by what waitlist practices use.</p></details>
+      <details><summary>How do you keep our data secure?</summary><p>Encryption, strict access controls, and a design built to healthcare privacy and card payment standards. We'll publish details before launch.</p></details>
+      <details><summary>Do we have to switch banks?</summary><p>No. Start with payments or the card and keep your current bank.</p></details>
       <details><summary>Is Aria a bank?</summary><p>No. Aria is a financial technology company. Banking and lending services will be provided by licensed partner institutions.</p></details>
     </div>
+  </div>
+</section>
+
+<section class="darksec" id="trust">
+  <div class="wrap">
+    <div class="head"><h2>Built with care.</h2></div>
+    <ul class="trust">
+      <li><h3>Licensed partners</h3><p>Banking and lending come from licensed partner institutions.</p></li>
+      <li><h3>Built for patient data</h3><p>Designed to healthcare privacy and card payment standards.</p></li>
+      <li><h3>Clear pricing</h3><p>You see the cost before you commit.</p></li>
+      <li><h3>A real team</h3><p>Early practices work directly with us.</p></li>
+    </ul>
   </div>
 </section>
 </div>
@@ -594,7 +604,7 @@ summary{font-weight:600}
           <p class="eyebrow">Get paid</p>
           <h2>Get paid before the patient leaves.</h2>
           <p class="specline">Copay at check-in · Card on file · Clear bills</p>
-          <p>Collect the copay at check-in, online or at the front desk, and keep a card on file for the balance after insurance. Patients see what was billed and what their plan paid in plain language, so the bill is never a surprise.</p>
+          <p>Collect the copay at check-in and keep a card on file for the rest.</p>
         </div>
         <div class="pillar-vis">
           <div class="ui">
@@ -612,21 +622,14 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Once the patient walks out, we rarely see that balance.</q></blockquote><figcaption>What patients owe keeps growing, and it's the hardest money to collect.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Once the patient walks out, we rarely see that balance.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>Digital front door</h3><p>Patients check in and pay their copay from their phone, before they reach the desk.</p></li>
-      <li><h3>Front-desk payments</h3><p>Take a card at the desk and keep it on file for the balance after insurance.</p></li>
-      <li><h3>Bills patients understand</h3><p>Patients see what was billed and what their plan paid, as it happens.</p></li>
+      <li><h3>Digital front door</h3><p>Patients pay their copay from their phone.</p></li>
+      <li><h3>Front-desk payments</h3><p>Take a card and keep it on file.</p></li>
+      <li><h3>Clear bills</h3><p>Patients see what was billed and what insurance paid.</p></li>
     </ul>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for Get paid.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#top">← Overview</a><a href="#see">See →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#top">‹ Overview</a><a href="#see">See ›</a></nav>
   </div>
 </section>
 </div>
@@ -640,7 +643,7 @@ summary{font-weight:600}
           <p class="eyebrow">See everything</p>
           <h2>Know what you're owed, down to the claim.</h2>
           <p class="specline">Billed · Insurer paid · Patient owes</p>
-          <p>A live view of what was billed, what the insurer paid, and what the patient owes. Insurer payments are matched to claims for you, and anything that looks short gets flagged.</p>
+          <p>What was billed, what the insurer paid, and what the patient owes, matched for you.</p>
         </div>
         <div class="pillar-vis">
           <div class="ui">
@@ -659,21 +662,14 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Nobody can tell me what we're actually owed.</q></blockquote><figcaption>Insurer payments arrive in lump sums and get matched to claims by hand. Short payments slip by.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Nobody can tell me what we're actually owed.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>Claim-level view</h3><p>What was billed, what the insurer paid, and what the patient owes, for every visit.</p></li>
-      <li><h3>Automatic matching</h3><p>Insurer payments are matched to the claims they cover. No spreadsheet.</p></li>
-      <li><h3>Short-payment flags</h3><p>Payments that come in under what you expected are set aside for a look.</p></li>
+      <li><h3>Claim-level view</h3><p>Billed, paid, and owed for every visit.</p></li>
+      <li><h3>Automatic matching</h3><p>Insurer payments matched to claims for you.</p></li>
+      <li><h3>Short-payment flags</h3><p>Payments under what you expected get flagged.</p></li>
     </ul>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for See.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#get-paid">← Get paid</a><a href="#borrow">Borrow →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#get-paid">‹ Get paid</a><a href="#borrow">Borrow ›</a></nav>
   </div>
 </section>
 </div>
@@ -687,7 +683,7 @@ summary{font-weight:600}
           <p class="eyebrow">Borrow</p>
           <h2>Cover the wait between care and payment.</h2>
           <p class="specline">Against submitted claims · Priced on your cash flow</p>
-          <p>Funding against the claims you've already submitted, priced on your practice's own claims and cash flow. It smooths the weeks between the visit and the insurer's payment.</p>
+          <p>Funding against claims you've already submitted, priced on your own cash flow.</p>
           <p class="fine">All funding is subject to review and approval.</p>
         </div>
         <div class="pillar-vis">
@@ -702,21 +698,14 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>We did the work in March and got paid in May.</q></blockquote><figcaption>Insurers pay weeks or months after care. Payroll and rent don't wait.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>We did the work in March and got paid in May.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>Based on your claims</h3><p>Funding against claims you've already submitted to insurers.</p></li>
-      <li><h3>Priced on your practice</h3><p>Pricing reflects your own claims and cash flow.</p></li>
-      <li><h3>Terms up front</h3><p>You see the terms before you accept. All funding is subject to review and approval.</p></li>
+      <li><h3>Based on your claims</h3><p>Funding against claims already submitted.</p></li>
+      <li><h3>Priced on your practice</h3><p>Reflects your own claims and cash flow.</p></li>
+      <li><h3>Terms up front</h3><p>See the terms before you accept. Subject to approval.</p></li>
     </ul>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for Borrow.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#see">← See</a><a href="#spend">Spend →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#see">‹ See</a><a href="#spend">Spend ›</a></nav>
   </div>
 </section>
 </div>
@@ -730,7 +719,7 @@ summary{font-weight:600}
           <p class="eyebrow">Spend</p>
           <h2>One card. Every bill handled.</h2>
           <p class="specline">Practice card · Expenses · Bill pay</p>
-          <p>A high-reward card built for practice expenses, with limits you set and receipts captured for you. Invoices come in, get approved, and get paid without the paper chase.</p>
+          <p>A high-reward practice card, with bills approved and paid in one place.</p>
         </div>
         <div class="pillar-vis">
           <div class="cardviz" aria-hidden="true"><div><b>Aria</b><span>Practice card</span></div><div><span>•••• 4417</span><span>Front office</span></div></div>
@@ -746,21 +735,14 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Our bank doesn't understand our business.</q></blockquote><figcaption>Generic cards and finance tools weren't built around how a practice earns and spends.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>Our bank doesn't understand our business.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>Practice card</h3><p>A high-reward card built for practice expenses, with limits you set.</p></li>
-      <li><h3>Expense management</h3><p>Receipts and categories are captured for you.</p></li>
-      <li><h3>Bill pay</h3><p>Invoices come in, get approved, and get paid in one place.</p></li>
+      <li><h3>Practice card</h3><p>High rewards, with limits you set.</p></li>
+      <li><h3>Expense management</h3><p>Receipts and categories captured for you.</p></li>
+      <li><h3>Bill pay</h3><p>Invoices approved and paid in one place.</p></li>
     </ul>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for Spend.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#borrow">← Borrow</a><a href="#save">Save →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#borrow">‹ Borrow</a><a href="#save">Save ›</a></nav>
   </div>
 </section>
 </div>
@@ -774,7 +756,7 @@ summary{font-weight:600}
           <p class="eyebrow">Save</p>
           <h2>One cart. Every supplier. Group prices.</h2>
           <p class="specline">One cart · Group prices · Monthly budget</p>
-          <p>Order from your suppliers in a single cart at group-purchasing prices, with no more price shopping. Set a monthly budget, see where it stands, and earn extra rewards when you pay with your Aria card.</p>
+          <p>Order from your suppliers in one cart, at group prices.</p>
         </div>
         <div class="pillar-vis">
           <div class="ui">
@@ -791,21 +773,14 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>We're paying more than the hospital down the street for the same gloves.</q></blockquote><figcaption>A small practice has little purchasing power and no time to price shop.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>We're paying more than the hospital down the street for the same gloves.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>One cart</h3><p>Order from your suppliers in a single checkout.</p></li>
-      <li><h3>Group prices</h3><p>Group-purchasing prices, without the price shopping.</p></li>
-      <li><h3>Budget and rewards</h3><p>A monthly budget you can see, and extra rewards when you pay with your Aria card.</p></li>
+      <li><h3>One cart</h3><p>All your suppliers, one checkout.</p></li>
+      <li><h3>Group prices</h3><p>No more price shopping.</p></li>
+      <li><h3>Budget and rewards</h3><p>A visible monthly budget, plus extra rewards on your Aria card.</p></li>
     </ul>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for Save.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#spend">← Spend</a><a href="#bank">Bank →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#spend">‹ Spend</a><a href="#bank">Bank ›</a></nav>
   </div>
 </section>
 </div>
@@ -819,7 +794,7 @@ summary{font-weight:600}
           <p class="eyebrow">Bank</p>
           <h2>Close the month without six logins.</h2>
           <p class="specline">Accounts · Treasury · Accounting</p>
-          <p>Accounts, treasury, and accounting in one dashboard, synced to your practice system. Money in and money out land in the same place, already sorted.</p>
+          <p>Accounts, treasury, and accounting in one dashboard, synced to your practice system.</p>
           <p class="fine">Banking services will be provided by licensed partner institutions.</p>
         </div>
         <div class="pillar-vis">
@@ -839,25 +814,18 @@ summary{font-weight:600}
           </div>
         </div>
       </article>
-    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>I log into six systems to close the month.</q></blockquote><figcaption>Bank, card, payroll, accounting, and your practice system don't connect.</figcaption></figure>
+    <figure class="pq"><span class="tag">The problem it solves</span><blockquote><q>I log into six systems to close the month.</q></blockquote></figure>
     <ul class="feat">
-      <li><h3>Accounts</h3><p>Operating and reserve accounts for your practice, provided by licensed partner institutions.</p></li>
+      <li><h3>Accounts</h3><p>Provided by licensed partner institutions.</p></li>
       <li><h3>Treasury</h3><p>Manage idle cash from the same dashboard.</p></li>
-      <li><h3>Integrated accounting</h3><p>Synced to your practice system, with insurer payments reconciled for you.</p></li>
+      <li><h3>Integrated accounting</h3><p>Synced, with insurer payments reconciled for you.</p></li>
     </ul>
     <div class="soon">
       <span class="pill tagk">Coming soon</span>
       <p><b>Payroll.</b> Pay your team from the same account, with the books updated for you.</p>
     </div>
     <p class="caption">Product visuals are illustrative and use sample figures.</p>
-    <div class="band">
-      <h3>Be first in line for Bank.</h3>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
-        <a class="btn btn-ghost" href="#waitlist" data-mode="talk">Talk to us</a>
-      </div>
-    </div>
-    <nav class="pn" aria-label="More products"><a href="#save">← Save</a><a href="#top">Overview →</a></nav>
+    <nav class="pn" aria-label="More products"><a href="#save">‹ Save</a><a href="#top">Overview ›</a></nav>
   </div>
 </section>
 </div>
@@ -865,10 +833,8 @@ summary{font-weight:600}
 <section class="final" id="waitlist">
   <div class="wrap final-grid">
     <div class="final-copy">
-      <h2>Be first in line when Aria opens.</h2>
-      <p>We're inviting practices in small groups before launch. Tell us a little about yours and we'll be in touch.</p>
-      <p>Aria is built to help independent practices stay independent.</p>
-      <p>Prefer a conversation? Choose "Talk to us" and we'll set up a call.</p>
+      <h2>Be first in line.</h2>
+      <p>Tell us about your practice and we'll be in touch.</p>
     </div>
 
     <form class="form" id="signup" aria-labelledby="form-title">
@@ -954,7 +920,7 @@ summary{font-weight:600}
   });
   sync();
 
-  var groups={home:['','top','problem','how','who','trust','faq'],'get-paid':['get-paid'],see:['see'],borrow:['borrow'],spend:['spend'],save:['save'],bank:['bank']},
+  var groups={home:['','top','products','problem','how','who','trust','faq'],'get-paid':['get-paid'],see:['see'],borrow:['borrow'],spend:['spend'],save:['save'],bank:['bank']},
       tops=['','top','get-paid','see','borrow','spend','save','bank'],map={},current='home';
   Object.keys(groups).forEach(function(v){groups[v].forEach(function(h){map[h]=v;});});
   function route(){
