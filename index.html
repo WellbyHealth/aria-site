@@ -453,10 +453,10 @@ a.mi:hover .ico{background:var(--surface)}
 .subtabs a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
 .segs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 @media (max-width:900px){.segs{grid-template-columns:minmax(0,1fr)}}
-.seg{background:var(--sunk);border-radius:28px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
-.seg .ptile{border-radius:0;margin:0;height:190px}
+.segcard{background:var(--sunk);border-radius:28px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.segcard .ptile{border-radius:0;margin:0;height:190px}
 .seg-body{padding:24px;display:grid;gap:12px;align-content:start;justify-items:start}
-.seg h3{font-size:1.6rem}
+.segcard h3{font-size:1.6rem}
 .inside{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.94rem;color:var(--muted)}
 .inside a{color:var(--accent-ink);text-decoration:none;font-weight:500}
 .inside a:hover{text-decoration:underline}
@@ -468,6 +468,21 @@ a.mi:hover .ico{background:var(--surface)}
 .rsteps li::before{content:counter(r);width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font-weight:600;font-size:.9rem}
 .rsteps b{color:var(--ink)}
 .ppage .form{border:1px solid var(--line)}
+
+/* ---- quality pass ---- */
+.lede{text-wrap:balance}
+.rsteps li{align-items:center}
+.rsteps li > span{min-width:0}
+.top nav .lg{margin-left:.28em}
+@media (max-width:520px){.top nav .lg{display:none}}
+.ppage .pillar{align-items:start}
+.ppage .pillar-copy{padding-top:clamp(0px,2vw,24px)}
+.fam{max-width:1000px}
+.fam li{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+@media (max-width:700px){.fam li{grid-template-columns:minmax(0,1fr)}}
+.legal{max-width:none}
+.legal p{max-width:60em}
+.mkt h2{max-width:14em}
 </style>
 </head>
 <body>
@@ -480,7 +495,7 @@ a.mi:hover .ico{background:var(--surface)}
       <a href="#top" data-tab="home">Overview</a>
       <button type="button" id="pbtn" aria-expanded="false" aria-controls="mega">Products <span aria-hidden="true">▾</span></button>
       <a href="#marketplace" data-tab="marketplace">Marketplace</a>
-      <a href="#refer" data-tab="refer">Refer a provider</a>
+      <a href="#refer" data-tab="refer">Refer<span class="lg">a provider</span></a>
     </nav>
     <a class="btn btn-primary btn-sm" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
   </div>
@@ -651,7 +666,7 @@ a.mi:hover .ico{background:var(--surface)}
   <div class="wrap">
     <div class="head"><h2>Three parts. One account.</h2></div>
     <ul class="segs">
-      <li class="seg">
+      <li class="segcard">
         <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Copay at check-in</span><div><span class="big">+$30.00</span><span class="pill pos">Paid</span></div></div></div>
         <div class="seg-body">
           <h3>Money in</h3>
@@ -660,7 +675,7 @@ a.mi:hover .ico{background:var(--surface)}
           <a class="btn btn-ghost btn-sm" href="#get-paid">See Get paid</a>
         </div>
       </li>
-      <li class="seg">
+      <li class="segcard">
         <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Medical supplies invoice</span><div><span class="big">$1,284.50</span><span class="pill warn">Approve</span></div></div></div>
         <div class="seg-body">
           <h3>Money out</h3>
@@ -669,7 +684,7 @@ a.mi:hover .ico{background:var(--surface)}
           <a class="btn btn-ghost btn-sm" href="#spend">See Spend</a>
         </div>
       </li>
-      <li class="seg">
+      <li class="segcard">
         <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Operating account</span><div><span class="big">$86,214.07</span><span class="pill pos">Books current</span></div></div></div>
         <div class="seg-body">
           <h3>Back office</h3>
@@ -705,9 +720,9 @@ a.mi:hover .ico{background:var(--surface)}
       <p class="eyebrow">Refer a provider</p>
       <h2>Know a practice that needs Aria? Get $1,000.</h2>
       <ol class="rsteps">
-        <li><b>Tell us who.</b> A name and a way to reach them.</li>
-        <li><b>We take it from there.</b> No pitch needed from you.</li>
-        <li><b>You get $1,000.</b> Paid when your referral qualifies.</li>
+        <li><span><b>Tell us who.</b> A name and a way to reach them.</span></li>
+        <li><span><b>We take it from there.</b> No pitch needed from you.</span></li>
+        <li><span><b>You get $1,000.</b> Paid when your referral qualifies.</span></li>
       </ol>
       <p class="fine">Rewards are subject to referral program terms, which will be published before launch.</p>
     </div>
@@ -1078,10 +1093,13 @@ a.mi:hover .ico{background:var(--surface)}
   Object.keys(groups).forEach(function(v){groups[v].forEach(function(h){map[h]=v;});});
   function route(){
     var h=location.hash.slice(1);
-    if(h==='waitlist')return;
+    var wl=document.getElementById('waitlist'),toWl=false;
+    if(h==='waitlist'){if(current!=='refer')return;toWl=true;h='';}
     current=map[h]||'home';
+    wl.hidden=current==='refer';
     var fam=current==='products'||prods.indexOf(current)>=0;
     pbtn.classList.toggle('on',fam);subtabs.hidden=!fam;closeMega();
+    if(fam)pbtn.scrollIntoView({block:'nearest',inline:'nearest'});
     subtabs.querySelectorAll('a').forEach(function(a){
       if(a.dataset.sub===current){a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'nearest'});}
       else a.removeAttribute('aria-current');
@@ -1092,6 +1110,7 @@ a.mi:hover .ico{background:var(--surface)}
       else a.removeAttribute('aria-current');
     });
     var el=tops.indexOf(h)<0&&document.getElementById(h);
+    if(toWl)el=wl;
     if(el)el.scrollIntoView({behavior:'instant',block:'start'});else window.scrollTo({top:0,behavior:'instant'});
   }
   window.addEventListener('hashchange',route);
