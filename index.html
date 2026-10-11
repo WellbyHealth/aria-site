@@ -424,6 +424,50 @@ h1 .soft{color:var(--muted)}
 .darksec .trust p{color:var(--stage-ink);opacity:.72}
 .final{padding-top:clamp(32px,5vw,64px)}
 .pq{gap:14px}
+
+/* ---- products menu, sub-tabs, segment cards, marketplace and referral pages ---- */
+.top nav button{font:inherit;font-weight:400;color:var(--body);background:none;border:0;padding:8px 14px;border-radius:999px;cursor:pointer;white-space:nowrap}
+.top nav button:hover{background:var(--sunk);color:var(--ink)}
+.top nav button.on{background:var(--ink);color:var(--surface);font-weight:500}
+@media (max-width:1060px){.top nav button{padding:7px 12px}}
+#mega{position:absolute;left:12px;right:12px;top:calc(100% + 8px);max-width:1136px;margin-inline:auto;background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:clamp(16px,2.6vw,28px);max-height:calc(100vh - 150px);overflow:auto;display:grid;gap:18px}
+.mega-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 24px}
+.mega-cols > div{display:grid;gap:2px;align-content:start;min-width:0}
+.mh{font-size:.84rem;font-weight:600;color:var(--muted);padding:6px 10px}
+.mi{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:10px;border-radius:16px;text-decoration:none;color:inherit}
+a.mi:hover{background:var(--sunk)}
+.mi .ico{width:44px;height:44px;border-radius:12px;background:var(--sunk);display:grid;place-items:center;color:var(--accent)}
+a.mi:hover .ico{background:var(--surface)}
+.mi b{display:flex;flex-wrap:wrap;align-items:center;gap:8px;color:var(--ink);font-weight:600}
+.mi small{display:block;color:var(--muted);font-size:.9rem}
+.mi.off{opacity:.75}
+.mega-foot{display:flex;flex-wrap:wrap;gap:8px 24px;background:var(--sunk);border-radius:16px;padding:14px 18px;font-size:.94rem;font-weight:500}
+.mega-foot a{color:var(--accent-ink);text-decoration:none}
+.mega-foot a:hover{text-decoration:underline}
+@media (max-width:760px){.mega-cols{grid-template-columns:minmax(0,1fr)}}
+.subtabs{padding-top:14px}
+.subtabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.subtabs .wrap::-webkit-scrollbar{display:none}
+.subtabs a{flex:none;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);white-space:nowrap;text-decoration:none;color:var(--body);font-size:.94rem}
+.subtabs a:hover{border-color:var(--ink);color:var(--ink)}
+.subtabs a[aria-current="page"]{background:var(--ink);border-color:var(--ink);color:var(--surface)}
+.segs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media (max-width:900px){.segs{grid-template-columns:minmax(0,1fr)}}
+.seg{background:var(--sunk);border-radius:28px;overflow:hidden;display:grid;grid-template-rows:auto 1fr;min-width:0}
+.seg .ptile{border-radius:0;margin:0;height:190px}
+.seg-body{padding:24px;display:grid;gap:12px;align-content:start;justify-items:start}
+.seg h3{font-size:1.6rem}
+.inside{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:.94rem;color:var(--muted)}
+.inside a{color:var(--accent-ink);text-decoration:none;font-weight:500}
+.inside a:hover{text-decoration:underline}
+.mkt{display:grid;gap:20px;justify-items:center;text-align:center}
+.mkt .ptile{width:min(100%,560px);height:240px;margin:8px 0}
+.mkt .lede{margin-inline:auto}
+.rsteps{display:grid;gap:14px;counter-reset:r}
+.rsteps li{counter-increment:r;display:grid;grid-template-columns:32px minmax(0,1fr);gap:12px;align-items:start}
+.rsteps li::before{content:counter(r);width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);display:grid;place-items:center;font-weight:600;font-size:.9rem}
+.rsteps b{color:var(--ink)}
+.ppage .form{border:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -434,16 +478,23 @@ h1 .soft{color:var(--muted)}
     <a class="logo" href="#top" aria-label="Aria home"><i aria-hidden="true"></i>Aria</a>
     <nav aria-label="Main" id="tabs">
       <a href="#top" data-tab="home">Overview</a>
-      <a href="#get-paid" data-tab="get-paid">Get paid</a>
-      <a href="#see" data-tab="see">See</a>
-      <a href="#borrow" data-tab="borrow">Borrow</a>
-      <a href="#spend" data-tab="spend">Spend</a>
-      <a href="#save" data-tab="save">Save</a>
-      <a href="#bank" data-tab="bank">Bank</a>
+      <button type="button" id="pbtn" aria-expanded="false" aria-controls="mega">Products <span aria-hidden="true">▾</span></button>
+      <a href="#marketplace" data-tab="marketplace">Marketplace</a>
+      <a href="#refer" data-tab="refer">Refer a provider</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
   </div>
+  <div id="mega" hidden>
+    <div class="mega-cols">
+      <div><p class="mh">Money in</p><a class="mi" href="#get-paid"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2" fill="none"/><path d="M3 10h18M7 15h4" fill="none"/></svg></span><span><b>Get paid</b><small>Collect before the patient leaves</small></span></a><a class="mi" href="#see"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6" fill="none"/><path d="M20 20l-4.5-4.5" fill="none"/></svg></span><span><b>See</b><small>Know what you're owed</small></span></a><a class="mi" href="#borrow"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 13h6l-1 8 8-10h-6z" fill="none"/></svg></span><span><b>Borrow</b><small>Cover the wait for insurers</small></span></a></div>
+      <div><p class="mh">Money out</p><a class="mi" href="#spend"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z" fill="none"/><path d="M9 8h6M9 12h6" fill="none"/></svg></span><span><b>Spend</b><small>Card, expenses, and bill pay</small></span></a><a class="mi" href="#save"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8l8-4 8 4v8l-8 4-8-4z" fill="none"/><path d="M4 8l8 4 8-4M12 12v8" fill="none"/></svg></span><span><b>Save</b><small>Supplies at group prices</small></span></a></div>
+      <div><p class="mh">Back office</p><a class="mi" href="#bank"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10l9-6 9 6" fill="none"/><path d="M5 10v8M10 10v8M14 10v8M19 10v8M3 20h18" fill="none"/></svg></span><span><b>Bank</b><small>Accounts and accounting</small></span></a><div class="mi off"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3" fill="none"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M18 8v6M15 11h6" fill="none"/></svg></span><span><b>Payroll <span class="pill tagk">Coming soon</span></b><small>Pay your team from the same account</small></span></div></div>
+      </div>
+    <div class="mega-foot"><a href="#products">All products</a><a href="#how">How it works</a><a href="#trust">Security and trust</a><a href="#faq">FAQ</a></div>
+  </div>
 </header>
+
+<nav id="subtabs" class="subtabs" aria-label="Products" hidden><div class="wrap"><a href="#products" data-sub="products">All products</a><a href="#get-paid" data-sub="get-paid">Get paid</a><a href="#see" data-sub="see">See</a><a href="#borrow" data-sub="borrow">Borrow</a><a href="#spend" data-sub="spend">Spend</a><a href="#save" data-sub="save">Save</a><a href="#bank" data-sub="bank">Bank</a></div></nav>
 
 <main id="top">
 <div class="view" data-view="home">
@@ -488,7 +539,7 @@ h1 .soft{color:var(--muted)}
   </div>
 </section>
 
-<section id="products">
+<section id="suite">
   <div class="wrap">
     <div class="head"><h2>One account. Six jobs.</h2></div>
     <ul class="pcards">
@@ -591,6 +642,93 @@ h1 .soft{color:var(--muted)}
       <li><h3>Clear pricing</h3><p>You see the cost before you commit.</p></li>
       <li><h3>A real team</h3><p>Early practices work directly with us.</p></li>
     </ul>
+  </div>
+</section>
+</div>
+
+<div class="view" data-view="products">
+<section class="ppage">
+  <div class="wrap">
+    <div class="head"><h2>Three parts. One account.</h2></div>
+    <ul class="segs">
+      <li class="seg">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Copay at check-in</span><div><span class="big">+$30.00</span><span class="pill pos">Paid</span></div></div></div>
+        <div class="seg-body">
+          <h3>Money in</h3>
+          <p>Get paid sooner, and know what you're owed.</p>
+          <p class="inside"><span>Inside:</span><a href="#get-paid">Get paid</a><a href="#see">See</a><a href="#borrow">Borrow</a></p>
+          <a class="btn btn-ghost btn-sm" href="#get-paid">See Get paid</a>
+        </div>
+      </li>
+      <li class="seg">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Medical supplies invoice</span><div><span class="big">$1,284.50</span><span class="pill warn">Approve</span></div></div></div>
+        <div class="seg-body">
+          <h3>Money out</h3>
+          <p>A card built for practices, and supplies at group prices.</p>
+          <p class="inside"><span>Inside:</span><a href="#spend">Spend</a><a href="#save">Save</a></p>
+          <a class="btn btn-ghost btn-sm" href="#spend">See Spend</a>
+        </div>
+      </li>
+      <li class="seg">
+        <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Operating account</span><div><span class="big">$86,214.07</span><span class="pill pos">Books current</span></div></div></div>
+        <div class="seg-body">
+          <h3>Back office</h3>
+          <p>Accounts and books that keep themselves current.</p>
+          <p class="inside"><span>Inside:</span><a href="#bank">Bank</a><span>Payroll (coming soon)</span></p>
+          <a class="btn btn-ghost btn-sm" href="#bank">See Bank</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<div class="view" data-view="marketplace">
+<section class="ppage">
+  <div class="wrap mkt">
+    <span class="pill tagk">Coming soon</span>
+    <h2>The Aria marketplace is on its way.</h2>
+    <p class="lede">Medical supplies at group prices, in one cart. It opens here.</p>
+    <div class="ptile" aria-hidden="true"><div class="float"><span class="lab">Nitrile exam gloves · box of 100</span><div><b style="color:var(--ink)">3 suppliers, 1 cart</b><span class="pill pos">Group price</span></div></div></div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a>
+      <a class="btn btn-ghost" href="#save">See how Save works</a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="view" data-view="refer">
+<section class="ppage">
+  <div class="wrap final-grid">
+    <div class="pillar-copy">
+      <p class="eyebrow">Refer a provider</p>
+      <h2>Know a practice that needs Aria? Get $1,000.</h2>
+      <ol class="rsteps">
+        <li><b>Tell us who.</b> A name and a way to reach them.</li>
+        <li><b>We take it from there.</b> No pitch needed from you.</li>
+        <li><b>You get $1,000.</b> Paid when your referral qualifies.</li>
+      </ol>
+      <p class="fine">Rewards are subject to referral program terms, which will be published before launch.</p>
+    </div>
+    <form class="form" id="refform" aria-label="Refer a provider">
+      <div class="f2">
+        <div class="field"><label for="r-name">Your name</label><input id="r-name" name="rname" autocomplete="name" required></div>
+        <div class="field"><label for="r-email">Your email</label><input id="r-email" name="remail" type="email" autocomplete="email" inputmode="email" required></div>
+      </div>
+      <div class="f2">
+        <div class="field"><label for="r-their">Provider's name</label><input id="r-their" name="their" autocomplete="off" required></div>
+        <div class="field"><label for="r-practice">Their practice</label><input id="r-practice" name="practice" autocomplete="off" required></div>
+      </div>
+      <div class="field"><label for="r-contact">Their email or phone</label><input id="r-contact" name="contact" autocomplete="off" required></div>
+      <button class="btn btn-primary" type="submit">Send referral</button>
+      <p class="fine">Only share contact details the provider would be happy for you to pass on.</p>
+    </form>
+    <div class="form done" id="refdone" hidden role="status" aria-live="polite" tabindex="-1">
+      <span class="pill pos">Received</span>
+      <h3>Thanks for the referral.</h3>
+      <p id="refdone-text"></p>
+    </div>
   </div>
 </section>
 </div>
@@ -788,7 +926,7 @@ h1 .soft{color:var(--muted)}
 <div class="view" data-view="bank">
 <section class="ppage">
   <div class="wrap">
-    <p class="crumb"><span class="pill tagk">Money out</span></p>
+    <p class="crumb"><span class="pill tagk">Back office</span></p>
     <article class="pillar" id="bank">
         <div class="pillar-copy">
           <p class="eyebrow">Bank</p>
@@ -884,7 +1022,7 @@ h1 .soft{color:var(--muted)}
         <a class="btn btn-primary btn-sm" href="#waitlist" data-mode="waitlist" style="justify-self:start">Join the waitlist</a>
       </div>
       <div><h4>Product</h4><a href="#get-paid">Get paid</a><a href="#see">See everything</a><a href="#borrow">Borrow</a><a href="#spend">Spend</a><a href="#save">Save</a><a href="#bank">Bank</a></div>
-      <div><h4>Company</h4><a href="#how">How it works</a><a href="#who">Who it's for</a><a href="#trust">Security and trust</a><a href="#faq">FAQ</a><a href="#waitlist" data-mode="talk">Talk to us</a></div>
+      <div><h4>Company</h4><a href="#how">How it works</a><a href="#who">Who it's for</a><a href="#trust">Security and trust</a><a href="#faq">FAQ</a><a href="#marketplace">Marketplace</a><a href="#refer">Refer a provider</a><a href="#waitlist" data-mode="talk">Talk to us</a></div>
       <div><h4>Legal</h4><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of use</a></div>
     </div>
     <div class="legal">
@@ -920,13 +1058,34 @@ h1 .soft{color:var(--muted)}
   });
   sync();
 
-  var groups={home:['','top','products','problem','how','who','trust','faq'],'get-paid':['get-paid'],see:['see'],borrow:['borrow'],spend:['spend'],save:['save'],bank:['bank']},
-      tops=['','top','get-paid','see','borrow','spend','save','bank'],map={},current='home';
+  var prods=['get-paid','see','borrow','spend','save','bank'],
+      groups={home:['','top','suite','problem','how','who','trust','faq'],products:['products'],marketplace:['marketplace'],refer:['refer']},
+      tops=['','top','products','marketplace','refer'].concat(prods),map={},current='home',
+      pbtn=document.getElementById('pbtn'),mega=document.getElementById('mega'),subtabs=document.getElementById('subtabs');
+  prods.forEach(function(x){groups[x]=[x];});
+  function closeMega(){mega.hidden=true;pbtn.setAttribute('aria-expanded','false');}
+  pbtn.addEventListener('click',function(e){e.stopPropagation();var open=mega.hidden;mega.hidden=!open;pbtn.setAttribute('aria-expanded',String(open));});
+  mega.addEventListener('click',function(e){if(e.target.closest('a'))closeMega();else e.stopPropagation();});
+  document.addEventListener('click',closeMega);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!mega.hidden){closeMega();pbtn.focus();}});
+  var rf=document.getElementById('refform'),rd=document.getElementById('refdone');
+  rf.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!rf.checkValidity()){rf.reportValidity();return;}
+    document.getElementById('refdone-text').textContent='We\'ll reach out to '+rf.elements.their.value.trim()+' and email you at '+rf.elements.remail.value.trim()+' with next steps.';
+    rf.hidden=true;rd.hidden=false;rd.focus();
+  });
   Object.keys(groups).forEach(function(v){groups[v].forEach(function(h){map[h]=v;});});
   function route(){
     var h=location.hash.slice(1);
     if(h==='waitlist')return;
     current=map[h]||'home';
+    var fam=current==='products'||prods.indexOf(current)>=0;
+    pbtn.classList.toggle('on',fam);subtabs.hidden=!fam;closeMega();
+    subtabs.querySelectorAll('a').forEach(function(a){
+      if(a.dataset.sub===current){a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'nearest'});}
+      else a.removeAttribute('aria-current');
+    });
     document.querySelectorAll('.view').forEach(function(el){el.hidden=el.dataset.view!==current;});
     document.querySelectorAll('#tabs a').forEach(function(a){
       if(a.dataset.tab===current){a.setAttribute('aria-current','page');a.scrollIntoView({block:'nearest',inline:'nearest'});}
