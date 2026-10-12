@@ -715,7 +715,7 @@ h3{font-weight:500;letter-spacing:-.015em}
     <div class="hero-tile">
       <div class="ribbon" aria-hidden="true"><i></i><i></i><i></i></div>
       <div class="hero-copy">
-        <p class="eyebrow wl-live"><span class="dot" aria-hidden="true"></span><a href="#waitlist" data-mode="waitlist">Join waitlist</a><span class="wl-count" id="wl-count" hidden><span aria-hidden="true">· </span><b id="wl-num"></b> practices waiting</span></p>
+        <p class="eyebrow wl-live"><span class="dot" aria-hidden="true"></span><a href="#waitlist" data-mode="waitlist">Join waitlist</a><span class="wl-count" id="wl-count" hidden><span aria-hidden="true">· </span><b id="wl-num"></b> clinics waiting</span></p>
         <h1>The business card built for healthcare.</h1>
         <p class="lead">Aria is a corporate card and spend management account designed around how healthcare actually buys. Earn rewards on the supplies you already order, give your team cards with limits you set, and pay every vendor bill from one place.</p>
         <form class="quick" id="qform" novalidate>
@@ -1380,6 +1380,8 @@ h3{font-weight:500;letter-spacing:-.015em}
   // The number stays hidden until it reaches WAITLIST_MIN_TO_SHOW, so the site never shows a tiny or made-up figure.
   var WAITLIST_COUNT_URL = 'count.json';
   var WAITLIST_MIN_TO_SHOW = 25;
+  // Practices already on the waitlist from the founder's own list (not in Lightfield). count.json adds the Lightfield signups on top.
+  var WAITLIST_BASE = 218;
 
   var $ = function(s, r){ return (r || document).querySelector(s); };
   var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
@@ -1579,17 +1581,18 @@ h3{font-weight:500;letter-spacing:-.015em}
       wform.hidden = true; wdone.hidden = false; wdone.focus();
     });
   /* live waitlist count */
-  var wlCount = null;
+  var wlCount = WAITLIST_BASE;
   function showCount(){
     var box = $('#wl-count'), num = $('#wl-num');
     if (!box || wlCount === null || wlCount < WAITLIST_MIN_TO_SHOW) return;
     num.textContent = wlCount.toLocaleString('en-US'); box.hidden = false;
   }
   function bumpCount(){ if (wlCount !== null){ wlCount += 1; showCount(); } }
+  showCount();
   if (WAITLIST_COUNT_URL && window.fetch){
     fetch(WAITLIST_COUNT_URL + (WAITLIST_COUNT_URL.indexOf('?') < 0 ? '?' : '&') + 't=' + Date.now(), { cache: 'no-store' })
       .then(function(r){ return r.ok ? r.json() : null; })
-      .then(function(d){ var n = d && Number(d.count); if (isFinite(n) && n >= 0){ wlCount = Math.floor(n); showCount(); } })
+      .then(function(d){ var n = d && Number(d.count); if (isFinite(n) && n >= 0){ wlCount = WAITLIST_BASE + Math.floor(n); showCount(); } })
       .catch(function(){});
   }
 
