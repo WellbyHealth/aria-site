@@ -18,7 +18,19 @@ details summary{cursor:pointer;color:var(--mut);font-size:13px}.foot{color:var(-
 
 .heat td.w{text-align:center;font-size:12px;font-variant-numeric:tabular-nums;padding:6px 4px;min-width:38px}.heat th.w{text-align:center;padding:6px 4px}
 .sub{color:var(--mut);font-size:12px}h3{font-size:14px;margin:16px 0 6px}
-</style></head><body>
+</style><style id="demo-mobile">
+/* layout only: phones get tables that scroll inside their card, 44px tap targets and AA contrast; no wording changes */
+.pill.t3{color:#8a4b12}
+header a[href="/"]{color:#0b6b48!important;display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:640px){
+  header{padding:16px 20px}
+  table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  button{min-height:44px}
+  input[type=number]{min-height:44px;box-sizing:border-box}
+  input[type=file]{min-height:44px;max-width:100%}
+}
+</style>
+</head><body>
 <header><p style="margin:0 0 6px"><a href="/" style="color:#0f8a5f;font-weight:700;text-decoration:none">&larr; Aria</a></p><h1>What payers owe you, and when it lands</h1><p>Matches payer deposits to remittance files, matches patient card-processor batch deposits, checks paid lines against contracted rates, ranks fixable denials, and shows how fast each payer pays.</p></header>
 <div class="banner"><b>Synthetic data only.</b> Every payer, practice, patient, contract rate and dollar amount here is made up for this demo, and so are the card processor, its fees, its deposit timing and its bank descriptors. Underpaid amounts and denials are flagged for follow-up only; they are not money in hand. Do not load real patient data until a BAA is signed.</div>
 <main>
