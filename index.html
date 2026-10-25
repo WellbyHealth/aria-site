@@ -2783,10 +2783,9 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
     <div class="wrap hx5-copy">
       <div class="hx5-head">
       <h1>An AI CFO for <span class="hl">your practice.</span></h1>
-      <p class="hx5-sub">The agentic finance layer for healthcare practices</p>
       </div>
       <div class="hx5-act">
-      <p class="lead">Aria will show you and your finance team what each location spends, which bills are waiting and what came in from each insurer. Aria AI will also match receipts, prepare each bill for your approval and keep your books current.</p>
+      <p class="hx5-sub">The agentic finance layer for healthcare practices.</p>
       <form class="hx5-form" id="hx-signup" novalidate>
         <label class="sr" for="hx-email">Work email</label>
         <input id="hx-email" type="email" autocomplete="email" inputmode="email" placeholder="Work email">
@@ -2794,7 +2793,6 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
       </form>
       <p class="hx5-privacy"><a href="/privacy">We’ll use your email to send Aria updates. Unsubscribe anytime.</a></p>
       <p class="fine">Aria is in development and opening to practices in stages. Features and timing may change.</p>
-      <p class="hx-alt"><span class="hx-alt-q">Prefer a conversation? </span><a href="#waitlist" data-mode="talk" class="hx3-btn">Talk to us<svg class="hx3-arr" viewBox="0 0 12 12" aria-hidden="true" focusable="false"><path d="M1 6h9M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="hx-alt-dot">.</span></p>
       </div>
     </div>
   </div>
@@ -4091,6 +4089,43 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 #roadmap.stk-on .stk-item:nth-child(3) .stk-copy b.stk-pill{box-shadow:-12px 0 0 0 var(--t1),-24px 0 0 0 var(--t2)}
 @media (min-width:901px){#roadmap:not(.stk-on) .pillar-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce),(max-height:640px){#roadmap.stk-on .stk-item,#roadmap.stk-on .stk-item:last-child{top:auto;margin-bottom:var(--stk-gap)}#roadmap.stk-on .stk-item:last-child{margin-bottom:0}}
+</style>
+<style id="v19-hero">
+/* v19 hero: Clay-style. The scene sits on top and fades into a deep navy band; a big headline on the left; one short line and the email box on the right. No paragraph, no second button. */
+.hero.hx5{--band:#0d2747}
+.hero.hx5 .hx5-scene{background:linear-gradient(180deg,#eef6ff 0%,#d4e8fc 52%,#9cc3ea 74%,var(--band) 100%)}
+.hero.hx5 .hx5-scene::after{height:30%}
+:root[data-theme="dark"] .hero.hx5 .hx5-scene{background:linear-gradient(180deg,#0b1b33 0%,#10233f 50%,var(--band) 100%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero.hx5 .hx5-scene{background:linear-gradient(180deg,#0b1b33 0%,#10233f 50%,var(--band) 100%)}}
+.hero.hx5 .hx5-copy{align-items:end;padding-top:clamp(18px,2.4vw,36px);grid-template-columns:minmax(0,1.4fr) minmax(0,1fr)}
+.hero.hx5 h1,:root[data-theme="dark"] .hero.hx5 h1{color:#fff;font-size:clamp(2.8rem,5.5vw,5.2rem);line-height:.96}
+.hero.hx5 h1 .hl,:root[data-theme="dark"] .hero.hx5 h1 .hl{color:#f6a8de}
+.hero.hx5 .hx5-act{padding-bottom:6px}
+.hx5 .hx5-act .hx5-sub,:root[data-theme="dark"] .hx5 .hx5-act .hx5-sub{margin:0;text-transform:none;letter-spacing:-.01em;font-weight:500;font-size:clamp(1.2rem,1.9vw,1.6rem);line-height:1.3;color:#e3ecf8;max-width:22em}
+.hero.hx5 .hx5-form{margin-top:22px}
+.hero.hx5 .hx5-form input,:root[data-theme="dark"] .hero.hx5 .hx5-form input{background:#fff;color:#0b1b33;border-color:#fff}
+.hero.hx5 .hx5-form input::placeholder,:root[data-theme="dark"] .hero.hx5 .hx5-form input::placeholder{color:#5b6578}
+.hero.hx5 .hx5-form input:focus-visible{outline:3px solid #ced748;outline-offset:2px}
+.hero.hx5 .hx5-form .btn{background:#ced748;color:#000;border-color:#ced748}
+.hero.hx5 .hx5-form .btn:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.hero.hx5 .hx5-privacy a,:root[data-theme="dark"] .hero.hx5 .hx5-privacy a{color:#c9d6e8}
+.hero.hx5 .hx5-privacy a:hover{color:#fff}
+.hero.hx5 .hx5-privacy a:focus-visible{outline-color:#ced748}
+.hero.hx5 .fine,:root[data-theme="dark"] .hero.hx5 .fine{color:#b3c2d8;font-size:.8rem}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .hero.hx5 h1{color:#fff}
+  :root:not([data-theme="light"]) .hero.hx5 h1 .hl{color:#f6a8de}
+  :root:not([data-theme="light"]) .hx5 .hx5-act .hx5-sub{color:#e3ecf8}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-form input{background:#fff;color:#0b1b33;border-color:#fff}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-form input::placeholder{color:#5b6578}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-privacy a{color:#c9d6e8}
+  :root:not([data-theme="light"]) .hero.hx5 .fine{color:#b3c2d8}
+}
+@media (max-width:820px){
+  .hero.hx5 h1{font-size:clamp(2.5rem,11.5vw,3.6rem)}
+  .hx5 .hx5-act .hx5-sub{font-size:1.12rem}
+  .hero.hx5 .hx5-act .hx5-form{margin-top:16px}
+}
 </style>
 </body>
 </html>
