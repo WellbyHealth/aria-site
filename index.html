@@ -2819,10 +2819,9 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
   <div class="wrap">
     <span id="card"></span><div class="head"><p class="eyebrow">The platform</p><h2 id="platform-h">Your <span class="pop">practice&rsquo;s money,</span> in one place.</h2></div>
     <ul class="pillar-row">
-      <li class="stk-item" style="--i:0"><a class="pillar stk stk-pay stk-hub" href="#cfo-hub"><span class="stk-copy"><b class="stk-pill">CFO Hub</b><small class="stk-h">The CFO hub will show what came in, what went out<span class="pop"> and what came up short.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/850d18fbea70.webp"><i></i><i></i><i></i></span></a></li>
-      <li class="stk-item" style="--i:1"><a class="pillar stk stk-spend" href="#spend"><span class="stk-copy"><b class="stk-pill">Accounting &amp; AP</b><small class="stk-h">Built to match each receipt to its card purchase<span class="pop"> and prepare each bill for your approval.</span></small><small class="stk-note">Cards will be provided by licensed partners and are subject to approval.</small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/8e75136c2e3d.webp"><i></i><i></i><i></i></span></a></li>
-      <li class="stk-item" style="--i:2"><a class="pillar stk stk-pay" href="#see"><span class="stk-copy"><b class="stk-pill">AR</b><small class="stk-h">Built to match each insurer payment to its deposit<span class="pop"> and flag gaps.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/970182627b73.webp"><i></i><i></i><i></i></span></a></li>
-      <li class="stk-item" style="--i:3"><a class="pillar stk stk-books" href="#accounting"><span class="stk-copy"><b class="stk-pill">Bookkeeping</b><small class="stk-h">Built to code transactions<span class="pop"> and sync your books.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/de94adeddc9b.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:0"><a class="pillar stk stk-spend" href="#cfo-hub"><span class="stk-copy"><b class="stk-pill">Finance</b><small class="stk-h">Built to put cards in your team’s hands<span class="pop"> and show what came in and what went out.</span></small><small class="stk-note">Cards will be provided by licensed partners and are subject to approval.</small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/8e75136c2e3d.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:1"><a class="pillar stk stk-books" href="#bill-pay"><span class="stk-copy"><b class="stk-pill">Accounting &amp; AP</b><small class="stk-h">Built to match each receipt, prepare each bill for approval<span class="pop"> and keep your books in sync.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/de94adeddc9b.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:2"><a class="pillar stk stk-pay" href="#see"><span class="stk-copy"><b class="stk-pill">AR</b><small class="stk-h">Built to match each insurer payment to its deposit<span class="pop">, flag underpayments and work denials.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/970182627b73.webp"><i></i><i></i><i></i></span></a></li>
     </ul>
     <p class="fine center">Aria is in development and opening to practices in stages. Features and timing may change.</p>
   </div>
@@ -4080,6 +4079,18 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 <style id="v16-layout">
 /* v16 layout only: no dot icons on the four specialty cards under the hero */
 .hx-chips.hx-spec .hb-dot{display:none!important}
+</style>
+<style id="v18-deck">
+/* v18: the home deck has three cards (Finance, Accounting & AP, AR); the sticky steps and tab indicator are set for three */
+#roadmap.stk-on{--stk-room:calc(100vh - var(--stk-top) - var(--stk-s) - var(--stk-last) - 16px)}
+@supports (height:100svh){#roadmap.stk-on{--stk-room:calc(100svh - var(--stk-top) - var(--stk-s) - var(--stk-last) - 16px)}}
+#roadmap.stk-on .stk-item{margin-bottom:calc((1 - var(--i,0)) * var(--stk-s) + var(--stk-last))}
+#roadmap.stk-on .stk-item:last-child{top:calc(var(--stk-top) + var(--stk-s) + var(--stk-last));margin-bottom:0}
+#roadmap.stk-on .stk-item:nth-child(1) .stk-copy b.stk-pill{box-shadow:12px 0 0 0 var(--t1),24px 0 0 0 var(--t2)}
+#roadmap.stk-on .stk-item:nth-child(2) .stk-copy b.stk-pill{box-shadow:-12px 0 0 0 var(--t1),12px 0 0 0 var(--t1)}
+#roadmap.stk-on .stk-item:nth-child(3) .stk-copy b.stk-pill{box-shadow:-12px 0 0 0 var(--t1),-24px 0 0 0 var(--t2)}
+@media (min-width:901px){#roadmap:not(.stk-on) .pillar-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (prefers-reduced-motion:reduce),(max-height:640px){#roadmap.stk-on .stk-item,#roadmap.stk-on .stk-item:last-child{top:auto;margin-bottom:var(--stk-gap)}#roadmap.stk-on .stk-item:last-child{margin-bottom:0}}
 </style>
 </body>
 </html>
