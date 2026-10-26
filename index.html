@@ -4434,5 +4434,14 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 .rc-stage .vis-card.rc::before{animation:none!important}
 .rc-stage{margin:6px auto 24px}
 </style>
+<style id="v50-tabs">
+/* v50: product tabs span the full width with even spacing; no stretched items */
+@media (min-width:821px){
+  .ptabs{width:100%;justify-content:flex-start;gap:6px;padding:5px 8px}
+  .ptabs > .pt-grp:not(.cur)::before,.ptabs > .pt-grp.cur + .pt-grp::before{content:none}
+  .ptabs > a,.ptabs > .pt-grp,.ptabs > .pt-grp.cur,.ptabs > .pt-grp.cur > a,.ptabs > .pt-grp:not(.cur) > a.pt-g,.ptabs > a{flex:0 0 auto!important;width:auto!important}
+  .ptabs > .pt-grp.cur{justify-content:flex-start}
+}
+</style>
 </body>
 </html>
