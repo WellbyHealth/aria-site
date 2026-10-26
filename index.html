@@ -4166,5 +4166,19 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 }
 @supports (height:100svh){@media (max-width:600px){.hero.hx5{--H:clamp(calc(130vw * 1296 / 3024), calc((100svh - 452px) / .87), calc(184vw * 1296 / 3024))}}}
 </style>
+<style id="v22-center">
+/* v22: the clay art is centred on every screen (its pieces span 39%-105% of the stage, so the centre is at 71.7%), never wider than the screen on phones;
+   and on phones the hero also covers the area under the browser bars (100lvh), so no specialty card peeks in. The extra height goes to the band's bottom, so the email box doesn't move. */
+@media (max-width:820px) and (min-width:601px){.hero.hx5 .hx5-stage{left:calc(50vw - 150vw * .717)}}
+@media (max-width:600px){
+  .hero.hx5{--H:clamp(calc(120vw * 1296 / 3024), calc((100vh - 452px) / .87), calc(146vw * 1296 / 3024))}
+  .hero.hx5 .hx5-stage{left:calc(50vw - var(--H) * 3024 / 1296 * .717);transform:none}
+}
+@supports (height:100svh){@media (max-width:600px){.hero.hx5{--H:clamp(calc(120vw * 1296 / 3024), calc((100svh - 452px) / .87), calc(146vw * 1296 / 3024))}}}
+@supports (height:100lvh){
+  .hx5-top{min-height:100lvh}
+  .hx5-top .hx5-band{padding-bottom:calc(100lvh - 100svh)}
+}
+</style>
 </body>
 </html>
