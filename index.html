@@ -4469,5 +4469,15 @@ history.replaceState(null,'','#'+v);window.dispatchEvent(new HashChangeEvent('ha
 var n=0,t=setInterval(function(){var b=document.getElementById('st-'+k);if(b&&!b.closest('[hidden]')){clearInterval(t);if(b.getAttribute('aria-selected')!=='true')b.click();}else if(++n>40)clearInterval(t);},50);}
 window.addEventListener('hashchange',go);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
 </script>
+<style id="v59-prod-space">
+/* v59: product page tops: copy starts at the top beside the picture, tighter label stack, stats on one row */
+.view .feature.intro:has(.fn-tag){align-items:start;margin-top:clamp(18px,2.4vw,32px)}
+.feature.intro .feature-copy:has(.fn-tag){gap:14px;padding-top:clamp(8px,1.6vw,24px)}
+.feature.intro .feature-copy:has(.fn-tag) > .gl.big{display:none}
+.feature-copy .fn-tag{margin:0 0 -4px}
+.feature-copy .rw-stats{flex-wrap:nowrap;margin:6px 0 10px}
+.feature-copy .rw-stats li{flex:1 1 0;min-width:0}
+@media (max-width:600px){.feature-copy .rw-stats{gap:8px}.feature-copy .rw-stats li{flex:1 1 0;padding:12px}.feature-copy .rw-stats b{font-size:1.45rem}.feature-copy .rw-stats span{font-size:.74rem}}
+</style>
 </body>
 </html>
