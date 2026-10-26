@@ -2786,12 +2786,13 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
       <h1>An AI CFO for <span class="hl">your practice.</span></h1>
       </div>
       <div class="hx5-act">
-      <p class="hx5-sub">The agentic finance layer for healthcare practices.</p>
+      <p class="hx5-sub">Cards, bill pay, books and insurer payments, run by AI and built for independent practices.</p>
       <form class="hx5-form" id="hx-signup" novalidate>
         <label class="sr" for="hx-email">Work email</label>
         <input id="hx-email" type="email" autocomplete="email" inputmode="email" placeholder="Work email">
         <button class="btn btn-primary" type="submit">Get early access</button>
       </form>
+      <p class="hx5-for">Built for <a href="#for-orthopedics">orthopedics</a><span aria-hidden="true"> · </span><a href="#for-gastroenterology">GI</a><span aria-hidden="true"> · </span><a href="#for-pain-management">pain</a><span aria-hidden="true"> · </span><a href="#for-dermatology">dermatology</a></p>
       </div>
     </div>
   </div>
@@ -4193,6 +4194,31 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 }
 @supports (height:100svh){@media (max-width:600px){.hero.hx5{--H:clamp(calc(130vw * 1296 / 3024), calc((100svh - 380px) / .87), calc(168vw * 1296 / 3024))}}}
 @media (max-width:359px){.hero.hx5 .hx5-act .hx5-form{flex-direction:column}.hero.hx5 .hx5-form input,.hero.hx5 .hx5-form .btn{width:100%}}
+</style>
+<style id="v26-polish">
+/* v26: proof line under the email box; a light header bar over the clay sky in dark mode too (Clay-style); a little more navy under the form on phones */
+.hx5-for{margin:16px 0 0;color:#c9d6e8;font-size:.95rem;line-height:1.5}
+.hx5-for a{color:#fff;font-weight:600;text-decoration:underline;text-decoration-color:rgba(255,255,255,.4);text-underline-offset:3px}
+.hx5-for a:hover{text-decoration-color:#fff}
+.hx5-for a:focus-visible{outline:3px solid #ced748;outline-offset:2px;border-radius:4px}
+.hx5-for span{color:#8fa3bf}
+@media (max-width:600px){.hero.hx5 .hx5-copy{padding-bottom:80px}.hx5-for{font-size:.9rem;margin-top:14px}}
+:root[data-theme="dark"] .site-head .top-row{background:#fff;color:#2e2d29;border-color:#e6e4dd}
+:root[data-theme="dark"] .site-head .logo{color:#000}
+:root[data-theme="dark"] .site-head .nav a,:root[data-theme="dark"] .site-head .navbtn{color:#2e2d29}
+:root[data-theme="dark"] .site-head .btn-primary.small,:root[data-theme="dark"] .site-head .mnav-btn{background:#f1f2ed;color:#000}
+:root[data-theme="dark"] .site-head .mnav-btn span{background:#000}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .site-head .top-row{background:#fff;color:#2e2d29;border-color:#e6e4dd}
+  :root:not([data-theme="light"]) .site-head .logo{color:#000}
+  :root:not([data-theme="light"]) .site-head .nav a,:root:not([data-theme="light"]) .site-head .navbtn{color:#2e2d29}
+  :root:not([data-theme="light"]) .site-head .btn-primary.small,:root:not([data-theme="light"]) .site-head .mnav-btn{background:#f1f2ed;color:#000}
+  :root:not([data-theme="light"]) .site-head .mnav-btn span{background:#000}
+}
+@media (min-width:821px){.hero.hx5{--hs:min(clamp(560px,52vw,820px), calc((100vh - 404px) / .88 + 146px))}}
+@supports (height:100svh){@media (min-width:821px){.hero.hx5{--hs:min(clamp(560px,52vw,820px), calc((100svh - 404px) / .88 + 146px))}}}
+:root[data-theme="dark"] .site-head .nav a[aria-current],:root[data-theme="dark"] .site-head .nav a:hover,:root[data-theme="dark"] .site-head .navbtn:hover{background:#f1f2ed;color:#000}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .site-head .nav a[aria-current],:root:not([data-theme="light"]) .site-head .nav a:hover,:root:not([data-theme="light"]) .site-head .navbtn:hover{background:#f1f2ed;color:#000}}
 </style>
 </body>
 </html>
