@@ -4461,5 +4461,13 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 .sp-t tbody tr:first-child.sp-g th{padding-top:12px}
 @media (max-width:600px){.sp-t tbody tr:not(.sp-g){display:block;padding:12px 14px;border-bottom:1px solid var(--line,#e6e4dd)}.sp-t tbody tr:not(.sp-g) th,.sp-t tbody tr:not(.sp-g) td{display:block;width:auto;padding:0;border:0;white-space:normal}.sp-t tbody tr:not(.sp-g) th{margin-bottom:4px}.sp-t tr.sp-g th{display:block;padding:16px 14px 8px}}
 </style>
+<script id="v57-spec-links">
+/* v57: links straight to one specialty, e.g. ariapractice.com/#for-pediatrics */
+(function(){var M={"primary-care":"in-primary","pediatrics":"in-primary","ob-gyn":"in-primary","urgent-care":"in-primary","behavioral-health":"in-primary","allergy":"in-specialists","audiology":"in-specialists","cardiology":"in-specialists","dermatology":"in-specialists","endocrinology":"in-specialists","fertility":"in-specialists","gastroenterology":"in-specialists","neurology":"in-specialists","pulmonology":"in-specialists","infusion":"in-infusion","rheumatology":"in-infusion","nephrology":"in-infusion","orthopedics":"in-surgical","ent":"in-surgical","urology":"in-surgical","plastic-surgery":"in-surgical","podiatry":"in-surgical","general-surgery":"in-surgical","pain-management":"in-surgical","surgery-center":"in-facilities","imaging":"in-facilities","clinical-lab":"in-facilities","anesthesia":"in-facilities","dental":"in-dental","ophthalmology":"in-eye","optometry":"in-eye","med-spa":"in-aesthetics","physical-therapy":"in-aesthetics","chiropractic":"in-aesthetics","home-health":"in-postacute","hospice":"in-postacute","skilled-nursing":"in-postacute","retail-pharmacy":"in-postacute","specialty-pharmacy":"in-postacute","veterinary":"in-animal","pet-care":"in-animal"};
+function go(){var h=location.hash.replace(/^#/,'');if(h.indexOf('for-')!==0)return;var k=h.slice(4),v=M[k];if(!v)return;
+history.replaceState(null,'','#'+v);window.dispatchEvent(new HashChangeEvent('hashchange'));
+var n=0,t=setInterval(function(){var b=document.getElementById('st-'+k);if(b&&!b.closest('[hidden]')){clearInterval(t);if(b.getAttribute('aria-selected')!=='true')b.click();}else if(++n>40)clearInterval(t);},50);}
+window.addEventListener('hashchange',go);if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',go);else go();})();
+</script>
 </body>
 </html>
