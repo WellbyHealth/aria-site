@@ -4177,8 +4177,22 @@ addEventListener('scroll',on,{passive:true});addEventListener('resize',on);if(rm
 @supports (height:100svh){@media (max-width:600px){.hero.hx5{--H:clamp(calc(120vw * 1296 / 3024), calc((100svh - 452px) / .87), calc(146vw * 1296 / 3024))}}}
 @supports (height:100lvh){
   .hx5-top{min-height:100lvh}
-  .hx5-top .hx5-band{padding-bottom:calc(100lvh - 100svh)}
 }
+</style>
+<style id="v23-phone">
+/* v23 phones: Clay-style. The art runs edge to edge (centred, cropped evenly at both sides); the email box and button sit side by side;
+   a slightly larger line under the headline; no loose ball under the header. The hero still fills the screen (the sky takes any extra height). */
+@media (max-width:600px){
+  .hero.hx5{--H:clamp(calc(130vw * 1296 / 3024), calc((100vh - 380px) / .87), calc(168vw * 1296 / 3024))}
+  .hero.hx5 .hx5-ball,.hero.hx5 .hx5-fl.k1{display:none}
+  .hero.hx5 h1{font-size:clamp(2.6rem,12.4vw,3.6rem);line-height:.98}
+  .hx5 .hx5-act .hx5-sub{font-size:clamp(1.12rem,5vw,1.3rem);line-height:1.35}
+  .hero.hx5 .hx5-act .hx5-form{flex-direction:row;gap:8px;margin-top:20px}
+  .hero.hx5 .hx5-form input{width:auto;flex:1 1 auto;min-width:0;padding:0 14px}
+  .hero.hx5 .hx5-form .btn{width:auto;flex:none;padding-inline:16px;font-size:.95rem}
+}
+@supports (height:100svh){@media (max-width:600px){.hero.hx5{--H:clamp(calc(130vw * 1296 / 3024), calc((100svh - 380px) / .87), calc(168vw * 1296 / 3024))}}}
+@media (max-width:359px){.hero.hx5 .hx5-act .hx5-form{flex-direction:column}.hero.hx5 .hx5-form input,.hero.hx5 .hx5-form .btn{width:100%}}
 </style>
 </body>
 </html>
