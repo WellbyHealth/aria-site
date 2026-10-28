@@ -2824,6 +2824,13 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
   </div>
 </section>
 
+<section class="sec" id="stages" aria-labelledby="stages-h">
+  <div class="wrap">
+    <div class="head left"><p class="eyebrow">Every stage</p><h2 id="stages-h">Built for practices <span class="pop">at every stage.</span></h2></div>
+    <ul class="stg-row"><li class="stg st1"><div class="stg-top"><div><p class="stg-lab">Stage 1 · 0–2 years</p><h3>Opening your practice</h3></div><img src="/assets/i/a7a526f5823c.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="stg-body"><p class="stg-best"><b>Best for:</b> Solo practitioners, new practices and first-time owners</p><ul><li>A card with spending limits from day one</li><li>Books set up right from the first month</li><li>Big supply orders paid on time while revenue ramps up</li></ul><a class="stg-link" href="#spend">See the Aria Card<span aria-hidden="true"> →</span></a></div></li><li class="stg st2"><div class="stg-top"><div><p class="stg-lab">Stage 2 · 2–5 years</p><h3>Running it smoothly</h3></div><img src="/assets/i/850d18fbea70.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="stg-body"><p class="stg-best"><b>Best for:</b> Established practices with one or two locations and steady revenue</p><ul><li>Cards and approvals for every staff member</li><li>Receipts matched and bills paid on schedule</li><li>Short insurer payments and denials caught</li></ul><a class="stg-link" href="#bill-pay">See Accounts Payable<span aria-hidden="true"> →</span></a></div></li><li class="stg st3"><div class="stg-top"><div><p class="stg-lab">Stage 3 · 5+ years</p><h3>Growing to more locations</h3></div><img src="/assets/i/7a793dd4aa74.webp" alt="" aria-hidden="true" loading="lazy" decoding="async"></div><div class="stg-body"><p class="stg-best"><b>Best for:</b> Multi-location groups, MSOs and DSOs, and practices getting ready to sell</p><ul><li>Every location’s numbers in one view</li><li>Books by location, ready for investors and buyers</li><li>Spend controls by site, team and vendor</li></ul><a class="stg-link" href="#cfo-hub">See the CFO Hub<span aria-hidden="true"> →</span></a></div></li></ul>
+  </div>
+</section>
+
 <section class="sec alt" id="trust">
   <div class="wrap split">
     <div><p class="eyebrow">Trust</p><h2>Built to be trusted with your practice’s money.</h2></div>
@@ -4567,6 +4574,28 @@ window.addEventListener('hashchange',go);if(document.readyState==='loading')docu
 .rc .rc-num,.rc .rc-exp,.rc .rc-net{display:none!important}
 .rc .rc-bot small{color:rgba(0,0,0,.4)}
 .rc .rc-name{color:#2b2a26;letter-spacing:.08em;font-weight:600}
+</style>
+<style id="v75-stages">
+/* v75: "Built for practices at every stage" on the home page */
+#stages .head{margin-bottom:clamp(20px,3vw,32px)}
+.stg-row{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,22px)}
+.stg{display:flex;flex-direction:column;border-radius:28px;overflow:hidden;background:var(--surface,#fff);border:1px solid var(--line,#e6e4dd)}
+.stg-top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;min-height:190px;padding:22px 20px 20px 24px;background:var(--sbg);color:var(--sink)}
+.stg-top img{width:clamp(96px,9vw,128px);height:clamp(96px,9vw,128px);object-fit:contain;flex:none;filter:drop-shadow(0 12px 14px rgba(20,20,40,.18));align-self:center}
+.stg-lab{margin:0 0 10px;font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.stg-top h3{margin:0;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.08;letter-spacing:-.025em;font-weight:600;color:var(--sink)}
+.stg-body{display:flex;flex-direction:column;gap:14px;padding:22px 24px 24px;flex:1}
+.stg-best{margin:0;font-size:.98rem;line-height:1.45;color:var(--body)}
+.stg-best b{color:var(--ink)}
+.stg-body ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.stg-body li{position:relative;padding-left:22px;font-size:.95rem;line-height:1.4;color:var(--ink)}
+.stg-body li::before{content:"";position:absolute;left:2px;top:.45em;width:9px;height:9px;border-radius:50%;background:var(--sink)}
+.stg-link{margin-top:auto;padding-top:6px;align-self:flex-start;font-weight:600;color:var(--ink);text-decoration:none;border-bottom:2px solid var(--sink)}
+.stg-link:hover{color:var(--sink)}
+.st1{--sbg:#fcecf6;--sink:#8f1c73}
+.st2{--sbg:#eff5d6;--sink:#4f6312}
+.st3{--sbg:#e4f0fd;--sink:#1f4f8a}
+@media (max-width:900px){.stg-row{grid-template-columns:minmax(0,1fr)}.stg-top{min-height:0}}
 </style>
 </body>
 </html>
