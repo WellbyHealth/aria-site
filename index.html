@@ -2240,7 +2240,164 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
   <div class="ms-foot"><a class="btn btn-primary wide" href="#waitlist" data-mode="waitlist">Join the waitlist<svg class="harrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path class="hl" d="M0 5h7"/><path class="ht" d="M1 1l4 4-4 4"/></svg></a><a class="btn-text" href="#waitlist" data-mode="talk">Talk to us<svg class="harrow" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path class="hl" d="M0 5h7"/><path class="ht" d="M1 1l4 4-4 4"/></svg></a></div>
 </div>
 <main id="main" tabindex="-1">
-<div class="view" data-view="home">
+<div class="view" data-view="home"><style id="ax-home">
+/* ==================== ax: homepage flow borrowed from Wellby Inroads ====================
+   Light hero band, "Your morning" product panel, problem section, results grid,
+   compact trust strip, FAQ with art, closing panel with art. Scoped to the home view. */
+[data-view="home"]{--ax-card:var(--surface);--ax-line:var(--line);--ax-soft:var(--bg-alt);
+  --ax-blue:#e4f0fd;--ax-lime:#eef3d2;--ax-pink:#fbe3ee;--ax-peach:#fde7d6;--ax-lilac:#ece6fb;--ax-sky:#e1eefc}
+:root[data-theme="dark"] [data-view="home"]{--ax-blue:#1b2c45;--ax-lime:#262c17;--ax-pink:#3a1f31;--ax-peach:#3a2a1d;--ax-lilac:#29233f;--ax-sky:#182a42}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) [data-view="home"]{--ax-blue:#1b2c45;--ax-lime:#262c17;--ax-pink:#3a1f31;--ax-peach:#3a2a1d;--ax-lilac:#29233f;--ax-sky:#182a42}}
+
+/* ---------- 1. Hero band: light, like Inroads (dark mode keeps its navy band) ---------- */
+:root:not([data-theme="dark"]) .hero.hx5{--band:#e3effc}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-scene{background:linear-gradient(180deg,#f3f8ff 0%,#e1eefc 60%,var(--band) 100%)}
+:root:not([data-theme="dark"]) .hero.hx5 h1{color:#0b1b33}
+:root:not([data-theme="dark"]) .hero.hx5 h1 .hl{color:#9c1f7e}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-act .hx5-sub{color:#33405a}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-form input{background:#fff;color:#0b1b33;border:1.5px solid #b9c7da}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-form input:focus-visible{outline:3px solid #2f6db5;border-color:#0b1b33}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-form .btn{background:#000;color:#fff;border-color:#000}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-form .btn:focus-visible{outline:3px solid #2f6db5}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-for{color:#4b5a72}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-for a{color:#0b1b33;text-decoration-color:rgba(11,27,51,.35)}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-for a:hover{text-decoration-color:#0b1b33}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-for a:focus-visible{outline-color:#2f6db5}
+:root:not([data-theme="dark"]) .hero.hx5 .hx5-for span{color:#8a97ab}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero.hx5{--band:#13294a}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-scene{background:linear-gradient(180deg,#0b1b33 0%,#10233f 50%,var(--band) 100%)}
+  :root:not([data-theme="light"]) .hero.hx5 h1{color:#fff}
+  :root:not([data-theme="light"]) .hero.hx5 h1 .hl{color:#f6a8de}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-act .hx5-sub{color:#e3ecf8}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-form .btn{background:#ced748;color:#000;border-color:#ced748}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-for{color:#c9d6e8}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-for a{color:#fff;text-decoration-color:rgba(255,255,255,.4)}
+  :root:not([data-theme="light"]) .hero.hx5 .hx5-for span{color:#8fa3bf}}
+
+/* shared bits */
+.ax-tag{display:inline-block;vertical-align:middle;margin-left:6px;padding:2px 9px;border-radius:999px;background:var(--ax-soft);border:1px solid var(--ax-line);color:var(--muted);font-size:.75rem;font-weight:600;letter-spacing:0}
+.ax-lede{max-width:40rem;margin:0 auto;color:var(--body);font-size:1.08rem;line-height:1.55}
+.head.left .ax-lede{margin:0}
+
+/* ---------- 2. Your morning: steps on the left, a live Today card on the right ---------- */
+.ax-day{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(32px,5vw,72px);align-items:center}
+.ax-day h2{margin:0}
+.ax-day .ax-lede{margin:16px 0 0}
+.ax-steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:10px}
+.ax-steps button{all:unset;box-sizing:border-box;display:grid;grid-template-columns:32px minmax(0,1fr);gap:14px;width:100%;padding:16px 18px;border-radius:16px;border:1px solid transparent;cursor:pointer;position:relative;overflow:hidden;transition:background .25s,border-color .25s}
+.ax-steps button:hover{background:var(--ax-soft)}
+.ax-steps button[aria-selected="true"]{background:var(--ax-card);border-color:var(--ax-line);box-shadow:0 10px 30px -18px rgba(10,37,64,.35)}
+.ax-steps button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.ax-n{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.95rem;background:var(--ax-soft);color:var(--ink);border:1px solid var(--ax-line)}
+.ax-steps button[aria-selected="true"] .ax-n{background:#000;color:#fff;border-color:#000}
+.ax-t b{display:block;color:var(--ink);font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+.ax-t span{display:block;margin-top:4px;color:var(--body);font-size:.95rem;line-height:1.5}
+.ax-bar{position:absolute;left:18px;right:18px;bottom:8px;height:2px;border-radius:2px;background:transparent;overflow:hidden}
+.ax-steps button[aria-selected="true"] .ax-bar{background:var(--ax-line)}
+.ax-steps button[aria-selected="true"] .ax-bar::after{content:"";position:absolute;inset:0;background:var(--mag-ink,#9c1f7e);transform-origin:left;animation:ax-fill var(--ax-dwell,6s) linear forwards}
+.ax-day.is-paused .ax-bar::after{animation-play-state:paused}
+@keyframes ax-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+.ax-today{background:var(--ax-card);border:1px solid var(--ax-line);border-radius:24px;padding:18px;box-shadow:var(--shadow-lg)}
+.ax-today-top{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:2px 4px 14px;font-size:.88rem}
+.ax-today-top b{color:var(--ink);font-weight:600}
+.ax-today-top b small{color:var(--muted);font-weight:500;margin-left:6px;font-size:.85rem}
+.ax-live{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;background:var(--pos-soft);color:var(--pos);font-weight:600;font-size:.78rem}
+.ax-live i{width:6px;height:6px;border-radius:50%;background:currentColor}
+.ax-row{display:grid;grid-template-columns:auto 52px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px;border-radius:16px;border:1.5px solid transparent;opacity:.55;transition:opacity .3s,border-color .3s,background .3s}
+.ax-row.on{opacity:1;border-color:var(--mag-ink,#9c1f7e);background:color-mix(in srgb,var(--ax-pink) 45%,transparent)}
+.ax-row+.ax-row{margin-top:8px}
+.ax-rn{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:.75rem;font-weight:700;background:var(--ax-soft);color:var(--muted)}
+.ax-row.on .ax-rn{background:var(--mag-ink,#9c1f7e);color:#fff}
+.ax-row img{width:52px;height:52px;object-fit:contain}
+.ax-rt{min-width:0}
+.ax-rt .k{display:block;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ax-rt b{display:block;margin-top:2px;color:var(--ink);font-weight:600;font-size:1rem;line-height:1.3}
+.ax-rt .d{display:block;margin-top:3px;color:var(--body);font-size:.85rem;line-height:1.4}
+.ax-chip{white-space:nowrap;padding:6px 12px;border-radius:999px;font-size:.8rem;font-weight:600;background:var(--ax-soft);color:var(--ink);border:1px solid var(--ax-line)}
+.ax-chip.up{background:var(--pos-soft);color:var(--pos);border-color:transparent}
+.ax-chip.act{background:#000;color:#fff;border-color:#000}
+:root[data-theme="dark"] .ax-chip.act{background:#f9f8f6;color:#000}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ax-chip.act{background:#f9f8f6;color:#000}}
+.ax-chip.done{background:var(--pos-soft);color:var(--pos);border-color:transparent}
+
+/* ---------- 3. The problem ---------- */
+.ax-art{margin:0 auto clamp(28px,4vw,44px);max-width:1080px;border-radius:28px;overflow:hidden;background:linear-gradient(180deg,var(--ax-sky),var(--ax-lilac));aspect-ratio:16/7;display:grid;place-items:center}
+.ax-art img{width:auto;height:94%;max-width:96%;object-fit:contain}
+.ax-pains{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+.ax-pains li{grid-column:span 2;background:var(--ax-card);border:1px solid var(--ax-line);border-radius:20px;padding:20px}
+.ax-pains li:nth-child(4),.ax-pains li:nth-child(5){grid-column:span 3}
+.ax-pains img{width:48px;height:48px;object-fit:contain;display:block;margin-bottom:14px}
+.ax-pains p{margin:0;color:var(--body);font-size:.97rem;line-height:1.55}
+
+/* platform stack: list the products each card covers */
+#roadmap.stk-on .stk-spend .ax-prods{order:3}
+#ax-day .pop,#ax-problem .pop,#ax-results .pop,#trust .pop,#join .pop{color:var(--mag-ink,#9c1f7e)}
+.ax-join,.ax-join h2,.ax-join .ax-lede{text-align:left}
+.ax-join .eyebrow{justify-content:flex-start;justify-self:start;margin-inline:0;translate:none}
+#roadmap .ax-prods{display:block;margin-top:14px;color:var(--body);font-size:.92rem;font-weight:500;line-height:1.5}
+#roadmap .ax-prods span{white-space:nowrap}
+
+/* ---------- 4. Results grid ---------- */
+.ax-kpis{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ax-kpis li{background:var(--t);border-radius:22px;padding:24px 24px 26px}
+.ax-kpis b{display:block;font-family:var(--display);font-size:clamp(2rem,3.4vw,2.6rem);font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--ink)}
+.ax-kpis h3{margin:14px 0 0;font-size:1.02rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+.ax-kpis p{margin:6px 0 0;color:var(--body);font-size:.92rem;line-height:1.5}
+
+/* ---------- 5. Trust strip ---------- */
+.ax-trust{list-style:none;margin:0;padding:clamp(20px,3vw,28px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;background:var(--ax-card);border:1px solid var(--ax-line);border-radius:24px}
+.ax-trust li{display:grid;grid-template-columns:52px minmax(0,1fr);gap:4px 14px;align-content:start}
+.ax-trust img{grid-row:span 2;width:52px;height:52px;object-fit:contain}
+.ax-trust b{color:var(--ink);font-size:.98rem;font-weight:600}
+.ax-trust span{color:var(--body);font-size:.88rem;line-height:1.5}
+.ax-trust-foot{margin:16px 0 0;text-align:center;color:var(--muted);font-size:.9rem}
+
+/* ---------- 6. FAQ with art ---------- */
+#faq .ax-faq-art{margin:28px 0 18px;max-width:300px;aspect-ratio:1;border-radius:24px;background:linear-gradient(180deg,var(--ax-peach),var(--ax-pink));display:grid;place-items:center;overflow:hidden}
+#faq .ax-faq-art img{width:78%;height:auto}
+
+/* ---------- 7. Closing panel ---------- */
+.ax-join{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center;background:var(--ax-peach);border-radius:32px;padding:clamp(28px,5vw,64px)}
+.ax-join h2{margin:0}
+.ax-join .ax-lede{margin:16px 0 0}
+.ax-perks{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.ax-perks li{display:flex;gap:10px;align-items:flex-start;color:var(--ink);font-size:.98rem}
+.ax-perks li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--pos) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.4l2.6 2.4L12 5.4' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.ax-join .hx-cta-end{margin:26px 0 0;display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:flex-start}
+.ax-join-art{margin:0;border-radius:24px;overflow:hidden;background:linear-gradient(180deg,#fff6ee,#fbd9c2);aspect-ratio:4/3;display:grid;place-items:center}
+:root[data-theme="dark"] .ax-join-art{background:linear-gradient(180deg,#3a2a1d,#4a2f22)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ax-join-art{background:linear-gradient(180deg,#3a2a1d,#4a2f22)}}
+.ax-join-art img{width:72%;height:auto}
+
+/* ---------- small screens ---------- */
+@media (max-width:900px){
+  .ax-day,.ax-join{grid-template-columns:minmax(0,1fr)}
+  .ax-trust{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ax-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ax-pains{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ax-pains li,.ax-pains li:nth-child(4),.ax-pains li:nth-child(5){grid-column:span 1}
+  .ax-pains li:nth-child(5){grid-column:span 2}
+}
+@media (max-width:600px){
+  .ax-art{aspect-ratio:4/3;border-radius:22px}
+  .ax-pains,.ax-kpis,.ax-trust{grid-template-columns:minmax(0,1fr)}
+  .ax-pains li:nth-child(5){grid-column:span 1}
+  .ax-row{grid-template-columns:40px minmax(0,1fr);gap:4px 12px;padding:12px}
+  .ax-row .ax-rn{display:none}
+  .ax-row img{width:40px;height:40px;grid-row:span 2}
+  .ax-row .ax-chip{justify-self:start;grid-column:2}
+  .ax-today{padding:12px;border-radius:20px}
+  .ax-join{border-radius:24px;padding:28px 20px}
+  .ax-join .hx-cta-end .btn{width:100%;justify-content:center}
+  .ax-steps button{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .ax-steps button[aria-selected="true"] .ax-bar::after{animation:none;transform:scaleX(1)}
+  .ax-row,.ax-steps button{transition:none}
+}
+</style>
+
 <style id="lean7-home">
 
 /* ==================== hero v3: full-width clay scene, headline left, actions right ==================== */
@@ -2811,15 +2968,15 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
     </div>
     <p class="hx-chips hx-spec"><a class="chip sm hb-card" href="#for-orthopedics"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/82ce2cf2a796.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-b"/></svg></span>Orthopedics & spine</span></a><a class="chip sm hb-card" href="#for-gastroenterology"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/7e75eddf7529.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-o"/></svg></span>GI & endoscopy</span></a><a class="chip sm hb-card" href="#for-plastic-surgery"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/38417654b7de.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-p"/></svg></span>Plastic surgery</span></a><a class="chip sm hb-card" href="#for-dermatology"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/896eb232cd3e.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-y"/></svg></span>Dermatology</span></a><a class="chip sm hb-card" href="#for-dental"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/0152e1ad2cff.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-b"/></svg></span>Dental</span></a><a class="chip sm hb-card" href="#for-ophthalmology"><span class="hb-pic" aria-hidden="true"><img decoding="async" loading="lazy" class="hb-uc-img" alt="" src="/assets/i/706053fdd806.webp"></span><span class="hb-lbl"><span class="hb-dot" aria-hidden="true"><svg class="hx-o" viewBox="0 0 40 40" focusable="false"><use href="#ac-ball-o"/></svg></span>Ophthalmology</span></a></p>
   </div>
-</section>
+</section> <section class="sec" id="ax-day" aria-labelledby="ax-day-h"> <div class="wrap ax-day" data-ax-day> <div> <p class="eyebrow">Your morning</p> <h2 id="ax-day-h">Every morning, your money <span class="pop">and what needs you.</span></h2> <p class="ax-lede">Aria opens on Today: your cash for the weeks ahead, the bills waiting on you, and what insurers still owe.</p> <ol class="ax-steps" role="tablist" aria-label="Today in Aria: know, approve, recover"> <li><button type="button" role="tab" id="ax-s1" aria-controls="ax-r1" aria-selected="true" data-i="0"><span class="ax-n">1</span><span class="ax-t"><b>Know: see if payroll clears</b><span>Deposits, payroll and bills on one timeline, so you know where cash will be before you need to ask.</span></span><i class="ax-bar" aria-hidden="true"></i></button></li> <li><button type="button" role="tab" id="ax-s2" aria-controls="ax-r2" aria-selected="false" data-i="1" tabindex="-1"><span class="ax-n">2</span><span class="ax-t"><b>Approve: tap once, not twelve times</b><span>Bills arrive coded and matched to receipts. You approve, and Aria pays each one on its due date.</span></span><i class="ax-bar" aria-hidden="true"></i></button></li> <li><button type="button" role="tab" id="ax-s3" aria-controls="ax-r3" aria-selected="false" data-i="2" tabindex="-1"><span class="ax-n">3</span><span class="ax-t"><b>Recover: get what insurers owe</b><span>Short payments and denials are flagged with the fix drafted, so money stops slipping through.</span></span><i class="ax-bar" aria-hidden="true"></i></button></li> </ol> </div> <div class="ax-today" aria-label="Example of the Today view in Aria"> <div class="ax-today-top"><b>Today in Aria<small>Mon 7:30 AM</small></b><span class="ax-live"><i></i>Sample data</span></div> <div class="ax-row on" id="ax-r1" role="tabpanel" aria-labelledby="ax-s1"><span class="ax-rn" aria-hidden="true">1</span><img src="/assets/i/7a793dd4aa74.webp" alt="" loading="lazy" decoding="async"><div class="ax-rt"><span class="k">Cash · next 13 weeks</span><b>Payroll on the 15th is covered</b><span class="d">$184,200 on hand · lowest point $62,400 on Nov 28</span></div><span class="ax-chip up">On track</span></div> <div class="ax-row" id="ax-r2" role="tabpanel" aria-labelledby="ax-s2"><span class="ax-rn" aria-hidden="true">2</span><img src="/assets/i/b011dc9a3639.webp" alt="" loading="lazy" decoding="async"><div class="ax-rt"><span class="k">Bills · due this week</span><b>12 bills coded and matched</b><span class="d">$18,940 total · receipts attached · 3 vendors</span></div><span class="ax-chip act" data-done="Approved ✓">Approve all</span></div> <div class="ax-row" id="ax-r3" role="tabpanel" aria-labelledby="ax-s3"><span class="ax-rn" aria-hidden="true">3</span><img src="/assets/i/44b6ce7fda7f.webp" alt="" loading="lazy" decoding="async"><div class="ax-rt"><span class="k">Insurers · Payer A</span><b>Short $300.00 on the Sep 22 deposit</b><span class="d">10 claims paid $112 vs. your $142 contract rate · appeal drafted</span></div><span class="ax-chip act" data-done="Appeal ready ✓">Recover $300</span></div> </div> </div> </section> <section class="sec alt" id="ax-problem" aria-labelledby="ax-problem-h"> <div class="wrap"> <div class="head"><p class="eyebrow">The problem</p><h2 id="ax-problem-h">Your practice’s money is <span class="pop">scattered everywhere.</span></h2></div> <figure class="ax-art"><img src="/assets/i/9ca3c3f262d2.webp" alt="Illustration: stacks of bills and receipts piled on one side of a balance scale." loading="lazy" decoding="async"></figure> <ul class="ax-pains"> <li><img src="/assets/i/14360778e6a6.webp" alt="" loading="lazy" decoding="async"><p>Receipts live in inboxes, cars and staff phones. Someone chases them at month-end, and your bookkeeper bills you by the hour to catch up.</p></li> <li><img src="/assets/i/d113daeb7ceb.webp" alt="" loading="lazy" decoding="async"><p>Insurers pay in lump deposits. Nobody checks each one against what your contract says you’re owed.</p></li> <li><img src="/assets/i/69f91ed10880.webp" alt="" loading="lazy" decoding="async"><p>Everyone buys supplies on the owner’s card, so you can’t tell who spent what, or why.</p></li> <li><img src="/assets/i/811332671714.webp" alt="" loading="lazy" decoding="async"><p>Denied claims wait in a payer portal until someone has time. Some never get worked at all.</p></li> <li><img src="/assets/i/d5302a185c9a.webp" alt="" loading="lazy" decoding="async"><p>You learn how last quarter went when your CPA sends the books, weeks after it was too late to change anything.</p></li> </ul> </div> </section>
 
 <section class="sec pillars hx2 hx-plat stk-on" id="roadmap" aria-labelledby="platform-h">
   <div class="wrap">
     <span id="card"></span><div class="head"><p class="eyebrow">The platform</p><h2 id="platform-h">Your <span class="pop">practice&rsquo;s money,</span> in one place.</h2></div>
     <ul class="pillar-row">
-      <li class="stk-item" style="--i:0"><a class="pillar stk stk-spend" href="#cfo-hub"><span class="stk-copy"><b class="stk-pill">Finance</b><small class="stk-h">Built to put cards in your team’s hands<span class="pop"> and show what came in and what went out.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/81b700ed6425.webp"><i></i><i></i><i></i></span></a></li>
-      <li class="stk-item" style="--i:1"><a class="pillar stk stk-books" href="#bill-pay"><span class="stk-copy"><b class="stk-pill">Accounting</b><small class="stk-h">Built to match each receipt, prepare each bill for approval<span class="pop"> and keep your books in sync.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/6e941811ccf0.webp"><i></i><i></i><i></i></span></a></li>
-      <li class="stk-item" style="--i:2"><a class="pillar stk stk-pay" href="#see"><span class="stk-copy"><b class="stk-pill">Receivables</b><small class="stk-h">Built to get claims paid sooner, match each payment to its deposit<span class="pop"> and work denials.</span></small></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/5269cc5a5d02.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:0"><a class="pillar stk stk-spend" href="#cfo-hub"><span class="stk-copy"><b class="stk-pill">Finance</b><small class="stk-h">Built to put cards in your team’s hands<span class="pop"> and show what came in and what went out.</span></small><span class="ax-prods"><span>CFO Hub</span> · <span>Aria Card</span> · <span>Bridge Payments</span> · <span>Treasury</span></span></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/81b700ed6425.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:1"><a class="pillar stk stk-books" href="#bill-pay"><span class="stk-copy"><b class="stk-pill">Accounting</b><small class="stk-h">Built to match each receipt, prepare each bill for approval<span class="pop"> and keep your books in sync.</span></small><span class="ax-prods"><span>Automated AP</span> · <span>Expense Management</span> · <span>Bookkeeping &amp; Close</span></span></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/6e941811ccf0.webp"><i></i><i></i><i></i></span></a></li>
+      <li class="stk-item" style="--i:2"><a class="pillar stk stk-pay" href="#see"><span class="stk-copy"><b class="stk-pill">Receivables</b><small class="stk-h">Built to get claims paid sooner, match each payment to its deposit<span class="pop"> and work denials.</span></small><span class="ax-prods"><span>Claims Advance</span> · <span>Denial Management</span> · <span>Underpayment Checks</span> · <span>Patient Payments</span></span></span><span class="stk-art" aria-hidden="true"><img decoding="async" loading="lazy" alt="" src="/assets/i/5269cc5a5d02.webp"><i></i><i></i><i></i></span></a></li>
     </ul>
   </div>
 </section>
@@ -2841,7 +2998,7 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
       </div>
     </div>
   </div>
-</section>
+</section> <section class="sec" id="ax-results" aria-labelledby="ax-results-h"> <div class="wrap"> <div class="head"><p class="eyebrow">Measure what matters</p><h2 id="ax-results-h">The numbers a CFO <span class="pop">watches for you.</span></h2><p class="ax-lede">Aria is built to track outcomes, not activity, so you can see whether your practice is getting healthier month to month. <span class="ax-tag">Sample data</span></p></div> <ul class="ax-kpis"> <li style="--t:var(--ax-blue)"><b>11 weeks</b><h3>Cash runway</h3><p>How long cash on hand would last at this month’s spending.</p></li> <li style="--t:var(--ax-lime)"><b>$4,180</b><h3>Short payments recovered</h3><p>Claims paid below your contract rate, found and appealed this quarter.</p></li> <li style="--t:var(--ax-pink)"><b>38 days</b><h3>Days to get paid</h3><p>From visit to deposit on the average claim, and whether it’s shrinking.</p></li> <li style="--t:var(--ax-peach)"><b>94%</b><h3>Denials worked in a week</h3><p>Denied claims corrected and resubmitted within seven days.</p></li> <li style="--t:var(--ax-lilac)"><b>$6,720</b><h3>Back on card spend</h3><p>Earned this year at 2% on supplies and business spend.</p></li> <li style="--t:var(--ax-blue)"><b>Day 3</b><h3>Books closed</h3><p>How soon after month-end your books are reconciled and ready for your CPA.</p></li> </ul> </div> </section>
 
 <section class="sec alt" id="compare" aria-labelledby="compare-h">
   <div class="wrap">
@@ -2865,26 +3022,35 @@ h3,.tile-copy h3,.steps h3{font-weight:600}
   </div>
 </section>
 
-<section class="sec alt" id="trust">
-  <div class="wrap split">
-    <div><p class="eyebrow">Trust</p><h2>Built to be trusted with your practice’s money.</h2></div>
-    <div><dl class="defs icons"><div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg>Licensed partners hold the money</dt><dd>Aria is a technology company, not a bank. Cards will be issued and accounts held by licensed partner institutions, which we will name before launch.</dd></div><div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Careful with sensitive data</dt><dd>We won’t take in any patient information from your practice until we’ve signed a business associate agreement with you. We are building Aria with encryption and strict access controls, and will publish our security practices before launch.</dd></div><div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>AI that asks first</dt><dd>Nothing is paid, moved or changed without a person signing off.</dd></div><div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg>Terms in writing first</dt><dd>You will see pricing and terms in writing before you apply for anything.</dd></div><div><dt><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 17l6-6 4 4 6-7"/><path d="M15 8h5v5"/></svg>Venture-backed</dt><dd>Aria is built by Wellby Health, a venture-backed company focused on independent medical practices.</dd></div></dl></div>
-  </div>
-</section>
+<section class="sec alt" id="trust" aria-labelledby="ax-trust-h"> <div class="wrap"> <div class="head"><p class="eyebrow">Trust</p><h2 id="ax-trust-h">Built to be trusted <span class="pop">with your practice’s money.</span></h2></div> <ul class="ax-trust"> <li><img src="/assets/i/281793e9737c.webp" alt="" loading="lazy" decoding="async"><b>Licensed partners hold the money</b><span>Aria is a technology company, not a bank. Cards will be issued and accounts held by licensed partner institutions, which we will name before launch.</span></li> <li><img src="/assets/i/b3cf13b9bd3e.webp" alt="" loading="lazy" decoding="async"><b>Careful with patient data</b><span>We won’t take in any patient information until we’ve signed a business associate agreement with you.</span></li> <li><img src="/assets/i/f26df0c2cd32.webp" alt="" loading="lazy" decoding="async"><b>AI that asks first</b><span>Nothing is paid, moved or changed without a person signing off.</span></li> <li><img src="/assets/i/2312523c3e2e.webp" alt="" loading="lazy" decoding="async"><b>Terms in writing first</b><span>You will see pricing and terms in writing before you apply for anything.</span></li> </ul> <p class="ax-trust-foot">Aria is built by Wellby Health, a venture-backed company focused on independent medical practices.</p> </div> </section>
 
 <section class="sec" id="faq">
   <div class="wrap split">
-    <div><p class="eyebrow">Questions</p><h2>What practices <span class="pop">ask us.</span></h2><p class="prose-sm">Something we haven’t covered? <a href="#waitlist" data-mode="talk">Talk to us</a>.</p></div>
-    <div class="faq"><details><summary>What will Aria cost?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>Pricing isn’t final. Practices on the waitlist will see pricing and terms in writing before applying for anything, and joining the waitlist is free with no obligation.</p></div></details><details><summary>Do we have to switch banks?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>No. The card works alongside your current bank, and you fund it from your existing account.</p></div></details><details><summary>Is Aria a bank?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>No. Aria is a financial technology company. Card services will be provided by licensed partner institutions, which we’ll name before launch.</p></div></details></div>
+    <div><p class="eyebrow">Questions</p><h2>What practices <span class="pop">ask us.</span></h2><figure class="ax-faq-art"><img src="/assets/i/d5fa4a3a00d5.webp" alt="" loading="lazy" decoding="async"></figure><p class="prose-sm">Something we haven’t covered? <a href="#waitlist" data-mode="talk">Talk to us</a>.</p></div>
+    <div class="faq"><details><summary>What will Aria cost?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>Pricing isn’t final. Practices on the waitlist will see pricing and terms in writing before applying for anything, and joining the waitlist is free with no obligation.</p></div></details><details><summary>Do we have to switch banks?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>No. The card works alongside your current bank, and you fund it from your existing account.</p></div></details><details><summary>Is Aria a bank?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>No. Aria is a financial technology company. Card services will be provided by licensed partner institutions, which we’ll name before launch.</p></div></details><details><summary>What does an AI CFO actually do?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>The work a part-time CFO and bookkeeper would do: watching cash, checking what insurers pay against your contracts, coding spend, closing the books and flagging what needs you. Aria does the routine work and brings you the decisions.</p></div></details><details><summary>Does it replace my bookkeeper or CPA?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>It replaces the catch-up work, like chasing receipts and coding transactions. Your CPA still handles taxes and advice, and gets clean, reconciled books to work from.</p></div></details><details><summary>Does it work with our accounting software?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category.</p></div></details><details><summary>Does it work across multiple locations?<svg class="ic chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary><div class="ans"><p>Yes. One login covers every location and tax ID, and you can see each location’s numbers on its own or side by side.</p></div></details></div>
   </div>
 </section>
-<section class="sec alt" id="join">
-  <div class="wrap center">
-    <h2>See Aria on your practice’s finances.</h2>
-    <p class="hx-cta-end"><a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a> <a class="btn-text" href="#waitlist" data-mode="talk">Talk to us</a></p>
-  </div>
-</section>
-</div>
+<section class="sec" id="join" aria-labelledby="ax-join-h"> <div class="wrap"> <div class="ax-join"> <div> <p class="eyebrow">Join the waitlist</p> <h2 id="ax-join-h">See Aria on <span class="pop">your practice’s finances.</span></h2> <p class="ax-lede">Tell us about your practice, and we’ll reach out as we open access.</p> <ul class="ax-perks"><li>No cost and no commitment</li><li>Takes about a minute</li><li>Pricing and terms in writing before you apply</li></ul> <p class="hx-cta-end"><a class="btn btn-primary" href="#waitlist" data-mode="waitlist">Join the waitlist</a> <a class="btn-text" href="#waitlist" data-mode="talk">Talk to us</a></p> </div> <figure class="ax-join-art"><img src="/assets/i/850d18fbea70.webp" alt="Illustration: a rising bar chart with a sparkle." loading="lazy" decoding="async"></figure> </div> </div> </section>
+<script id="ax-day-js">/* Your morning panel: tabs cycle on their own until someone picks one; the Approve chips flip to done on click. */
+(function(){var root=document.querySelector('[data-ax-day]');if(!root)return;
+var tabs=[].slice.call(root.querySelectorAll('.ax-steps [role=tab]')),rows=[].slice.call(root.querySelectorAll('.ax-row')),
+reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,i=0,t=null,dwell=6000,auto=!reduce,seen=false;
+function show(n,focus){i=n;tabs.forEach(function(b,k){var on=k===n;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;
+ var bar=b.querySelector('.ax-bar');if(bar){bar.style.display='none';void bar.offsetWidth;bar.style.display='';}});
+ rows.forEach(function(r,k){r.classList.toggle('on',k===n)});if(focus)tabs[n].focus();}
+function next(){show((i+1)%tabs.length);plan();}
+function plan(){clearTimeout(t);if(auto&&seen)t=setTimeout(next,dwell);}
+function stop(){auto=false;clearTimeout(t);root.classList.add('is-paused');}
+tabs.forEach(function(b,k){b.addEventListener('click',function(){stop();show(k)});
+ b.addEventListener('keydown',function(e){var d=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;
+  if(d){e.preventDefault();stop();show((i+d+tabs.length)%tabs.length,true);}});});
+root.addEventListener('mouseenter',function(){clearTimeout(t);root.classList.add('is-paused')});
+root.addEventListener('mouseleave',function(){if(auto){root.classList.remove('is-paused');plan();}});
+root.querySelectorAll('.ax-chip.act').forEach(function(c){c.style.cursor='pointer';c.addEventListener('click',function(){
+ if(c.dataset.done){c.textContent=c.dataset.done;c.classList.remove('act');c.classList.add('done');}});});
+if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;if(seen)plan();else clearTimeout(t);});},{threshold:.4}).observe(root);}
+else{seen=true;plan();}
+})();</script></div>
 <div class="view" data-view="products" hidden><section class="sec page-top"><div class="wrap"><nav class="ptabs at-overview" aria-label="Products"><a href="#products" aria-current="page">Overview</a><span class="pt-grp"><a class="pt-g" href="#cfo-hub">Finance</a><a href="#cfo-hub">CFO Hub</a><a href="#spend">Aria Card</a><a href="#bridge">Bridge Payments</a><a href="#treasury">Treasury</a></span><span class="pt-grp"><a class="pt-g" href="#bill-pay">Accounting &amp; Accounts Payable</a><a href="#bill-pay">Automated Accounts Payable</a><a href="#expenses">Expense Management</a><a href="#accounting">Bookkeeping &amp; Close</a></span><span class="pt-grp"><a class="pt-g" href="#denials">Accounts Receivable</a><a href="#claims-advance">Claims Advance</a><a href="#denials">Denial Management</a><a href="#see">Underpayment Checks</a><a href="#patient-payments">Patient Payments</a></span></nav>
   <div class="head left"><p class="eyebrow">Products</p><h1 class="h1-page">One platform for your practice’s money.</h1><p class="lead">Aria AI is built to run your team’s cards and spend controls, match receipts, queue vendor bills and keep your books current, and to check each insurer payment against your bank deposits.</p></div>
   <div class="pstrip"><div class="pstrip-i"><svg class="ic ic-clay" viewBox="0 0 94 128" aria-hidden="true" focusable="false"><use href="#ci-location"/></svg><b>Multi-location</b><small>One login across every location and tax ID</small></div><div class="pstrip-i"><svg class="ic ic-clay" viewBox="0 0 128 118" aria-hidden="true" focusable="false"><use href="#ci-roles"/></svg><b>Approvals and roles</b><small>Decide who can spend, approve and pay</small></div><div class="pstrip-i"><svg class="ic ic-clay" viewBox="0 0 128 128" aria-hidden="true" focusable="false"><use href="#ci-ai"/></svg><b>Aria AI</b><small>Reads receipts and invoices, codes spend, flags what looks off</small></div><div class="pstrip-i"><svg class="ic ic-clay" viewBox="0 0 114 128" aria-hidden="true" focusable="false"><use href="#ci-partners"/></svg><b>Licensed partners</b><small>Money held at partner banks, terms in writing</small></div></div>
