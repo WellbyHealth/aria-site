@@ -1,0 +1,39 @@
+# Aria
+
+> Aria is the financial home for independent medical practices: cards, bill pay, accounting and insurer payments in one place, run by an AI CFO. It starts with a business card that earns 2% back on medical supplies. Aria is built by Wellby Health, a venture-backed company, and is in waitlist (pre-launch). Aria is a financial technology company, not a bank; card services will be provided by licensed partner institutions.
+
+Who it is for: owners and office managers of independent practices (primary care, medical specialists, surgical and procedural practices, surgery centers, dental, eye care, infusion, aesthetics and rehab, post-acute care and pharmacy, veterinary). It works alongside a practice's existing bookkeeper or accountant.
+
+## Products
+
+- [Aria Card](https://ariapractice.com/card): business card for medical practices, 2% back on supplies, cards and limits per staff member
+- [Expense management](https://ariapractice.com/expense-management): receipts texted in, coded and matched to the charge
+- [Bill pay](https://ariapractice.com/bill-pay): vendor bills read, approved and paid from one queue
+- [Underpayment checks](https://ariapractice.com/underpayments): what each insurer paid versus what was owed, traced to the bank deposit
+- [Denial management](https://ariapractice.com/denials): denials ranked by dollars, appeals drafted and tracked
+- [Claims Advance](https://ariapractice.com/claims-advance): get paid on submitted insurance claims sooner
+- [Patient payments](https://ariapractice.com/patient-payments): patient balances collected without collection calls
+- [Bookkeeping and close](https://ariapractice.com/bookkeeping): books coded and kept current through month end
+- [Bridge Payments](https://ariapractice.com/bridge): pay vendors now, settle when insurer money lands
+- [Treasury](https://ariapractice.com/treasury): put idle cash to work while keeping enough ready for bills
+- [CFO Hub](https://ariapractice.com/cfo-hub): every location's money in one view
+- [Marketplace preview](https://ariapractice.com/marketplace): medical supplies at clear prices
+
+## Specialties
+
+- [All specialties](https://ariapractice.com/specialties)
+- [Primary and behavioral care](https://ariapractice.com/industries/primary-care)
+- [Medical specialists](https://ariapractice.com/industries/specialists)
+- [Surgical and procedural](https://ariapractice.com/industries/surgical)
+- [Surgery centers and diagnostics](https://ariapractice.com/industries/surgery-centers)
+- [Dental](https://ariapractice.com/industries/dental)
+- [Eye care](https://ariapractice.com/industries/eye-care)
+- [Infusion and buy-and-bill](https://ariapractice.com/industries/infusion)
+- [Aesthetics and rehab](https://ariapractice.com/industries/aesthetics-rehab)
+- [Post-acute care and pharmacy](https://ariapractice.com/industries/post-acute)
+- [Veterinary and animal care](https://ariapractice.com/industries/veterinary)
+
+## Optional
+
+- [Join the waitlist](https://ariapractice.com/#waitlist)
+- [Sitemap](https://ariapractice.com/sitemap.xml)

@@ -1,2 +1,6 @@
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /demo
+Disallow: /api/
+
+Sitemap: https://ariapractice.com/sitemap.xml
