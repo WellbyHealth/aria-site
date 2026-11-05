@@ -6,11 +6,12 @@
 // matching view on load. Also writes sitemap.xml. index.html itself is never edited here.
 import fs from 'node:fs';
 import path from 'node:path';
+import { buildBlog } from './blog.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const OUT = path.join(ROOT, 'dist');
 const SITE = 'https://ariapractice.com';
-const SKIP = new Set(['.git', 'dist', 'tools', 'api', 'node_modules', '.vercel', 'vercel.json', 'package.json', 'README.md']);
+const SKIP = new Set(['.git', 'dist', 'tools', 'api', 'blog', 'node_modules', '.vercel', 'vercel.json', 'package.json', 'README.md']);
 
 const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
@@ -201,10 +202,15 @@ for (const [view, url, label] of INDUSTRIES) {
   }
 }
 
-// ---------- sitemap ----------
+// ---------- blog (posts publish on their date) ----------
 const today = new Date().toISOString().slice(0, 10);
+const blogPages = buildBlog({ root: ROOT, out: OUT, today, ld });
+pages.push(...blogPages);
+
+// ---------- sitemap ----------
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  pages.map((p) => '  <url><loc>' + SITE + p.url + '</loc><lastmod>' + today + '</lastmod><priority>' + p.priority + '</priority></url>').join('\n') +
+  pages.map((p) => '  <url><loc>' + SITE + p.url + '</loc><lastmod>' + (p.lastmod || today) + '</lastmod><priority>' + p.priority + '</priority></url>').join('\n') +
   '\n</urlset>\n');
 
+console.log('blog posts live: ' + blogPages.filter((p) => p.url !== '/blog').length);
 console.log('built ' + pages.length + ' pages (' + specCount + ' specialties), home FAQ ' + homeQa.length);
