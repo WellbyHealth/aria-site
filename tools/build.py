@@ -91,9 +91,9 @@ FAQ = [
 def faq_block():
     return '<div class="faq">' + ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in FAQ) + '</div>'
 
-CTA = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><a class="btn" href="/checkup">Book a free checkup</a></div></section>'''
+CTA = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a></div></section>'''
 
-CTA_HOME = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn" href="/checkup">Book a free checkup</a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
+CTA_HOME = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
 
 def build():
     pages = []
@@ -159,42 +159,43 @@ def build():
         ('running', 'Running one practice', 'Hand off the bills, books and billing follow-up, and get your evenings back.'),
         ('growing', 'Growing to more locations', 'See every location in one place and have the numbers ready for a partner, a lender or a sale.'),
     ]
-    aud = ''.join(f'<li class="aud"><img src="/assets/i/stage-{k}-480.webp" srcset="/assets/i/stage-{k}-480.webp 480w, /assets/i/stage-{k}-800.webp 800w" sizes="(max-width:860px) 100vw, 340px" width="480" height="358" alt="" loading="lazy" decoding="async"><h3>{esc(t)}</h3><p>{esc(d)}</p></li>' for k, t, d in AUD)
+    aud = ''.join(f'<li class="aud"><figure><img src="/assets/i/stage-{k}-480.webp" srcset="/assets/i/stage-{k}-480.webp 480w, /assets/i/stage-{k}-800.webp 800w" sizes="(max-width:980px) 100vw, 380px" width="480" height="358" alt="" loading="lazy" decoding="async"></figure><h3>{esc(t)}</h3><p>{esc(d)}</p></li>' for k, t, d in AUD)
 
     home = f'''
-<section class="hero"><div class="wrap hero-in">
-<div class="hero-copy"><p class="eyebrow">Fractional CFO and finance team for independent practices</p>
-<h1>You run the practice. <span class="hl">We run the money.</span></h1>
+<section class="hero">
+<div class="sky"><figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="100vw" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure></div>
+<div class="band"><div class="wrap band-grid">
+<div class="band-title"><p class="eyebrow on-dark"><span>Fractional CFO for independent practices</span></p>
+<h1>You run the practice. <span class="pop">We run the money.</span></h1>
 <p class="lede">Banking, payroll, bills, books, billing follow-up, cards and financing, handled by one team for one monthly fee. You collect more, keep more, and stop doing finance at night.</p>
-<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup</a><a class="link" href="#week">See your week with us →</a></div>
+<div class="cta-row"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><a class="link on-dark" href="#how">See how it works</a></div>
 <p class="fine">Built for owner-physicians with one to ten locations.</p></div>
-<figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="(max-width:900px) 100vw, 1100px" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure>
-</div></section>
+<figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul>{week}</ul><figcaption>An example of what an owner sees each week. Every practice’s list is its own.</figcaption></figure>
+</div></div>
+</section>
 
-<section class="sec" id="week"><div class="wrap split wk-split">
-<div><p class="eyebrow">Your week with us</p><h2>Ten minutes a week. We do the rest.</h2><p class="prose wk-lede">Each week you get one short list on your phone: what to approve, what we recovered, and anything that needs your call.</p>
-<ol class="steps steps-v">
-<li><b>Free checkup.</b><span>We read three months of statements, remittances and your P&L, and show you what’s leaking.</span></li>
-<li><b>Two-week handoff.</b><span>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</span></li>
-<li><b>Ten minutes a week.</b><span>You approve from your phone. One review call a month.</span></li>
-</ol></div>
-<figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul>{week}</ul><figcaption>An example of what an owner sees. Every practice’s list is its own.</figcaption></figure>
-</div></section>
+<section class="sec" id="how"><div class="wrap">
+<div class="head"><p class="eyebrow"><span>How it works</span></p><h2>Ten minutes a week. We do the rest.</h2></div>
+<ol class="steps">
+<li><div class="step-vis"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></div><div class="step-copy"><span class="num">1</span><h3>Free checkup</h3><p>We read three months of statements, remittances and your P&L, and show you what’s leaking, in dollars.</p></div></li>
+<li><div class="step-vis"><img src="/assets/i/scene-accounting-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></div><div class="step-copy"><span class="num">2</span><h3>Two-week handoff</h3><p>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</p></div></li>
+<li><div class="step-vis"><img src="/assets/i/stage-running-800.webp" alt="" width="800" height="597" loading="lazy" decoding="async"></div><div class="step-copy"><span class="num">3</span><h3>Ten minutes a week</h3><p>One short list on your phone: approve, see what we recovered, make the one call that’s yours. One review a month.</p></div></li>
+</ol></div></section>
 
 <section class="sec alt"><div class="wrap">
-<p class="eyebrow">The problem</p><h2>Your practice’s money runs through five vendors and lands on you.</h2>
-<p class="lede">A bookkeeper, a biller, a bank, a payroll company and a CPA you see at tax time. Nobody owns the whole picture, so it leaks in the same five places.</p>
+<div class="head"><p class="eyebrow"><span>The problem</span></p><h2>Your practice’s money runs through five vendors and lands on you.</h2>
+<p class="lede">A bookkeeper, a biller, a bank, a payroll company and a CPA you see at tax time. Nobody owns the whole picture, so it leaks in the same five places.</p></div>
 <ul class="pains">{pains}</ul>
 </div></section>
 
 <section class="sec" id="handle"><div class="wrap">
-<p class="eyebrow">What we take off your plate</p><h2>One team for every part of your practice’s finances.</h2>
+<div class="head"><p class="eyebrow"><span>What we take off your plate</span></p><h2>One team for every part of your practice’s finances.</h2></div>
 {svc_grid()}
 <p class="center"><a class="link" href="/services">See each service in detail →</a></p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<p class="eyebrow">Before and after</p><h2>The same practice, two ways.</h2>
+<div class="head"><p class="eyebrow"><span>Before and after</span></p><h2>The same practice, two ways.</h2></div>
 <figure class="wide-art"><img src="/assets/i/compare-split-1584.webp" srcset="/assets/i/compare-split-900.webp 900w, /assets/i/compare-split-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration: a grey pile of bills, receipts and a calculator on one side, and a bright practice with money and mail flowing in on the other." loading="lazy" decoding="async"></figure>
 <div class="ba">
 <div class="ba-col ba-before"><p class="ba-k">Your month today</p><ul><li>Statements in five places, and none of them agree</li><li>Denials pile up until they expire</li><li>Books closed weeks late, if at all</li><li>Payroll checked against the balance the night before</li><li>Finance questions answered after clinic</li></ul></div>
@@ -203,33 +204,33 @@ def build():
 </div></section>
 
 <section class="sec" id="examples"><div class="wrap">
-<p class="eyebrow">For your specialty</p><h2>What we’d work on first in a practice like yours.</h2>
-<div class="ex" data-tabs><div class="ex-tabs" role="tablist" aria-label="Practice types">{''.join(tabs)}</div>{''.join(panels)}</div>
+<div class="head"><p class="eyebrow"><span>For your specialty</span></p><h2>What we’d work on first in a practice like yours.</h2></div>
+<div data-tabs><div class="ex-tabs" role="tablist" aria-label="Practice types">{''.join(tabs)}</div>{''.join(panels)}</div>
 <p class="fine center">Example plans. Every practice’s checkup sets its own priorities.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<p class="eyebrow">Your options</p><h2>Three ways to run a practice’s finances.</h2>
+<div class="head"><p class="eyebrow"><span>Your options</span></p><h2>Three ways to run a practice’s finances.</h2></div>
 <div class="cmp-wrap"><table class="cmp"><thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Doing it yourself<small>Bookkeeper, biller, bank, payroll and CPA</small></th><th scope="col">Hiring a CFO<small>A full-time finance leader</small></th><th scope="col" class="us">{BRAND}<small>One team, one monthly fee</small></th></tr></thead><tbody>{cmp_rows}</tbody></table></div>
 </div></section>
 
 <section class="sec"><div class="wrap">
-<p class="eyebrow">Who it’s for</p><h2>Wherever your practice is today.</h2>
+<div class="head"><p class="eyebrow"><span>Who it’s for</span></p><h2>Wherever your practice is today.</h2></div>
 <ul class="auds">{aud}</ul>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
-<p class="eyebrow">You stay in control</p><h2>A finance team you can trust with the keys.</h2>
+<div class="head"><p class="eyebrow"><span>You stay in control</span></p><h2>A finance team you can trust with the keys.</h2></div>
 <ul class="trust">
-<li><img src="/assets/i/icon-roles-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>You approve every dollar</h3><p>Nothing is paid, opened or borrowed without your sign-off, from your phone.</p></li>
-<li><img src="/assets/i/icon-patient-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Patient data, protected</h3><p>We sign a business associate agreement before we see any patient information.</p></li>
-<li><img src="/assets/i/icon-partners-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Licensed partners</h3><p>Banking, cards, payroll and financing come from licensed partners, with their terms shown first.</p></li>
+<li><img src="/assets/i/icon-roles-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>You approve every dollar</b><span>Nothing is paid, opened or borrowed without your sign-off, from your phone.</span></li>
+<li><img src="/assets/i/icon-patient-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Patient data, protected</b><span>We sign a business associate agreement before we see any patient information.</span></li>
+<li><img src="/assets/i/icon-partners-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Licensed partners</b><span>Banking, cards, payroll and financing come from licensed partners, with their terms shown first.</span></li>
 </ul>
-<p class="center"><a class="link" href="/how-we-work">How we work →</a></p>
+<p class="center"><a class="link" href="/how-we-work">How we work <span class="arr" aria-hidden="true">→</span></a></p>
 </div></section>
 
 <section class="sec"><div class="wrap">
-<p class="eyebrow">Pricing</p><h2>A flat monthly fee. No long contract.</h2>
+<div class="head"><p class="eyebrow"><span>Pricing</span></p><h2>A flat monthly fee. No long contract.</h2></div>
 <div class="tiers mini">
 <a class="tier" href="/pricing#essentials"><b>Essentials</b><span class="price">$2,500<small>/month</small></span><span>Books, bills and a monthly CFO review</span></a>
 <a class="tier pick" href="/pricing#full"><span class="badge">Most practices</span><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><span>Everything in Essentials, plus getting paid, payroll, cards and cash planning</span></a>
@@ -238,8 +239,8 @@ def build():
 <p class="center fine">Our first five practices get a 90-day pilot at half price.</p>
 </div></section>
 
-<section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Questions</p><h2>What owners ask us.</h2><figure class="faq-art"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><p class="fine">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div>
+<section class="sec alt"><div class="wrap faq-grid">
+<div><div class="head"><p class="eyebrow"><span>Questions</span></p><h2>What owners ask us.</h2></div><figure class="faq-art"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><p class="faq-more">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div>
 {faq_block()}
 </div></section>
 {CTA_HOME}'''
@@ -251,7 +252,7 @@ def build():
         who = {'payroll': 'Run through your payroll provider or a licensed partner provider.', 'card': 'Cards are issued by a partner bank and subject to approval.', 'partners': 'Accounts are held at partner banks. We are not a bank.', 'claims': 'Financing comes from partner lenders and is subject to their approval and terms.', 'see': 'We work alongside your current biller or billing company.'}.get(ic, 'Done by our team, in your accounting system.')
         blocks.append(f'<article class="svc-row" id="{ic}"><span class="svc-ic big"><img src="/assets/i/icon-{ic}-cut.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><h2>{esc(name)}</h2><p class="lede-sm">{esc(line)}</p><ul class="ticks">' + ''.join(f'<li>{esc(b)}</li>' for b in bullets) + f'</ul><p class="who"><b>You still decide:</b> every payment, account and offer. <b>Who provides it:</b> {esc(who)}</p></div></article>')
     services = f'''
-<section class="sec page-top"><div class="wrap"><p class="eyebrow">What we handle</p><h1>Everything finance, handled by one team.</h1><p class="lede">Hand us one area or all eight. We start where the money is leaking and take over the rest at your pace.</p></div></section>
+<section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>What we handle</span></p><h1>Everything finance, handled by one team.</h1><p class="lede">Hand us one area or all eight. We start where the money is leaking and take over the rest at your pace.</p></div></section>
 <section class="sec tight"><div class="wrap svc-list">{''.join(blocks)}</div></section>
 <section class="sec"><div class="wrap"><figure class="wide-art"><img src="/assets/i/scene-accounting-1584.webp" srcset="/assets/i/scene-accounting-900.webp 900w, /assets/i/scene-accounting-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration of a tidy bookkeeping desk with binders and an open ledger." loading="lazy" decoding="async"></figure></div></section>
 {CTA}'''
@@ -259,7 +260,7 @@ def build():
 
     # ---------- pricing ----------
     pricing = f'''
-<section class="sec page-top"><div class="wrap"><p class="eyebrow">Pricing</p><h1>One flat monthly fee for your whole finance function.</h1><p class="lede">Priced by what you hand us, not by the hour. Month to month after the pilot.</p></div></section>
+<section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>Pricing</span></p><h1>One flat monthly fee for your whole finance function.</h1><p class="lede">Priced by what you hand us, not by the hour. Month to month after the pilot.</p></div></section>
 <section class="sec tight"><div class="wrap"><div class="tiers">
 <div class="tier" id="essentials"><b>Essentials</b><span class="price">$2,500<small>/month</small></span><p>For practices that want clean books and bills off their plate.</p><ul class="ticks"><li>Bookkeeping and monthly close</li><li>Bill collection, approval and payment</li><li>Monthly P&L and CFO review call</li></ul><a class="btn ghost" href="/checkup">Start with a checkup</a></div>
 <div class="tier pick" id="full"><span class="badge">Most practices</span><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><p>For owners who want the whole function handled.</p><ul class="ticks"><li>Everything in Essentials</li><li>Denials, underpayments and patient balances</li><li>Payroll management</li><li>Cards and expense management</li><li>13-week cash forecast and banking set-up</li></ul><a class="btn" href="/checkup">Start with a checkup</a></div>
@@ -273,7 +274,7 @@ def build():
 
     # ---------- how we work ----------
     how = f'''
-<section class="sec page-top"><div class="wrap"><p class="eyebrow">How we work</p><h1>A finance team you can trust with the keys.</h1><p class="lede">Clear access, clear approvals, and a named person who answers.</p></div></section>
+<section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>How we work</span></p><h1>A finance team you can trust with the keys.</h1><p class="lede">Clear access, clear approvals, and a named person who answers.</p></div></section>
 <section class="sec tight"><div class="wrap">
 <h2>Your first 30 days</h2>
 <ol class="steps">
@@ -289,11 +290,11 @@ def build():
 <ul class="ticks"><li>You approve every payment, account and financing offer</li><li>Access is role-based and can be removed at any time</li><li>Patient data stays in HIPAA-compliant systems, under a signed agreement</li><li>Partners are named and their terms shown before you choose anything</li><li>Month to month: if we stop earning our fee, you can leave</li></ul>
 </div></section>
 <section class="sec" id="team"><div class="wrap split">
-<div><p class="eyebrow">Team</p><h2>Who you work with</h2></div>
+<div><div class="head"><p class="eyebrow"><span>Team</span></p><h2>Who you work with</h2></div></div>
 <div class="prose"><p><b>Yaniv Sadka, CFO lead.</b> Healthcare venture investor and operator. During our founding pilots, Yaniv leads every practice personally.</p><p>He’s supported by healthcare bookkeeping and billing specialists, and by licensed partners for banking, cards, payroll and financing.</p></div>
 </div></section>
 <section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Our systems</p><h2>Why we can do this for a flat fee</h2></div>
+<div><div class="head"><p class="eyebrow"><span>Our systems</span></p><h2>Why we can do this for a flat fee</h2></div></div>
 <div class="prose"><p>We run your finances on our own systems for bill pay, bookkeeping, payment checks and cash forecasting. That keeps our team small and focused on judgment calls, which is why the fee is a fraction of hiring a controller and a CFO.</p></div>
 </div></section>
 {CTA}'''
@@ -304,7 +305,7 @@ def build():
     inp = lambda name, label, typ='text', req=True, ac='': f'<div class="field"><label for="f-{name}">{label}</label><input id="f-{name}" name="{name}" type="{typ}"' + (f' autocomplete="{ac}"' if ac else '') + (' required' if req else '') + '></div>'
     checkup = f'''
 <section class="sec page-top"><div class="wrap split checkup">
-<div><p class="eyebrow">Free Practice Money Checkup</p><h1>See where your practice’s money is leaking.</h1><p class="lede">A one-page report in five business days. No cost and no commitment.</p>
+<div><p class="eyebrow"><span>Free Practice Money Checkup</span></p><h1>See where your practice’s money is leaking.</h1><p class="lede">A one-page report in five business days. No cost and no commitment.</p>
 <h3>What we look at</h3><ul class="ticks"><li>Three months of bank and card statements</li><li>Insurer remittances (ERAs or EOBs)</li><li>Your latest P&L</li></ul>
 <h3>What you get back</h3><ul class="ticks"><li>Money leaking from denials, underpayments and late or duplicate bills, in dollars</li><li>Where cash will be tight over the next 13 weeks</li><li>What we’d fix first, and what it would cost to hand it to us</li></ul>
 <p class="fine">We sign a confidentiality agreement before you share anything, and a business associate agreement before we see patient data.</p></div>
