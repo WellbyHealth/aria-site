@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://md-cfo.vercel.app</loc></url>
   <url><loc>https://md-cfo.vercel.app/services</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/bookkeeping</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/bill-pay</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/getting-paid</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/payroll</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/cards</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/banking</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/financing</loc></url>
+  <url><loc>https://md-cfo.vercel.app/services/cfo-advice</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/primary-care</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/pediatrics</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/ob-gyn</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/dermatology</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/orthopedics</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/cardiology</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/gastroenterology</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/eye-care</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/dental</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/physical-therapy</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/behavioral-health</loc></url>
+  <url><loc>https://md-cfo.vercel.app/specialties/surgery-center</loc></url>
+  <url><loc>https://md-cfo.vercel.app/compare</loc></url>
+  <url><loc>https://md-cfo.vercel.app/compare/vs-bookkeeper</loc></url>
+  <url><loc>https://md-cfo.vercel.app/compare/vs-billing-company</loc></url>
+  <url><loc>https://md-cfo.vercel.app/compare/vs-full-time-cfo</loc></url>
+  <url><loc>https://md-cfo.vercel.app/compare/vs-fractional-cfo</loc></url>
+  <url><loc>https://md-cfo.vercel.app/about</loc></url>
+  <url><loc>https://md-cfo.vercel.app/faq</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/are-insurers-underpaying-your-practice</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/what-a-fractional-cfo-does-for-a-medical-practice</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/13-week-cash-forecast-for-medical-practices</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/which-denials-to-work-first</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/closed-books-by-day-10</loc></url>
+  <url><loc>https://md-cfo.vercel.app/blog/hire-a-cfo-or-outsource</loc></url>
   <url><loc>https://md-cfo.vercel.app/pricing</loc></url>
   <url><loc>https://md-cfo.vercel.app/how-we-work</loc></url>
   <url><loc>https://md-cfo.vercel.app/checkup</loc></url>

@@ -1,0 +1,45 @@
+# MD CFO
+
+> MD CFO is a fractional CFO and outsourced finance team dedicated to independent medical practices. One team handles bookkeeping, bill pay, denials and underpayments, payroll, cards, banking and financing for one flat monthly fee. It is a service of Wellby Health. It is not a bank, lender, payroll company or CPA firm; regulated products come from licensed partners.
+
+## Services
+
+- [Bookkeeping and monthly close](https://md-cfo.vercel.app/services/bookkeeping): Books coded and closed by day 10, with a P&L for each location.
+- [Bills and vendor payments](https://md-cfo.vercel.app/services/bill-pay): Vendor bills collected, approved by you in one tap, paid on time.
+- [Getting paid: denials, underpayments and patient balances](https://md-cfo.vercel.app/services/getting-paid): We work the money insurers and patients still owe you.
+- [Payroll](https://md-cfo.vercel.app/services/payroll): Payroll run on time, with the cash planned for it.
+- [Cards and expenses](https://md-cfo.vercel.app/services/cards): A card for each team member, with limits you set and receipts matched.
+- [Banking and cash](https://md-cfo.vercel.app/services/banking): The right accounts in place, and enough cash ready for every bill.
+- [Financing and factoring](https://md-cfo.vercel.app/services/financing): Access to working capital when insurers are slow or you’re growing.
+- [CFO advice](https://md-cfo.vercel.app/services/cfo-advice): A named CFO who knows how practices get paid, on call for the big decisions.
+
+## Specialties
+
+- [Primary care](https://md-cfo.vercel.app/specialties/primary-care)
+- [Pediatrics](https://md-cfo.vercel.app/specialties/pediatrics)
+- [OB-GYN](https://md-cfo.vercel.app/specialties/ob-gyn)
+- [Dermatology](https://md-cfo.vercel.app/specialties/dermatology)
+- [Orthopedics](https://md-cfo.vercel.app/specialties/orthopedics)
+- [Cardiology](https://md-cfo.vercel.app/specialties/cardiology)
+- [Gastroenterology](https://md-cfo.vercel.app/specialties/gastroenterology)
+- [Eye care](https://md-cfo.vercel.app/specialties/eye-care)
+- [Dental](https://md-cfo.vercel.app/specialties/dental)
+- [Physical therapy](https://md-cfo.vercel.app/specialties/physical-therapy)
+- [Behavioral health](https://md-cfo.vercel.app/specialties/behavioral-health)
+- [Surgery centers](https://md-cfo.vercel.app/specialties/surgery-center)
+
+## Company
+
+- [Pricing](https://md-cfo.vercel.app/pricing): Essentials $2,500, Full CFO $5,000, Growth from $8,000 a month
+- [About](https://md-cfo.vercel.app/about)
+- [FAQ](https://md-cfo.vercel.app/faq)
+- [Free Practice Money Checkup](https://md-cfo.vercel.app/checkup)
+
+## Guides
+
+- [How to tell if insurers are underpaying your practice](https://md-cfo.vercel.app/blog/are-insurers-underpaying-your-practice)
+- [What a fractional CFO actually does for a medical practice](https://md-cfo.vercel.app/blog/what-a-fractional-cfo-does-for-a-medical-practice)
+- [The 13-week cash forecast: how practices stop worrying about payroll](https://md-cfo.vercel.app/blog/13-week-cash-forecast-for-medical-practices)
+- [Which denials to work first (and which to let go)](https://md-cfo.vercel.app/blog/which-denials-to-work-first)
+- [Why "closed books by day 10" changes how you run a practice](https://md-cfo.vercel.app/blog/closed-books-by-day-10)
+- [Should an independent practice hire a CFO or outsource the job?](https://md-cfo.vercel.app/blog/hire-a-cfo-or-outsource)

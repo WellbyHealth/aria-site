@@ -46,3 +46,19 @@
     });
   });
 })();
+(function(){
+  var dds = [].slice.call(document.querySelectorAll('.dd'));
+  function close(except){ dds.forEach(function(d){ if (d !== except){ d.classList.remove('open'); d.querySelector('.dd-btn').setAttribute('aria-expanded','false'); } }); }
+  dds.forEach(function(d){
+    var b = d.querySelector('.dd-btn'), t;
+    b.addEventListener('click', function(){ var on = !d.classList.contains('open'); close(d); d.classList.toggle('open', on); b.setAttribute('aria-expanded', on); });
+    if (window.matchMedia('(hover:hover)').matches){
+      d.addEventListener('mouseenter', function(){ clearTimeout(t); close(d); d.classList.add('open'); b.setAttribute('aria-expanded','true'); });
+      d.addEventListener('mouseleave', function(){ t = setTimeout(function(){ d.classList.remove('open'); b.setAttribute('aria-expanded','false'); }, 160); });
+    }
+  });
+  document.addEventListener('click', function(e){ if (!e.target.closest('.dd')) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape'){ var o = document.querySelector('.dd.open .dd-btn'); close(); if (o) o.focus(); var m = document.querySelector('.menu-btn[aria-expanded="true"]'); if (m){ m.click(); m.focus(); } } });
+  var mb = document.querySelector('.menu-btn'), mn = document.getElementById('mnav');
+  if (mb && mn) mb.addEventListener('click', function(){ var on = mn.hidden; mn.hidden = !on; mb.setAttribute('aria-expanded', on); });
+})();

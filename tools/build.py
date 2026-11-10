@@ -1,23 +1,57 @@
-# Builds the static site from one layout. Run: python3 tools/build.py
-# The brand name lives in BRAND so it can be changed in one place.
-import os, html, json
+# Builds the static MD CFO site. Run: python3 tools/build.py
+import os, re, html, json, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from content import SERVICES as SV, SPECIALTIES as SP, COMPARES, ABOUT_STORY, FAQ_GROUPS
+from posts import POSTS
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRAND = 'MD CFO'
 SITE = 'https://md-cfo.vercel.app'
-TAG = 'Your practice’s finance team, handled.'
-
-NAV = [('/services', 'Services'), ('/pricing', 'Pricing'), ('/how-we-work', 'How we work')]
+LOGO = '/assets/i/wellby-flower-96.webp'
+SVBY = {s['slug']: s for s in SV}
+SPIC = lambda s: '/assets/i/st-ophthalmology.webp' if s['slug'] == 'eye-care' else f"/assets/i/st-{s['slug']}.webp"
 
 def esc(s): return html.escape(s, quote=True)
-
+ARR = ' <span class="arr" aria-hidden="true">→</span>'
+CHEV = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>'
 CSS = open(os.path.join(ROOT, 'tools', 'site.css')).read()
+JS = open(os.path.join(ROOT, 'tools', 'site.js')).read()
+TINTS = ['#e4f0fd', '#fcecf6', '#fdf5d2', '#e6f4ea']
 
-def page(path, title, desc, body, current=None, ld=None):
-    nav = ''.join(f'<a href="{h}"' + (' aria-current="page"' if h == current else '') + f'>{t}</a>' for h, t in NAV)
-    ldj = ''
-    if ld:
-        ldj = '<script type="application/ld+json">' + json.dumps({'@context': 'https://schema.org', '@graph': ld}).replace('<', '\\u003c') + '</script>'
+def header(current):
+    def nl(h, t):
+        cur = current == h or (h != '/' and current and current.startswith(h + '/'))
+        return f'<a href="{h}"' + (' aria-current="page"' if cur else '') + f'>{t}</a>'
+    svc = ''.join(f'<li><a href="/services/{s["slug"]}"><span class="dd-ic" style="--t:{TINTS[i % 4]}"><img src="/assets/i/icon-{s["ic"]}-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span><b>{esc(s["name"].split(":")[0])}</b><span>{esc(s["line"])}</span></span></a></li>' for i, s in enumerate(SV))
+    spc = ''.join(f'<li><a href="/specialties/{s["slug"]}"><img src="{SPIC(s)}" alt="" width="30" height="30" loading="lazy" decoding="async">{esc(s["name"])}</a></li>' for s in SP)
+    mob = ''.join(f'<a href="{h}">{t}</a>' for h, t in [('/services', 'Services'), ('/specialties', 'Specialties'), ('/pricing', 'Pricing'), ('/how-we-work', 'How we work'), ('/about', 'About'), ('/blog', 'Guides'), ('/faq', 'FAQ'), ('/checkup', 'Free checkup')])
+    return f'''<header class="top"><div class="bar">
+<a class="logo" href="/" aria-label="{BRAND} home"><img src="{LOGO}" alt="" width="30" height="30"><span>{BRAND}</span></a>
+<nav class="nav" aria-label="Main">
+<div class="dd"><button type="button" class="dd-btn" aria-expanded="false" aria-controls="dd-svc">Services {CHEV}</button><div class="dd-panel dd-wide" id="dd-svc"><div class="dd-col"><p class="dd-h">What we take off your plate</p><ul class="dd-goals">{svc}</ul></div><div class="dd-side"><p class="dd-h">Start here</p><p class="dd-side-t">Free Practice Money Checkup</p><p class="dd-side-p">A one-page report on where your money is leaking, in five business days.</p><a class="btn btn-sm" href="/checkup">Book a checkup{ARR}</a><a class="dd-all" href="/services">All services{ARR}</a><img class="dd-art" src="/assets/i/scene-see-900.webp" alt="" loading="lazy" decoding="async"></div></div></div>
+<div class="dd"><button type="button" class="dd-btn" aria-expanded="false" aria-controls="dd-spc">Specialties {CHEV}</button><div class="dd-panel" id="dd-spc"><div class="dd-col"><p class="dd-h">Built for your specialty</p><ul class="dd-spec">{spc}</ul><a class="dd-all" href="/specialties">All specialties{ARR}</a></div></div></div>
+{nl('/pricing', 'Pricing')}{nl('/how-we-work', 'How we work')}{nl('/blog', 'Guides')}
+</nav>
+<div class="hdr-act"><a class="btn btn-sm" href="/checkup">Free checkup</a><button type="button" class="menu-btn" aria-expanded="false" aria-controls="mnav" aria-label="Menu"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+<nav class="mnav" id="mnav" aria-label="Mobile" hidden>{mob}</nav>
+</div></header>'''
+
+def footer():
+    col = lambda t, links: f'<div><b>{t}</b>' + ''.join(f'<a href="{h}">{esc(x)}</a>' for h, x in links) + '</div>'
+    return f'''<footer class="foot"><div class="wrap">
+<div class="foot-grid"><div class="foot-brand"><a class="logo" href="/"><img src="{LOGO}" alt="" width="28" height="28"><span>{BRAND}</span></a><p>Dedicated to medicine. The finance team for independent medical practices. A service of Wellby Health.</p><p><a class="btn btn-sm" href="/checkup">Book a free checkup</a></p></div>
+{col('Services', [(f'/services/{s["slug"]}', s['name'].split(':')[0]) for s in SV])}
+{col('Specialties', [(f'/specialties/{s["slug"]}', s['name']) for s in SP[:7]] + [('/specialties', 'All specialties')])}
+{col('Company', [('/about', 'About'), ('/how-we-work', 'How we work'), ('/pricing', 'Pricing'), ('/blog', 'Guides'), ('/faq', 'FAQ'), ('/compare', 'Compare'), ('/privacy', 'Privacy'), ('mailto:hello@wellbyhealth.com', 'hello@wellbyhealth.com')])}
+</div>
+<p class="legal">{BRAND} is a finance and accounting service of Wellby Health. We are not a bank, lender, payroll company or CPA firm. Bank accounts, cards, financing and payroll are provided by licensed partners and are subject to their approval and terms. Tax filings and tax advice stay with your CPA. Examples on this site are illustrations, not client results.</p>
+<p class="legal">© 2026 Wellby Health</p>
+</div></footer>'''
+
+def page(path, title, desc, body, current=None, ld=None, og=None):
+    url = SITE + ('' if path == '/' else path)
+    ldj = ('<script type="application/ld+json">' + json.dumps({'@context': 'https://schema.org', '@graph': ld}).replace('<', '\\u003c') + '</script>') if ld else ''
+    img = SITE + (og or '/assets/i/og.png')
     out = f'''<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,75 +59,81 @@ def page(path, title, desc, body, current=None, ld=None):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
-<link rel="canonical" href="{SITE}{'' if path == '/' else path}">
+<link rel="canonical" href="{url}">
 <meta property="og:title" content="{esc(title)}">
 <meta property="og:description" content="{esc(desc)}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="{SITE}{'' if path == '/' else path}">
-<meta property="og:image" content="{SITE}/assets/i/og.png">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{img}">
+<meta property="og:site_name" content="{BRAND}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#abdbef">
-<link rel="icon" type="image/webp" href="/assets/i/wellby-flower-96.webp">
+<link rel="icon" type="image/webp" href="{LOGO}">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400..800&display=swap">
 <style>{CSS}</style>
 {ldj}
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="top"><div class="bar"><a class="logo" href="/"><img src="/assets/i/wellby-flower-96.webp" alt="" width="32" height="32"><span>{BRAND}</span></a><nav class="nav" aria-label="Main">{nav}<a class="btn btn-sm" href="/checkup">Free checkup</a></nav></div></header>
+{header(current or path)}
 <main id="main">
 {body}
 </main>
-<footer class="foot"><div class="wrap">
-<div class="foot-grid"><div><a class="logo" href="/"><img src="/assets/i/wellby-flower-96.webp" alt="" width="28" height="28"><span>{BRAND}</span></a><p>The finance team for independent medical practices. A service of Wellby Health.</p></div>
-<div><b>Service</b><a href="/services">What we handle</a><a href="/pricing">Pricing</a><a href="/how-we-work">How we work</a><a href="/checkup">Free checkup</a></div>
-<div><b>Company</b><a href="/how-we-work#team">Team</a><a href="/privacy">Privacy</a><a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a></div></div>
-<p class="legal">{BRAND} is a finance and accounting service of Wellby Health. We are not a bank, lender, payroll company or CPA firm. Bank accounts, cards, financing and payroll are provided by licensed partners and are subject to their approval and terms. Tax filings and tax advice stay with your CPA. Examples on this site are illustrations, not client results.</p>
-<p class="legal">© 2026 Wellby Health</p>
-</div></footer>
-<script>{open(os.path.join(ROOT, 'tools', 'site.js')).read()}</script>
+{footer()}
+<script>{JS}</script>
 </body>
 </html>
 '''
-    f = os.path.join(ROOT, 'index.html' if path == '/' else path.strip('/') + '.html')
+    f = os.path.join(ROOT, '404.html' if path == '/404' else ('index.html' if path == '/' else path.strip('/') + '.html'))
+    os.makedirs(os.path.dirname(f), exist_ok=True)
     open(f, 'w').write(out)
     return path
 
-ORG = {'@type': 'ProfessionalService', '@id': SITE + '/#org', 'name': BRAND, 'url': SITE + '/', 'description': 'Outsourced finance team and fractional CFO service for independent medical practices.', 'parentOrganization': {'@type': 'Organization', 'name': 'Wellby Health'}, 'areaServed': 'US'}
+ORG = {'@type': 'ProfessionalService', '@id': SITE + '/#org', 'name': BRAND, 'url': SITE + '/', 'logo': SITE + '/assets/i/wellby-flower-512.webp', 'description': 'Outsourced finance team and fractional CFO service dedicated to independent medical practices.', 'parentOrganization': {'@type': 'Organization', 'name': 'Wellby Health'}, 'areaServed': 'US', 'email': 'hello@wellbyhealth.com'}
 
-SERVICES = [
-    ('accounting', 'Bookkeeping and monthly close', 'Books coded and closed by day 10, with a P&L for each location.', ['Every card charge, bill and deposit coded to your chart of accounts', 'Bank and card accounts reconciled each month', 'A monthly P&L by location, ready for you and your CPA']),
-    ('bill-pay', 'Bills and vendor payments', 'Vendor bills collected, approved by you in one tap, paid on time.', ['Invoices gathered from email, portals and paper', 'Duplicates and price increases caught before payment', 'Payments scheduled around your cash, never late']),
-    ('see', 'Getting paid: denials, underpayments and patient balances', 'We work the money insurers and patients still owe you.', ['Denials sorted by dollars at stake and appealed with your biller', 'Insurer payments checked against your contracted rates', 'Patient balances followed up without awkward calls']),
-    ('payroll', 'Payroll', 'Payroll run on time, with the cash planned for it.', ['Pay runs, new hires, raises and bonuses handled', 'Cash checked ahead of every payroll', 'Run through your payroll provider or a partner provider']),
-    ('card', 'Cards and expenses', 'A card for each team member, with limits you set and receipts matched.', ['Cards with spending limits by person and category', 'Receipts collected and matched to every charge', 'No more month-end receipt hunts']),
-    ('partners', 'Banking and cash', 'The right accounts in place, and enough cash ready for every bill.', ['Operating and payroll accounts set up through partner banks', 'Idle cash kept separate from bill money', 'A 13-week cash forecast so payroll never surprises you']),
-    ('claims', 'Financing and factoring', 'Access to working capital when insurers are slow or you’re growing.', ['Advances on submitted claims through partner lenders', 'Lines of credit and equipment financing options compared for you', 'Every offer explained in plain terms before you sign']),
-    ('cfo-hub', 'CFO advice', 'A named CFO who knows how practices get paid, on call for the big decisions.', ['A monthly review of profit, cash and what changed', 'Budgets, hiring plans and new-location numbers', 'Support for partner buy-ins, refinancing or a sale']),
-]
+def crumbs(*items):
+    return {'@type': 'BreadcrumbList', 'itemListElement': [{'@type': 'ListItem', 'position': i + 1, 'name': n, 'item': SITE + h} for i, (n, h) in enumerate(items)]}
 
-def svc_grid(limit=None, detail=False):
-    items = []
-    for ic, name, line, bullets in SERVICES[:limit]:
-        bl = ('<ul>' + ''.join(f'<li>{esc(b)}</li>' for b in bullets) + '</ul>') if detail else ''
-        items.append(f'<li class="svc"><span class="svc-ic"><img src="/assets/i/icon-{ic}-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>{esc(name)}</h3><p>{esc(line)}</p>{bl}</li>')
-    return '<ul class="svc-grid">' + ''.join(items) + '</ul>'
+def faq_ld(pairs):
+    return {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in pairs]}
 
-FAQ = [
-    ('Do I have to replace my bookkeeper, biller or CPA?', 'No. We can take over the work, or run it alongside the people you trust. Most practices keep their CPA for taxes; we hand them clean books every month.'),
-    ('Who approves payments?', 'You do. Nothing is paid and no account is opened without your sign-off. Approvals take a few minutes a week from your phone.'),
-    ('Are you a bank or a lender?', 'No. We’re a finance service. Bank accounts, cards, financing and payroll come from licensed partners, subject to their approval and terms, and we manage them for you.'),
-    ('How do you handle patient information?', 'Billing follow-up touches patient data, so we sign a business associate agreement with your practice before we start and only work in systems that meet HIPAA requirements.'),
-    ('What does it cost?', 'A flat monthly fee based on what you hand us, starting at $2,500 a month. Our first practices get a 90-day pilot at half price. See pricing for details.'),
-    ('How long does it take to start?', 'About two weeks: a checkup, a kickoff call, access to your accounts, then we take over one area at a time.'),
-]
+def svc_cards(items=None):
+    items = items if items is not None else SV
+    return '<ul class="svc-grid' + (' three' if len(items) == 3 else '') + '">' + ''.join(f'<li class="svc"><a href="/services/{s["slug"]}"><span class="svc-ic"><img src="/assets/i/icon-{s["ic"]}-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><h3>{esc(s["name"])}</h3><p>{esc(s["line"])}</p><span class="svc-more">Learn more{ARR}</span></a></li>' for s in items) + '</ul>'
+svc_grid = svc_cards
 
-def faq_block():
-    return '<div class="faq">' + ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in FAQ) + '</div>'
+def faq_html(pairs):
+    return '<div class="faq">' + ''.join(f'<details><summary>{esc(q)}</summary><p>{esc(a)}</p></details>' for q, a in pairs) + '</div>'
 
-CTA = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a></div></section>'''
+FAQ = FAQ_GROUPS[0][1][2:3] + FAQ_GROUPS[1][1][:2] + FAQ_GROUPS[2][1][:1] + FAQ_GROUPS[3][1][:1] + FAQ_GROUPS[0][1][1:2]
+def faq_block(): return faq_html(FAQ)
 
-CTA_HOME = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
+def post_cards(posts):
+    return '<ul class="posts">' + ''.join(f'<li class="post-card"><a href="/blog/{p["slug"]}"><figure><img src="/assets/i/{p["img"]}-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><span class="post-tag">{esc(p["tag"])}</span><h3>{esc(p["title"])}</h3><p>{esc(p["desc"])}</p></a></li>' for p in posts) + '</ul>'
+
+def md(text):
+    out, lst = [], []
+    def inline(s):
+        s = esc(s)
+        return re.sub(r'\[([^\]]+)\]\(([^)]+)\)', lambda m: f'<a href="{m.group(2)}">{m.group(1)}</a>', s)
+    for block in text.strip().split('\n\n'):
+        lines = block.strip().split('\n')
+        if lines[0].startswith('## '):
+            out.append(f'<h2>{inline(lines[0][3:])}</h2>')
+            lines = lines[1:]
+            if not lines: continue
+        if all(l.startswith('- ') for l in lines):
+            out.append('<ul>' + ''.join(f'<li>{inline(l[2:])}</li>' for l in lines) + '</ul>')
+        else:
+            out.append(f'<p>{inline(" ".join(lines))}</p>')
+    return '\n'.join(out)
+
+CTA = f'''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><div class="cta-side"><a class="btn btn-y" href="/checkup">Book a free checkup{ARR}</a><p>Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
+CTA_HOME = f'''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn btn-y" href="/checkup">Book a free checkup{ARR}</a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
+
+def top(eyebrow, h1, lede, extra=''):
+    return f'<section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>{esc(eyebrow)}</span></p><h1>{h1}</h1><p class="lede">{lede}</p>{extra}</div></section>'
+
 
 def build():
     pages = []
@@ -142,7 +182,7 @@ def build():
         img = f'/assets/i/icon-{k}-cut.webp' if k == 'location' else f'/assets/i/st-{k}.webp'
         sel = 'true' if i == 0 else 'false'
         tabs.append(f'<button type="button" role="tab" id="tab-{k}" aria-controls="panel-{k}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}"><img src="{img}" alt="" width="36" height="36" loading="lazy" decoding="async"><span>{esc(name)}</span></button>')
-        panels.append(f'<div class="ex-panel" role="tabpanel" id="panel-{k}" aria-labelledby="tab-{k}"' + ('' if i == 0 else ' hidden') + f'><div class="ex-head"><img src="{img}" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>{esc(name)}</h3><p>{esc(sub)}</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks">' + ''.join(f'<li>{esc(x)}</li>' for x in do) + '</ul></div><div><p class="ex-k">What we look at</p><ul class="chips">' + ''.join(f'<li>{esc(x)}</li>' for x in look) + f'</ul><p class="ex-k">What lands on your desk</p><p>{esc(lands)}</p></div></div></div>')
+        panels.append(f'<div class="ex-panel" role="tabpanel" id="panel-{k}" aria-labelledby="tab-{k}"' + ('' if i == 0 else ' hidden') + f'><div class="ex-head"><img src="{img}" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>{esc(name)}</h3><p>{esc(sub)}</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks">' + ''.join(f'<li>{esc(x)}</li>' for x in do) + '</ul></div><div><p class="ex-k">What we look at</p><ul class="chips">' + ''.join(f'<li>{esc(x)}</li>' for x in look) + f'</ul><p class="ex-k">What lands on your desk</p><p>{esc(lands)}</p><p class="ex-more"><a class="link" href="' + ('/specialties' if k == 'location' else f'/specialties/{k}') + f'">' + ('See every specialty' if k == 'location' else f'See the plan for {esc(name).lower()}') + ' <span class="arr" aria-hidden="true">→</span></a></p></div></div></div>')
 
     CMP = [
         ('Who owns the whole picture', 'You, after clinic', 'One person, if you can find them', 'One team, with a named CFO'),
@@ -191,7 +231,7 @@ def build():
 <section class="sec" id="handle"><div class="wrap">
 <div class="head"><p class="eyebrow"><span>What we take off your plate</span></p><h2>One team for every part of your practice’s finances.</h2></div>
 {svc_grid()}
-<p class="center"><a class="link" href="/services">See each service in detail →</a></p>
+<p class="center"><a class="link" href="/services">See each service in detail <span class="arr" aria-hidden="true">→</span></a></p>
 </div></section>
 
 <section class="sec alt"><div class="wrap">
@@ -243,20 +283,133 @@ def build():
 <div><div class="head"><p class="eyebrow"><span>Questions</span></p><h2>What owners ask us.</h2></div><figure class="faq-art"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><p class="faq-more">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div>
 {faq_block()}
 </div></section>
+<section class="sec"><div class="wrap">
+<div class="head"><p class="eyebrow"><span>Guides</span></p><h2>Practical guides for practice owners.</h2></div>
+{post_cards(POSTS[:3])}
+<p class="center"><a class="link" href="/blog">Read all guides <span class="arr" aria-hidden="true">→</span></a></p>
+</div></section>
 {CTA_HOME}'''
     pages.append(page('/', f'{BRAND} | Fractional CFO and finance team for medical practices', 'We run your practice’s finances: books, bills, payroll, billing follow-up, cards, banking and financing, for one monthly fee. Book a free Practice Money Checkup.', home, ld=[ORG, {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]}]))
 
-    # ---------- services ----------
-    blocks = []
-    for i, (ic, name, line, bullets) in enumerate(SERVICES):
-        who = {'payroll': 'Run through your payroll provider or a licensed partner provider.', 'card': 'Cards are issued by a partner bank and subject to approval.', 'partners': 'Accounts are held at partner banks. We are not a bank.', 'claims': 'Financing comes from partner lenders and is subject to their approval and terms.', 'see': 'We work alongside your current biller or billing company.'}.get(ic, 'Done by our team, in your accounting system.')
-        blocks.append(f'<article class="svc-row" id="{ic}"><span class="svc-ic big"><img src="/assets/i/icon-{ic}-cut.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><div><h2>{esc(name)}</h2><p class="lede-sm">{esc(line)}</p><ul class="ticks">' + ''.join(f'<li>{esc(b)}</li>' for b in bullets) + f'</ul><p class="who"><b>You still decide:</b> every payment, account and offer. <b>Who provides it:</b> {esc(who)}</p></div></article>')
+    # ---------- services index ----------
     services = f'''
-<section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>What we handle</span></p><h1>Everything finance, handled by one team.</h1><p class="lede">Hand us one area or all eight. We start where the money is leaking and take over the rest at your pace.</p></div></section>
-<section class="sec tight"><div class="wrap svc-list">{''.join(blocks)}</div></section>
-<section class="sec"><div class="wrap"><figure class="wide-art"><img src="/assets/i/scene-accounting-1584.webp" srcset="/assets/i/scene-accounting-900.webp 900w, /assets/i/scene-accounting-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration of a tidy bookkeeping desk with binders and an open ledger." loading="lazy" decoding="async"></figure></div></section>
+{top('What we handle', 'Everything finance, handled by one team.', 'Hand us one area or all eight. We start where the money is leaking and take over the rest at your pace.')}
+<section class="sec tight"><div class="wrap">{svc_cards()}</div></section>
+<section class="sec alt"><div class="wrap split">
+<div class="head"><p class="eyebrow"><span>How it fits</span></p><h2>We work alongside the people you trust.</h2></div>
+<div class="prose"><p>Keep your CPA for taxes and your biller for coding and claims. We take on everything around them: the books, the bills, payroll, cash, cards, financing and the money insurers still owe you.</p><p>Not sure how we compare with what you have today? <a class="link" href="/compare">See the comparisons</a>.</p></div>
+</div></section>
 {CTA}'''
-    pages.append(page('/services', f'Services: books, bills, payroll, billing and banking | {BRAND}', 'Bookkeeping, bill pay, denials and underpayments, payroll, cards, banking and financing for independent medical practices, run by one finance team.', services, '/services', ld=[ORG]))
+    pages.append(page('/services', f'Services: books, bills, payroll, billing and banking | {BRAND}', 'Bookkeeping, bill pay, denials and underpayments, payroll, cards, banking and financing for independent medical practices, run by one finance team.', services, '/services', ld=[ORG, crumbs(('Home', '/'), ('Services', '/services'))]))
+
+    # ---------- service pages ----------
+    for i, s in enumerate(SV):
+        rel = [o for o in SV if o['slug'] != s['slug']]
+        rel = (rel[i:] + rel[:i])[:3]
+        tint = TINTS[i % 4]
+        body = f'''
+<section class="sec page-top"><div class="wrap svc-hero">
+<div><p class="eyebrow"><span>{esc(s['name'].split(':')[0])}</span></p><h1>{esc(s['h1'])}</h1><p class="lede">{esc(s['lede'])}</p>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup{ARR}</a><a class="link" href="/pricing">See pricing</a></div></div>
+<div class="svc-hero-art" style="--t:{tint}"><img src="/assets/i/icon-{s['ic']}-cut.webp" alt="" width="220" height="220"></div>
+</div></section>
+<section class="sec tight"><div class="wrap"><figure class="wide-art"><img src="/assets/i/{s['scene']}-1584.webp" srcset="/assets/i/{s['scene']}-900.webp 900w, /assets/i/{s['scene']}-1584.webp 1584w" sizes="(max-width:1240px) 100vw, 1160px" width="1584" height="672" alt="" loading="lazy" decoding="async"></figure></div></section>
+<section class="sec alt"><div class="wrap">
+<div class="head"><p class="eyebrow"><span>What we do</span></p><h2>What we take off your plate.</h2></div>
+<div class="do-grid"><ul class="ticks big-ticks">{''.join(f'<li>{esc(x)}</li>' for x in s['do'])}</ul>
+<div class="do-side"><div class="do-card"><p class="ex-k">You still decide</p><ul class="ticks">{''.join(f'<li>{esc(x)}</li>' for x in s['decide'])}</ul></div>
+<div class="do-card"><p class="ex-k">Who provides it</p><p>{esc(s['who'])}</p></div></div></div>
+<div class="lands"><b>What lands on your desk</b><p>{esc(s['lands'])}</p></div>
+</div></section>
+<section class="sec"><div class="wrap faq-grid"><div><div class="head"><p class="eyebrow"><span>Questions</span></p><h2>What owners ask about {esc(s['name'].split(':')[0].lower())}.</h2></div><p class="faq-more">More in the <a href="/faq">full FAQ</a>.</p></div>{faq_html(s['faqs'])}</div></section>
+<section class="sec"><div class="wrap"><div class="head"><p class="eyebrow"><span>Works well with</span></p><h2>Part of one finance team.</h2></div>{svc_cards(rel)}</div></section>
+{CTA}'''
+        pages.append(page(f"/services/{s['slug']}", f"{s['name'].split(':')[0]} for medical practices | {BRAND}", f"{s['lede']}", body, '/services',
+            ld=[ORG, {'@type': 'Service', 'name': s['name'], 'serviceType': s['name'].split(':')[0], 'provider': {'@id': SITE + '/#org'}, 'areaServed': 'US', 'audience': {'@type': 'Audience', 'audienceType': 'Independent medical practices'}, 'description': s['lede']}, crumbs(('Home', '/'), ('Services', '/services'), (s['name'].split(':')[0], f"/services/{s['slug']}")), faq_ld(s['faqs'])]))
+
+    # ---------- specialties ----------
+    tiles = ''.join(f'<li class="sp-card" style="--sp-bg:{TINTS[i % 4]}"><a href="/specialties/{s["slug"]}"><span class="sp-ico"><img src="{SPIC(s)}" alt="" width="88" height="88" loading="lazy" decoding="async"></span><h2>{esc(s["name"])}</h2><p>{esc(s["sub"])}</p><span class="svc-more">See the plan{ARR}</span></a></li>' for i, s in enumerate(SP))
+    jump = ''.join(f'<li><a href="/specialties/{s["slug"]}"><img src="{SPIC(s)}" alt="" width="56" height="56" loading="lazy" decoding="async">{esc(s["name"])}</a></li>' for s in SP)
+    spx = f'''
+{top('Specialties', 'Finance for your specialty, not a generic practice.', 'Every specialty gets paid differently. Here is where money tends to leak in yours, and what we would work on first.')}
+<section class="sec tight"><div class="wrap"><ul class="sp-jump">{jump}</ul></div></section>
+<section class="sec"><div class="wrap"><ul class="sp-grid">{tiles}</ul></div></section>
+{CTA}'''
+    pages.append(page('/specialties', f'Fractional CFO by medical specialty | {BRAND}', 'How MD CFO handles finances for primary care, pediatrics, OB-GYN, dermatology, orthopedics, cardiology, GI, eye care, dental, PT, behavioral health and surgery centers.', spx, '/specialties', ld=[ORG, crumbs(('Home', '/'), ('Specialties', '/specialties'))]))
+    for i, s in enumerate(SP):
+        tint = TINTS[i % 4]
+        pains = ''.join(f'<li class="pain"><h3>{esc(t)}</h3><p>{esc(d)}</p></li>' for t, d in s['pains'])
+        others = ''.join(f'<li><a href="/specialties/{o["slug"]}"><img src="{SPIC(o)}" alt="" width="30" height="30" loading="lazy" decoding="async">{esc(o["name"])}</a></li>' for o in SP if o['slug'] != s['slug'])
+        body = f'''
+<section class="sec page-top"><div class="wrap svc-hero">
+<div><p class="eyebrow"><span>{esc(s['name'])}</span></p><h1>Finance for {esc(s['name'].lower())} practices, handled.</h1><p class="lede">{esc(s['sub'])} We understand the nuance, and we run the money so you can run the practice.</p>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup{ARR}</a><a class="link" href="/services">See our services</a></div></div>
+<div class="svc-hero-art" style="--t:{tint}"><img src="{SPIC(s)}" alt="" width="220" height="220"></div>
+</div></section>
+<section class="sec tight"><div class="wrap"><div class="head"><p class="eyebrow"><span>Where money leaks</span></p><h2>Three places {esc(s['name'].lower())} practices lose money.</h2></div><ul class="pains pains-3">{pains}</ul></div></section>
+<section class="sec"><div class="wrap"><div class="ex-panel ex-solo" style="--ex-bg:{tint}"><div class="ex-head"><img src="{SPIC(s)}" alt="" width="128" height="128" loading="lazy" decoding="async"><h3>What we’d work on first.</h3><p>An example plan. Your checkup sets your own priorities.</p></div>
+<div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks">{''.join(f'<li>{esc(x)}</li>' for x in s['do'])}</ul></div><div><p class="ex-k">What we look at</p><ul class="chips">{''.join(f'<li>{esc(x)}</li>' for x in s['look'])}</ul><p class="ex-k">What lands on your desk</p><p>{esc(s['lands'])}</p></div></div></div></div></section>
+<section class="sec alt"><div class="wrap"><div class="head"><p class="eyebrow"><span>Services</span></p><h2>Where we usually start.</h2></div>{svc_cards([SVBY[x] for x in s['svcs']])}<p class="center"><a class="link" href="/services">All eight services{ARR}</a></p></div></section>
+<section class="sec"><div class="wrap"><div class="head"><p class="eyebrow"><span>Other specialties</span></p><h2>We work across independent medicine.</h2></div><ul class="sp-chips">{others}</ul></div></section>
+{CTA}'''
+        pages.append(page(f"/specialties/{s['slug']}", f"Fractional CFO for {s['name'].lower()} practices | {BRAND}", f"Finance for independent {s['name'].lower()} practices: {s['sub']} Books, bills, payroll and getting paid, handled by one team.", body, '/specialties',
+            ld=[ORG, crumbs(('Home', '/'), ('Specialties', '/specialties'), (s['name'], f"/specialties/{s['slug']}"))]))
+
+    # ---------- compare ----------
+    cmp_cards = ''.join(f'<li class="svc"><a href="/compare/{c["slug"]}"><h3>{esc(c["title"])}</h3><p>{esc(c["lede"])}</p><span class="svc-more">Compare{ARR}</span></a></li>' for c in COMPARES)
+    cx = f'''
+{top('Compare', 'How MD CFO compares.', 'Honest comparisons with the ways practices usually handle their finances today, including when the other option is the better fit.')}
+<section class="sec tight"><div class="wrap"><ul class="svc-grid cmp-grid">{cmp_cards}</ul></div></section>
+{CTA}'''
+    pages.append(page('/compare', f'Compare MD CFO | {BRAND}', 'How MD CFO compares with a bookkeeper, a billing company, a full-time CFO and a generalist fractional CFO.', cx, '/compare', ld=[ORG, crumbs(('Home', '/'), ('Compare', '/compare'))]))
+    for c in COMPARES:
+        rows = ''.join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(b)}</td><td>{esc(d)}</td></tr>' for a, b, d in c['rows'])
+        others = ''.join(f'<a class="link" href="/compare/{o["slug"]}">{esc(o["title"])}</a>' for o in COMPARES if o['slug'] != c['slug'])
+        body = f'''
+{top('Compare', esc(c['h1']), esc(c['lede']))}
+<section class="sec tight"><div class="wrap"><div class="cmp-wrap"><table class="cmp cmp-2"><thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">{esc(c['them'])}</th><th scope="col" class="us">{BRAND}</th></tr></thead><tbody>{rows}</tbody></table></div></div></section>
+<section class="sec"><div class="wrap"><div class="head"><p class="eyebrow"><span>Which fits</span></p><h2>An honest answer.</h2></div><div class="ba"><div class="ba-col ba-before"><p class="ba-k">{esc(c['them'])} is the better fit if</p><p>{esc(c['them_fit'])}</p></div><div class="ba-col ba-after"><p class="ba-k">{BRAND} is the better fit if</p><p>{esc(c['us_fit'])}</p></div></div>
+<p class="cmp-links">{others}</p></div></section>
+{CTA}'''
+        pages.append(page(f"/compare/{c['slug']}", f"{c['title']} | {BRAND}", c['lede'], body, '/compare', ld=[ORG, crumbs(('Home', '/'), ('Compare', '/compare'), (c['title'], f"/compare/{c['slug']}"))]))
+
+    # ---------- about ----------
+    about = f'''
+<section class="sec page-top"><div class="wrap svc-hero"><div><p class="eyebrow"><span>About</span></p><h1>Dedicated to medicine.</h1><p class="lede">We understand the nuance of how practices get paid, and we care about keeping independent medicine independent.</p></div><div class="svc-hero-art" style="--t:#e4f0fd"><img src="/assets/i/stage-opening-480.webp" alt="" width="480" height="358"></div></div></section>
+<section class="sec tight"><div class="wrap split"><div class="head"><p class="eyebrow"><span>Why we exist</span></p><h2>Independent practices are worth protecting.</h2></div><div class="prose">{''.join(f'<p>{esc(p)}</p>' for p in ABOUT_STORY)}</div></div></section>
+<section class="sec alt"><div class="wrap"><div class="head"><p class="eyebrow"><span>What we believe</span></p><h2>How we work with every practice.</h2></div>
+<ul class="trust"><li><img src="/assets/i/icon-roles-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>You stay in charge</b><span>Every payment, account and loan is your decision. We bring the numbers and a recommendation.</span></li><li><img src="/assets/i/icon-patient-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Medicine first</b><span>We only work with independent practices, so we already speak contracts, remittances and payroll Fridays.</span></li><li><img src="/assets/i/icon-partners-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Honest by default</b><span>A flat fee, no percentage of collections, and partner terms shown before you choose.</span></li></ul></div></section>
+<section class="sec" id="team"><div class="wrap split"><div class="head"><p class="eyebrow"><span>Team</span></p><h2>Who you work with.</h2></div><div class="prose"><p><b>Yaniv Sadka, CFO lead.</b> Healthcare venture investor and operator. During our founding pilots, Yaniv leads every practice personally.</p><p>He is supported by healthcare bookkeeping and billing specialists, and by licensed partners for banking, cards, payroll and financing. {BRAND} is a service of Wellby Health.</p></div></div></section>
+{CTA}'''
+    pages.append(page('/about', f'About {BRAND}: dedicated to independent medicine', 'MD CFO is dedicated to medicine. We understand how practices get paid and care about keeping independent medicine independent.', about, '/about', ld=[ORG, crumbs(('Home', '/'), ('About', '/about'))]))
+
+    # ---------- faq ----------
+    groups = ''.join(f'<div class="faq-group"><h2>{esc(g)}</h2>{faq_html(qs)}</div>' for g, qs in FAQ_GROUPS)
+    faqp = f'''
+{top('FAQ', 'Questions owners ask us.', 'Straight answers on how we work, what it costs and what stays in your hands.')}
+<section class="sec tight"><div class="wrap faq-page">{groups}<p class="faq-more">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div></section>
+{CTA}'''
+    pages.append(page('/faq', f'FAQ | {BRAND}', 'Answers on how MD CFO works with independent medical practices: getting started, approvals, HIPAA, banking partners and pricing.', faqp, '/faq', ld=[ORG, faq_ld([q for _, qs in FAQ_GROUPS for q in qs]), crumbs(('Home', '/'), ('FAQ', '/faq'))]))
+
+    # ---------- blog ----------
+    blog = f'''
+{top('Guides', 'Practical guides for practice owners.', 'Plain-language guides on getting paid, cash, books and the big decisions in an independent practice.')}
+<section class="sec tight"><div class="wrap">{post_cards(POSTS)}</div></section>
+{CTA}'''
+    pages.append(page('/blog', f'Guides for independent practice owners | {BRAND}', 'Plain-language guides on underpayments, denials, cash forecasting, bookkeeping and CFO decisions for independent medical practices.', blog, '/blog', ld=[ORG, crumbs(('Home', '/'), ('Guides', '/blog'))]))
+    for p in POSTS:
+        more = [o for o in POSTS if o['slug'] != p['slug']][:3]
+        body = f'''
+<article class="sec page-top"><div class="wrap post">
+<p class="eyebrow"><span>{esc(p['tag'])}</span></p><h1>{esc(p['title'])}</h1><p class="lede">{esc(p['desc'])}</p>
+<p class="post-meta">By the {BRAND} team · <time datetime="{p['date']}">November 10, 2026</time></p>
+<figure class="wide-art"><img src="/assets/i/{p['img']}-900.webp" alt="" width="900" height="382"></figure>
+<div class="post-body">{md(p['body'])}</div>
+</div></article>
+<section class="sec"><div class="wrap"><div class="head"><p class="eyebrow"><span>Keep reading</span></p><h2>More guides.</h2></div>{post_cards(more)}</div></section>
+{CTA}'''
+        pages.append(page(f"/blog/{p['slug']}", f"{p['title']} | {BRAND}", p['desc'], body, '/blog', og=f"/assets/i/{p['img']}-900.webp",
+            ld=[ORG, {'@type': 'Article', 'headline': p['title'], 'description': p['desc'], 'datePublished': p['date'], 'author': {'@type': 'Organization', 'name': BRAND}, 'publisher': {'@id': SITE + '/#org'}, 'image': SITE + f"/assets/i/{p['img']}-900.webp", 'mainEntityOfPage': SITE + f"/blog/{p['slug']}"}, crumbs(('Home', '/'), ('Guides', '/blog'), (p['title'], f"/blog/{p['slug']}"))]))
 
     # ---------- pricing ----------
     pricing = f'''
@@ -324,12 +477,17 @@ def build():
     pages.append(page('/checkup', f'Free Practice Money Checkup | {BRAND}', 'Book a free Practice Money Checkup: a one-page report on where your practice’s money is leaking, in five business days.', checkup, '/checkup', ld=[ORG]))
 
     # ---------- privacy ----------
-    privacy = '''<section class="sec page-top"><div class="wrap prose narrow"><h1>Privacy</h1><p>When you book a checkup we collect the details you enter in the form: your name, practice, contact details and the answers you choose. We use them only to contact you about the checkup and our service. We don’t sell them or share them with advertisers.</p><p>Documents you send for a checkup are covered by a confidentiality agreement, and patient information only by a signed business associate agreement. To ask us to delete your details, email hello@wellbyhealth.com.</p><p>This is a summary; a full privacy policy will be published before the service launches widely.</p></div></section>'''
+    privacy = f'''<section class="sec page-top"><div class="wrap prose narrow"><h1>Privacy</h1><p>When you book a checkup we collect the details you enter in the form: your name, practice, contact details and the answers you choose. We use them only to contact you about the checkup and our service. We don’t sell them or share them with advertisers.</p><p>Documents you send for a checkup are covered by a confidentiality agreement, and patient information only by a signed business associate agreement. To ask us to delete your details, email hello@wellbyhealth.com.</p><p>This is a summary; a full privacy policy will be published before the service launches widely.</p></div></section>'''
     pages.append(page('/privacy', f'Privacy | {BRAND}', f'How {BRAND} uses the details you share with us.', privacy))
+
+    nf = f'''<section class="sec page-top"><div class="wrap nf"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382"><h1>We couldn’t find that page.</h1><p class="lede">It may have moved. Here are good places to start.</p><div class="cta-row"><a class="btn" href="/">Home</a><a class="btn ghost" href="/services">Services</a><a class="btn ghost" href="/checkup">Free checkup</a></div></div></section>'''
+    page('/404', f'Page not found | {BRAND}', 'This page could not be found.', nf)
 
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{SITE}{"" if p == "/" else p}</loc></url>\n' for p in pages) + '</urlset>\n'
     open(os.path.join(ROOT, 'sitemap.xml'), 'w').write(sm)
     open(os.path.join(ROOT, 'robots.txt'), 'w').write(f'User-agent: *\nAllow: /\nDisallow: /api/\n\nSitemap: {SITE}/sitemap.xml\n')
-    print('built', pages)
+    llms = [f'# {BRAND}', '', f'> {BRAND} is a fractional CFO and outsourced finance team dedicated to independent medical practices. One team handles bookkeeping, bill pay, denials and underpayments, payroll, cards, banking and financing for one flat monthly fee. It is a service of Wellby Health. It is not a bank, lender, payroll company or CPA firm; regulated products come from licensed partners.', '', '## Services', ''] + [f"- [{s['name']}]({SITE}/services/{s['slug']}): {s['line']}" for s in SV] + ['', '## Specialties', ''] + [f"- [{s['name']}]({SITE}/specialties/{s['slug']})" for s in SP] + ['', '## Company', '', f'- [Pricing]({SITE}/pricing): Essentials $2,500, Full CFO $5,000, Growth from $8,000 a month', f'- [About]({SITE}/about)', f'- [FAQ]({SITE}/faq)', f'- [Free Practice Money Checkup]({SITE}/checkup)', '', '## Guides', ''] + [f"- [{p['title']}]({SITE}/blog/{p['slug']})" for p in POSTS]
+    open(os.path.join(ROOT, 'llms.txt'), 'w').write('\n'.join(llms) + '\n')
+    print('built', len(pages), 'pages')
 
 build()
