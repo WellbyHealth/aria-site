@@ -125,6 +125,81 @@ p{margin:0}
 .legal{font-size:.8rem;color:var(--muted);max-width:60rem;margin-top:10px}
 .svc-ic img[src*="payroll"]{mix-blend-mode:multiply;filter:none}
 .hero .eyebrow{color:#16406f}
+/* v2: patterns from Stethos and Inroads */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.wk-split{align-items:center}
+.steps-v{grid-template-columns:minmax(0,1fr);margin-top:24px;gap:10px}
+.steps-v li{display:grid;grid-template-columns:36px minmax(0,1fr);column-gap:14px;padding:16px 18px}
+.steps-v li::before{margin:0;grid-row:span 2}
+.steps-v b{margin-bottom:2px}
+.wk{margin:0;background:#fff;border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:0 40px 80px -50px rgba(10,30,60,.5)}
+.wk-top{display:flex;justify-content:space-between;align-items:center;padding:4px 6px 12px}
+.wk-top b{color:var(--ink);font-size:1.1rem}
+.sample{font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7a5a00;background:var(--butter);padding:4px 10px;border-radius:999px}
+.wk ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.wk li{display:grid;grid-template-columns:48px minmax(0,1fr) auto;gap:12px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:12px}
+.wk-ic{display:grid;place-items:center;width:48px;height:48px;border-radius:14px;background:var(--blue)}
+.wk li:nth-child(2) .wk-ic{background:var(--mint)}.wk li:nth-child(3) .wk-ic{background:var(--butter)}.wk li:nth-child(4) .wk-ic{background:var(--pink)}
+.wk-ic img{width:40px;height:40px}
+.wk-t{display:grid;min-width:0}.wk-t b{color:var(--ink);font-size:.98rem;line-height:1.3}.wk-t span{font-size:.86rem;color:var(--muted);line-height:1.4}
+.wk-btn{font-size:.82rem;font-weight:650;background:var(--btn);color:#000;padding:7px 12px;border-radius:10px;white-space:nowrap}
+.wk-ok{font-size:.82rem;font-weight:650;color:#1d6b3a;background:var(--mint);padding:7px 12px;border-radius:10px}
+.wk figcaption{font-size:.8rem;color:var(--muted);padding:12px 6px 0}
+@media (max-width:460px){.wk li{grid-template-columns:40px minmax(0,1fr)}.wk-ic{width:40px;height:40px}.wk-ic img{width:34px;height:34px}.wk-btn,.wk-ok{grid-column:2;justify-self:start}}
+.pains{list-style:none;margin:32px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+@media (max-width:1000px){.pains{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:540px){.pains{grid-template-columns:minmax(0,1fr)}}
+.pain{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:20px}
+.pain img{width:56px;height:56px;filter:drop-shadow(0 6px 8px rgba(40,30,60,.14))}
+.pain h3{margin:12px 0 6px;font-size:1.05rem}.pain p{font-size:.93rem}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+@media (max-width:760px){.ba{grid-template-columns:minmax(0,1fr)}}
+.ba-col{border-radius:24px;padding:24px;border:1px solid var(--line)}
+.ba-before{background:#f3f2ee}.ba-after{background:var(--blue);border-color:#b9d3f3}
+.ba-k{font-weight:700;color:var(--ink);margin-bottom:12px}
+.ba-before ul{margin:0;padding-left:20px;display:grid;gap:8px;color:var(--muted)}
+.ex{margin-top:28px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:16px}
+.ex-tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:thin}
+.ex-tabs button{display:inline-flex;align-items:center;gap:8px;flex:0 0 auto;font:600 .95rem Figtree,sans-serif;color:var(--body);background:var(--bg);border:1.5px solid var(--line);border-radius:999px;padding:6px 16px 6px 8px;cursor:pointer;min-height:48px}
+.ex-tabs button img{width:32px;height:32px}
+.ex-tabs button[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.ex-panel{padding:24px 10px 8px}
+.ex-head{display:flex;gap:16px;align-items:center;margin-bottom:20px}
+.ex-head img{width:72px;height:72px;background:var(--butter);border-radius:20px;padding:6px}
+.ex-head h3{font-size:1.4rem}.ex-head p{color:var(--muted)}
+.ex-cols{display:grid;grid-template-columns:1.1fr 1fr;gap:28px}
+@media (max-width:760px){.ex-cols{grid-template-columns:minmax(0,1fr)}}
+.ex-k{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-ink);margin:0 0 10px}
+.ex-cols .ex-k:not(:first-child){margin-top:20px}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--pink);color:var(--pink-ink);font-size:.88rem;font-weight:600;padding:6px 12px;border-radius:999px}
+.cmp-wrap{margin-top:28px;overflow-x:auto;border-radius:24px;border:1px solid var(--line);background:#fff}
+.cmp{width:100%;min-width:680px;border-collapse:collapse;font-size:.95rem}
+.cmp th,.cmp td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+.cmp tbody tr:last-child th,.cmp tbody tr:last-child td{border-bottom:0}
+.cmp thead th{color:var(--ink);font-size:1.02rem;background:var(--bg)}
+.cmp thead small{display:block;font-weight:500;font-size:.82rem;color:var(--muted);margin-top:2px}
+.cmp tbody th{color:var(--ink);font-weight:650;width:22%}
+.cmp td{color:var(--muted)}
+.cmp .us,.cmp td:last-child{background:var(--blue);color:var(--ink);font-weight:600}
+.cmp thead .us{background:#d3e6fb}
+.auds{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.auds{grid-template-columns:minmax(0,1fr)}}
+.aud{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;padding-bottom:22px}
+.aud img{width:100%;display:block;aspect-ratio:480/300;object-fit:cover}
+.aud h3{margin:18px 22px 6px}.aud p{margin:0 22px;font-size:.96rem}
+.trust{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.trust{grid-template-columns:minmax(0,1fr)}}
+.trust li{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:22px}
+.trust img{width:56px;height:56px}.trust h3{margin:12px 0 6px}
+.faq-art{margin:24px 0 14px;border-radius:24px;overflow:hidden;line-height:0;max-width:360px}
+@media (max-width:860px){.faq-art{display:none}}
+.cta-ticks{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:8px;color:#cfd9e8}
+.cta-ticks li{position:relative;padding-left:26px}.cta-ticks li::before{content:"✓";position:absolute;left:0;color:var(--btn);font-weight:700}
+.cta-side{display:grid;gap:12px;justify-items:start}.cta-side p{font-size:.9rem;color:#cfd9e8}.cta-side a:not(.btn){color:#fff}
+.tiers.mini .tier .badge{top:16px}
+.wk-lede{margin-top:14px}
+.faq-art img{width:100%;aspect-ratio:4/3;object-fit:cover}
+@media (min-width:861px){.cta-in>div:first-child{flex:1 1 520px}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://md-cfo.vercel.app/#org", "name": "MD CFO", "url": "https://md-cfo.vercel.app/", "description": "Outsourced finance team and fractional CFO service for independent medical practices.", "parentOrganization": {"@type": "Organization", "name": "Wellby Health"}, "areaServed": "US"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I have to replace my bookkeeper, biller or CPA?", "acceptedAnswer": {"@type": "Answer", "text": "No. We can take over the work, or run it alongside the people you trust. Most practices keep their CPA for taxes; we hand them clean books every month."}}, {"@type": "Question", "name": "Who approves payments?", "acceptedAnswer": {"@type": "Answer", "text": "You do. Nothing is paid and no account is opened without your sign-off. Approvals take a few minutes a week from your phone."}}, {"@type": "Question", "name": "Are you a bank or a lender?", "acceptedAnswer": {"@type": "Answer", "text": "No. We\u2019re a finance service. Bank accounts, cards, financing and payroll come from licensed partners, subject to their approval and terms, and we manage them for you."}}, {"@type": "Question", "name": "How do you handle patient information?", "acceptedAnswer": {"@type": "Answer", "text": "Billing follow-up touches patient data, so we sign a business associate agreement with your practice before we start and only work in systems that meet HIPAA requirements."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "A flat monthly fee based on what you hand us, starting at $2,500 a month. Our first practices get a 90-day pilot at half price. See pricing for details."}}, {"@type": "Question", "name": "How long does it take to start?", "acceptedAnswer": {"@type": "Answer", "text": "About two weeks: a checkup, a kickoff call, access to your accounts, then we take over one area at a time."}}]}]}</script>
 </head>
@@ -137,57 +212,83 @@ p{margin:0}
 <div class="hero-copy"><p class="eyebrow">Fractional CFO and finance team for independent practices</p>
 <h1>You run the practice. <span class="hl">We run the money.</span></h1>
 <p class="lede">Banking, payroll, bills, books, billing follow-up, cards and financing, handled by one team for one monthly fee. You collect more, keep more, and stop doing finance at night.</p>
-<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup</a><a class="link" href="/services">See what we handle →</a></div>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup</a><a class="link" href="#week">See your week with us →</a></div>
 <p class="fine">Built for owner-physicians with one to ten locations.</p></div>
 <figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="(max-width:900px) 100vw, 1100px" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure>
 </div></section>
 
-<section class="sec"><div class="wrap split">
-<div><p class="eyebrow">The problem</p><h2>Your practice’s money runs through five vendors and lands on you.</h2></div>
-<div class="prose"><p>A bookkeeper who catches up once a month. A biller who works the claims they have time for. A bank, a payroll company, a card, and a CPA you see at tax time. Nobody owns the whole picture, so you do, after clinic.</p><p>That gap costs real money: denials nobody appeals, insurer payments below your contract, bills paid late or twice, cash sitting idle while you worry about payroll.</p></div>
-</div>
-<div class="wrap"><figure class="wide-art"><img src="/assets/i/problem-scatter-1584.webp" srcset="/assets/i/problem-scatter-900.webp 900w, /assets/i/problem-scatter-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration of a practice’s finances scattered across a table: bills, receipts, cards, a calculator and loose coins." loading="lazy" decoding="async"></figure></div>
-</section>
+<section class="sec" id="week"><div class="wrap split wk-split">
+<div><p class="eyebrow">Your week with us</p><h2>Ten minutes a week. We do the rest.</h2><p class="prose wk-lede">Each week you get one short list on your phone: what to approve, what we recovered, and anything that needs your call.</p>
+<ol class="steps steps-v">
+<li><b>Free checkup.</b><span>We read three months of statements, remittances and your P&L, and show you what’s leaking.</span></li>
+<li><b>Two-week handoff.</b><span>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</span></li>
+<li><b>Ten minutes a week.</b><span>You approve from your phone. One review call a month.</span></li>
+</ol></div>
+<figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul><li><span class="wk-ic"><img src="/assets/i/icon-bill-pay-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Approve 4 vendor bills</b><span>$6,410 · due this week · all checked against last order</span></span><span class="wk-btn" aria-hidden="true">Approve</span></li><li><span class="wk-ic"><img src="/assets/i/icon-see-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Recovered from underpaid claims</b><span>$3,280 across 11 claims from two insurers</span></span><span class="wk-btn" aria-hidden="true">See claims</span></li><li><span class="wk-ic"><img src="/assets/i/icon-payroll-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Payroll on Friday is covered</b><span>$41,200 already set aside in the payroll account</span></span><span class="wk-ok" aria-hidden="true">Ready</span></li><li><span class="wk-ic"><img src="/assets/i/icon-cfo-hub-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>One decision for you</b><span>Lease or buy the new ultrasound? Our numbers and recommendation inside.</span></span><span class="wk-btn" aria-hidden="true">Review</span></li></ul><figcaption>An example of what an owner sees. Every practice’s list is its own.</figcaption></figure>
+</div></section>
 
-<section class="sec alt" id="handle"><div class="wrap">
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">The problem</p><h2>Your practice’s money runs through five vendors and lands on you.</h2>
+<p class="lede">A bookkeeper, a biller, a bank, a payroll company and a CPA you see at tax time. Nobody owns the whole picture, so it leaks in the same five places.</p>
+<ul class="pains"><li class="pain"><img src="/assets/i/icon-denials-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Denials nobody appeals</h3><p>Your biller works the claims they have time for. The rest quietly expire.</p></li><li class="pain"><img src="/assets/i/icon-see-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Insurers paying below contract</h3><p>Nobody checks each payment against your contracted rate, so short pays go unnoticed.</p></li><li class="pain"><img src="/assets/i/icon-bill-pay-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Bills paid late or twice</h3><p>Invoices arrive by email, portal and paper, and some get paid twice while others pick up late fees.</p></li><li class="pain"><img src="/assets/i/icon-accounting-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Books a month behind</h3><p>You make hiring and spending calls on numbers from six weeks ago.</p></li><li class="pain"><img src="/assets/i/icon-treasury-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Cash you can’t see coming</h3><p>Payroll lands on a Friday and you check the balance on Thursday night.</p></li></ul>
+</div></section>
+
+<section class="sec" id="handle"><div class="wrap">
 <p class="eyebrow">What we take off your plate</p><h2>One team for every part of your practice’s finances.</h2>
 <ul class="svc-grid"><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-accounting-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Bookkeeping and monthly close</h3><p>Books coded and closed by day 10, with a P&amp;L for each location.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-bill-pay-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Bills and vendor payments</h3><p>Vendor bills collected, approved by you in one tap, paid on time.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-see-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Getting paid: denials, underpayments and patient balances</h3><p>We work the money insurers and patients still owe you.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-payroll-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Payroll</h3><p>Payroll run on time, with the cash planned for it.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-card-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Cards and expenses</h3><p>A card for each team member, with limits you set and receipts matched.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-partners-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Banking and cash</h3><p>The right accounts in place, and enough cash ready for every bill.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-claims-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>Financing and factoring</h3><p>Access to working capital when insurers are slow or you’re growing.</p></li><li class="svc"><span class="svc-ic"><img src="/assets/i/icon-cfo-hub-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"></span><h3>CFO advice</h3><p>A named CFO who knows how practices get paid, on call for the big decisions.</p></li></ul>
 <p class="center"><a class="link" href="/services">See each service in detail →</a></p>
 </div></section>
 
-<section class="sec"><div class="wrap">
-<p class="eyebrow">How it works</p><h2>Three steps, and finance is off your desk.</h2>
-<ol class="steps">
-<li><b>Free checkup.</b><span>We review three months of statements, remittances and your P&L, then show you what’s leaking and what it’s worth.</span></li>
-<li><b>Two-week handoff.</b><span>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</span></li>
-<li><b>Ten minutes a week.</b><span>You approve payments from your phone and get one monthly review. We handle everything else.</span></li>
-</ol></div></section>
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">Before and after</p><h2>The same practice, two ways.</h2>
+<figure class="wide-art"><img src="/assets/i/compare-split-1584.webp" srcset="/assets/i/compare-split-900.webp 900w, /assets/i/compare-split-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration: a grey pile of bills, receipts and a calculator on one side, and a bright practice with money and mail flowing in on the other." loading="lazy" decoding="async"></figure>
+<div class="ba">
+<div class="ba-col ba-before"><p class="ba-k">Your month today</p><ul><li>Statements in five places, and none of them agree</li><li>Denials pile up until they expire</li><li>Books closed weeks late, if at all</li><li>Payroll checked against the balance the night before</li><li>Finance questions answered after clinic</li></ul></div>
+<div class="ba-col ba-after"><p class="ba-k">Your month with MD CFO</p><ul class="ticks"><li>Closed books and a P&L for each location by day 10</li><li>Money recovered from denials and underpayments, listed claim by claim</li><li>A 13-week cash forecast, with payroll and big bills marked</li><li>Bills paid, cards reviewed, and anything unusual flagged</li><li>Three decisions for you, with our recommendation on each</li></ul></div>
+</div>
+</div></section>
 
-<section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Every month</p><h2>What lands in your inbox.</h2><p class="prose">One package, one review call, and a named person to text.</p></div>
-<ul class="ticks">
-<li>Closed books and a P&L for each location by day 10</li>
-<li>A 13-week cash forecast, with payroll and big bills marked</li>
-<li>Money recovered from denials and underpayments, listed claim by claim</li>
-<li>Bills paid, cards reviewed, and anything unusual flagged</li>
-<li>Three decisions for you, with our recommendation on each</li>
-</ul></div></section>
+<section class="sec" id="examples"><div class="wrap">
+<p class="eyebrow">For your specialty</p><h2>What we’d work on first in a practice like yours.</h2>
+<div class="ex" data-tabs><div class="ex-tabs" role="tablist" aria-label="Practice types"><button type="button" role="tab" id="tab-primary-care" aria-controls="panel-primary-care" aria-selected="true" tabindex="0"><img src="/assets/i/st-primary-care.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span>Primary care</span></button><button type="button" role="tab" id="tab-orthopedics" aria-controls="panel-orthopedics" aria-selected="false" tabindex="-1"><img src="/assets/i/st-orthopedics.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span>Orthopedics</span></button><button type="button" role="tab" id="tab-dermatology" aria-controls="panel-dermatology" aria-selected="false" tabindex="-1"><img src="/assets/i/st-dermatology.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span>Dermatology</span></button><button type="button" role="tab" id="tab-dental" aria-controls="panel-dental" aria-selected="false" tabindex="-1"><img src="/assets/i/st-dental.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span>Dental</span></button><button type="button" role="tab" id="tab-location" aria-controls="panel-location" aria-selected="false" tabindex="-1"><img src="/assets/i/icon-location-cut.webp" alt="" width="36" height="36" loading="lazy" decoding="async"><span>Groups with several locations</span></button></div><div class="ex-panel" role="tabpanel" id="panel-primary-care" aria-labelledby="tab-primary-care"><div class="ex-head"><img src="/assets/i/st-primary-care.webp" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>Primary care</h3><p>Lots of small claims and rising patient balances.</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks"><li>Chase denied visits and preventive claims by dollar value</li><li>Collect high-deductible patient balances without collection calls</li><li>Plan cash around payroll, your biggest cost</li></ul></div><div><p class="ex-k">What we look at</p><ul class="chips"><li>Remittances by insurer</li><li>Patient balance aging</li><li>Payroll and staffing costs</li></ul><p class="ex-k">What lands on your desk</p><p>A weekly list of money recovered and a payroll-ready cash forecast</p></div></div></div><div class="ex-panel" role="tabpanel" id="panel-orthopedics" aria-labelledby="tab-orthopedics" hidden><div class="ex-head"><img src="/assets/i/st-orthopedics.webp" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>Orthopedics</h3><p>High-dollar surgical claims where one short pay matters.</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks"><li>Check surgical and imaging payments against contracted rates</li><li>Appeal prior-authorization denials with your biller</li><li>Keep implant and supply bills from being paid twice</li></ul></div><div><p class="ex-k">What we look at</p><ul class="chips"><li>Contracts and fee schedules</li><li>Surgical claim remittances</li><li>Supply and implant invoices</li></ul><p class="ex-k">What lands on your desk</p><p>Underpayments listed claim by claim, with appeals already filed</p></div></div></div><div class="ex-panel" role="tabpanel" id="panel-dermatology" aria-labelledby="tab-dermatology" hidden><div class="ex-head"><img src="/assets/i/st-dermatology.webp" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>Dermatology</h3><p>Insurance and cash-pay revenue in the same practice.</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks"><li>Separate medical and cosmetic revenue on your P&amp;L</li><li>Cut card processing and product costs</li><li>Track pathology and supply bills by location</li></ul></div><div><p class="ex-k">What we look at</p><ul class="chips"><li>Card processor statements</li><li>Product and supply invoices</li><li>Medical versus cosmetic revenue</li></ul><p class="ex-k">What lands on your desk</p><p>A P&amp;L that shows which side of the practice makes the money</p></div></div></div><div class="ex-panel" role="tabpanel" id="panel-dental" aria-labelledby="tab-dental" hidden><div class="ex-head"><img src="/assets/i/st-dental.webp" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>Dental</h3><p>PPO fee schedules and lab bills that drift upward.</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks"><li>Check PPO payments against your fee schedules</li><li>Review lab and supply bills before they’re paid</li><li>Set up patient payment plans that actually get paid</li></ul></div><div><p class="ex-k">What we look at</p><ul class="chips"><li>PPO fee schedules and EOBs</li><li>Lab and supply invoices</li><li>Patient payment plans</li></ul><p class="ex-k">What lands on your desk</p><p>Fee schedule gaps in dollars, and which plans to renegotiate</p></div></div></div><div class="ex-panel" role="tabpanel" id="panel-location" aria-labelledby="tab-location" hidden><div class="ex-head"><img src="/assets/i/icon-location-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>Groups with several locations</h3><p>More sites, more accounts, and no single view.</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks"><li>A P&amp;L and cash view for every location</li><li>Payroll and bills run across all sites</li><li>Numbers ready for a new location, a partner or a lender</li></ul></div><div><p class="ex-k">What we look at</p><ul class="chips"><li>Every location’s bank and card accounts</li><li>Payroll by site</li><li>Leases, loans and expansion plans</li></ul><p class="ex-k">What lands on your desk</p><p>One monthly package that rolls up every location</p></div></div></div></div>
+<p class="fine center">Example plans. Every practice’s checkup sets its own priorities.</p>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">Your options</p><h2>Three ways to run a practice’s finances.</h2>
+<div class="cmp-wrap"><table class="cmp"><thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Doing it yourself<small>Bookkeeper, biller, bank, payroll and CPA</small></th><th scope="col">Hiring a CFO<small>A full-time finance leader</small></th><th scope="col" class="us">MD CFO<small>One team, one monthly fee</small></th></tr></thead><tbody><tr><th scope="row">Who owns the whole picture</th><td>You, after clinic</td><td>One person, if you can find them</td><td>One team, with a named CFO</td></tr><tr><th scope="row">What it costs</th><td>Several vendors, plus your evenings</td><td>A six-figure salary plus benefits</td><td>One flat fee, from $2,500 a month</td></tr><tr><th scope="row">Denials and underpayments</th><td>Worked when someone has time</td><td>Overseen, not worked</td><td>Worked claim by claim, every month</td></tr><tr><th scope="row">Books</th><td>Caught up monthly or quarterly</td><td>Depends on the team under them</td><td>Closed by day 10, every month</td></tr><tr><th scope="row">Cash forecast</th><td>In your head</td><td>Usually</td><td>13 weeks ahead, updated weekly</td></tr><tr><th scope="row">Commitment</th><td>Several contracts, all different</td><td>An employee</td><td>Month to month after the pilot</td></tr></tbody></table></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">Who it’s for</p><h2>Wherever your practice is today.</h2>
+<ul class="auds"><li class="aud"><img src="/assets/i/stage-opening-480.webp" srcset="/assets/i/stage-opening-480.webp 480w, /assets/i/stage-opening-800.webp 800w" sizes="(max-width:860px) 100vw, 340px" width="480" height="358" alt="" loading="lazy" decoding="async"><h3>Opening a practice</h3><p>Get the accounts, payroll, cards and books set up right the first time, and a cash plan for the first year.</p></li><li class="aud"><img src="/assets/i/stage-running-480.webp" srcset="/assets/i/stage-running-480.webp 480w, /assets/i/stage-running-800.webp 800w" sizes="(max-width:860px) 100vw, 340px" width="480" height="358" alt="" loading="lazy" decoding="async"><h3>Running one practice</h3><p>Hand off the bills, books and billing follow-up, and get your evenings back.</p></li><li class="aud"><img src="/assets/i/stage-growing-480.webp" srcset="/assets/i/stage-growing-480.webp 480w, /assets/i/stage-growing-800.webp 800w" sizes="(max-width:860px) 100vw, 340px" width="480" height="358" alt="" loading="lazy" decoding="async"><h3>Growing to more locations</h3><p>See every location in one place and have the numbers ready for a partner, a lender or a sale.</p></li></ul>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">You stay in control</p><h2>A finance team you can trust with the keys.</h2>
+<ul class="trust">
+<li><img src="/assets/i/icon-roles-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>You approve every dollar</h3><p>Nothing is paid, opened or borrowed without your sign-off, from your phone.</p></li>
+<li><img src="/assets/i/icon-patient-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Patient data, protected</h3><p>We sign a business associate agreement before we see any patient information.</p></li>
+<li><img src="/assets/i/icon-partners-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Licensed partners</h3><p>Banking, cards, payroll and financing come from licensed partners, with their terms shown first.</p></li>
+</ul>
+<p class="center"><a class="link" href="/how-we-work">How we work →</a></p>
+</div></section>
 
 <section class="sec"><div class="wrap">
 <p class="eyebrow">Pricing</p><h2>A flat monthly fee. No long contract.</h2>
 <div class="tiers mini">
 <a class="tier" href="/pricing#essentials"><b>Essentials</b><span class="price">$2,500<small>/month</small></span><span>Books, bills and a monthly CFO review</span></a>
-<a class="tier pick" href="/pricing#full"><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><span>Everything in Essentials, plus getting paid, payroll, cards and cash planning</span></a>
+<a class="tier pick" href="/pricing#full"><span class="badge">Most practices</span><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><span>Everything in Essentials, plus getting paid, payroll, cards and cash planning</span></a>
 <a class="tier" href="/pricing#growth"><b>Growth</b><span class="price">From $8,000<small>/month</small></span><span>For groups adding locations, partners or financing</span></a>
 </div>
 <p class="center fine">Our first five practices get a 90-day pilot at half price.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Questions</p><h2>What owners ask us.</h2></div>
+<div><p class="eyebrow">Questions</p><h2>What owners ask us.</h2><figure class="faq-art"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><p class="fine">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div>
 <div class="faq"><details><summary>Do I have to replace my bookkeeper, biller or CPA?</summary><p>No. We can take over the work, or run it alongside the people you trust. Most practices keep their CPA for taxes; we hand them clean books every month.</p></details><details><summary>Who approves payments?</summary><p>You do. Nothing is paid and no account is opened without your sign-off. Approvals take a few minutes a week from your phone.</p></details><details><summary>Are you a bank or a lender?</summary><p>No. We’re a finance service. Bank accounts, cards, financing and payroll come from licensed partners, subject to their approval and terms, and we manage them for you.</p></details><details><summary>How do you handle patient information?</summary><p>Billing follow-up touches patient data, so we sign a business associate agreement with your practice before we start and only work in systems that meet HIPAA requirements.</p></details><details><summary>What does it cost?</summary><p>A flat monthly fee based on what you hand us, starting at $2,500 a month. Our first practices get a 90-day pilot at half price. See pricing for details.</p></details><details><summary>How long does it take to start?</summary><p>About two weeks: a checkup, a kickoff call, access to your accounts, then we take over one area at a time.</p></details></div>
 </div></section>
-<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><a class="btn" href="/checkup">Book a free checkup</a></div></section>
+<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn" href="/checkup">Book a free checkup</a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>
 </main>
 <footer class="foot"><div class="wrap">
 <div class="foot-grid"><div><a class="logo" href="/"><img src="/assets/i/wellby-flower-96.webp" alt="" width="28" height="28"><span>MD CFO</span></a><p>The finance team for independent medical practices. A service of Wellby Health.</p></div>
@@ -226,6 +327,22 @@ p{margin:0}
     fetch('/api/checkup', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) })
       .then(function(r){ if (!r.ok) throw new Error(r.status); f.hidden = true; done.hidden = false; done.focus(); })
       .catch(function(){ errBox.textContent = "That didn't go through. Please try again, or email hello@wellbyhealth.com."; errBox.hidden = false; btn.disabled = false; btn.textContent = 'Book my free checkup'; });
+  });
+})();
+(function(){
+  document.querySelectorAll('[data-tabs]').forEach(function(box){
+    var tabs = [].slice.call(box.querySelectorAll('[role=tab]'));
+    function pick(t, focus){
+      tabs.forEach(function(x){ var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+      if (focus) t.focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){ pick(t); });
+      t.addEventListener('keydown', function(e){
+        var j = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : e.key === 'Home' ? 0 : e.key === 'End' ? tabs.length - 1 : null;
+        if (j === null) return; e.preventDefault(); pick(tabs[(j + tabs.length) % tabs.length], true);
+      });
+    });
   });
 })();
 </script>

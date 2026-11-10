@@ -93,65 +93,156 @@ def faq_block():
 
 CTA = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><a class="btn" href="/checkup">Book a free checkup</a></div></section>'''
 
+CTA_HOME = '''<section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><ul class="cta-ticks"><li>A one-page report in five business days</li><li>Where money is leaking, in dollars</li><li>What we’d fix first, and what it would cost</li></ul></div><div class="cta-side"><a class="btn" href="/checkup">Book a free checkup</a><p>No cost, no commitment. Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>'''
+
 def build():
     pages = []
     # ---------- home ----------
+    PAINS = [
+        ('denials', 'Denials nobody appeals', 'Your biller works the claims they have time for. The rest quietly expire.'),
+        ('see', 'Insurers paying below contract', 'Nobody checks each payment against your contracted rate, so short pays go unnoticed.'),
+        ('bill-pay', 'Bills paid late or twice', 'Invoices arrive by email, portal and paper, and some get paid twice while others pick up late fees.'),
+        ('accounting', 'Books a month behind', 'You make hiring and spending calls on numbers from six weeks ago.'),
+        ('treasury', 'Cash you can’t see coming', 'Payroll lands on a Friday and you check the balance on Thursday night.'),
+    ]
+    pains = ''.join(f'<li class="pain"><img src="/assets/i/icon-{ic}-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>{esc(t)}</h3><p>{esc(d)}</p></li>' for ic, t, d in PAINS)
+
+    WEEK = [
+        ('bill-pay', 'Approve 4 vendor bills', '$6,410 · due this week · all checked against last order', 'Approve'),
+        ('see', 'Recovered from underpaid claims', '$3,280 across 11 claims from two insurers', 'See claims'),
+        ('payroll', 'Payroll on Friday is covered', '$41,200 already set aside in the payroll account', None),
+        ('cfo-hub', 'One decision for you', 'Lease or buy the new ultrasound? Our numbers and recommendation inside.', 'Review'),
+    ]
+    week = ''.join(f'<li><span class="wk-ic"><img src="/assets/i/icon-{ic}-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>{esc(t)}</b><span>{esc(m)}</span></span>' + (f'<span class="wk-btn" aria-hidden="true">{esc(b)}</span>' if b else '<span class="wk-ok" aria-hidden="true">Ready</span>') + '</li>' for ic, t, m, b in WEEK)
+
+    SPECS = [
+        ('primary-care', 'Primary care', 'Lots of small claims and rising patient balances.',
+         ['Chase denied visits and preventive claims by dollar value', 'Collect high-deductible patient balances without collection calls', 'Plan cash around payroll, your biggest cost'],
+         ['Remittances by insurer', 'Patient balance aging', 'Payroll and staffing costs'],
+         'A weekly list of money recovered and a payroll-ready cash forecast'),
+        ('orthopedics', 'Orthopedics', 'High-dollar surgical claims where one short pay matters.',
+         ['Check surgical and imaging payments against contracted rates', 'Appeal prior-authorization denials with your biller', 'Keep implant and supply bills from being paid twice'],
+         ['Contracts and fee schedules', 'Surgical claim remittances', 'Supply and implant invoices'],
+         'Underpayments listed claim by claim, with appeals already filed'),
+        ('dermatology', 'Dermatology', 'Insurance and cash-pay revenue in the same practice.',
+         ['Separate medical and cosmetic revenue on your P&L', 'Cut card processing and product costs', 'Track pathology and supply bills by location'],
+         ['Card processor statements', 'Product and supply invoices', 'Medical versus cosmetic revenue'],
+         'A P&L that shows which side of the practice makes the money'),
+        ('dental', 'Dental', 'PPO fee schedules and lab bills that drift upward.',
+         ['Check PPO payments against your fee schedules', 'Review lab and supply bills before they’re paid', 'Set up patient payment plans that actually get paid'],
+         ['PPO fee schedules and EOBs', 'Lab and supply invoices', 'Patient payment plans'],
+         'Fee schedule gaps in dollars, and which plans to renegotiate'),
+        ('location', 'Groups with several locations', 'More sites, more accounts, and no single view.',
+         ['A P&L and cash view for every location', 'Payroll and bills run across all sites', 'Numbers ready for a new location, a partner or a lender'],
+         ['Every location’s bank and card accounts', 'Payroll by site', 'Leases, loans and expansion plans'],
+         'One monthly package that rolls up every location'),
+    ]
+    tabs, panels = [], []
+    for i, (k, name, sub, do, look, lands) in enumerate(SPECS):
+        img = f'/assets/i/icon-{k}-cut.webp' if k == 'location' else f'/assets/i/st-{k}.webp'
+        sel = 'true' if i == 0 else 'false'
+        tabs.append(f'<button type="button" role="tab" id="tab-{k}" aria-controls="panel-{k}" aria-selected="{sel}" tabindex="{0 if i == 0 else -1}"><img src="{img}" alt="" width="36" height="36" loading="lazy" decoding="async"><span>{esc(name)}</span></button>')
+        panels.append(f'<div class="ex-panel" role="tabpanel" id="panel-{k}" aria-labelledby="tab-{k}"' + ('' if i == 0 else ' hidden') + f'><div class="ex-head"><img src="{img}" alt="" width="72" height="72" loading="lazy" decoding="async"><div><h3>{esc(name)}</h3><p>{esc(sub)}</p></div></div><div class="ex-cols"><div><p class="ex-k">What we take on first</p><ul class="ticks">' + ''.join(f'<li>{esc(x)}</li>' for x in do) + '</ul></div><div><p class="ex-k">What we look at</p><ul class="chips">' + ''.join(f'<li>{esc(x)}</li>' for x in look) + f'</ul><p class="ex-k">What lands on your desk</p><p>{esc(lands)}</p></div></div></div>')
+
+    CMP = [
+        ('Who owns the whole picture', 'You, after clinic', 'One person, if you can find them', 'One team, with a named CFO'),
+        ('What it costs', 'Several vendors, plus your evenings', 'A six-figure salary plus benefits', 'One flat fee, from $2,500 a month'),
+        ('Denials and underpayments', 'Worked when someone has time', 'Overseen, not worked', 'Worked claim by claim, every month'),
+        ('Books', 'Caught up monthly or quarterly', 'Depends on the team under them', 'Closed by day 10, every month'),
+        ('Cash forecast', 'In your head', 'Usually', '13 weeks ahead, updated weekly'),
+        ('Commitment', 'Several contracts, all different', 'An employee', 'Month to month after the pilot'),
+    ]
+    cmp_rows = ''.join(f'<tr><th scope="row">{esc(a)}</th><td>{esc(b)}</td><td>{esc(c)}</td><td>{esc(d)}</td></tr>' for a, b, c, d in CMP)
+
+    AUD = [
+        ('opening', 'Opening a practice', 'Get the accounts, payroll, cards and books set up right the first time, and a cash plan for the first year.'),
+        ('running', 'Running one practice', 'Hand off the bills, books and billing follow-up, and get your evenings back.'),
+        ('growing', 'Growing to more locations', 'See every location in one place and have the numbers ready for a partner, a lender or a sale.'),
+    ]
+    aud = ''.join(f'<li class="aud"><img src="/assets/i/stage-{k}-480.webp" srcset="/assets/i/stage-{k}-480.webp 480w, /assets/i/stage-{k}-800.webp 800w" sizes="(max-width:860px) 100vw, 340px" width="480" height="358" alt="" loading="lazy" decoding="async"><h3>{esc(t)}</h3><p>{esc(d)}</p></li>' for k, t, d in AUD)
+
     home = f'''
 <section class="hero"><div class="wrap hero-in">
 <div class="hero-copy"><p class="eyebrow">Fractional CFO and finance team for independent practices</p>
 <h1>You run the practice. <span class="hl">We run the money.</span></h1>
 <p class="lede">Banking, payroll, bills, books, billing follow-up, cards and financing, handled by one team for one monthly fee. You collect more, keep more, and stop doing finance at night.</p>
-<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup</a><a class="link" href="/services">See what we handle →</a></div>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup</a><a class="link" href="#week">See your week with us →</a></div>
 <p class="fine">Built for owner-physicians with one to ten locations.</p></div>
 <figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="(max-width:900px) 100vw, 1100px" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure>
 </div></section>
 
-<section class="sec"><div class="wrap split">
-<div><p class="eyebrow">The problem</p><h2>Your practice’s money runs through five vendors and lands on you.</h2></div>
-<div class="prose"><p>A bookkeeper who catches up once a month. A biller who works the claims they have time for. A bank, a payroll company, a card, and a CPA you see at tax time. Nobody owns the whole picture, so you do, after clinic.</p><p>That gap costs real money: denials nobody appeals, insurer payments below your contract, bills paid late or twice, cash sitting idle while you worry about payroll.</p></div>
-</div>
-<div class="wrap"><figure class="wide-art"><img src="/assets/i/problem-scatter-1584.webp" srcset="/assets/i/problem-scatter-900.webp 900w, /assets/i/problem-scatter-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration of a practice’s finances scattered across a table: bills, receipts, cards, a calculator and loose coins." loading="lazy" decoding="async"></figure></div>
-</section>
+<section class="sec" id="week"><div class="wrap split wk-split">
+<div><p class="eyebrow">Your week with us</p><h2>Ten minutes a week. We do the rest.</h2><p class="prose wk-lede">Each week you get one short list on your phone: what to approve, what we recovered, and anything that needs your call.</p>
+<ol class="steps steps-v">
+<li><b>Free checkup.</b><span>We read three months of statements, remittances and your P&L, and show you what’s leaking.</span></li>
+<li><b>Two-week handoff.</b><span>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</span></li>
+<li><b>Ten minutes a week.</b><span>You approve from your phone. One review call a month.</span></li>
+</ol></div>
+<figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul>{week}</ul><figcaption>An example of what an owner sees. Every practice’s list is its own.</figcaption></figure>
+</div></section>
 
-<section class="sec alt" id="handle"><div class="wrap">
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">The problem</p><h2>Your practice’s money runs through five vendors and lands on you.</h2>
+<p class="lede">A bookkeeper, a biller, a bank, a payroll company and a CPA you see at tax time. Nobody owns the whole picture, so it leaks in the same five places.</p>
+<ul class="pains">{pains}</ul>
+</div></section>
+
+<section class="sec" id="handle"><div class="wrap">
 <p class="eyebrow">What we take off your plate</p><h2>One team for every part of your practice’s finances.</h2>
 {svc_grid()}
 <p class="center"><a class="link" href="/services">See each service in detail →</a></p>
 </div></section>
 
-<section class="sec"><div class="wrap">
-<p class="eyebrow">How it works</p><h2>Three steps, and finance is off your desk.</h2>
-<ol class="steps">
-<li><b>Free checkup.</b><span>We review three months of statements, remittances and your P&L, then show you what’s leaking and what it’s worth.</span></li>
-<li><b>Two-week handoff.</b><span>We connect to your accounts, meet your biller and CPA, and take over one area at a time.</span></li>
-<li><b>Ten minutes a week.</b><span>You approve payments from your phone and get one monthly review. We handle everything else.</span></li>
-</ol></div></section>
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">Before and after</p><h2>The same practice, two ways.</h2>
+<figure class="wide-art"><img src="/assets/i/compare-split-1584.webp" srcset="/assets/i/compare-split-900.webp 900w, /assets/i/compare-split-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration: a grey pile of bills, receipts and a calculator on one side, and a bright practice with money and mail flowing in on the other." loading="lazy" decoding="async"></figure>
+<div class="ba">
+<div class="ba-col ba-before"><p class="ba-k">Your month today</p><ul><li>Statements in five places, and none of them agree</li><li>Denials pile up until they expire</li><li>Books closed weeks late, if at all</li><li>Payroll checked against the balance the night before</li><li>Finance questions answered after clinic</li></ul></div>
+<div class="ba-col ba-after"><p class="ba-k">Your month with {BRAND}</p><ul class="ticks"><li>Closed books and a P&L for each location by day 10</li><li>Money recovered from denials and underpayments, listed claim by claim</li><li>A 13-week cash forecast, with payroll and big bills marked</li><li>Bills paid, cards reviewed, and anything unusual flagged</li><li>Three decisions for you, with our recommendation on each</li></ul></div>
+</div>
+</div></section>
 
-<section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Every month</p><h2>What lands in your inbox.</h2><p class="prose">One package, one review call, and a named person to text.</p></div>
-<ul class="ticks">
-<li>Closed books and a P&L for each location by day 10</li>
-<li>A 13-week cash forecast, with payroll and big bills marked</li>
-<li>Money recovered from denials and underpayments, listed claim by claim</li>
-<li>Bills paid, cards reviewed, and anything unusual flagged</li>
-<li>Three decisions for you, with our recommendation on each</li>
-</ul></div></section>
+<section class="sec" id="examples"><div class="wrap">
+<p class="eyebrow">For your specialty</p><h2>What we’d work on first in a practice like yours.</h2>
+<div class="ex" data-tabs><div class="ex-tabs" role="tablist" aria-label="Practice types">{''.join(tabs)}</div>{''.join(panels)}</div>
+<p class="fine center">Example plans. Every practice’s checkup sets its own priorities.</p>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">Your options</p><h2>Three ways to run a practice’s finances.</h2>
+<div class="cmp-wrap"><table class="cmp"><thead><tr><th scope="col"><span class="sr">Question</span></th><th scope="col">Doing it yourself<small>Bookkeeper, biller, bank, payroll and CPA</small></th><th scope="col">Hiring a CFO<small>A full-time finance leader</small></th><th scope="col" class="us">{BRAND}<small>One team, one monthly fee</small></th></tr></thead><tbody>{cmp_rows}</tbody></table></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<p class="eyebrow">Who it’s for</p><h2>Wherever your practice is today.</h2>
+<ul class="auds">{aud}</ul>
+</div></section>
+
+<section class="sec alt"><div class="wrap">
+<p class="eyebrow">You stay in control</p><h2>A finance team you can trust with the keys.</h2>
+<ul class="trust">
+<li><img src="/assets/i/icon-roles-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>You approve every dollar</h3><p>Nothing is paid, opened or borrowed without your sign-off, from your phone.</p></li>
+<li><img src="/assets/i/icon-patient-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Patient data, protected</h3><p>We sign a business associate agreement before we see any patient information.</p></li>
+<li><img src="/assets/i/icon-partners-cut.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><h3>Licensed partners</h3><p>Banking, cards, payroll and financing come from licensed partners, with their terms shown first.</p></li>
+</ul>
+<p class="center"><a class="link" href="/how-we-work">How we work →</a></p>
+</div></section>
 
 <section class="sec"><div class="wrap">
 <p class="eyebrow">Pricing</p><h2>A flat monthly fee. No long contract.</h2>
 <div class="tiers mini">
 <a class="tier" href="/pricing#essentials"><b>Essentials</b><span class="price">$2,500<small>/month</small></span><span>Books, bills and a monthly CFO review</span></a>
-<a class="tier pick" href="/pricing#full"><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><span>Everything in Essentials, plus getting paid, payroll, cards and cash planning</span></a>
+<a class="tier pick" href="/pricing#full"><span class="badge">Most practices</span><b>Full CFO</b><span class="price">$5,000<small>/month</small></span><span>Everything in Essentials, plus getting paid, payroll, cards and cash planning</span></a>
 <a class="tier" href="/pricing#growth"><b>Growth</b><span class="price">From $8,000<small>/month</small></span><span>For groups adding locations, partners or financing</span></a>
 </div>
 <p class="center fine">Our first five practices get a 90-day pilot at half price.</p>
 </div></section>
 
 <section class="sec alt"><div class="wrap split">
-<div><p class="eyebrow">Questions</p><h2>What owners ask us.</h2></div>
+<div><p class="eyebrow">Questions</p><h2>What owners ask us.</h2><figure class="faq-art"><img src="/assets/i/scene-see-900.webp" alt="" width="900" height="382" loading="lazy" decoding="async"></figure><p class="fine">Still curious? <a href="mailto:hello@wellbyhealth.com">Email us</a> and you’ll hear back from a person.</p></div>
 {faq_block()}
 </div></section>
-{CTA}'''
+{CTA_HOME}'''
     pages.append(page('/', f'{BRAND} | Fractional CFO and finance team for medical practices', 'We run your practice’s finances: books, bills, payroll, billing follow-up, cards, banking and financing, for one monthly fee. Book a free Practice Money Checkup.', home, ld=[ORG, {'@type': 'FAQPage', 'mainEntity': [{'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]}]))
 
     # ---------- services ----------
