@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://ledgerwell.vercel.app/sitemap.xml
+Sitemap: https://ledgerwell-lemon.vercel.app/sitemap.xml
