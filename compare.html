@@ -456,6 +456,29 @@ a.tier:hover{transform:translateY(-3px)}
 @media (max-width:980px){.wk{margin-top:8px}}
 @media (max-width:520px){.hero-copy{text-align:left;justify-items:start}.hero-copy .cta-row,.hero-copy .eyebrow{justify-content:flex-start}}
 @media (max-width:460px){.hero-copy .eyebrow span{font-size:10px;letter-spacing:.06em}}
+/* more icons */
+.ic-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ic-steps li{padding:24px 24px 28px;display:grid;gap:10px;align-content:start}
+.ic-steps li img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.1))}
+.ic-steps li b{font-size:1.2rem;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.ic-steps li>span:last-child{color:var(--muted)}
+@media (max-width:980px){.ic-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:600px){.ic-steps{grid-template-columns:minmax(0,1fr)}}
+.trust-5{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.trust-5 li{grid-template-columns:minmax(0,1fr);align-content:start;gap:6px}
+.trust-5 img{grid-row:auto;width:64px;height:64px}
+@media (max-width:1100px){.trust-5{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:600px){.trust-5{grid-template-columns:minmax(0,1fr)}}
+.tier-ic{display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:var(--blue)}
+.tier:nth-child(2) .tier-ic{background:var(--pink)}.tier:nth-child(3) .tier-ic{background:var(--butter)}
+.tier-ic img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 4px 4px rgba(0,0,0,.1))}
+.h-ic{display:flex;align-items:center;gap:10px}
+.h-ic img{width:44px;height:44px;object-fit:contain;flex:none}
+.h-ic.small img{width:36px;height:36px}
+.faq-group h2{display:flex;align-items:center;gap:12px}
+.faq-group h2 img{width:48px;height:48px;object-fit:contain}
+.do-card>img{width:44px;height:44px;object-fit:contain;margin-bottom:6px}
+.lands{grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:center}
+.lands>img{width:56px;height:56px;object-fit:contain}
+.svc-ic img[src*="payroll"]{mix-blend-mode:normal;filter:drop-shadow(0 6px 8px rgba(40,30,60,.14))}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://md-cfo.vercel.app/#org", "name": "MD CFO", "url": "https://md-cfo.vercel.app/", "logo": "https://md-cfo.vercel.app/assets/i/wellby-flower-512.webp", "description": "Outsourced finance team and fractional CFO service dedicated to independent medical practices.", "parentOrganization": {"@type": "Organization", "name": "Wellby Health"}, "areaServed": "US", "email": "hello@wellbyhealth.com"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://md-cfo.vercel.app/"}, {"@type": "ListItem", "position": 2, "name": "Compare", "item": "https://md-cfo.vercel.app/compare"}]}]}</script>
 </head>
@@ -474,7 +497,7 @@ a.tier:hover{transform:translateY(-3px)}
 <main id="main">
 
 <section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>Compare</span></p><h1>How MD CFO compares.</h1><p class="lede">Honest comparisons with the ways practices usually handle their finances today, including when the other option is the better fit.</p></div></section>
-<section class="sec tight"><div class="wrap"><ul class="svc-grid cmp-grid"><li class="svc"><a href="/compare/vs-bookkeeper"><h3>MD CFO vs a bookkeeper</h3><p>A good bookkeeper records what happened. We do that, and then work on what happens next: collecting what you are owed, paying bills on time and planning cash.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-billing-company"><h3>MD CFO vs a billing company</h3><p>Billing companies code and submit claims, and most work denials when they have time. We work alongside your biller, on everything that happens to the money after that.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-full-time-cfo"><h3>MD CFO vs hiring a full-time CFO</h3><p>A full-time CFO is a big hire for an independent practice, and they still need a bookkeeper and billing help under them. We bring all three for one flat fee.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-fractional-cfo"><h3>MD CFO vs a generalist fractional CFO</h3><p>Most fractional CFOs advise many industries and leave the day-to-day work to you. We only work with independent medical practices, and we do the work, not just the advice.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li></ul></div></section>
+<section class="sec tight"><div class="wrap"><ul class="svc-grid cmp-grid"><li class="svc"><a href="/compare/vs-bookkeeper"><span class="svc-ic"><img src="/assets/i/icon-accounting-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><h3>MD CFO vs a bookkeeper</h3><p>A good bookkeeper records what happened. We do that, and then work on what happens next: collecting what you are owed, paying bills on time and planning cash.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-billing-company"><span class="svc-ic"><img src="/assets/i/icon-denials-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><h3>MD CFO vs a billing company</h3><p>Billing companies code and submit claims, and most work denials when they have time. We work alongside your biller, on everything that happens to the money after that.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-full-time-cfo"><span class="svc-ic"><img src="/assets/i/icon-cfo-hub-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><h3>MD CFO vs hiring a full-time CFO</h3><p>A full-time CFO is a big hire for an independent practice, and they still need a bookkeeper and billing help under them. We bring all three for one flat fee.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li><li class="svc"><a href="/compare/vs-fractional-cfo"><span class="svc-ic"><img src="/assets/i/icon-handoff-cut.webp" alt="" width="72" height="72" loading="lazy" decoding="async"></span><h3>MD CFO vs a generalist fractional CFO</h3><p>Most fractional CFOs advise many industries and leave the day-to-day work to you. We only work with independent medical practices, and we do the work, not just the advice.</p><span class="svc-more">Compare <span class="arr" aria-hidden="true">→</span></span></a></li></ul></div></section>
 <section class="sec cta-band"><div class="wrap cta-in"><div><h2>Start with a free Practice Money Checkup.</h2><p>Send us three months of bank statements, insurer remittances and your P&L. In five business days you get a one-page report: where money is leaking, what it’s worth, and what we’d fix first. No cost, no commitment.</p></div><div class="cta-side"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><p>Or email <a href="mailto:hello@wellbyhealth.com">hello@wellbyhealth.com</a>.</p></div></div></section>
 </main>
 <footer class="foot"><div class="wrap">

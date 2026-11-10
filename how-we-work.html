@@ -456,6 +456,29 @@ a.tier:hover{transform:translateY(-3px)}
 @media (max-width:980px){.wk{margin-top:8px}}
 @media (max-width:520px){.hero-copy{text-align:left;justify-items:start}.hero-copy .cta-row,.hero-copy .eyebrow{justify-content:flex-start}}
 @media (max-width:460px){.hero-copy .eyebrow span{font-size:10px;letter-spacing:.06em}}
+/* more icons */
+.ic-steps{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ic-steps li{padding:24px 24px 28px;display:grid;gap:10px;align-content:start}
+.ic-steps li img{width:72px;height:72px;object-fit:contain;filter:drop-shadow(0 6px 6px rgba(0,0,0,.1))}
+.ic-steps li b{font-size:1.2rem;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.ic-steps li>span:last-child{color:var(--muted)}
+@media (max-width:980px){.ic-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:600px){.ic-steps{grid-template-columns:minmax(0,1fr)}}
+.trust-5{grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}
+.trust-5 li{grid-template-columns:minmax(0,1fr);align-content:start;gap:6px}
+.trust-5 img{grid-row:auto;width:64px;height:64px}
+@media (max-width:1100px){.trust-5{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (max-width:600px){.trust-5{grid-template-columns:minmax(0,1fr)}}
+.tier-ic{display:grid;place-items:center;width:64px;height:64px;border-radius:18px;background:var(--blue)}
+.tier:nth-child(2) .tier-ic{background:var(--pink)}.tier:nth-child(3) .tier-ic{background:var(--butter)}
+.tier-ic img{width:52px;height:52px;object-fit:contain;filter:drop-shadow(0 4px 4px rgba(0,0,0,.1))}
+.h-ic{display:flex;align-items:center;gap:10px}
+.h-ic img{width:44px;height:44px;object-fit:contain;flex:none}
+.h-ic.small img{width:36px;height:36px}
+.faq-group h2{display:flex;align-items:center;gap:12px}
+.faq-group h2 img{width:48px;height:48px;object-fit:contain}
+.do-card>img{width:44px;height:44px;object-fit:contain;margin-bottom:6px}
+.lands{grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:center}
+.lands>img{width:56px;height:56px;object-fit:contain}
+.svc-ic img[src*="payroll"]{mix-blend-mode:normal;filter:drop-shadow(0 6px 8px rgba(40,30,60,.14))}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://md-cfo.vercel.app/#org", "name": "MD CFO", "url": "https://md-cfo.vercel.app/", "logo": "https://md-cfo.vercel.app/assets/i/wellby-flower-512.webp", "description": "Outsourced finance team and fractional CFO service dedicated to independent medical practices.", "parentOrganization": {"@type": "Organization", "name": "Wellby Health"}, "areaServed": "US", "email": "hello@wellbyhealth.com"}]}</script>
 </head>
@@ -475,19 +498,24 @@ a.tier:hover{transform:translateY(-3px)}
 
 <section class="sec page-top"><div class="wrap"><p class="eyebrow"><span>How we work</span></p><h1>A finance team you can trust with the keys.</h1><p class="lede">Clear access, clear approvals, and a named person who answers.</p></div></section>
 <section class="sec tight"><div class="wrap">
-<h2>Your first 30 days</h2>
-<ol class="steps">
-<li><b>Days 1 to 5: Checkup.</b><span>We read your statements, remittances and P&L and show you what we found.</span></li>
-<li><b>Days 6 to 10: Kickoff.</b><span>We sign a business associate agreement, get read-only access first, and meet your biller and CPA.</span></li>
-<li><b>Days 11 to 20: Handoff.</b><span>We take over books and bills first, then billing follow-up and payroll.</span></li>
-<li><b>Day 30: First review.</b><span>Closed books, a cash forecast, and the first money recovered or saved.</span></li>
+<div class="head"><p class="eyebrow"><span>Your first 30 days</span></p><h2>From checkup to first review in a month.</h2></div>
+<ol class="steps ic-steps">
+<li><img src="/assets/i/icon-see-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><span class="num">1</span><b>Days 1 to 5: Checkup</b><span>We read your statements, remittances and P&L and show you what we found.</span></li>
+<li><img src="/assets/i/icon-privacy-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><span class="num">2</span><b>Days 6 to 10: Kickoff</b><span>We sign a business associate agreement, get read-only access first, and meet your biller and CPA.</span></li>
+<li><img src="/assets/i/icon-handoff-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><span class="num">3</span><b>Days 11 to 20: Handoff</b><span>We take over books and bills first, then billing follow-up and payroll.</span></li>
+<li><img src="/assets/i/icon-calendar-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><span class="num">4</span><b>Day 30: First review</b><span>Closed books, a cash forecast, and the first money recovered or saved.</span></li>
 </ol>
 <figure class="wide-art"><img src="/assets/i/scene-cfo-hub-1584.webp" srcset="/assets/i/scene-cfo-hub-900.webp 900w, /assets/i/scene-cfo-hub-1584.webp 1584w" sizes="(max-width:1120px) 100vw, 1080px" width="1584" height="672" alt="Clay illustration of a calm practice owner’s office with a dashboard on the monitor." loading="lazy" decoding="async"></figure>
 </div></section>
-<section class="sec alt"><div class="wrap split">
-<div><h2>You stay in control</h2></div>
-<ul class="ticks"><li>You approve every payment, account and financing offer</li><li>Access is role-based and can be removed at any time</li><li>Patient data stays in HIPAA-compliant systems, under a signed agreement</li><li>Partners are named and their terms shown before you choose anything</li><li>Month to month: if we stop earning our fee, you can leave</li></ul>
-</div></section>
+<section class="sec alt"><div class="wrap">
+<div class="head"><p class="eyebrow"><span>Control</span></p><h2>You stay in control.</h2></div>
+<ul class="trust trust-5">
+<li><img src="/assets/i/icon-phone-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>You approve everything</b><span>Every payment, account and financing offer, from your phone.</span></li>
+<li><img src="/assets/i/icon-roles-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Access you set</b><span>Role-based access you can remove at any time.</span></li>
+<li><img src="/assets/i/icon-privacy-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Patient data protected</b><span>HIPAA-compliant systems, under a signed agreement.</span></li>
+<li><img src="/assets/i/icon-partners-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Partners shown first</b><span>Partners are named and their terms shown before you choose.</span></li>
+<li><img src="/assets/i/icon-calendar-cut.webp" alt="" width="64" height="64" loading="lazy" decoding="async"><b>Month to month</b><span>If we stop earning our fee, you can leave.</span></li>
+</ul></div></section>
 <section class="sec" id="team"><div class="wrap split">
 <div><div class="head"><p class="eyebrow"><span>Team</span></p><h2>Who you work with</h2></div></div>
 <div class="prose"><p><b>Yaniv Sadka, CFO lead.</b> Healthcare venture investor and operator. During our founding pilots, Yaniv leads every practice personally.</p><p>He’s supported by healthcare bookkeeping and billing specialists, and by licensed partners for banking, cards, payroll and financing.</p></div>
