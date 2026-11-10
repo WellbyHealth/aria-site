@@ -203,13 +203,16 @@ def build():
 
     home = f'''
 <section class="hero">
-<div class="sky"><figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="100vw" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure></div>
-<div class="band"><div class="wrap band-grid">
-<div class="band-title"><p class="eyebrow on-dark"><span>Fractional CFO for independent practices</span></p>
+<div class="sky"><div class="wrap hero-copy"><p class="eyebrow"><span>Fractional CFO for independent practices</span></p>
 <h1>You run the practice. <span class="pop">We run the money.</span></h1>
 <p class="lede">Banking, payroll, bills, books, billing follow-up, cards and financing, handled by one team for one monthly fee. You collect more, keep more, and stop doing finance at night.</p>
-<div class="cta-row"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><a class="link on-dark" href="#how">See how it works</a></div>
-<p class="fine">Built for owner-physicians with one to ten locations.</p></div>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup{ARR}</a><a class="link" href="#how">See how it works</a></div>
+<p class="fine">Dedicated to medicine. Built for owner-physicians with one to ten locations.</p></div>
+<figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="100vw" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure></div>
+<div class="band"><div class="wrap band-grid">
+<div class="band-title"><p class="eyebrow on-dark"><span>Your week with us</span></p>
+<h2>One short list a week. <span class="pop">That’s your part.</span></h2>
+<p class="lede">Approve the bills, see what we recovered, and make the one call that’s yours. We handle everything else, and you get one review call a month.</p></div>
 <figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul>{week}</ul><figcaption>An example of what an owner sees each week. Every practice’s list is its own.</figcaption></figure>
 </div></div>
 </section>

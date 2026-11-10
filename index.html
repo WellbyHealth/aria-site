@@ -439,6 +439,23 @@ a.tier:hover{transform:translateY(-3px)}
 .foot-grid a.btn:hover{text-decoration:none}
 .svc-grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:860px){.svc-grid.three{grid-template-columns:minmax(0,1fr)}}
+/* hero: words on the sky, art beneath */
+.sky{padding-top:clamp(96px,9vw,128px)}
+.hero-copy{max-width:var(--max);text-align:center;display:grid;justify-items:center}
+.hero-copy h1{max-width:16ch;text-wrap:balance}
+.hero-copy .lede{margin-left:auto;margin-right:auto;color:#1c2b3f}
+.hero-copy .fine{color:#2e4a66}
+.hero-copy .cta-row{justify-content:center}
+.hero-copy .eyebrow{justify-content:center}
+.hero .sky .pop{color:var(--blue-ink)}
+.hero-art{margin-top:clamp(8px,2vw,24px)}
+.hero-art img{max-height:min(60vh,560px)}
+.band h2{color:#fff}.band h2 .pop{color:var(--btn)}
+.band-grid{align-items:center}
+.wk{margin-top:calc(-1*clamp(48px,6vw,80px) - 90px)}
+@media (max-width:980px){.wk{margin-top:8px}}
+@media (max-width:520px){.hero-copy{text-align:left;justify-items:start}.hero-copy .cta-row,.hero-copy .eyebrow{justify-content:flex-start}}
+@media (max-width:460px){.hero-copy .eyebrow span{font-size:10px;letter-spacing:.06em}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "ProfessionalService", "@id": "https://md-cfo.vercel.app/#org", "name": "MD CFO", "url": "https://md-cfo.vercel.app/", "logo": "https://md-cfo.vercel.app/assets/i/wellby-flower-512.webp", "description": "Outsourced finance team and fractional CFO service dedicated to independent medical practices.", "parentOrganization": {"@type": "Organization", "name": "Wellby Health"}, "areaServed": "US", "email": "hello@wellbyhealth.com"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I have to replace my bookkeeper, biller or CPA?", "acceptedAnswer": {"@type": "Answer", "text": "No. We can take over the work, or run it alongside the people you trust. Most practices keep their CPA for taxes and their biller for coding and submission."}}, {"@type": "Question", "name": "Who approves payments?", "acceptedAnswer": {"@type": "Answer", "text": "You do. Nothing is paid, opened or borrowed without your sign-off. Approvals take a few minutes a week from your phone."}}, {"@type": "Question", "name": "How do you handle patient information?", "acceptedAnswer": {"@type": "Answer", "text": "Billing follow-up touches patient data, so we sign a business associate agreement with your practice before we start and only work in systems that meet HIPAA requirements."}}, {"@type": "Question", "name": "Are you a bank or a lender?", "acceptedAnswer": {"@type": "Answer", "text": "No. We are a finance service. Bank accounts, cards, financing and payroll come from licensed partners, subject to their approval and terms, and we manage them for you."}}, {"@type": "Question", "name": "What does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "A flat monthly fee based on what you hand us: Essentials $2,500, Full CFO $5,000, Growth from $8,000 a month."}}, {"@type": "Question", "name": "How long does it take to start?", "acceptedAnswer": {"@type": "Answer", "text": "About two weeks: a checkup, a kickoff call, access to your accounts, then we take over one area at a time."}}]}]}</script>
 </head>
@@ -457,13 +474,16 @@ a.tier:hover{transform:translateY(-3px)}
 <main id="main">
 
 <section class="hero">
-<div class="sky"><figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="100vw" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure></div>
-<div class="band"><div class="wrap band-grid">
-<div class="band-title"><p class="eyebrow on-dark"><span>Fractional CFO for independent practices</span></p>
+<div class="sky"><div class="wrap hero-copy"><p class="eyebrow"><span>Fractional CFO for independent practices</span></p>
 <h1>You run the practice. <span class="pop">We run the money.</span></h1>
 <p class="lede">Banking, payroll, bills, books, billing follow-up, cards and financing, handled by one team for one monthly fee. You collect more, keep more, and stop doing finance at night.</p>
-<div class="cta-row"><a class="btn btn-y" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><a class="link on-dark" href="#how">See how it works</a></div>
-<p class="fine">Built for owner-physicians with one to ten locations.</p></div>
+<div class="cta-row"><a class="btn" href="/checkup">Book a free checkup <span class="arr" aria-hidden="true">→</span></a><a class="link" href="#how">See how it works</a></div>
+<p class="fine">Dedicated to medicine. Built for owner-physicians with one to ten locations.</p></div>
+<figure class="hero-art"><img src="/assets/i/hero-cleared-1584.webp" srcset="/assets/i/hero-cleared-900.webp 900w, /assets/i/hero-cleared-1584.webp 1584w" sizes="100vw" width="1584" height="672" alt="Clay illustration of a cleared doctor’s desk while a cart carries away the bills, receipts, payroll and bank paperwork."></figure></div>
+<div class="band"><div class="wrap band-grid">
+<div class="band-title"><p class="eyebrow on-dark"><span>Your week with us</span></p>
+<h2>One short list a week. <span class="pop">That’s your part.</span></h2>
+<p class="lede">Approve the bills, see what we recovered, and make the one call that’s yours. We handle everything else, and you get one review call a month.</p></div>
 <figure class="wk" aria-label="Example of the weekly list an owner receives"><div class="wk-top"><b>This week</b><span class="sample">Sample data</span></div><ul><li><span class="wk-ic"><img src="/assets/i/icon-bill-pay-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Approve 4 vendor bills</b><span>$6,410 · due this week · all checked against last order</span></span><span class="wk-btn" aria-hidden="true">Approve</span></li><li><span class="wk-ic"><img src="/assets/i/icon-see-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Recovered from underpaid claims</b><span>$3,280 across 11 claims from two insurers</span></span><span class="wk-btn" aria-hidden="true">See claims</span></li><li><span class="wk-ic"><img src="/assets/i/icon-payroll-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>Payroll on Friday is covered</b><span>$41,200 already set aside in the payroll account</span></span><span class="wk-ok" aria-hidden="true">Ready</span></li><li><span class="wk-ic"><img src="/assets/i/icon-cfo-hub-cut.webp" alt="" width="40" height="40" loading="lazy" decoding="async"></span><span class="wk-t"><b>One decision for you</b><span>Lease or buy the new ultrasound? Our numbers and recommendation inside.</span></span><span class="wk-btn" aria-hidden="true">Review</span></li></ul><figcaption>An example of what an owner sees each week. Every practice’s list is its own.</figcaption></figure>
 </div></div>
 </section>
