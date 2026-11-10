@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://ledgerwell-lemon.vercel.app/sitemap.xml
+Sitemap: https://md-cfo.vercel.app/sitemap.xml

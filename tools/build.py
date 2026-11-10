@@ -4,7 +4,7 @@ import os, html, json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BRAND = 'MD CFO'
-SITE = 'https://ledgerwell-lemon.vercel.app'
+SITE = 'https://md-cfo.vercel.app'
 TAG = 'Your practice’s finance team, handled.'
 
 NAV = [('/services', 'Services'), ('/pricing', 'Pricing'), ('/how-we-work', 'How we work')]

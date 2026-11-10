@@ -1,1 +1,7 @@
-{"cleanUrls":true,"trailingSlash":false}
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/:path*", "has": [{ "type": "host", "value": "ledgerwell-lemon.vercel.app" }], "destination": "https://md-cfo.vercel.app/:path*", "permanent": true }
+  ]
+}
