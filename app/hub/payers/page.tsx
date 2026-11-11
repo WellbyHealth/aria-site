@@ -37,7 +37,7 @@ export default async function Payers({ searchParams }: { searchParams: Promise<R
             <td><Spark values={p.spark} w={96} h={22} /></td></tr>)}
         </tbody></table></div>
       </Card>
-      <NeedsSource system="Payer contracts and fee schedules" examples="upload each payer's fee schedule, or connect your practice management system" unlocks={['Contract variance: expected allowed vs actually paid, by CPT', 'Payers running more than 2% below contract', 'Reimbursement as a % of the Medicare fee schedule', 'Top 20 CPT codes: volume, allowed and paid', 'Value-based revenue: shared savings, quality bonuses, MIPS', 'Contract renewal and termination-notice calendar']} />
+      <NeedsSource art="contracts" system="Payer contracts and fee schedules" examples="upload each payer's fee schedule, or connect your practice management system" unlocks={['Contract variance: expected allowed vs actually paid, by CPT', 'Payers running more than 2% below contract', 'Reimbursement as a % of the Medicare fee schedule', 'Top 20 CPT codes: volume, allowed and paid', 'Value-based revenue: shared savings, quality bonuses, MIPS', 'Contract renewal and termination-notice calendar']} />
     </div>
   </>);
 }

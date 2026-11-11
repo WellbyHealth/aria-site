@@ -39,7 +39,7 @@ export default async function Revenue({ searchParams }: { searchParams: Promise<
           {!r.recent.length && <tr><td colSpan={6} className="note">No denied claims in this period.</td></tr>}
         </tbody></table></div>
       </Card>
-      <NeedsSource system="Practice management system" examples="athenahealth, eClinicalWorks, ModMed or similar" unlocks={['A/R aging by payer (0–30 … 120+)', 'Days in A/R and net collection rate', 'Charge lag', 'Clean claim rate and first-pass resolution', 'Point-of-service collections', 'Credit balances and write-offs by type']} />
+      <NeedsSource art="practice" system="Practice management system" examples="athenahealth, eClinicalWorks, ModMed or similar" unlocks={['A/R aging by payer (0–30 … 120+)', 'Days in A/R and net collection rate', 'Charge lag', 'Clean claim rate and first-pass resolution', 'Point-of-service collections', 'Credit balances and write-offs by type']} />
     </div>
   </>);
 }

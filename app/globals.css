@@ -1,21 +1,21 @@
 /* Clinical Ledger: a well-kept financial statement in a calm clinical space. Color is kept for meaning. */
 :root{
-  --ink:#14213D;--slate:#5B6B82;--canvas:#F6F8FA;--surface:#FFFFFF;--rule:#E3E8EF;--accent:#0F7C7A;--accent-soft:#E3F2F1;--cmp:#A7B4C6;
-  --good:#2E7D4F;--watch:#B7791F;--alert:#C2412D;--good-bg:#E6F2EA;--watch-bg:#FBF1E1;--alert-bg:#FBE9E6;--hover:#F0F3F7;
+  --ink:#000000;--slate:#6b6a64;--canvas:#f9f8f6;--surface:#ffffff;--rule:#e6e4dd;--accent:#2f6db5;--accent-soft:#e3eefd;--cmp:#b5b3aa;--pink:#fcf1f8;--lav:#d9daf9;--butter:#fdfde5;--btn:#000000;--btn-ink:#ffffff;
+  --good:#1f7a4d;--watch:#9a4a00;--alert:#c0262d;--good-bg:#e1f3e8;--watch-bg:#fdebd3;--alert-bg:#fbe9ea;--hover:#f3f3f1;
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]){
-  --ink:#E8EDF4;--slate:#9AA8BC;--canvas:#0E1624;--surface:#16213A;--rule:#26324A;--accent:#3BB8B3;--accent-soft:#173836;--cmp:#4F5F78;
-  --good:#5CC489;--watch:#E3A84A;--alert:#F07863;--good-bg:#173527;--watch-bg:#3A2D17;--alert-bg:#3D1F1C;--hover:#1C2944;color-scheme:dark}}
-:root[data-theme=dark]{--ink:#E8EDF4;--slate:#9AA8BC;--canvas:#0E1624;--surface:#16213A;--rule:#26324A;--accent:#3BB8B3;--accent-soft:#173836;--cmp:#4F5F78;
-  --good:#5CC489;--watch:#E3A84A;--alert:#F07863;--good-bg:#173527;--watch-bg:#3A2D17;--alert-bg:#3D1F1C;--hover:#1C2944;color-scheme:dark}
+  --ink:#f9f8f6;--slate:#a6a49c;--canvas:#141413;--surface:#1f1f1c;--rule:#36352f;--accent:#9cc6f7;--accent-soft:#14263a;--cmp:#5e5d57;--pink:#2a1624;--lav:#22223a;--butter:#23231a;--btn:#f9f8f6;--btn-ink:#000000;
+  --good:#6fd69c;--watch:#ffb870;--alert:#ff7a7a;--good-bg:#13301f;--watch-bg:#3a2a12;--alert-bg:#3a1a1a;--hover:#2a2a26;color-scheme:dark}}
+:root[data-theme=dark]{--ink:#f9f8f6;--slate:#a6a49c;--canvas:#141413;--surface:#1f1f1c;--rule:#36352f;--accent:#9cc6f7;--accent-soft:#14263a;--cmp:#5e5d57;--pink:#2a1624;--lav:#22223a;--butter:#23231a;--btn:#f9f8f6;--btn-ink:#000000;
+  --good:#6fd69c;--watch:#ffb870;--alert:#ff7a7a;--good-bg:#13301f;--watch-bg:#3a2a12;--alert-bg:#3a1a1a;--hover:#2a2a26;color-scheme:dark}
 *{box-sizing:border-box}
 html,body{background:var(--canvas)}
 /* Liquid Glass, web edition: glass is only for the navigation layer (sidebar, top bar). Content stays plain.
    A faint wash on the canvas gives the glass something to refract; it stays calm enough to read numbers on. */
-:root{--glass:rgba(255,255,255,.62);--glass-strong:rgba(255,255,255,.80);--glass-edge:rgba(255,255,255,.75);--glass-line:rgba(20,33,61,.08);--glass-hi:inset 0 1px 0 rgba(255,255,255,.9),inset 0 0 0 1px rgba(255,255,255,.35);--glass-shadow:0 8px 30px rgba(20,33,61,.08),0 1px 2px rgba(20,33,61,.06);--glass-blur:saturate(170%) blur(22px);--wash:radial-gradient(1200px 600px at 0% 0%,rgba(15,124,122,.10),transparent 60%),radial-gradient(900px 500px at 100% 0%,rgba(91,107,130,.10),transparent 60%),radial-gradient(800px 600px at 60% 100%,rgba(15,124,122,.06),transparent 60%)}
-@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--glass:rgba(22,33,58,.58);--glass-strong:rgba(22,33,58,.88);--glass-edge:rgba(255,255,255,.10);--glass-line:rgba(255,255,255,.06);--glass-hi:inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 1px rgba(255,255,255,.04);--glass-shadow:0 10px 34px rgba(0,0,0,.35);--wash:radial-gradient(1200px 600px at 0% 0%,rgba(59,184,179,.14),transparent 60%),radial-gradient(900px 500px at 100% 0%,rgba(154,168,188,.08),transparent 60%),radial-gradient(800px 600px at 60% 100%,rgba(59,184,179,.07),transparent 60%)}}
-:root[data-theme=dark]{--glass:rgba(22,33,58,.58);--glass-strong:rgba(22,33,58,.88);--glass-edge:rgba(255,255,255,.10);--glass-line:rgba(255,255,255,.06);--glass-hi:inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 1px rgba(255,255,255,.04);--glass-shadow:0 10px 34px rgba(0,0,0,.35)}
+:root{--glass:rgba(255,255,255,.62);--glass-strong:rgba(255,255,255,.82);--glass-edge:rgba(255,255,255,.75);--glass-line:rgba(0,0,0,.06);--glass-hi:inset 0 1px 0 rgba(255,255,255,.9),inset 0 0 0 1px rgba(255,255,255,.35);--glass-shadow:0 8px 30px rgba(0,0,0,.07),0 1px 2px rgba(0,0,0,.05);--glass-blur:saturate(170%) blur(22px);--wash:radial-gradient(1100px 600px at 0% 0%,rgba(197,222,251,.55),transparent 60%),radial-gradient(900px 520px at 100% 0%,rgba(252,241,248,.9),transparent 60%),radial-gradient(800px 600px at 55% 100%,rgba(217,218,249,.45),transparent 60%)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--glass:rgba(31,31,28,.6);--glass-strong:rgba(31,31,28,.88);--glass-edge:rgba(255,255,255,.10);--glass-line:rgba(255,255,255,.06);--glass-hi:inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 1px rgba(255,255,255,.04);--glass-shadow:0 10px 34px rgba(0,0,0,.35);--wash:radial-gradient(1100px 600px at 0% 0%,rgba(47,109,181,.16),transparent 60%),radial-gradient(900px 520px at 100% 0%,rgba(240,139,214,.08),transparent 60%),radial-gradient(800px 600px at 55% 100%,rgba(122,115,255,.08),transparent 60%)}}
+:root[data-theme=dark]{--glass:rgba(31,31,28,.6);--glass-strong:rgba(31,31,28,.88);--glass-edge:rgba(255,255,255,.10);--glass-line:rgba(255,255,255,.06);--glass-hi:inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 1px rgba(255,255,255,.04);--glass-shadow:0 10px 34px rgba(0,0,0,.35);--wash:radial-gradient(1100px 600px at 0% 0%,rgba(47,109,181,.16),transparent 60%),radial-gradient(900px 520px at 100% 0%,rgba(240,139,214,.08),transparent 60%),radial-gradient(800px 600px at 55% 100%,rgba(122,115,255,.08),transparent 60%)}
 body{background-image:var(--wash);background-attachment:fixed}
 .glass{background:var(--glass);-webkit-backdrop-filter:var(--glass-blur);backdrop-filter:var(--glass-blur);border:1px solid var(--glass-edge);box-shadow:var(--glass-hi),var(--glass-shadow)}
 body{margin:0;color:var(--ink);font:400 14px/1.5 Inter,"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;font-feature-settings:"tnum","cv11";-webkit-font-smoothing:antialiased}
@@ -42,7 +42,7 @@ h1{font-size:20px;line-height:1.3}h2{font-size:15px;line-height:1.35}
 .nav{display:flex;align-items:center;gap:10px;padding:8px 10px;border-radius:12px;color:var(--ink);font-size:13.5px;transition:background .18s,color .18s}
 .nav:hover{background:var(--glass-line);text-decoration:none}
 .nav.sub{padding-left:38px;color:var(--slate)}
-.nav[aria-current]{background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent);font-weight:600;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 18%,transparent)}
+.nav[aria-current]{background:color-mix(in srgb,var(--surface) 82%,transparent);color:var(--ink);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06),inset 0 0 0 1px var(--glass-line)}
 .nav svg,.navgroup svg{flex:none}
 .side .who{margin-top:auto;padding:12px 10px 4px;border-top:1px solid var(--glass-line);font-size:12px;color:var(--slate)}
 .side .who b{display:block;color:var(--ink);font-size:13px}
@@ -138,7 +138,7 @@ td .spark{width:96px;height:22px}
 @media (max-width:760px){.empty ul{columns:1}}
 
 /* Forms and buttons. */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:8px;border:1px solid var(--accent);background:var(--accent);color:#fff;font:600 13.5px inherit;font-family:inherit;cursor:pointer;text-decoration:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--btn);background:var(--btn);color:var(--btn-ink);font:600 13.5px inherit;font-family:inherit;cursor:pointer;text-decoration:none}
 .btn:hover{filter:brightness(1.08);text-decoration:none}
 .btn.ghost{background:var(--surface);color:var(--ink);border-color:var(--rule)}.btn.ghost:hover{background:var(--hover)}
 .btn:disabled{opacity:.5;cursor:not-allowed}
@@ -164,3 +164,13 @@ input[type=file]{height:auto;padding:8px}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 
 @media (max-width:420px){.kpi .v{font-size:26px}.kpi .meta{flex-direction:column;align-items:flex-start;gap:2px}}
+
+/* Spot art in not-connected states, and the glass sign-in over a calm backdrop. */
+.empty.has-art{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px;align-items:center}
+.empty-art{width:120px;height:120px;object-fit:contain}
+@media (max-width:620px){.empty.has-art{grid-template-columns:minmax(0,1fr)}.empty-art{width:88px;height:88px}}
+.login{position:relative;isolation:isolate}
+.login::before{content:"";position:fixed;inset:0;z-index:-1;background:var(--canvas) url(/art/login-bg.webp) center/cover no-repeat}
+.login .card.glass{border-radius:24px;background:var(--glass-strong)}
+.brand img{width:24px;height:24px;border-radius:7px;display:block}
+@media (prefers-reduced-transparency:reduce){.login::before{background-image:none}}

@@ -37,7 +37,7 @@ export default async function Risk({ searchParams }: { searchParams: Promise<Rec
           <p className="foot">Cash floor and days cash target are set on <a href="/hub/cash">Cash and forecast</a>.</p>
         </form>
       </Card>
-      <NeedsSource system="Practice management system, credentialing and HR records" examples="EHR scheduling, your credentialing tracker, insurance renewals" unlocks={['Appointments booked for the next 2–4 weeks vs last year', 'No-show and same-day cancellation rate', 'Days to third-next-available appointment', 'Referrals in and leakage out of network', 'E/M coding outliers vs peers and CMS norms', 'Credit balances and overpayments older than 60 days', 'Credentialing and payer enrollment expiring in 90 days', 'Payer audits, recoupments and open appeals', 'Malpractice claims and insurance renewal dates']} />
+      <NeedsSource art="risk" system="Practice management system, credentialing and HR records" examples="EHR scheduling, your credentialing tracker, insurance renewals" unlocks={['Appointments booked for the next 2–4 weeks vs last year', 'No-show and same-day cancellation rate', 'Days to third-next-available appointment', 'Referrals in and leakage out of network', 'E/M coding outliers vs peers and CMS norms', 'Credit balances and overpayments older than 60 days', 'Credentialing and payer enrollment expiring in 90 days', 'Payer audits, recoupments and open appeals', 'Malpractice claims and insurance renewal dates']} />
     </div>
   </>);
 }

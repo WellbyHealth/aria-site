@@ -28,7 +28,7 @@ export default async function HubLayout({ children }: { children: ReactNode }) {
   return (
     <div className="shell">
       <aside className="side glass">
-        <a className="brand" href="/hub"><i>A</i>Aria CFO Hub</a>
+        <a className="brand" href="/hub"><img src="/art/icon-128.png" alt="" />Aria CFO Hub</a>
         <Suspense><Nav /></Suspense>
         <div className="who"><b>{s.practiceName}</b>{s.name} · {s.role}
           {isDemo() && <div style={{ marginTop: 8 }}><span className="tag watch">Sample data</span></div>}

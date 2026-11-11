@@ -24,7 +24,7 @@ export default async function Providers({ searchParams }: { searchParams: Promis
       </div>
     </> : <p className="note" style={{ marginBottom: 16 }}>No remittances with a rendering provider yet. Upload 835 files that include NM1*82 provider loops.</p>}
     <div className="g" style={{ marginTop: 24 }}>
-      <NeedsSource system="Practice management system and payroll" examples="EHR scheduling and coding, plus ADP, Gusto or similar for compensation" unlocks={['wRVUs per clinical FTE vs specialty benchmark', 'Visits per day and per session', 'Compensation per wRVU and as % of collections', 'Schedule utilization', 'E/M level distribution vs peers', 'Panel size and new-patient share', 'Encounters closed within 72 hours', 'wRVU percentile vs compensation percentile scatter']} />
+      <NeedsSource art="people" system="Practice management system and payroll" examples="EHR scheduling and coding, plus ADP, Gusto or similar for compensation" unlocks={['wRVUs per clinical FTE vs specialty benchmark', 'Visits per day and per session', 'Compensation per wRVU and as % of collections', 'Schedule utilization', 'E/M level distribution vs peers', 'Panel size and new-patient share', 'Encounters closed within 72 hours', 'wRVU percentile vs compensation percentile scatter']} />
     </div>
   </>);
 }

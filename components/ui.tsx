@@ -103,12 +103,15 @@ export function AlertList({ alerts, owner, limit }: { alerts: Alert[]; owner: st
     </li>))}</ul>;
 }
 
-export function NeedsSource({ system, examples, unlocks }: { system: string; examples: string; unlocks: string[] }) {
+export function NeedsSource({ system, examples, unlocks, art }: { system: string; examples: string; unlocks: string[]; art?: 'practice' | 'ledger' | 'contracts' | 'people' | 'risk' }) {
   return (
-    <div className="empty s12">
+    <div className={`empty s12${art ? ' has-art' : ''}`}>
+      {art && <img className="empty-art" src={`/art/spot-${art}.webp`} alt="" width={120} height={120} loading="lazy" />}
+      <div>
       <h3><Icon name="plug" size={14} /> Not connected: {system}</h3>
       <p>These need data that isn’t connected yet: {examples}. Until then nothing is shown, rather than a zero that looks real.</p>
       <ul>{unlocks.map(u => <li key={u}>{u}</li>)}</ul>
+      </div>
     </div>
   );
 }

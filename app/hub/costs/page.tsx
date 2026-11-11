@@ -31,7 +31,7 @@ export default async function Costs({ searchParams }: { searchParams: Promise<Re
           {c.distributions && <tr><td>Partner distributions <span className="foot">not an operating cost</span></td><td className="n"><Money cents={c.distributions.amount} /></td><td className="n"><Money cents={c.distributions.prior} /></td><td className="n"><Delta value={c.distributions.amount} prior={c.distributions.prior} unit="usd" /></td><td className="n">{fmtValue(c.distributions.pctOfCollections, 'pct')}</td><td><Spark values={c.distributions.spark} w={96} h={22} /></td></tr>}
         </tbody></table></div>
       </Card>
-      <NeedsSource system="General ledger" examples="QuickBooks, Sage Intacct, NetSuite or similar" unlocks={['P&L vs budget and prior year, by site and service line', 'Accrual operating margin', 'Cost per visit and per wRVU (with the PM system)', 'Overhead ratio excluding provider comp', 'Ancillary contribution: lab, imaging, infusion', 'Labor detail: FTEs, overtime, agency spend (with payroll)']} />
+      <NeedsSource art="ledger" system="General ledger" examples="QuickBooks, Sage Intacct, NetSuite or similar" unlocks={['P&L vs budget and prior year, by site and service line', 'Accrual operating margin', 'Cost per visit and per wRVU (with the PM system)', 'Overhead ratio excluding provider comp', 'Ancillary contribution: lab, imaging, infusion', 'Labor detail: FTEs, overtime, agency spend (with payroll)']} />
     </div>
   </>);
 }

@@ -59,7 +59,7 @@ export default async function Cash({ searchParams }: { searchParams: Promise<Rec
           {!D.accounts.length && <tr><td colSpan={5} className="note">No accounts yet. <a href="/hub/banks">Connect a bank</a>.</td></tr>}
         </tbody></table></div>
       </Card>
-      <NeedsSource system="General ledger and lender data" examples="QuickBooks or similar, plus your loan agreements" unlocks={['Line of credit drawn vs available', 'Debt covenant tests with headroom', 'Accounts payable aging and large upcoming bills', 'Capex tracker vs budget', 'Partner distributions, planned vs paid', 'Rolling full-year forecast vs budget']} />
+      <NeedsSource art="ledger" system="General ledger and lender data" examples="QuickBooks or similar, plus your loan agreements" unlocks={['Line of credit drawn vs available', 'Debt covenant tests with headroom', 'Accounts payable aging and large upcoming bills', 'Capex tracker vs budget', 'Partner distributions, planned vs paid', 'Rolling full-year forecast vs budget']} />
     </div>
   </>);
 }
