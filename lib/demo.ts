@@ -10,10 +10,10 @@ export const DEMO_PASSWORD = 'aria-demo';
 export async function seedDemo(d: Db) {
   let seed = 7;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);
-  const [p] = await d.query(`insert into practices (name) values ('Riverside Family Medicine') returning id`);
+  const [p] = await d.query(`insert into practices (id, name) values ('00000000-0000-4000-8000-000000000001','Riverside Family Medicine') returning id`);
   const [main] = await d.query(`insert into locations (practice_id, name) values ($1,'Main Street') returning id`, [p.id]);
   const [north] = await d.query(`insert into locations (practice_id, name) values ($1,'North Clinic') returning id`, [p.id]);
-  await d.query(`insert into users (practice_id, email, name, role, password_hash) values ($1,$2,'Dr. Sam Rivera','owner',$3)`, [p.id, DEMO_EMAIL, bcrypt.hashSync(DEMO_PASSWORD, 8)]);
+  await d.query(`insert into users (id, practice_id, email, name, role, password_hash) values ('00000000-0000-4000-8000-000000000002',$1,$2,'Dr. Sam Rivera','owner',$3)`, [p.id, DEMO_EMAIL, bcrypt.hashSync(DEMO_PASSWORD, 8)]);
   const [item] = await d.query(`insert into plaid_items (practice_id, item_id, institution_name, access_token_enc, last_synced_at) values ($1,'demo-item','First Community Bank',$2, now()) returning id`, [p.id, encrypt('demo-not-a-real-token')]);
   const acct = async (id: string, name: string, mask: string, type: string, sub: string, loc: string, cur: number) =>
     (await d.query(`insert into bank_accounts (practice_id, plaid_item_id, account_id, name, mask, type, subtype, location_id, current_cents, available_cents, balance_at) values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$9, now()) returning id`, [p.id, item.id, id, name, mask, type, sub, loc, cur]))[0].id;
