@@ -27,7 +27,7 @@ export default async function HubLayout({ children }: { children: ReactNode }) {
   const [stripe] = await d.query(`select charges_enabled from stripe_accounts where practice_id=$1`, [s.practiceId]);
   return (
     <div className="shell">
-      <aside className="side">
+      <aside className="side glass">
         <a className="brand" href="/hub"><i>A</i>Aria CFO Hub</a>
         <Suspense><Nav /></Suspense>
         <div className="who"><b>{s.practiceName}</b>{s.name} · {s.role}
@@ -35,7 +35,7 @@ export default async function HubLayout({ children }: { children: ReactNode }) {
           <form action={signOut}><button className="btn ghost" style={{ height: 30, marginTop: 10, fontSize: 12 }}>Sign out</button></form></div>
       </aside>
       <div className="mainwrap">
-        <div className="topbar">
+        <div className="topbar glass">
           <Suspense><FilterBar sites={sites} payers={payers} /></Suspense>
           <div className="fresh" aria-label="Data freshness">
             <span>Plaid <b>{plaid?.bad ? 'needs sign-in' : `synced ${ago(plaid?.t)}`}</b></span>
