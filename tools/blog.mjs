@@ -67,7 +67,7 @@ function md(src) {
 const fmtDate = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 
-function shell({ title, desc, url, head = '', body }) {
+function shell({ title, desc, url, head = '', body, og = '/og.png?v=7' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,7 +81,7 @@ function shell({ title, desc, url, head = '', body }) {
 <meta property="og:type" content="article">
 <meta property="og:url" content="${SITE}${url}">
 <meta property="og:site_name" content="Aria">
-<meta property="og:image" content="${SITE}/og.png?v=7">
+<meta property="og:image" content="${SITE}${og}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="/favicon.ico?v=2" sizes="48x48">
@@ -143,7 +143,15 @@ article strong{color:var(--ink)}
 .join{background:var(--butter);border-radius:20px;padding:20px}
 .join h3,.endcta h2{margin:0 0 6px;font-size:1.15rem}.join p{margin:0 0 14px;font-size:.92rem}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 18px;border-radius:12px;background:var(--ink);color:#fff;text-decoration:none;font-weight:650}
-.endcta{margin:48px 0 0;padding:26px 28px;border-radius:24px;background:var(--blue);max-width:42rem}
+.endcta{margin:48px 0 0;padding:22px 26px;border-radius:24px;background:var(--blue);max-width:42rem;display:grid;grid-template-columns:140px minmax(0,1fr);gap:20px;align-items:center}
+.endcta-art{width:140px;height:140px;border-radius:20px;object-fit:cover}
+@media (max-width:560px){.endcta{grid-template-columns:minmax(0,1fr)}.endcta-art{width:110px;height:110px}}
+.card .art.cover{display:block;height:auto;aspect-ratio:16/9;overflow:hidden}
+.card .art.cover img{width:100%;height:100%;object-fit:cover;filter:none;transition:transform .5s cubic-bezier(.23,1,.32,1)}
+.card:hover .art.cover img{transform:scale(1.04)}
+.pcover{margin:0 0 36px;border-radius:28px;overflow:hidden;aspect-ratio:16/7;background:var(--t)}
+.pcover img{width:100%;height:100%;object-fit:cover}
+@media (max-width:620px){.pcover{aspect-ratio:16/9;border-radius:20px}}
 .endcta h2{font-size:1.35rem;margin-top:0}.endcta p{margin:0 0 16px}
 .more{padding:24px 0 72px}.more h2{font-size:1.4rem;margin:0 0 16px}
 .more .grid{padding:0}
@@ -166,12 +174,17 @@ ${body}
 `;
 }
 
+let ROOT = '.';
+const cover = (slug) => fs.existsSync(path.join(ROOT, 'assets', 'i', `cover-${slug}-640.webp`)) ? `/assets/i/cover-${slug}` : null;
 function card(p) {
   const [art, tint] = CAT_ART[p.category] || ['cfo-hub', '#e4f0fd'];
-  return `<li><a class="card" href="/blog/${p.slug}"><span class="art" style="--t:${tint}"><img src="/assets/i/icon-${art}-cut.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span><span class="tx"><span class="meta">${esc(p.category)} · ${fmtDate(p.date)}</span><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p></span></a></li>`;
+  const c = cover(p.slug);
+  const artHtml = c ? `<span class="art cover" style="--t:${tint}"><img src="${c}-640.webp" srcset="${c}-640.webp 640w, ${c}-1280.webp 1280w" sizes="(max-width:700px) 100vw, 380px" alt="" width="640" height="357" loading="lazy" decoding="async"></span>` : `<span class="art" style="--t:${tint}"><img src="/assets/i/icon-${art}-cut.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></span>`;
+  return `<li><a class="card" href="/blog/${p.slug}">${artHtml}<span class="tx"><span class="meta">${esc(p.category)} · ${fmtDate(p.date)}</span><h2>${esc(p.title)}</h2><p>${esc(p.description)}</p></span></a></li>`;
 }
 
 export function buildBlog({ root, out, today, ld }) {
+  ROOT = root;
   const dir = path.join(root, 'blog', 'posts');
   if (!fs.existsSync(dir)) return [];
   const all = fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => parse(path.join(dir, f)));
@@ -188,18 +201,18 @@ export function buildBlog({ root, out, today, ld }) {
     const related = live.filter((q) => q !== p && q.category === p.category).slice(0, 3);
     const fill = live.filter((q) => q !== p && !related.includes(q)).slice(0, 3 - related.length);
     const graph = [
-      { '@type': 'BlogPosting', '@id': SITE + url + '#post', headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, url: SITE + url, mainEntityOfPage: SITE + url, image: SITE + '/og.png?v=7', articleSection: p.category, wordCount: words(p.body), inLanguage: 'en-US', author: { '@type': 'Organization', name: 'Aria', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Aria', logo: { '@type': 'ImageObject', url: SITE + '/apple-touch-icon.png' } } },
+      { '@type': 'BlogPosting', '@id': SITE + url + '#post', headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, url: SITE + url, mainEntityOfPage: SITE + url, image: SITE + (cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=7'), articleSection: p.category, wordCount: words(p.body), inLanguage: 'en-US', author: { '@type': 'Organization', name: 'Aria', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Aria', logo: { '@type': 'ImageObject', url: SITE + '/apple-touch-icon.png' } } },
       { '@type': 'BreadcrumbList', itemListElement: [['Aria', '/'], ['Blog', '/blog'], [p.title, url]].map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: SITE + u })) },
     ];
-    const body = `<div class="wrap"><div class="phead"><div><p class="crumbs"><a href="/">Aria</a> / <a href="/blog">Blog</a> / ${esc(p.category)}</p><h1>${esc(p.title)}</h1><p class="lede">${esc(p.description)}</p><p class="meta">By the Aria team · <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${mins} min read</p></div><span class="art" style="--t:${tint}" aria-hidden="true"><img src="/assets/i/icon-${art}-cut.webp" alt="" width="170" height="170"></span></div>
+    const body = `<div class="wrap"><div class="phead"><div><p class="crumbs"><a href="/">Aria</a> / <a href="/blog">Blog</a> / ${esc(p.category)}</p><h1>${esc(p.title)}</h1><p class="lede">${esc(p.description)}</p><p class="meta">By the Aria team · <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${mins} min read</p></div>${cover(p.slug) ? '' : `<span class="art" style="--t:${tint}" aria-hidden="true"><img src="/assets/i/icon-${art}-cut.webp" alt="" width="170" height="170"></span>`}</div>${cover(p.slug) ? `<figure class="pcover" style="--t:${tint}"><img src="${cover(p.slug)}-1280.webp" srcset="${cover(p.slug)}-640.webp 640w, ${cover(p.slug)}-1280.webp 1280w" sizes="(max-width:1200px) 100vw, 1120px" alt="" width="1280" height="714" fetchpriority="high"></figure>` : ''}
 <div class="post"><div><article>
 ${html}
 </article>
 <p class="note">This article is general information, not legal, tax or financial advice. Rules differ by payer, state and contract, so check the details with your accountant, attorney or payer.</p>
-<section class="endcta"><h2>Aria is the financial home for independent practices</h2><p>Cards, bill pay, books and insurer payments in one place, run by an AI CFO. Join the waitlist to be first in line.</p><a class="btn" href="/#waitlist">Join the waitlist</a></section>
+<section class="endcta"><img class="endcta-art" src="/assets/i/spot-join-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async"><div><h2>Aria is the financial home for independent practices</h2><p>Cards, bill pay, books and insurer payments in one place, run by an AI CFO. Join the waitlist to be first in line.</p><a class="btn" href="/#waitlist">Join the waitlist</a></div></section>
 </div><aside class="side">${toc.length > 2 ? '<nav class="toc" aria-label="On this page"><b>On this page</b>' + toc.map(([id, t]) => '<a href="#' + id + '">' + inline(t) + '</a>').join('') + '</nav>' : ''}<div class="join"><h3>Get Aria early</h3><p>Built for practice owners and office managers. No cost to join the waitlist.</p><a class="btn" href="/#waitlist">Join the waitlist</a></div></aside></div></div>
 <section class="more"><div class="wrap"><h2>Keep reading</h2><ul class="grid">${related.concat(fill).map(card).join('')}</ul></div></section>`;
-    write('blog/' + p.slug + '.html', shell({ title: p.title + ' | Aria', desc: p.description, url, head: ld(graph), body }));
+    write('blog/' + p.slug + '.html', shell({ title: p.title + ' | Aria', desc: p.description, url, head: ld(graph), body, og: cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=7' }));
     pages.push({ url, priority: '0.6', lastmod: p.date });
   }
 
