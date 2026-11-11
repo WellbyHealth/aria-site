@@ -35,22 +35,22 @@ export default async function Banks() {
   const accts = await d.query(`select * from bank_accounts where practice_id=$1 order by name`, [s.practiceId]);
   const locs = await d.query(`select * from locations where practice_id=$1 order by name`, [s.practiceId]);
   return (<>
-    <div className="top"><div><h1>Banks and cards</h1><p>Connected through Plaid. We read balances and transactions; nothing moves without your approval.</p></div>
+    <div className="head"><div><h1>Banks and cards</h1><p>Connected through Plaid. We read balances and transactions; nothing moves without your approval.</p></div>
       {plaidConfigured() ? <PlaidLink /> : <span className="chip warn">Plaid keys not set{isDemo() ? ': showing sample data' : ''}</span>}</div>
     {items.map(it => (
       <section className="card" key={it.id} style={{ marginBottom: 16 }}>
-        <div className="top" style={{ marginBottom: 8 }}><h2>{it.institution_name || 'Bank'}</h2>
+        <div className="head" style={{ marginBottom: 8 }}><h2>{it.institution_name || 'Bank'}</h2>
           <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>{it.status === 'reconnect' ? <><span className="chip bad">Sign-in needed</span>{plaidConfigured() && <PlaidLink itemId={it.id} label="Reconnect" />}</> : <span className="chip ok">Connected</span>}
             {plaidConfigured() && !isDemo() && <form action={syncNow}><input type="hidden" name="item" value={it.id} /><button className="btn ghost">Sync now</button></form>}</div></div>
         <p className="note">Last synced {it.last_synced_at ? new Date(it.last_synced_at).toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' }) : 'never'}</p>
         <table><thead><tr><th>Account</th><th>Type</th><th>Location</th><th className="n">Balance</th></tr></thead><tbody>
           {accts.filter(a => a.plaid_item_id === it.id).map(a => <tr key={a.id}><td>{a.name} ···{a.mask}</td><td>{a.subtype || a.type}</td>
-            <td><form action={assign} style={{ display: 'flex', gap: 6 }}><input type="hidden" name="account" value={a.id} /><select name="location" defaultValue={a.location_id || ''}><option value="">Unassigned</option>{locs.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}</select><button className="btn ghost" style={{ height: 44 }}>Save</button></form></td>
+            <td><form action={assign} style={{ display: 'flex', gap: 6 }}><input type="hidden" name="account" value={a.id} /><select name="location" defaultValue={a.location_id || ''}><option value="">Unassigned</option>{locs.map(l => <option key={l.id} value={l.id}>{l.name}</option>)}</select><button className="btn ghost" style={{ height: 38 }}>Save</button></form></td>
             <td className="n">{usd(a.current_cents)}</td></tr>)}
         </tbody></table>
       </section>))}
-    {!items.length && <section className="card"><h2>No banks connected yet</h2><p>Connect your operating account first. Plaid works with most US banks and credit unions.</p></section>}
+    {!items.length && <section className="card" style={{ marginBottom: 16 }}><h2>No banks connected yet</h2><p>Connect your operating account first. Plaid works with most US banks and credit unions.</p></section>}
     <section className="card"><h2>Locations</h2><p className="note">{locs.map(l => l.name).join(' · ') || 'None yet'}</p>
-      <form action={addLocation} style={{ display: 'flex', gap: 8, maxWidth: 420 }}><input name="name" placeholder="New location name" /><button className="btn ghost" style={{ height: 44 }}>Add</button></form></section>
+      <form action={addLocation} style={{ display: 'flex', gap: 8, maxWidth: 420 }}><input name="name" placeholder="New location name" /><button className="btn ghost" style={{ height: 38 }}>Add</button></form></section>
   </>);
 }

@@ -41,24 +41,24 @@ export default async function Payments({ searchParams }: { searchParams: Promise
   const paid30 = reqs.filter(r => r.status === 'paid' && Date.now() - new Date(r.paid_at).getTime() < 30 * 864e5).reduce((t, r) => t + Number(r.amount_cents), 0);
   const open = reqs.filter(r => r.status === 'open').reduce((t, r) => t + Number(r.amount_cents), 0);
   return (<>
-    <div className="top"><div><h1>Patient payments</h1><p>Patients pay your practice directly through Stripe. Payouts land in your bank account.</p></div>
+    <div className="head"><div><h1>Patient payments</h1><p>Patients pay your practice directly through Stripe. Payouts land in your bank account.</p></div>
       {acct?.charges_enabled ? <span className="chip ok">Payments on</span> : stripeConfigured() ? <form action={startOnboarding}><button className="btn">{acct ? 'Finish Stripe setup' : 'Turn on patient payments'}</button></form> : <span className="chip warn">Stripe keys not set</span>}</div>
     {sp.err && <div className="banner err">{sp.err}</div>}
     {sp.created && <div className="banner ok">Payment link created for statement {sp.created}. Copy it from the list below and text or email it to the patient.</div>}
-    <div className="grid g3" style={{ marginBottom: 16 }}>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--mint)' }}><span>Collected, last 30 days</span><b>{usd(paid30)}</b></div>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--butter)' }}><span>Waiting on patients</span><b>{usd(open)}</b></div>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--blue)' }}><span>Aria platform fee</span><b>{(Number(process.env.PLATFORM_FEE_BPS || 0) / 100).toFixed(2)}%</b><small>Set by PLATFORM_FEE_BPS</small></div>
+    <div className="kpis">
+      <div className="kpi"><span className="lbl">Collected, last 30 days</span><div className="v">{usd(paid30)}</div></div>
+      <div className="kpi"><span className="lbl">Waiting on patients</span><div className="v">{usd(open)}</div></div>
+      <div className="kpi"><span className="lbl">Aria platform fee</span><div className="v">{(Number(process.env.PLATFORM_FEE_BPS || 0) / 100).toFixed(2)}%</div><span className="foot">Taken from each patient payment</span></div>
     </div>
-    <div className="grid g2">
-      <section className="card"><h2>Recent requests</h2>
-        <table><thead><tr><th>Sent</th><th>Patient</th><th>Statement</th><th>Status</th><th className="n">Amount</th></tr></thead><tbody>
+    <div className="g">
+      <section className="card s7"><header><h2>Recent requests</h2></header>
+        <div className="tw"><table><thead><tr><th>Sent</th><th>Patient</th><th>Statement</th><th>Status</th><th className="n">Amount</th></tr></thead><tbody>
           {reqs.map(r => <tr key={r.id}><td>{fmt(new Date(r.created_at).toISOString().slice(0, 10))}</td><td>{r.patient_name}</td><td>{r.statement_ref}</td>
             <td><span className={`chip ${r.status === 'paid' ? 'ok' : r.status === 'open' ? 'warn' : ''}`}>{r.status}</span>{r.status === 'open' && r.checkout_url && r.checkout_url !== '#demo' && <> <a href={r.checkout_url} target="_blank" rel="noreferrer">Link</a></>}</td>
             <td className="n">{usd(r.amount_cents)}</td></tr>)}
           {!reqs.length && <tr><td colSpan={5} className="note">No payment requests yet.</td></tr>}
-        </tbody></table></section>
-      <section className="card"><h2>Request a payment</h2>
+        </tbody></table></div></section>
+      <section className="card s5"><header><h2>Request a payment</h2></header>
         <form action={request} className="form">
           <label>Patient name<input name="name" required placeholder="First and last name" /></label>
           <div className="f2"><label>Mobile or email<input name="contact" placeholder="For the receipt" /></label><label>Amount (USD)<input name="amount" type="number" min="1" step="0.01" required /></label></div>

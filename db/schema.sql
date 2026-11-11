@@ -118,3 +118,38 @@ create table if not exists audit_events (
   detail jsonb not null default '{}',
   created_at timestamptz not null default now()
 );
+
+-- v2: remittance detail, thresholds, alerts, Stripe payouts.
+alter table remittance_claims add column if not exists received_on date;
+alter table remittance_claims add column if not exists rendering_provider text;
+create table if not exists practice_settings (
+  practice_id uuid primary key references practices(id) on delete cascade,
+  cash_floor_cents bigint not null default 0,
+  days_cash_min int not null default 30,
+  denial_rate_max_bps int not null default 800,
+  days_to_pay_max int not null default 30,
+  staff_cost_max_bps int not null default 6000,
+  unmatched_days int not null default 5,
+  updated_at timestamptz not null default now()
+);
+create table if not exists alerts (
+  practice_id uuid not null references practices(id) on delete cascade,
+  key text not null,
+  title text not null,
+  tone text not null,
+  value_text text,
+  threshold_text text,
+  href text,
+  opened_at timestamptz not null default now(),
+  last_seen_at timestamptz not null default now(),
+  closed_at timestamptz,
+  primary key (practice_id, key)
+);
+create table if not exists stripe_payouts (
+  payout_id text primary key,
+  practice_id uuid not null references practices(id) on delete cascade,
+  amount_cents bigint not null,
+  arrival_date date not null,
+  status text not null,
+  matched_entry_id uuid references ledger_entries(id) on delete set null
+);

@@ -21,8 +21,8 @@ async function upload(form: FormData) {
           [s.practiceId, r.payer || 'Unknown payer', r.traceNumber, r.paidOn, r.totalCents, r.method, f.name]);
         if (!row) continue;
         added++;
-        for (const c of r.claims) await d.query(`insert into remittance_claims (remittance_id, claim_ref, status_code, billed_cents, paid_cents, patient_resp_cents, adjustments) values ($1,$2,$3,$4,$5,$6,$7)`,
-          [row.id, c.claimRef, c.statusCode, c.billedCents, c.paidCents, c.patientRespCents, JSON.stringify(c.adjustments)]);
+        for (const c of r.claims) await d.query(`insert into remittance_claims (remittance_id, claim_ref, status_code, billed_cents, paid_cents, patient_resp_cents, adjustments, received_on, rendering_provider) values ($1,$2,$3,$4,$5,$6,$7,$8,$9)`,
+          [row.id, c.claimRef, c.statusCode, c.billedCents, c.paidCents, c.patientRespCents, JSON.stringify(c.adjustments), c.receivedOn, c.renderingProvider]);
       }
     }
   } catch (e: any) { redirect('/hub/remittances?err=' + encodeURIComponent(e.message)); }
@@ -42,27 +42,27 @@ export default async function Remittances({ searchParams }: { searchParams: Prom
   const unmatchedDeposits = await d.query(`select to_char(posted_on,'YYYY-MM-DD') d, payer, description, amount_cents from ledger_entries where practice_id=$1 and kind='insurer_deposit' and matched_remittance_id is null order by posted_on desc limit 20`, [s.practiceId]);
   const matched = tot.m;
   return (<>
-    <div className="top"><div><h1>Insurer payments</h1><p>Upload ERA (835) files from your clearinghouse. We match each one to the deposit in your bank.</p></div></div>
+    <div className="head"><div><h1>Insurer payments</h1><p>Upload ERA (835) files from your clearinghouse. We match each one to the deposit in your bank.</p></div></div>
     {sp.err && <div className="banner err">{sp.err}</div>}
     {sp.added && <div className="banner ok">Added {sp.added} remittances and matched {sp.matched} to bank deposits.</div>}
-    <div className="grid g3" style={{ marginBottom: 16 }}>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--mint)' }}><span>Matched to a deposit</span><b>{tot.n ? Math.round((matched / tot.n) * 100) : 0}%</b><small>{matched} of {tot.n} remittances</small></div>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--butter)' }}><span>Deposits with no ERA</span><b>{unmatchedDeposits.length}</b><small>{usd(unmatchedDeposits.reduce((t, r) => t + Number(r.amount_cents), 0))}</small></div>
-      <div className="kpi" style={{ ['--t' as any]: 'var(--pink)' }}><span>Denied claims</span><b>{rows.reduce((t, r) => t + r.denied, 0)}</b><small>Paid nothing</small></div>
+    <div className="kpis">
+      <div className="kpi"><span className="lbl">Matched to a deposit</span><div className="v">{tot.n ? Math.round((matched / tot.n) * 100) : 0}%</div><span className="foot">{matched} of {tot.n} remittances</span></div>
+      <div className="kpi"><span className="lbl">Deposits with no ERA</span><div className="v">{unmatchedDeposits.length}</div><span className="foot">{usd(unmatchedDeposits.reduce((t, r) => t + Number(r.amount_cents), 0))}</span></div>
+      <div className="kpi"><span className="lbl">Denied claims</span><div className="v">{rows.reduce((t, r) => t + r.denied, 0)}</div><span className="foot">Paid nothing</span></div>
     </div>
-    <div className="grid g2">
-      <section className="card"><h2>Remittances</h2>
-        <table><thead><tr><th>Paid</th><th>Payer</th><th>Claims</th><th>Bank</th><th className="n">Total</th></tr></thead><tbody>
+    <div className="g">
+      <section className="card s7"><header><h2>Remittances</h2></header>
+        <div className="tw"><table><thead><tr><th>Paid</th><th>Payer</th><th>Claims</th><th>Bank</th><th className="n">Total</th></tr></thead><tbody>
           {rows.map(r => <tr key={r.id}><td>{r.paid ? fmt(r.paid) : '–'}</td><td>{r.payer}<br /><span className="note">Trace {r.trace_number}</span></td><td>{r.claims}{r.denied ? <> <span className="chip bad">{r.denied} denied</span></> : null}</td>
             <td>{r.deposited ? <span className="chip ok">Deposited {fmt(r.deposited)}</span> : <span className="chip warn">Not found yet</span>}</td><td className="n">{usd(r.total_cents)}</td></tr>)}
           {!rows.length && <tr><td colSpan={5} className="note">No ERA files yet.</td></tr>}
-        </tbody></table>
+        </tbody></table></div>
         {!sp.all && tot.n > rows.length && <p className="note" style={{ marginTop: 12 }}>Showing the latest {rows.length} of {tot.n}. <a href="/hub/remittances?all=1">Show all</a></p>}</section>
-      <div className="grid" style={{ alignContent: 'start' }}>
-        <section className="card"><h2>Upload ERA files</h2>
+      <div className="s5" style={{ display: 'grid', gap: 16, alignContent: 'start' }}>
+        <section className="card"><header><h2>Upload ERA files</h2></header>
           <form action={upload} className="form"><input type="file" name="files" multiple accept=".835,.txt,.edi,.x12" required /><button className="btn">Upload and match</button>
-            <p className="note">Files stay in Aria’s HIPAA-covered systems. We only use payer, trace number, dates and dollar amounts for matching.</p></form></section>
-        <section className="card"><h2>Deposits with no ERA</h2>
+            <p className="note">Files stay in Aria’s HIPAA-covered systems. We keep payer, trace number, dates, amounts, reason codes and the rendering provider. Patient names in the file are not stored.</p></form></section>
+        <section className="card"><header><h2>Deposits with no ERA</h2></header>
           <table><tbody>{unmatchedDeposits.map((r, i) => <tr key={i}><td>{fmt(r.d)}</td><td>{r.payer || r.description}</td><td className="n">{usd(r.amount_cents)}</td></tr>)}
             {!unmatchedDeposits.length && <tr><td className="note">Every insurer deposit has a remittance.</td></tr>}</tbody></table></section>
       </div>

@@ -94,4 +94,16 @@ export async function handleEvent(event: Stripe.Event) {
     const s = event.data.object as Stripe.Checkout.Session;
     await d.query(`update payment_requests set status='expired' where stripe_session_id=$1 and status='open'`, [s.id]);
   }
+  // Payouts on a connected account arrive as Connect events (event.account names the practice's account).
+  if (event.type === 'payout.paid' || event.type === 'payout.failed' || event.type === 'payout.updated') {
+    const po = event.data.object as Stripe.Payout;
+    const [acct] = await d.query(`select practice_id from stripe_accounts where account_id=$1`, [event.account]);
+    if (acct) {
+      await d.query(`insert into stripe_payouts (payout_id, practice_id, amount_cents, arrival_date, status) values ($1,$2,$3,to_timestamp($4)::date,$5)
+        on conflict (payout_id) do update set status=excluded.status, amount_cents=excluded.amount_cents, arrival_date=excluded.arrival_date`,
+        [po.id, acct.practice_id, po.amount, po.arrival_date, po.status]);
+      const { matchPayouts } = await import('./match');
+      await matchPayouts(acct.practice_id);
+    }
+  }
 }

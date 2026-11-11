@@ -40,3 +40,19 @@ export async function matchPractice(practiceId: string, given?: Db) {
   }
   return { checked: remits.length, matched };
 }
+
+// Stripe payouts to bank deposits: exact amount, landing on or up to 4 days after the payout's arrival date.
+export async function matchPayouts(practiceId: string, given?: Db) {
+  const d = given ?? await db();
+  const rows = await d.query(
+    `update stripe_payouts sp set matched_entry_id = m.entry_id from (
+       select distinct on (sp2.payout_id) sp2.payout_id, le.id entry_id
+       from stripe_payouts sp2 join ledger_entries le on le.practice_id=sp2.practice_id and le.amount_cents=sp2.amount_cents
+         and le.posted_on between sp2.arrival_date and sp2.arrival_date + 4 and le.amount_cents > 0
+       where sp2.practice_id=$1 and sp2.matched_entry_id is null and sp2.status='paid'
+         and not exists (select 1 from stripe_payouts x where x.matched_entry_id=le.id)
+       order by sp2.payout_id, le.posted_on) m
+     where sp.payout_id=m.payout_id returning sp.payout_id`, [practiceId]);
+  if (rows.length) await d.query(`update ledger_entries set kind='processor_payout' where id in (select matched_entry_id from stripe_payouts where practice_id=$1 and matched_entry_id is not null) and kind='other'`, [practiceId]);
+  return { matched: rows.length };
+}

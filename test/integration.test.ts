@@ -12,6 +12,9 @@ const { db } = await import('../lib/db');
 const plaidLib = await import('../lib/plaid');
 const stripeLib = await import('../lib/stripe');
 const { hubData } = await import('../lib/weekly');
+const metrics = await import('../lib/metrics');
+const { parseFilters } = await import('../lib/filters');
+const { buildAlerts, syncAlerts } = await import('../lib/alerts');
 
 describe('demo database and weekly list', () => {
   it('seeds a practice, matches most deposits and builds the list', async () => {
@@ -25,6 +28,40 @@ describe('demo database and weekly list', () => {
     expect(h.cash).toBe(8_642_000 + 2_315_000);
     expect(h.items.some(i => /denied claims/.test(i.title))).toBe(true);
     expect(h.items.some(i => /without a remittance/.test(i.title))).toBe(true);
+  });
+});
+
+describe('v2 views on the demo practice', () => {
+  it('computes ten KPIs with 12-month sparklines and raises alerts that persist', async () => {
+    const f = parseFilters({}, new Date().toISOString().slice(0, 10));
+    const D = await metrics.load('00000000-0000-4000-8000-000000000001', f);
+    const K = metrics.computeKpis(D);
+    expect(K.kpis).toHaveLength(10);
+    expect(K.kpis.find(k => k.key === 'cash')!.value).toBe(8_642_000 + 2_315_000);
+    for (const k of K.kpis.filter(k => !['unmatched', 'low_point'].includes(k.key))) expect(k.spark).toHaveLength(12);
+    expect(K.kpis.find(k => k.key === 'denial_rate')!.value).toBeGreaterThan(0.02);
+    const alerts = buildAlerts(D, K.kpis, K.low);
+    expect(alerts.some(a => a.key === 'dtp:Cigna')).toBe(true);
+    expect(alerts.some(a => a.key === 'unmatched')).toBe(true);
+    const first = await syncAlerts(D.f.from ? '00000000-0000-4000-8000-000000000001' : '', alerts, true);
+    const again = await syncAlerts('00000000-0000-4000-8000-000000000001', alerts, true);
+    expect(again.find(a => a.key === 'unmatched')!.openedAt).toBe(first.find(a => a.key === 'unmatched')!.openedAt);
+    const match = metrics.depositMatch(D);
+    expect(match[1].m).toBe(match[1].n);
+    expect(metrics.payerTable(D).map(p => p.name)).toContain('Medicare');
+    expect(metrics.providerTable(D)).toHaveLength(4);
+    expect(metrics.costTable(D).rows.map(r => r.name)).toContain('Payroll and benefits');
+  });
+  it('filters by site and payer', async () => {
+    const today = new Date().toISOString().slice(0, 10);
+    const all = await metrics.load('00000000-0000-4000-8000-000000000001', parseFilters({ range: '90d' }, today));
+    const north = all.locations.find((l: any) => l.name === 'North Clinic')!.id;
+    const site = await metrics.load('00000000-0000-4000-8000-000000000001', parseFilters({ range: '90d', site: north }, today));
+    expect(metrics.cashToday(site.accounts)).toBe(2_315_000);
+    expect(site.flows.every(x => x.loc === north)).toBe(true);
+    const cigna = await metrics.load('00000000-0000-4000-8000-000000000001', parseFilters({ range: '90d', payer: 'Cigna' }, today));
+    expect(cigna.claims.every(c => c.payer === 'Cigna')).toBe(true);
+    expect(cigna.claims.length).toBeGreaterThan(10);
   });
 });
 

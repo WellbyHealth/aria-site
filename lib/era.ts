@@ -1,5 +1,5 @@
 // Minimal X12 835 (ERA) parser: one remittance per BPR/TRN pair, with claim-level totals.
-export interface EraClaim { claimRef: string; statusCode: string; billedCents: number; paidCents: number; patientRespCents: number; adjustments: { group: string; reason: string; cents: number }[] }
+export interface EraClaim { claimRef: string; statusCode: string; billedCents: number; paidCents: number; patientRespCents: number; adjustments: { group: string; reason: string; cents: number }[]; receivedOn: string | null; renderingProvider: string | null }
 export interface EraRemit { payer: string; traceNumber: string; paidOn: string | null; totalCents: number; method: string; claims: EraClaim[] }
 
 const cents = (s: string | undefined) => Math.round(parseFloat(s || '0') * 100);
@@ -21,8 +21,11 @@ export function parse835(text: string): EraRemit[] {
     if (id === 'TRN') cur.traceNumber = s[2] || '';
     if (id === 'N1') inPayer = s[1] === 'PR';
     if (id === 'N1' && s[1] === 'PR') cur.payer = s[2] || '';
-    if (id === 'CLP') { claim = { claimRef: s[1], statusCode: s[2], billedCents: cents(s[3]), paidCents: cents(s[4]), patientRespCents: cents(s[5]), adjustments: [] }; cur.claims.push(claim); inPayer = false; }
+    if (id === 'CLP') { claim = { claimRef: s[1], statusCode: s[2], billedCents: cents(s[3]), paidCents: cents(s[4]), patientRespCents: cents(s[5]), adjustments: [], receivedOn: null, renderingProvider: null }; cur.claims.push(claim); inPayer = false; }
     if (id === 'CAS' && claim) for (let i = 2; i + 1 < s.length; i += 3) if (s[i]) claim.adjustments.push({ group: s[1], reason: s[i], cents: cents(s[i + 1]) });
+    // DTM*050 = date the payer received the claim; NM1*82 = rendering provider (last, first).
+    if (id === 'DTM' && s[1] === '050' && claim) claim.receivedOn = isoDate(s[2]);
+    if (id === 'NM1' && s[1] === '82' && claim) claim.renderingProvider = [s[4], s[3]].filter(Boolean).join(' ') || null;
     if (id === 'SE') { claim = null; }
     void inPayer;
   }
