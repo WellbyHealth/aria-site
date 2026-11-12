@@ -58,7 +58,7 @@ const I = {
   box: '<path d="M4 10l12-5 12 5v13l-12 5-12-5z"/><path d="M4 10l12 5 12-5M16 15v13"/>',
 };
 const ic = (n, cls = 'ic') => `<svg class="${cls}" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${I[n] || ''}</svg>`;
-const MARK = `<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="20" cy="20" r="18.3"/><circle cx="20" cy="20" r="4.4"/>${[0, 72, 144, 216, 288].map((a) => `<ellipse cx="20" cy="12.2" rx="4.6" ry="8.2" transform="rotate(${a} 20 20)"/>`).join('')}</svg>`;
+const MARK = `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true" stroke-width="3" stroke-linecap="round"><circle cx="50" cy="50" r="46" stroke-width="3"/><path d="M51.674,31.872 A11,11 0 0 1 39.269,18.582"/><path d="M43.114,12.422 A11,11 0 0 1 58.084,28.460"/><path d="M60.514,35.138 A11,11 0 0 1 56.416,17.425"/><path d="M62.826,14.013 A11,11 0 0 1 67.771,35.388"/><path d="M66.537,42.386 A11,11 0 0 1 71.844,24.998"/><path d="M79.101,25.248 A11,11 0 0 1 72.696,46.231"/><path d="M68.128,51.674 A11,11 0 0 1 81.418,39.269"/><path d="M87.578,43.114 A11,11 0 0 1 71.540,58.084"/><path d="M64.862,60.514 A11,11 0 0 1 82.575,56.416"/><path d="M85.987,62.826 A11,11 0 0 1 64.612,67.771"/><path d="M74.752,79.101 A11,11 0 0 1 53.769,72.696"/><path d="M57.614,66.537 A11,11 0 0 1 75.002,71.844"/><path d="M56.886,87.578 A11,11 0 0 1 41.916,71.540"/><path d="M48.326,68.128 A11,11 0 0 1 60.731,81.418"/><path d="M37.174,85.987 A11,11 0 0 1 32.229,64.612"/><path d="M39.486,64.862 A11,11 0 0 1 43.584,82.575"/><path d="M20.899,74.752 A11,11 0 0 1 27.304,53.769"/><path d="M33.463,57.614 A11,11 0 0 1 28.156,75.002"/><path d="M12.422,56.886 A11,11 0 0 1 28.460,41.916"/><path d="M31.872,48.326 A11,11 0 0 1 18.582,60.731"/><path d="M35.138,39.486 A11,11 0 0 1 17.425,43.584"/><path d="M14.013,37.174 A11,11 0 0 1 35.388,32.229"/><path d="M42.386,33.463 A11,11 0 0 1 24.998,28.156"/><path d="M25.248,20.899 A11,11 0 0 1 46.231,27.304"/></svg>`;
 // The Aria figure: the Financial Hub at the center, five products as petals.
 function figure() {
   const cx = 300, cy = 300, labs = [['02', 'Aria Card'], ['03', 'Buy-and-bill', 'lending'], ['04', 'Bill pay'], ['05', 'Flex Pay'], ['06', 'Marketplace']];
@@ -189,15 +189,22 @@ const faqHtml = (qa) => `<div class="faq">${qa.map(([q, a]) => `<details><summar
 const signup = (form, cls = '') => `<form class="signup ${cls}" data-signup="${form}" data-next="/join"><label class="sr" for="em-${form}">Work email</label><input id="em-${form}" class="field" type="email" name="email" placeholder="Work email" autocomplete="email" required><button class="btn btn-dark" type="submit">Join the waitlist</button></form>`;
 const ctaBand = (h = 'Your practice’s financial home.', p = 'Join the waitlist and we’ll reach out as we open access. No cost, no commitment.') => `<section class="sec tight"><div class="wrap"><div class="cta-band reveal"><h2>${h}</h2><p class="lead">${p}</p>${signup('cta-' + Math.random().toString(36).slice(2, 6))}<p class="signup-note">Pricing and terms in writing before you apply for anything.</p></div></div></section>`;
 
+// Cut a description to 160 characters at a sentence end when possible, else at a word.
+function clip(t, max = 160) {
+  if (t.length <= max) return t;
+  const cut = t.slice(0, max), end = cut.lastIndexOf('. ');
+  if (end >= 70) return cut.slice(0, end + 1);
+  return cut.slice(0, max - 3).replace(/[\s,;:]+\S*$/, '') + '…';
+}
 const pages = [];
 function page({ url, title, desc, body, graph = [], priority = '0.6', heroImg, noindex }) {
   if (desc.length < 70) desc = desc.replace(/\.?$/, '.') + ' For independent medical practices, paid on the Aria Card.';
-  if (desc.length > 160) desc = desc.slice(0, 157).replace(/[\s,;:]+\S*$/, '') + '.';
+  if (desc.length > 160) desc = clip(desc);
   const full = title.includes('Aria') || title.replace(/&amp;/g, '&').length > 53 ? title : title + ' | Aria';
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(full)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}${url}">
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:image" content="${SITE}/og.png?v=20"><meta name="twitter:card" content="summary_large_image">
-${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href="/favicon.ico?v=4" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/assets/site/mark.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=4"><meta name="theme-color" content="#fbfbfc">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:site_name" content="Aria"><meta property="og:locale" content="en_US"><meta property="og:image" content="${SITE}/og.png?v=21"><meta property="og:image:secure_url" content="${SITE}/og.png?v=21"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Aria: radically different banking for healthcare"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(full)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${SITE}/og.png?v=21">
+${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href="/favicon.ico?v=5" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/assets/site/mark.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5"><meta name="theme-color" content="#fbfbfc">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
 ${heroImg ? `<link rel="preload" as="image" href="${heroImg}">` : ''}<link rel="stylesheet" href="${CSS}">
 ${ld([ORG, ...graph])}
@@ -333,7 +340,7 @@ ${p.shot ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Works with ${p.name}</span><h2>The rest of your financial home.</h2></div>
 <div class="grid g4">${others.map((o) => `<a class="tile" href="${o.url}">${ic(o.icon)}<h4>${o.name}</h4><p>${o.short}</p><span class="more arrow">Learn more</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
-  const desc = p.lead.slice(0, 155).replace(/\s\S*$/, '') + '.';
+  const desc = clip(p.lead);
   page({ url: p.url, title: p.title, desc, body, priority: '0.8', graph: [webPage(p.url, p.title, desc), crumbsLd([['Aria', '/'], ['Platform', '/platform'], [p.name, p.url]]), faqLd(p.url, p.faqs), { '@type': ({ card: 'CreditCard', lending: 'LoanOrCredit', 'flex-pay': 'LoanOrCredit' })[p.key] || 'Service', '@id': SITE + p.url + '#product', name: 'Aria ' + p.name.replace(/^Aria /, ''), description: desc, url: SITE + p.url, provider: { '@id': SITE + '/#org' }, areaServed: 'US', audience: { '@type': 'BusinessAudience', name: 'Independent medical practices' } }] });
 }
 
@@ -369,7 +376,7 @@ ${sib.length ? `<section class="sec tight"><div class="wrap"><div class="sec-hea
 ${ctaBand('Your practice’s financial home.', `Join the waitlist and we’ll show you what Aria would do for your ${lower} practice.`)}`;
   const base = who.endsWith(' practices') ? name + ' practice' : name;
   const title = [' banking, cards and financing', ' banking and financing', ' banking', ''].map((x) => base + x).find((t) => t.replace(/&amp;/g, '&').length <= 53);
-  const desc = (hook + ' ' + s.lead + ' The Aria Card earns 2% back on med-surg supplies.').slice(0, 158).replace(/\s\S*$/, '') + '.';
+  const desc = clip(hook + ' ' + s.lead + ' The Aria Card earns 2% back on med-surg supplies.');
   page({ url, title, desc, body, priority: '0.7', graph: [webPage(url, 'Aria for ' + name, desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], gurl(g.slug)], [name, url]]), faqLd(url, faqs)] });
 }
 function groupPage(g) {
@@ -379,7 +386,7 @@ function groupPage(g) {
 <section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])}${ic(GROUP_ICON[g.slug], 'ic')}<h1 style="margin-top:18px">${esc(g.h1)}</h1><p class="lead">${esc(g.lead)}</p></div></section>
 <section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g3">${mem.map((s) => `<a class="tile" href="/specialties/${s.slug}"><span class="label">${esc(s.name)}</span><h3>${esc(s.hook || s.lead)}</h3><p>${esc(s.lead)}</p><span class="more arrow">See ${esc(s.name)}</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
-  const desc = (g.h1 + ' ' + g.lead + ' Cards, buy-and-bill lending and bill pay for ' + GROUP_NAME[g.slug].toLowerCase() + '.').slice(0, 158);
+  const desc = clip(g.h1 + ' ' + g.lead + ' Cards, buy-and-bill lending and bill pay for ' + GROUP_NAME[g.slug].toLowerCase() + '.');
   page({ url, title: [`Banking and financing for ${GROUP_NAME[g.slug].toLowerCase()}`, `Banking for ${GROUP_NAME[g.slug].toLowerCase()}`].find((t) => t.length <= 53) || GROUP_NAME[g.slug], desc, body, priority: '0.7', graph: [webPage(url, GROUP_NAME[g.slug], desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])] });
 }
 function specialtiesIndex() {
@@ -417,7 +424,7 @@ function catPage(c) {
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Buying guide</span><h2 style="margin-top:18px">How to buy ${c.name.toLowerCase()}.</h2></div><div class="prose"><p class="lead">${esc(c.guide)}</p></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More categories</span></div><div class="chips">${CATS.filter((x) => x !== c).map((x) => `<a class="chip" href="/marketplace/${x.slug}">${x.name}</a>`).join('')}</div></div></section>
 ${ctaBand('Get first access to the marketplace.', 'Join the waitlist to request quotes now and order as soon as checkout opens.')}`;
-  const desc = (c.name + ' for medical practices: ' + c.prods.map((p) => p.name.toLowerCase()).join(', ') + '. Paid on the Aria Card.').slice(0, 158);
+  const desc = clip(c.name + ' for medical practices: ' + c.prods.map((p) => p.name.toLowerCase()).join(', ') + '. Paid on the Aria Card.');
   page({ url, title: `${c.name} for medical practices`, desc, body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]]), { '@type': 'CollectionPage', name: c.name, url: SITE + url, mainEntity: { '@type': 'ItemList', itemListElement: c.prods.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: SITE + url + '/' + p.slug })) } }] });
 }
 function prodPage(c, p) {
@@ -430,7 +437,7 @@ function prodPage(c, p) {
 <form class="signup" data-signup="quote" style="margin-top:28px;max-width:none"><input type="hidden" name="product" value="${esc(p.name)}"><label class="sr" for="q-em">Work email</label><input id="q-em" class="field" type="email" name="email" placeholder="Work email" required><button class="btn btn-dark" type="submit">Request a quote</button></form>
 <p class="signup-note">Pays on the Aria Card. Price and availability depend on your supplier agreement.</p></div></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More ${c.name.toLowerCase()}</span></div><div class="grid g3">${c.prods.filter((x) => x !== p).map((x) => `<a class="tile" href="/marketplace/${c.slug}/${x.slug}"><h4>${esc(x.name)}</h4><p>${esc(x.desc)}</p><span class="more arrow">View</span></a>`).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>`;
-  const desc = (p.name + '. ' + p.desc + ' ' + Object.entries(p.specs).map(([k, v]) => k + ': ' + v).join('. ')).slice(0, 158);
+  const desc = clip(p.name + '. ' + p.desc + ' ' + Object.entries(p.specs).map(([k, v]) => k + ': ' + v).join('. ') + '.');
   page({ url, title: `${p.name} for medical practices`, desc, body, priority: '0.5', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]]), webPage(url, p.name + ' for medical practices', p.desc)] });
 }
 
