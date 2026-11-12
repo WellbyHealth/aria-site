@@ -10,6 +10,32 @@ export function Money({ cents, sign }: { cents: number | null | undefined; sign?
   return <span title={usd(cents)} className="num">{sign && cents > 0 ? '+' : ''}{s}</span>;
 }
 
+// Balance with dollars large and cents raised, the way bank apps show it.
+export function Big({ cents, className = 'big' }: { cents: number | null | undefined; className?: string }) {
+  if (cents == null) return <span className={className}>–</span>;
+  const neg = cents < 0, a = Math.abs(Math.round(cents));
+  const d = Math.floor(a / 100).toLocaleString('en-US'), c = String(a % 100).padStart(2, '0');
+  return <span className={className} title={usd(cents)}>{neg ? '−' : ''}${d}<sup>.{c}</sup></span>;
+}
+
+// Soft area chart: one series, light fill, date labels only.
+export function Area({ points, labels, height = 220, width = 720 }: { points: number[]; labels: string[]; height?: number; width?: number }) {
+  if (points.length < 2) return <p className="note">Not enough history yet.</p>;
+  const W = width, H = height, T = 10, B = 30;
+  const lo = Math.min(...points), hi = Math.max(...points), pad = (hi - lo) * 0.15 || 1;
+  const x = (i: number) => (i * W) / (points.length - 1);
+  const y = (v: number) => T + (1 - (v - (lo - pad)) / (hi - lo + 2 * pad)) * (H - T - B);
+  const line = points.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join('');
+  return (
+    <svg className="chart" viewBox={`0 0 ${W} ${H}`} role="img" aria-label="Trend">
+      <defs><linearGradient id="area-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="var(--accent)" stopOpacity=".18" /><stop offset="1" stopColor="var(--accent)" stopOpacity="0" /></linearGradient></defs>
+      <path d={`${line}L${W} ${H - B}L0 ${H - B}Z`} fill="url(#area-g)" />
+      <path d={line} fill="none" stroke="var(--accent)" strokeWidth="2" vectorEffect="non-scaling-stroke" />
+      {labels.map((l, i) => l && <text key={i} x={x(i)} y={H - 8} textAnchor={i === 0 ? 'start' : i === labels.length - 1 ? 'end' : 'middle'} fontSize="12" fill="var(--slate)">{l}</text>)}
+    </svg>
+  );
+}
+
 export function Spark({ values, w = 120, h = 28, target }: { values: number[]; w?: number; h?: number; target?: number }) {
   const vs = values.filter(v => Number.isFinite(v));
   if (vs.length < 2) return <svg className="spark" viewBox={`0 0 ${w} ${h}`} aria-hidden="true" />;

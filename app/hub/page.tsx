@@ -1,24 +1,72 @@
 import { view } from '@/lib/view';
-import { KpiTile, Card, AlertList } from '@/components/ui';
-import Forecast from '@/components/Forecast';
-import { fmtDay } from '@/lib/metrics';
+import { Big, Area, Money } from '@/components/ui';
+import { Icon } from '@/components/Icon';
+import { fmtDay, fmtValue, cashToday } from '@/lib/metrics';
 import { usd } from '@/lib/money';
 
-export default async function Overview({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
-  const { s, D, K, alerts, scope } = await view(searchParams);
-  const payroll = Math.max(0, ...K.weeks.map(w => w.payrollCents));
-  const nextPayroll = K.weeks.find(w => w.payrollCents > 0);
+const first = (n: string) => n.replace(/^Dr\.?\s+/i, '').split(/\s+/)[0];
+
+export default async function Home({ searchParams }: { searchParams: Promise<Record<string, string>> }) {
+  const { s, D, K, alerts, kpi, f } = await view(searchParams);
+  const cash = cashToday(D.allAccounts);
+  const weeks = K.weeks;
+  const inflow = weeks.reduce((a, w) => a + w.inCents, 0), outflow = weeks.reduce((a, w) => a + w.outCents + w.payrollCents, 0);
+  const pts = [cash, ...weeks.map(w => w.endCents)];
+  const labels = pts.map((_, i) => (i === 0 ? 'Today' : i % 3 === 0 ? fmtDay(weeks[i - 1].weekStart) : ''));
+  const nextPayroll = weeks.find(w => w.payrollCents > 0);
+  const low = K.low;
+  const accts = D.allAccounts.filter((a: any) => a.type === 'depository' || a.type === 'credit');
   return (<>
-    <div className="head"><div><h1>Overview</h1><p>{s.practiceName} · {scope}</p></div></div>
-    <div className="kpis">{K.kpis.map(k => <KpiTile key={k.key} k={k} />)}</div>
+    <div className="head"><h1>Welcome, {first(s.name)}</h1></div>
+    <div className="actions">
+      <a className="pill primary" href="/hub/remittances"><Icon name="upload" size={16} />Upload 835 file</a>
+      <a className="pill" href="/hub/payments"><Icon name="send" size={16} />Request a payment</a>
+      <a className="pill" href="/hub/banks"><Icon name="plus" size={16} />Connect a bank</a>
+      <a className="pill" href="/hub/cash"><Icon name="cash" size={16} />Cash forecast</a>
+    </div>
     <div className="g">
-      <Card span={7} title="13-week cash forecast" foot={nextPayroll ? `Next payroll ${usd(nextPayroll.payrollCents)}, week of ${fmtDay(nextPayroll.weekStart)}` : undefined}>
-        <Forecast weeks={K.weeks} floor={D.settings.cash_floor_cents} payroll={payroll} width={700} />
-        <p className="foot" style={{ marginTop: 8 }}>Built from the last 12 weeks of bank activity, with payroll placed on its own schedule. Not affected by the date filter.</p>
-      </Card>
-      <Card span={5} title="Top alerts" foot={alerts.length > 5 ? <a href="/hub/risk">All {alerts.length} alerts</a> : `${alerts.length} open`}>
-        <AlertList alerts={alerts} owner={D.owner} limit={5} />
-      </Card>
+      <section className="card s7">
+        <div className="lbl">Cash on hand</div>
+        <div style={{ margin: '6px 0 10px' }}><Big cents={cash} /></div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
+          <span className="lbl">Next 13 weeks</span>
+          <span className="flow num"><span className="in"><Icon name="arrowup" size={14} /> {usd(inflow).replace('.00', '')}</span><span className="out"><Icon name="arrowdown" size={14} /> −{usd(outflow).replace('.00', '')}</span></span>
+        </div>
+        <div style={{ marginTop: 14 }}><Area points={pts} labels={labels} /></div>
+      </section>
+      <section className="card s5">
+        <header><h2>Accounts</h2><a className="iconbtn" href="/hub/banks" aria-label="Connect a bank" style={{ background: 'var(--hover)' }}><Icon name="plus" size={16} /></a></header>
+        <ul className="acct">
+          {accts.slice(0, 5).map((a: any) => <li key={a.id}><span className="ic"><Icon name={a.type === 'credit' ? 'card' : 'bank'} size={16} /></span><span>{a.name}<small>{[a.institution_name, a.mask && '••' + a.mask, a.location_name].filter(Boolean).join(' · ')}</small></span><b className="num"><Big cents={Math.abs(Number(a.current_cents || 0))} className="acctnum" /></b></li>)}
+          {!accts.length && <li><span>No bank connected yet. <a href="/hub/banks">Connect one</a> to see cash and the forecast.</span></li>}
+        </ul>
+        {accts.length > 5 && <div className="rowlink"><span>{accts.length - 5} more</span><a href="/hub/banks">View all accounts</a></div>}
+      </section>
+
+      <section className="card s4">
+        <header><h2>Insurer payments</h2><a href="/hub/revenue">View</a></header>
+        <Big cents={kpi('insurer').value} className="mid" />
+        <div className="lbl" style={{ marginTop: 2 }}>Collected, {f.label.toLowerCase()}</div>
+        <div className="stat3" style={{ marginTop: 18 }}>
+          <div><div className="lbl">Denial rate</div><div>{fmtValue(kpi('denial_rate').value, 'pct')}</div></div>
+          <div><div className="lbl">Days to pay</div><div>{fmtValue(kpi('days_to_pay').value, 'days')}</div></div>
+          <div><div className="lbl">Unmatched</div><div><Money cents={kpi('unmatched').value} /></div></div>
+        </div>
+      </section>
+      <section className="card s4">
+        <header><h2>Payroll</h2><a href="/hub/cash">View</a></header>
+        {nextPayroll ? <><Big cents={nextPayroll.payrollCents} className="mid" /><div className="lbl" style={{ marginTop: 2 }}>Next payroll, week of {fmtDay(nextPayroll.weekStart)}</div></> : <p className="note">No payroll found in bank activity yet.</p>}
+        <div className="stat3" style={{ marginTop: 18 }}>
+          <div><div className="lbl">Lowest point</div><div>{low ? <Money cents={low.endCents} /> : '–'}</div></div>
+          <div><div className="lbl">Week of</div><div>{low ? fmtDay(low.weekStart) : '–'}</div></div>
+          <div><div className="lbl">Days cash</div><div>{fmtValue(kpi('days_cash').value, 'days')}</div></div>
+        </div>
+      </section>
+      <section className="card s4">
+        <header><h2>Needs you</h2><a href="/hub/risk">View all</a></header>
+        <div className="mid">{alerts.length}<span className="lbl" style={{ fontSize: 15, marginLeft: 8 }}>open {alerts.length === 1 ? 'item' : 'items'}</span></div>
+        <ul className="mini">{alerts.slice(0, 3).map(a => <li key={a.key}><a href={a.href}><Icon name={a.tone === 'alert' ? 'alert' : 'watch'} size={15} />{a.title}</a><span className="num">{a.value}</span></li>)}</ul>
+      </section>
     </div>
   </>);
 }

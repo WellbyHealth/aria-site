@@ -22,7 +22,7 @@ export default async function Risk({ searchParams }: { searchParams: Promise<Rec
   const S = D.settings;
   const off = s.role === 'viewer';
   return (<>
-    <div className="head"><div><h1>Operations and risk</h1><p>Every open alert, and the thresholds behind them · {scope}</p></div></div>
+    <div className="head"><div><h1>Alerts and risk</h1><p>Every open alert, and the thresholds behind them · {scope}</p></div></div>
     <div className="g">
       <Card span={8} title="Open alerts" foot={`${alerts.filter(a => a.tone === 'alert').length} off target · ${alerts.filter(a => a.tone === 'watch').length} near a limit`}>
         <AlertList alerts={alerts} owner={D.owner} />

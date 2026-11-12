@@ -16,6 +16,16 @@ const PATHS: Record<string, string> = {
   check: 'M4 12l5 5L20 6',
   plug: 'M9 3v5M15 3v5M6 8h12v4a6 6 0 0 1-12 0zM12 18v3',
   chev: 'M9 6l6 6-6 6',
+  home: 'M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',
+  search: 'M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zM20 20l-4-4',
+  eye: 'M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z',
+  eyeoff: 'M3 3l18 18M10.6 5.1A10 10 0 0 1 12 5c6.4 0 10 7 10 7a17 17 0 0 1-3.2 4.1M6.6 6.6A17 17 0 0 0 2 12s3.6 7 10 7a9.6 9.6 0 0 0 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2',
+  upload: 'M12 16V4M7 9l5-5 5 5M4 20h16',
+  plus: 'M12 5v14M5 12h14',
+  send: 'M4 12l16-8-6 16-3-7z',
+  arrowup: 'M7 17L17 7M9 7h8v8',
+  arrowdown: 'M7 7l10 10M17 9v8H9',
+  logout: 'M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H3',
 };
 export function Icon({ name, size = 16 }: { name: keyof typeof PATHS | string; size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ verticalAlign: '-2px' }}><path d={PATHS[name] || ''} /></svg>;

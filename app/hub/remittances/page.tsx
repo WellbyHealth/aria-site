@@ -42,7 +42,7 @@ export default async function Remittances({ searchParams }: { searchParams: Prom
   const unmatchedDeposits = await d.query(`select to_char(posted_on,'YYYY-MM-DD') d, payer, description, amount_cents from ledger_entries where practice_id=$1 and kind='insurer_deposit' and matched_remittance_id is null order by posted_on desc limit 20`, [s.practiceId]);
   const matched = tot.m;
   return (<>
-    <div className="head"><div><h1>Insurer payments</h1><p>Upload ERA (835) files from your clearinghouse. We match each one to the deposit in your bank.</p></div></div>
+    <div className="head"><div><h1>Insurer files (835)</h1><p>Upload ERA (835) files from your clearinghouse. We match each one to the deposit in your bank.</p></div></div>
     {sp.err && <div className="banner err">{sp.err}</div>}
     {sp.added && <div className="banner ok">Added {sp.added} remittances and matched {sp.matched} to bank deposits.</div>}
     <div className="kpis">

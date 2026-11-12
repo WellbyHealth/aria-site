@@ -8,7 +8,7 @@ export default async function Revenue({ searchParams }: { searchParams: Promise<
   const max = D.settings.denial_rate_max_bps / 10000;
   const reasonOf = (c: (typeof r.recent)[number]) => { const a = c.adj.find(x => x.reason !== '45') || c.adj[0]; return a ? `${a.group}-${a.reason} ${CARC[a.reason] || ''}` : '–'; };
   return (<>
-    <div className="head"><div><h1>Revenue cycle</h1><p>From charge to cash, using your 835 remittances · {scope}</p></div></div>
+    <div className="head"><div><h1>Insurer payments</h1><p>From charge to cash, using your 835 remittances · {scope}</p></div></div>
     <div className="kpis">
       <KpiTile k={kpi('denial_rate')} href="" />
       <KpiTile k={{ key: 'paid_pct', label: 'Paid % of billed', unit: 'pct', value: r.paidPct, prior: null, target: { op: 'none', value: 0, text: `${r.claims.toLocaleString()} claims` }, status: 'none', spark: [], hint: 'Insurer payments ÷ billed charges on the same claims.' }} />

@@ -35,7 +35,7 @@ export default async function Banks() {
   const accts = await d.query(`select * from bank_accounts where practice_id=$1 order by name`, [s.practiceId]);
   const locs = await d.query(`select * from locations where practice_id=$1 order by name`, [s.practiceId]);
   return (<>
-    <div className="head"><div><h1>Banks and cards</h1><p>Connected through Plaid. We read balances and transactions; nothing moves without your approval.</p></div>
+    <div className="head"><div><h1>Accounts and cards</h1><p>Connected through Plaid. We read balances and transactions; nothing moves without your approval.</p></div>
       {plaidConfigured() ? <PlaidLink /> : <span className="chip warn">Plaid keys not set{isDemo() ? ': showing sample data' : ''}</span>}</div>
     {items.map(it => (
       <section className="card" key={it.id} style={{ marginBottom: 16 }}>

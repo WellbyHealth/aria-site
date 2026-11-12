@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { Logo } from '@/components/Logo';
 import { login } from '@/lib/auth';
 import { isDemo } from '@/lib/db';
 import { DEMO_EMAIL, DEMO_PASSWORD } from '@/lib/demo';
@@ -12,8 +13,8 @@ async function doLogin(form: FormData) {
 export default async function Login({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const sp = await searchParams;
   return (
-    <main className="login"><div className="card glass">
-      <div className="brand" style={{ padding: "0 0 16px" }}><img src="/art/icon-128.png" alt="" />Aria CFO Hub</div>
+    <main className="login"><div className="card">
+      <div className="brand" style={{ padding: "0 0 18px" }}><Logo size={26} />Aria CFO Hub</div>
       <h1 style={{ fontSize: 22, marginBottom: 16 }}>Sign in</h1>
       {sp.error && <div className="banner err">That email and password don’t match.</div>}
       {isDemo() && <div className="banner">Demo mode with sample data. Sign in as <b>{DEMO_EMAIL}</b>, password <b>{DEMO_PASSWORD}</b>.</div>}
