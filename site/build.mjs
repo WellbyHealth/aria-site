@@ -3,6 +3,7 @@
 // (home, categories, products), blog, security, join, 404. Content lives in this file and site/data/.
 import { GUIDES } from './data/group-guides.mjs';
 import { DEPTH } from './data/product-depth.mjs';
+import { MFAQ } from './data/market-faqs.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -456,6 +457,9 @@ function marketHome() {
 ${ctaBand('Get first access to the marketplace.', 'Join the waitlist to request quotes now and order as soon as checkout opens.')}`;
   page({ url: '/marketplace', title: 'Medical supply marketplace for independent practices', desc: 'Gloves, wound care, syringes, PPE, exam room and dental supplies in one catalog for independent medical practices, paid on the Aria Card.', body, priority: '0.8', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace']])] });
 }
+const usedBy = (slug) => DATA.specialties.filter((sp) => (GROUP_CATS[sp.group] || []).includes(slug));
+const usedHtml = (slug) => { const u = usedBy(slug); return u.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Used by</span><h2>Practices that order these most.</h2></div><div class="chips">${u.map((x) => `<a class="chip" href="/specialties/${x.slug}">${esc(x.name)}</a>`).join('')}</div></div></section>` : ''; };
+const mfaqHtml = (slug) => (MFAQ[slug] ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">Buying questions.</h2></div>${faqHtml(MFAQ[slug])}</div></section>` : '');
 function catPage(c) {
   const url = '/marketplace/' + c.slug;
   const body = `
@@ -464,10 +468,12 @@ function catPage(c) {
 <div class="art" style="aspect-ratio:4/3"><img src="${IMG('c-' + c.slug)}" alt="${esc(c.name)}" width="800" height="800" fetchpriority="high"></div></div></section>
 <section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g4">${c.prods.map((p) => `<a class="tile img" href="${url}/${p.slug}"><div class="ph"><img src="${IMG('c-' + c.slug)}" alt="" width="800" height="800" loading="lazy"></div><div class="tx"><h4>${esc(p.name)}</h4><p>${esc(p.desc)}</p></div></a>`).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Buying guide</span><h2 style="margin-top:18px">How to buy ${c.name.toLowerCase()}.</h2></div><div class="prose"><p class="lead">${esc(c.guide)}</p></div></div></section>
+${mfaqHtml(c.slug)}
+${usedHtml(c.slug)}
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More categories</span></div><div class="chips">${CATS.filter((x) => x !== c).map((x) => `<a class="chip" href="/marketplace/${x.slug}">${x.name}</a>`).join('')}</div></div></section>
 ${ctaBand('Get first access to the marketplace.', 'Join the waitlist to request quotes now and order as soon as checkout opens.')}`;
   const desc = clip(c.name + ' for medical practices: ' + c.prods.map((p) => p.name.toLowerCase()).join(', ') + '. Paid on the Aria Card.');
-  page({ url, title: `${c.name} for medical practices`, desc, body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]]), { '@type': 'CollectionPage', name: c.name, url: SITE + url, mainEntity: { '@type': 'ItemList', itemListElement: c.prods.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: SITE + url + '/' + p.slug })) } }] });
+  page({ url, title: `${c.name} for medical practices`, desc, body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]]), { '@type': 'CollectionPage', name: c.name, url: SITE + url, mainEntity: { '@type': 'ItemList', itemListElement: c.prods.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: SITE + url + '/' + p.slug })) } }, faqLd(url, MFAQ[c.slug] || [])] });
 }
 function prodPage(c, p) {
   const url = `/marketplace/${c.slug}/${p.slug}`;
@@ -478,9 +484,12 @@ function prodPage(c, p) {
 <table class="tbl" style="margin-top:28px"><tbody>${Object.entries(p.specs).map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>
 <form class="signup" data-signup="quote" style="margin-top:28px;max-width:none"><input type="hidden" name="product" value="${esc(p.name)}"><label class="sr" for="q-em">Work email</label><input id="q-em" class="field" type="email" name="email" placeholder="Work email" required><button class="btn btn-dark" type="submit">Request a quote</button></form>
 <p class="signup-note">Pays on the Aria Card. Price and availability depend on your supplier agreement.</p></div></div></div></section>
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Buying guide</span><h2 style="margin-top:18px">Choosing ${c.name.toLowerCase()}.</h2></div><div class="prose"><p>${esc(c.guide)}</p></div></div></section>
+${mfaqHtml(c.slug)}
+${usedHtml(c.slug)}
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More ${c.name.toLowerCase()}</span></div><div class="grid g3">${c.prods.filter((x) => x !== p).map((x) => `<a class="tile" href="/marketplace/${c.slug}/${x.slug}"><h4>${esc(x.name)}</h4><p>${esc(x.desc)}</p><span class="more arrow">View</span></a>`).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>`;
   const desc = clip(p.name + '. ' + p.desc + ' ' + Object.entries(p.specs).map(([k, v]) => k + ': ' + v).join('. ') + '.');
-  page({ url, title: `${p.name} for medical practices`, desc, body, priority: '0.5', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]]), webPage(url, p.name + ' for medical practices', p.desc)] });
+  page({ url, title: `${p.name} for medical practices`, desc, body, priority: '0.5', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]]), webPage(url, p.name + ' for medical practices', p.desc), faqLd(url, MFAQ[c.slug] || [])] });
 }
 
 // ---------------------------------------------------------------- platform, security, join, blog, 404
