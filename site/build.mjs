@@ -405,7 +405,7 @@ function publishedPosts() {
   const dir = path.join(ROOT, 'blog/posts');
   return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => parsePost(path.join(dir, f))).filter((p) => p.date <= TODAY).sort((a, b) => (a.date < b.date ? 1 : -1));
 }
-const guideLinks = () => { const ps = publishedPosts().slice(0, 3); return ps.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Guides</span><h2>Read next.</h2></div><div class="grid g3">${ps.map((p) => `<a class="tile img" href="/blog/${p.slug}"><div class="ph"><img src="${blogImg(p.category)}" alt="" width="1400" height="1050" loading="lazy"></div><div class="tx"><span class="label">${esc(p.category || 'Guide')}</span><h4>${esc(p.title)}</h4><p>${esc(p.description)}</p><span class="more arrow">Read the guide</span></div></a>`).join('')}</div></div></section>` : ''; };
+const guideLinks = () => { const ps = publishedPosts().slice(0, 3); return ps.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Guides</span><h2>Read next.</h2></div><div class="grid g3">${ps.map((p) => `<a class="tile img" href="/blog/${p.slug}"><div class="ph"><img src="${postImg(p)}" alt="" width="1400" height="1050" loading="lazy"></div><div class="tx"><span class="label">${esc(p.category || 'Guide')}</span><h4>${esc(p.title)}</h4><p>${esc(p.description)}</p><span class="more arrow">Read the guide</span></div></a>`).join('')}</div></div></section>` : ''; };
 // Worked month of spend, payer guidance and a bank checklist for one specialty.
 const amt = (t) => Math.abs(Number(String(t).replace(/[^0-9.]/g, '')) || 0);
 const fmt$ = (n) => '$' + Math.round(n).toLocaleString('en-US');
@@ -503,6 +503,7 @@ function rcard(name = 'Supplies', last = '0001', ghost = false, label = '') {
 const issueGrid = () => `<div class="issue"><div class="issue-g">${rcard('', '0001', true, 'Office supplies')}${rcard('', '4207', true, 'Front desk')}${rcard('', '3318', true, 'Lab fees')}${rcard('', '', true)}${rcard('Supplies', '0001')}${rcard('', '8820', true, 'Virtual card')}${rcard('', '5561', true, 'Surgery center')}${rcard('', '', true)}${rcard('', '1109', true, 'Virtual card')}</div></div>`;
 const BLOG_IMG = { 'Getting paid': 'b-getting-paid', 'Cash flow': 'b-cash-flow', 'Books & close': 'b-books-close', 'Spend & cards': 'b-spend-cards', 'Running the practice': 'b-running-practice' };
 const blogImg = (c) => IMG(BLOG_IMG[c] || 'b-getting-paid');
+const postImg = (p) => (fs.existsSync(path.join(ROOT, 'site/img/cover-' + p.slug + '.webp')) ? IMG('cover-' + p.slug) : blogImg(p.category));
 const art = (key, alt = '', pri = false) => `<div class="art" style="aspect-ratio:4/3"><img src="${IMG(key)}" alt="${esc(alt)}" width="1400" height="1050"${pri ? ' fetchpriority="high"' : ' loading="lazy"'}></div>`;
 const usedBy = (slug) => DATA.specialties.filter((sp) => (GROUP_CATS[sp.group] || []).includes(slug));
 const usedHtml = (slug) => { const u = usedBy(slug); return u.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Used by</span><h2>Practices that order these most.</h2></div><div class="chips">${u.map((x) => `<a class="chip" href="/specialties/${x.slug}">${esc(x.name)}</a>`).join('')}</div></div></section>` : ''; };
@@ -573,14 +574,14 @@ function blogPages() {
   const dir = path.join(ROOT, 'blog/posts');
   const posts = fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => parsePost(path.join(dir, f))).filter((p) => p.date <= TODAY).sort((a, b) => (a.date < b.date ? 1 : -1));
   const fmt = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-  const card = (p) => `<a class="tile img" href="/blog/${p.slug}"><div class="ph"><img src="${blogImg(p.category)}" alt="" width="1400" height="1050" loading="lazy"></div><div class="tx"><span class="label">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p><span class="more muted" style="font-size:14px">${fmt(p.date)}</span></div></a>`;
+  const card = (p) => `<a class="tile img" href="/blog/${p.slug}"><div class="ph"><img src="${postImg(p)}" alt="" width="1400" height="1050" loading="lazy"></div><div class="tx"><span class="label">${esc(p.category)}</span><h3>${esc(p.title)}</h3><p>${esc(p.description)}</p><span class="more muted" style="font-size:14px">${fmt(p.date)}</span></div></a>`;
   page({ url: '/blog', title: 'Guides for independent medical practices', desc: 'Practical guides on getting paid, cash flow, supply spend and the books, for independent medical practices.', priority: '0.6',
     body: `<section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Blog', '/blog']])}<span class="label">Resources</span><h1 style="margin-top:18px">Guides for running the money side of a practice.</h1></div></section><section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g3">${posts.map(card).join('')}</div></div></section>${ctaBand()}` });
   for (const p of posts) {
     const url = '/blog/' + p.slug, { html } = md(p.body);
     page({ url, title: p.title, desc: p.description, priority: '0.6', graph: [{ '@type': 'BlogPosting', headline: p.title, description: p.description, datePublished: p.date, url: SITE + url, author: { '@id': SITE + '/#org' } }, crumbsLd([['Aria', '/'], ['Blog', '/blog'], [p.title, url]])],
       body: `<section class="page-head"><div class="narrow">${crumbs([['Aria', '/'], ['Blog', '/blog'], [p.category, '/blog']])}<span class="label">${esc(p.category)} · ${fmt(p.date)}</span><h1 style="margin-top:18px;font-size:clamp(36px,4.6vw,56px)">${esc(p.title)}</h1><p class="lead">${esc(p.description)}</p></div></section>
-<section class="sec tight" style="padding-top:0"><div class="narrow"><div class="cover"><img src="${blogImg(p.category)}" alt="" width="1400" height="1050" fetchpriority="high"></div></div><article class="narrow prose">${html}<p class="fine" style="margin-top:40px">This article is general information, not legal, tax or financial advice.</p></article></section>
+<section class="sec tight" style="padding-top:0"><div class="narrow"><div class="cover"><img src="${postImg(p)}" alt="" width="1400" height="1050" fetchpriority="high"></div></div><article class="narrow prose">${html}<p class="fine" style="margin-top:40px">This article is general information, not legal, tax or financial advice.</p></article></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Keep reading</span></div><div class="grid g3">${posts.filter((q) => q !== p).slice(0, 3).map(card).join('')}</div></div></section>${ctaBand()}` });
   }
   return posts.length;
