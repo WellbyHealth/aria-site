@@ -24,6 +24,61 @@
       "source": "/r/:ref",
       "destination": "/?ref=:ref",
       "permanent": false
+    },
+    {
+      "source": "/card",
+      "destination": "/banking",
+      "permanent": true
+    },
+    {
+      "source": "/treasury",
+      "destination": "/banking",
+      "permanent": true
+    },
+    {
+      "source": "/expense-management",
+      "destination": "/banking",
+      "permanent": true
+    },
+    {
+      "source": "/bill-pay",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/bridge",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/claims-advance",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/underpayments",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/denials",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/patient-payments",
+      "destination": "/payments",
+      "permanent": true
+    },
+    {
+      "source": "/bookkeeping",
+      "destination": "/cfo",
+      "permanent": true
+    },
+    {
+      "source": "/cfo-hub",
+      "destination": "/cfo",
+      "permanent": true
     }
   ]
 }
