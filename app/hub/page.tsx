@@ -3,6 +3,7 @@ import { Big, Area, Money } from '@/components/ui';
 import { Icon } from '@/components/Icon';
 import { fmtDay, fmtValue, cashToday } from '@/lib/metrics';
 import { usd } from '@/lib/money';
+import { CARDS, BILLS, LINE } from '@/lib/sample';
 
 const first = (n: string) => n.replace(/^Dr\.?\s+/i, '').split(/\s+/)[0];
 
@@ -15,14 +16,16 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
   const labels = pts.map((_, i) => (i === 0 ? 'Today' : i % 3 === 0 ? fmtDay(weeks[i - 1].weekStart) : ''));
   const nextPayroll = weeks.find(w => w.payrollCents > 0);
   const low = K.low;
+  const cardBal = CARDS.reduce((a, c) => a + c.posted + c.pending, 0), cardLim = CARDS.reduce((a, c) => a + c.limit, 0);
   const accts = D.allAccounts.filter((a: any) => a.type === 'depository' || a.type === 'credit');
   return (<>
     <div className="head"><h1>Welcome, {first(s.name)}</h1></div>
     <div className="actions">
-      <a className="pill primary" href="/hub/remittances"><Icon name="upload" size={16} />Upload 835 file</a>
-      <a className="pill" href="/hub/payments"><Icon name="send" size={16} />Request a payment</a>
-      <a className="pill" href="/hub/banks"><Icon name="plus" size={16} />Connect a bank</a>
-      <a className="pill" href="/hub/cash"><Icon name="cash" size={16} />Cash forecast</a>
+      <a className="pill primary" href="/hub/bills"><Icon name="send" size={16} />Send</a>
+      <a className="pill" href="/hub/accounts"><Icon name="transfer" size={16} />Transfer</a>
+      <a className="pill" href="/hub/remittances"><Icon name="deposit" size={16} />Deposit</a>
+      <a className="pill" href="/hub/payments"><Icon name="request" size={16} />Request</a>
+      <a className="pill" href="/hub/bills"><Icon name="upload" size={16} />Upload bill</a>
     </div>
     <div className="g">
       <section className="card s7">
@@ -41,6 +44,26 @@ export default async function Home({ searchParams }: { searchParams: Promise<Rec
           {!accts.length && <li><span>No bank connected yet. <a href="/hub/banks">Connect one</a> to see cash and the forecast.</span></li>}
         </ul>
         {accts.length > 5 && <div className="rowlink"><span>{accts.length - 5} more</span><a href="/hub/banks">View all accounts</a></div>}
+      </section>
+
+      <section className="card s4">
+        <header><h2>Aria Card <span className="chip info" style={{ marginLeft: 6, verticalAlign: 2 }}>Preview</span></h2><a href="/hub/cards">View</a></header>
+        <Big cents={cardBal} className="mid" />
+        <div className="ccbar"><i style={{ width: Math.round(cardBal / cardLim * 100) + '%' }} /></div>
+        <div className="lbl">{usd(cardLim - cardBal)} available · <span className="pos">+{usd(Math.round(cardBal * 0.02 * 0.8))} back this month</span></div>
+        <div className="rowlink"><span>Autopay from Supplies</span><span className="lbl">Nov 15</span></div>
+      </section>
+      <section className="card s4">
+        <header><h2>Bill pay <span className="chip info" style={{ marginLeft: 6, verticalAlign: 2 }}>Preview</span></h2><a href="/hub/bills">View</a></header>
+        <div className="stat2"><div><div className="lbl">Outstanding</div><div>{BILLS.length}</div></div><div><div className="lbl">Overdue</div><div className="bad">{BILLS.filter(b => b.status === 'Overdue').length}</div></div><div><div className="lbl">To approve</div><div>{BILLS.filter(b => b.status === 'Ready to approve').length}</div></div></div>
+        <div className="rowlink"><span>Inbox · {BILLS.length} items · {usd(BILLS.reduce((a, b) => a + b.cents, 0)).replace(/\.\d\d$/, '')}</span><a href="/hub/bills">Review</a></div>
+      </section>
+      <section className="card s4">
+        <header><h2>Buy-and-bill line <span className="chip info" style={{ marginLeft: 6, verticalAlign: 2 }}>Preview</span></h2><a href="/hub/capital">View</a></header>
+        <Big cents={LINE.limit - LINE.drawn} className="mid" />
+        <div className="ccbar"><i style={{ width: Math.round(LINE.drawn / LINE.limit * 100) + '%' }} /></div>
+        <div className="lbl">Available of {usd(LINE.limit).replace('.00', '')} · repaid from claims</div>
+        <div className="rowlink"><span>2 draws awaiting claims</span><a href="/hub/capital">Details</a></div>
       </section>
 
       <section className="card s4">

@@ -7,7 +7,11 @@ type Item = { href: string; label: string; icon: string; sub?: boolean };
 const SECTIONS: { key: string; label: string; items: Item[] }[] = [
   { key: 'banking', label: 'Banking', items: [
     { href: '/hub', label: 'Home', icon: 'home' },
-    { href: '/hub/banks', label: 'Accounts and cards', icon: 'bank' },
+    { href: '/hub/accounts', label: 'Accounts', icon: 'bank' },
+    { href: '/hub/cards', label: 'Cards', icon: 'card' },
+    { href: '/hub/capital', label: 'Capital', icon: 'capital' },
+    { href: '/hub/bills', label: 'Bill pay', icon: 'bill' },
+    { href: '/hub/banks', label: 'Linked banks', icon: 'plug' },
   ] },
   { key: 'payments', label: 'Payments', items: [
     { href: '/hub/revenue', label: 'Insurer payments', icon: 'revenue' },
@@ -16,7 +20,7 @@ const SECTIONS: { key: string; label: string; items: Item[] }[] = [
     { href: '/hub/payments', label: 'Patient payments', icon: 'card' },
     { href: '/hub/remittances', label: 'Insurer files (835)', icon: 'file' },
   ] },
-  { key: 'cfo', label: 'CFO', items: [
+  { key: 'insights', label: 'Insights', items: [
     { href: '/hub/cash', label: 'Cash and forecast', icon: 'cash' },
     { href: '/hub/costs', label: 'Costs and margin', icon: 'costs' },
     { href: '/hub/risk', label: 'Alerts and risk', icon: 'risk' },

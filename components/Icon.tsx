@@ -25,6 +25,15 @@ const PATHS: Record<string, string> = {
   send: 'M4 12l16-8-6 16-3-7z',
   arrowup: 'M7 17L17 7M9 7h8v8',
   arrowdown: 'M7 7l10 10M17 9v8H9',
+  transfer: 'M4 8h14l-3-3M20 16H6l3 3',
+  bill: 'M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h3',
+  capital: 'M4 20V10M10 20V4M16 20v-7M22 20H2',
+  snow: 'M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2',
+  sliders: 'M4 7h10M18 7h2M4 17h4M12 17h8M16 5v4M10 15v4',
+  pen: 'M4 20l4-1L19 8l-3-3L5 16l-1 4z',
+  deposit: 'M12 3v12M7 10l5 5 5-5M4 21h16',
+  request: 'M5 5v14M19 12H9M13 8l-4 4 4 4',
+  spark: 'M10 3l1.6 5.4L17 10l-5.4 1.6L10 17l-1.6-5.4L3 10l5.4-1.6zM18 3v4M16 5h4',
   logout: 'M15 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4M10 17l5-5-5-5M15 12H3',
 };
 export function Icon({ name, size = 16 }: { name: keyof typeof PATHS | string; size?: number }) {
