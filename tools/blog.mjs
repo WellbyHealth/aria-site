@@ -230,3 +230,4 @@ ${live.slice(0, 30).map((p) => `<item><title>${esc(p.title)}</title><link>${SITE
   write('blog/rss.xml', rss);
   return pages;
 }
+export { parse, md };

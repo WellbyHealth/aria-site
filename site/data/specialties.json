@@ -1,0 +1,3786 @@
+{
+ "groups": [
+  {
+   "slug": "primary-care",
+   "name": "Primary and behavioral care",
+   "h1": "A card for the practices patients see first.",
+   "lead": "Vaccines, tests, exam supplies and labs, on one card.",
+   "members": [
+    "primary-care",
+    "pediatrics",
+    "ob-gyn",
+    "urgent-care",
+    "behavioral-health"
+   ]
+  },
+  {
+   "slug": "specialists",
+   "name": "Medical specialists",
+   "h1": "A card for specialty clinics.",
+   "lead": "Labs, procedure rooms and imaging. Pick your specialty.",
+   "members": [
+    "allergy",
+    "audiology",
+    "cardiology",
+    "dermatology",
+    "endocrinology",
+    "fertility",
+    "gastroenterology",
+    "neurology",
+    "pulmonology"
+   ]
+  },
+  {
+   "slug": "infusion",
+   "name": "Infusion and buy-and-bill",
+   "h1": "A card for practices that front the cost of care.",
+   "lead": "Costly drugs bought up front, paid back weeks later. Aria bridges the gap.",
+   "members": [
+    "infusion",
+    "rheumatology",
+    "nephrology"
+   ]
+  },
+  {
+   "slug": "surgical",
+   "name": "Surgical and procedural",
+   "h1": "A card for surgeons and procedure-based practices.",
+   "lead": "Implants, devices and supplies billed per case, tied to each procedure.",
+   "members": [
+    "orthopedics",
+    "ent",
+    "urology",
+    "plastic-surgery",
+    "podiatry",
+    "general-surgery",
+    "pain-management"
+   ]
+  },
+  {
+   "slug": "surgery-centers",
+   "name": "Surgery centers and diagnostics",
+   "h1": "A card for centers that buy like small hospitals.",
+   "lead": "Big equipment and supply bills, short terms and slow payers, in one queue.",
+   "members": [
+    "surgery-center",
+    "imaging",
+    "clinical-lab",
+    "anesthesia"
+   ]
+  },
+  {
+   "slug": "dental",
+   "name": "Dental",
+   "h1": "Earn 2% back on every supply order.",
+   "lead": "Dental and med-surg supplies from a dozen vendors, on one card and one bill.",
+   "members": [
+    "dental"
+   ]
+  },
+  {
+   "slug": "eye-care",
+   "name": "Eye care",
+   "h1": "A card for eye care, from retina to retail optical.",
+   "lead": "Injectable drugs, surgical lenses and an optical shop. Pick yours.",
+   "members": [
+    "ophthalmology",
+    "optometry"
+   ]
+  },
+  {
+   "slug": "aesthetics-rehab",
+   "name": "Aesthetics and rehab",
+   "h1": "A card for practices built on repeat visits.",
+   "lead": "Packages, memberships and retail stock, with the buying on one card.",
+   "members": [
+    "med-spa",
+    "physical-therapy",
+    "chiropractic"
+   ]
+  },
+  {
+   "slug": "post-acute",
+   "name": "Post-acute and pharmacy",
+   "h1": "A card for care beyond the clinic.",
+   "lead": "Field staff and wholesalers, while you wait on Medicare.",
+   "members": [
+    "home-health",
+    "hospice",
+    "skilled-nursing",
+    "retail-pharmacy",
+    "specialty-pharmacy"
+   ]
+  }
+ ],
+ "specialties": [
+  {
+   "slug": "primary-care",
+   "name": "Primary care",
+   "group": "primary-care",
+   "eyebrow": "For primary care practices",
+   "hook": "Stop chasing receipts and short payer deposits.",
+   "lead": "Vaccines, point-of-care tests and exam supplies, on one card.",
+   "rows": [
+    {
+     "name": "Flu vaccine pre-book",
+     "desc": "Quadrivalent, 10-dose vials",
+     "amt": "\u2212$3,840.00"
+    },
+    {
+     "name": "Reference lab",
+     "desc": "Monthly invoice, CBC and CMP panels",
+     "amt": "\u2212$1,120.00"
+    },
+    {
+     "name": "POC test kits",
+     "desc": "Strep A and flu A/B",
+     "amt": "\u2212$486.40"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most primary care practices spend the bulk of their budget on vaccines and immunization supplies, reference lab and pathology fees, point-of-care tests, like strep, flu, COVID and A1c, exam, venipuncture and minor procedure supplies, and EHR, e-prescribing and scheduling software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Vaccine orders on one card",
+     "d": "Seasonal flu and adult vaccine pre-books go on the card instead of a check, with the receipt matched and the lot invoice kept with it."
+    },
+    {
+     "t": "Cards for the people who restock",
+     "d": "Your MAs and office manager order exam paper, needles and POC test kits on their own cards, capped at the amounts you set."
+    },
+    {
+     "t": "Lab and vendor invoices in one queue",
+     "d": "Reference lab and vendor bills will be read by Aria AI, approved in a tap and paid on the due date."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One office or fifty",
+     "d": "Each new office gets the same cards, budgets and approval rules, and you see every office\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on vaccines and supplies, get your books done for you, and catch the insurer payments that come up short.",
+   "table": {
+    "Aria Card": "2% back on vaccine pre-books, POC tests and exam supplies, with cards for your MAs.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payer deposit checked against your contracted rates, so short pays get flagged. Denied visits and vaccine claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Copays and deductibles collected by card on file, without the phone calls.",
+    "Accounts Payable": "Reference lab and vendor invoices read, checked for duplicates and paid on the due date.",
+    "Bridge Payments": "Pay the fall flu pre-book on time and settle it as flu-season claims are paid.",
+    "CFO Hub": "Visits, payer deposits and supply spend for each location, in one view.",
+    "Bookkeeping & Close": "Every purchase and deposit coded to healthcare categories and synced to QuickBooks or Xero."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "pediatrics",
+   "name": "Pediatrics",
+   "group": "primary-care",
+   "eyebrow": "For pediatrics practices",
+   "hook": "Front the vaccine order without the cash crunch.",
+   "lead": "Vaccines are your biggest buy. Keep them on one card.",
+   "rows": [
+    {
+     "name": "Private-stock vaccines",
+     "desc": "DTaP, MMR and RSV fall order",
+     "amt": "\u2212$5,210.00"
+    },
+    {
+     "name": "Well-child supplies",
+     "desc": "Otoscope specula, swabs",
+     "amt": "\u2212$248.90"
+    },
+    {
+     "name": "Vaccine refrigerator monitor",
+     "desc": "Digital data logger",
+     "amt": "\u2212$189.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most pediatrics practices spend the bulk of their budget on private-stock vaccines and RSV immunizations, well-child, hearing and vision screening supplies, point-of-care tests, like strep, flu and lead, vaccine refrigeration and temperature monitoring, and EHR and scheduling software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Vaccine orders on one card",
+     "d": "Put your largest recurring orders on one card, with each purchase matched to its receipt and invoice."
+    },
+    {
+     "t": "Ordering without the owner\u2019s card",
+     "d": "Nurses and MAs who restock otoscope specula, swabs and stickers get their own cards, capped at the amounts you choose."
+    },
+    {
+     "t": "Bills approved before they\u2019re paid",
+     "d": "Vaccine and lab invoices wait for your approval, then go out on schedule."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Spread the cost of private-stock vaccines, earn back on every order, and get paid what each payer owes.",
+   "table": {
+    "Aria Card": "2% back on private-stock vaccines and RSV immunizations, your biggest buy.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each vaccine admin and visit payment checked against what the payer owes you. Denied vaccine and well-child claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Parent balances collected by card on file, with clear receipts.",
+    "Accounts Payable": "Vaccine, lab and vendor invoices read, approved in a tap and paid on schedule.",
+    "Bridge Payments": "Pay the fall vaccine order now and settle it as the administration claims are paid.",
+    "CFO Hub": "Vaccine spend, payer deposits and margins for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced each month, with vaccine spend tracked on its own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "ob-gyn",
+   "name": "OB-GYN",
+   "group": "primary-care",
+   "eyebrow": "For OB-GYN practices",
+   "hook": "Buy IUDs and implants without draining cash.",
+   "lead": "IUDs, implants and ultrasound supplies, bought up front.",
+   "rows": [
+    {
+     "name": "Contraceptive devices",
+     "desc": "Hormonal IUDs, 6 units",
+     "amt": "\u2212$4,980.00"
+    },
+    {
+     "name": "Reference lab",
+     "desc": "Prenatal panels and Paps",
+     "amt": "\u2212$1,320.00"
+    },
+    {
+     "name": "Procedure supplies",
+     "desc": "Colposcopy, biopsy",
+     "amt": "\u2212$412.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most OB-GYN practices spend the bulk of their budget on IUDs, implants and other buy-and-bill contraceptives, ultrasound equipment and service, prenatal, Pap and HPV lab fees, colposcopy and in-office procedure supplies, and EHR and scheduling software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Buy-and-bill devices on one card",
+     "d": "IUD and implant orders can go on the card, and Aria is built to match each invoice to its lot."
+    },
+    {
+     "t": "Lab invoices handled",
+     "d": "Reference lab statements will be read by Aria AI, matched, and paid on schedule."
+    },
+    {
+     "t": "Cards for your nurses and MAs",
+     "d": "The people who restock speculums and specimen kits order on their own cards, within your limits."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Buy IUDs and implants up front without the cash crunch, earn back on them, and catch denials before they cost you.",
+   "table": {
+    "Aria Card": "2% back on IUDs, implants and ultrasound supplies, with cards for nurses and MAs.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Device and delivery payments checked against your contracted rates. Denied device and global maternity claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances and global OB plans collected by card on file.",
+    "Accounts Payable": "Device, lab and ultrasound service invoices read, matched and paid on schedule.",
+    "Bridge Payments": "Pay for IUDs and implants now and settle once the payer reimburses the insertion.",
+    "CFO Hub": "Device spend, deliveries, payer deposits and lab costs for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced each month, with buy-and-bill devices tracked by lot."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "urgent-care",
+   "name": "Urgent care",
+   "group": "primary-care",
+   "eyebrow": "For urgent care practices",
+   "hook": "Know what every site spent and got paid.",
+   "lead": "Rapid tests, laceration trays and meds for whatever walks in.",
+   "rows": [
+    {
+     "name": "POC test kits",
+     "desc": "Strep A, flu A/B, COVID",
+     "amt": "\u2212$1,240.00"
+    },
+    {
+     "name": "Laceration supplies",
+     "desc": "Trays, suture, skin adhesive",
+     "amt": "\u2212$386.50"
+    },
+    {
+     "name": "Radiology reads",
+     "desc": "Monthly invoice",
+     "amt": "\u2212$1,150.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most urgent care practices spend the bulk of their budget on rapid strep, flu, COVID and UA point-of-care tests, laceration trays, suture and wound care, splinting and casting supplies and DME, X-ray service and radiology reads, and occupational medicine drug screens. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "A budget for every site",
+     "d": "Each clinic manager gets a card with a monthly supply budget, and you see spending by location."
+    },
+    {
+     "t": "Supplies you burn through on one card",
+     "d": "Test kits, trays and splints go on the card, reorder after reorder, with receipts matched."
+    },
+    {
+     "t": "Radiology and lab bills handled",
+     "d": "Reads and reference lab invoices approved and paid on the date you choose from one place."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One clinic or fifty",
+     "d": "Each new clinic gets the same cards, budgets and approval rules, and you see every clinic\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Keep every walk-in supply on one card, see each site\u2019s numbers daily, and get paid in full by every payer.",
+   "table": {
+    "Aria Card": "2% back on rapid tests, laceration trays, splints and meds, with cards for each site.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payer and employer payment checked against what you are owed. Denied visit and occ-med claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Self-pay and deductible balances collected by card at the visit.",
+    "Accounts Payable": "X-ray service, radiology reads and vendor invoices in one queue, paid on time.",
+    "Bridge Payments": "Pay big test kit orders before flu season and settle as the claims come in.",
+    "CFO Hub": "Visits, payer deposits and supply spend for each clinic, in one view.",
+    "Bookkeeping & Close": "Books coded by clinic and synced, ready at month-end."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "behavioral-health",
+   "name": "Behavioral health",
+   "group": "primary-care",
+   "eyebrow": "For behavioral health practices",
+   "hook": "Get paid what every payer owes you.",
+   "lead": "Software, telehealth and staff spend, in one place.",
+   "rows": [
+    {
+     "name": "EHR and telehealth",
+     "desc": "Monthly, 12 clinicians",
+     "amt": "\u2212$540.00"
+    },
+    {
+     "name": "Testing materials",
+     "desc": "Neuropsych protocols and scoring",
+     "amt": "\u2212$860.00"
+    },
+    {
+     "name": "Office sublease",
+     "desc": "Monthly",
+     "amt": "\u2212$2,400.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most behavioral health practices spend the bulk of their budget on EHR and telehealth subscriptions, psychological testing kits, forms and scoring, credentialing, licensure and CE, office rent and sublease space, and clinician recruiting. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Each subscription in one place",
+     "d": "See each software and telehealth subscription, who owns it and when it renews."
+    },
+    {
+     "t": "CE and licensure budgets",
+     "d": "Give each clinician a card for continuing education and license renewals, with a yearly limit."
+    },
+    {
+     "t": "Rent and office bills handled",
+     "d": "Office and sublease payments approved and paid on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Know what every payer owes you, keep clinician spend in check, and get your books done without a bookkeeper chasing receipts.",
+   "table": {
+    "Aria Card": "2% back on software, testing kits and telehealth, with cards for each clinician.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each session payment checked against your payer rates, so short pays get flagged. Denied sessions and authorization denials ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Session fees and no-show charges collected by card on file.",
+    "Accounts Payable": "Rent, EHR and testing vendor invoices read and paid on schedule.",
+    "Bridge Payments": "Pay testing and software vendors now and settle once payers reimburse.",
+    "CFO Hub": "Sessions, payer deposits and clinician costs for each location, in one view.",
+    "Bookkeeping & Close": "Books coded by clinician and location, and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "allergy",
+   "name": "Allergy & immunology",
+   "group": "specialists",
+   "eyebrow": "For allergy & immunology",
+   "hook": "Buy biologics now. Pay on your schedule.",
+   "lead": "Extracts, skin tests and biologics, on one card.",
+   "rows": [
+    {
+     "name": "Allergen extracts",
+     "desc": "Standardized mites, grasses, trees",
+     "amt": "\u2212$1,640.00"
+    },
+    {
+     "name": "Biologic",
+     "desc": "Buy-and-bill, 4 syringes",
+     "amt": "\u2212$6,980.00"
+    },
+    {
+     "name": "Skin testing supplies",
+     "desc": "Multi-test devices",
+     "amt": "\u2212$312.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most allergy and immunology practices spend the bulk of their budget on allergen extracts and diluents for immunotherapy, skin testing devices and trays, buy-and-bill biologics, epinephrine, spirometry and emergency supplies, and compounding hood certification and supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Extracts and biologics on one card",
+     "d": "Extract and biologic orders, your largest recurring spend, can go on the card."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule biologic distributor payments on the date you choose."
+    },
+    {
+     "t": "Cards for your mixing staff",
+     "d": "The nurses who mix vials order extracts and syringes on their own cards, within your limits."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Buy extracts and biologics without the cash crunch, earn back on them, and get paid for every shot and test.",
+   "table": {
+    "Aria Card": "2% back on allergen extracts, skin test trays and biologics.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each injection and test payment checked against what the payer owes you. Denied testing, immunotherapy and biologic claims ranked, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Extract, biologic and hood certification invoices read and paid on time.",
+    "Bridge Payments": "Pay for biologics now and settle once the payer reimburses the injection.",
+    "CFO Hub": "Extract, biologic and payer deposit totals for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with buy-and-bill drugs tracked on their own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "audiology",
+   "name": "Audiology & hearing",
+   "group": "specialists",
+   "eyebrow": "For audiology practices",
+   "hook": "Earn back on every hearing aid you order.",
+   "lead": "Hearing aids and earmolds, ordered per patient.",
+   "rows": [
+    {
+     "name": "Hearing aids",
+     "desc": "Manufacturer order, 2 pairs",
+     "amt": "\u2212$3,960.00"
+    },
+    {
+     "name": "Earmolds and repairs",
+     "desc": "Monthly lab invoice",
+     "amt": "\u2212$420.00"
+    },
+    {
+     "name": "Batteries and domes",
+     "desc": "Quarterly restock",
+     "amt": "\u2212$286.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most audiology practices spend the bulk of their budget on hearing aids ordered per patient, earmolds, repairs and returns for credit, batteries, domes and accessories, audiometers and real-ear measurement equipment, and marketing and rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Manufacturer invoices matched",
+     "d": "Aria AI is built to match each device invoice to its order and track returns for credit."
+    },
+    {
+     "t": "Device orders on one card",
+     "d": "Hearing aid orders, your biggest spend, can go on the card."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on every hearing aid you order, track each one from order to payment, and collect without the calls.",
+   "table": {
+    "Aria Card": "2% back on hearing aids, earmolds and batteries, ordered per patient.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Insurer and benefit-plan payments checked against what you are owed. Denied hearing aid and diagnostic claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Hearing aid balances and payment plans collected by card on file.",
+    "Accounts Payable": "Manufacturer invoices, credits and returns matched and paid on schedule.",
+    "Bridge Payments": "Pay the manufacturer for each hearing aid now and settle later, on your schedule.",
+    "CFO Hub": "Device sales, returns, deposits and margin for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with each device tracked from order to sale."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "cardiology",
+   "name": "Cardiology",
+   "group": "specialists",
+   "eyebrow": "For cardiology practices",
+   "hook": "Know what each study costs and pays.",
+   "lead": "Echo, nuclear and device spend, tracked by service.",
+   "rows": [
+    {
+     "name": "Radiopharmaceuticals",
+     "desc": "Nuclear stress, weekly",
+     "amt": "\u2212$2,140.00"
+    },
+    {
+     "name": "Echo service contract",
+     "desc": "Monthly",
+     "amt": "\u2212$1,850.00"
+    },
+    {
+     "name": "Event monitors",
+     "desc": "Patch monitors, 10",
+     "amt": "\u2212$1,200.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most cardiology practices spend the bulk of their budget on radiopharmaceuticals for nuclear stress testing, echo, nuclear and vascular imaging service, Holter and event monitors, cath and vascular lab supplies, and EHR and imaging software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Isotope orders on the card",
+     "d": "Daily radiopharmaceutical deliveries go on the card and will be matched to their invoices."
+    },
+    {
+     "t": "Service contracts tracked",
+     "d": "Each imaging service contract, its cost and its renewal date in one place."
+    },
+    {
+     "t": "Spending by service line",
+     "d": "Aria AI is built to code spending to clinic, imaging and lab, so each line\u2019s margin is clear."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on imaging and device spend, see the margin on each service line, and get paid in full for every study.",
+   "table": {
+    "Aria Card": "2% back on radiopharmaceuticals, monitors and lab supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each study and procedure payment checked against your contracted rates. Denied imaging and procedure claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Imaging service, isotope and monitor invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for isotopes and devices now and settle once the payer reimburses the study.",
+    "CFO Hub": "Echo, nuclear and device spend and payer deposits by service line, in one view.",
+    "Bookkeeping & Close": "Books coded by service line and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "dermatology",
+   "name": "Dermatology",
+   "group": "specialists",
+   "eyebrow": "For dermatology practices",
+   "hook": "See your medical and cosmetic sides clearly.",
+   "lead": "Medical, surgical and cosmetic supplies, on one card.",
+   "rows": [
+    {
+     "name": "Neurotoxin order",
+     "desc": "Cosmetic, 4 vials",
+     "amt": "\u2212$2,240.00"
+    },
+    {
+     "name": "Dermatopathology",
+     "desc": "Monthly biopsy reads",
+     "amt": "\u2212$1,860.00"
+    },
+    {
+     "name": "Mohs supplies",
+     "desc": "Trays, sutures, histology",
+     "amt": "\u2212$726.50"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most dermatology practices spend the bulk of their budget on biopsy punches, sutures and Mohs trays, liquid nitrogen and cryotherapy, dermatopathology and lab fees, neurotoxins, fillers and energy-device consumables, and skincare retail inventory. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Spending sorted by service line",
+     "d": "Aria AI is built to code each purchase to medical, surgical or cosmetic, so margins aren\u2019t a guess at year end."
+    },
+    {
+     "t": "Injectables on one card",
+     "d": "Neurotoxin and filler orders, often your highest-cost recurring purchase, go on the card like any other."
+    },
+    {
+     "t": "Cards for your Mohs and cosmetic teams",
+     "d": "Your Mohs coordinator and aesthetician order on their own cards, within the categories you allow."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on medical and cosmetic supplies, see each side of the practice clearly, and collect what you are owed.",
+   "table": {
+    "Aria Card": "2% back on biopsy supplies, neurotoxins, fillers and retail skincare.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each procedure payment checked against what the payer owes you. Denied biopsy and Mohs claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Cosmetic packages and patient balances collected by card on file.",
+    "Accounts Payable": "Dermpath, lab and device invoices read, matched and paid on time.",
+    "Bridge Payments": "Pay for injectables and device consumables now and settle later, on your schedule.",
+    "CFO Hub": "Medical, surgical and cosmetic revenue and spend, side by side, in one view.",
+    "Bookkeeping & Close": "Books coded by medical and cosmetic, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "endocrinology",
+   "name": "Endocrinology",
+   "group": "specialists",
+   "eyebrow": "For endocrinology practices",
+   "hook": "Get paid for every CGM, injection and visit.",
+   "lead": "CGMs, pumps and testing supplies, in one place.",
+   "rows": [
+    {
+     "name": "A1c test cartridges",
+     "desc": "Point-of-care, box of 20",
+     "amt": "\u2212$486.00"
+    },
+    {
+     "name": "Bone health injection",
+     "desc": "Buy-and-bill, 4 doses",
+     "amt": "\u2212$5,280.00"
+    },
+    {
+     "name": "DXA service contract",
+     "desc": "Monthly",
+     "amt": "\u2212$640.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most endocrinology practices spend the bulk of their budget on CGM sensors, starter kits and pump training supplies, point-of-care A1c and lipid testing, DXA and thyroid ultrasound service, fine-needle aspiration and biopsy supplies, and buy-and-bill bone and hormone injections. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Testing and device supplies on one card",
+     "d": "A1c cartridges, sensors and FNA supplies go on the card, reorder after reorder, with receipts matched."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule distributor payments for bone and hormone injections on the date you choose."
+    },
+    {
+     "t": "Cards for diabetes educators",
+     "d": "Your CDCES team orders training supplies on their own cards, within limits you set."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on testing and device spend, pay for injections on your schedule, and get paid for every CGM and visit.",
+   "table": {
+    "Aria Card": "2% back on CGM kits, A1c testing and injection supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against your contracted rates. Denied CGM, DXA and injection claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Device, lab and DXA service invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for bone and hormone injections now and settle once the payer reimburses.",
+    "CFO Hub": "Visits, device spend and payer deposits for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with buy-and-bill drugs tracked on their own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "fertility",
+   "name": "Fertility & IVF",
+   "group": "specialists",
+   "eyebrow": "For fertility and IVF clinics",
+   "hook": "Earn back on every cycle\u2019s lab spend.",
+   "lead": "Lab media, needles and meds for each cycle.",
+   "rows": [
+    {
+     "name": "Culture media",
+     "desc": "Embryology lab, monthly",
+     "amt": "\u2212$3,860.00"
+    },
+    {
+     "name": "Liquid nitrogen",
+     "desc": "Cryostorage refill",
+     "amt": "\u2212$740.00"
+    },
+    {
+     "name": "Genetic testing lab",
+     "desc": "PGT-A, 6 embryos",
+     "amt": "\u2212$2,400.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most fertility and IVF clinics spend the bulk of their budget on IVF culture media and embryology lab consumables, retrieval needles, ICSI and vitrification supplies, cryostorage tanks and liquid nitrogen, genetic testing and reference lab fees, and ultrasound and lab equipment service. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Lab spending in one place",
+     "d": "Each media order and lab consumable on one card, coded to the embryology lab, with each lot invoice kept."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on lab and cycle spend, pay for cycle supplies on your schedule, and collect cycle fees cleanly.",
+   "table": {
+    "Aria Card": "2% back on culture media, retrieval needles and cryo supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Payments from fertility benefit plans checked against what you are owed. Denied fertility-benefit claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Cycle packages, deposits and payment plans collected by card on file.",
+    "Accounts Payable": "Genetic testing, lab and equipment service invoices read and paid on time.",
+    "Bridge Payments": "Pay for lab supplies and meds now and settle later, on your schedule.",
+    "CFO Hub": "Cycles, lab spend and patient payments for each clinic, in one view.",
+    "Bookkeeping & Close": "Books coded by cycle and service, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "gastroenterology",
+   "name": "GI & endoscopy",
+   "group": "specialists",
+   "eyebrow": "For gastroenterology practices",
+   "hook": "Get paid in full for every scope.",
+   "lead": "Biopsy forceps, snares and scope care for each case.",
+   "rows": [
+    {
+     "name": "Endoscopy disposables",
+     "desc": "Biopsy forceps, snares, clips",
+     "amt": "\u2212$2,860.00"
+    },
+    {
+     "name": "Scope repair",
+     "desc": "Colonoscope insertion tube",
+     "amt": "\u2212$4,200.00"
+    },
+    {
+     "name": "Pathology",
+     "desc": "Monthly biopsy reads",
+     "amt": "\u2212$1,940.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most gastroenterology practices spend the bulk of their budget on biopsy forceps, snares and hemostasis clips, endoscope repair and reprocessing, pathology and lab fees, anesthesia drugs and services, and bowel prep and clinic supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Cost per procedure",
+     "d": "Aria AI is built to tie disposables and pathology to the procedures they were for, so you know your cost per scope."
+    },
+    {
+     "t": "Scope repairs in one queue",
+     "d": "Repair and reprocessing invoices will be read by AI, approved and paid on the date you choose."
+    },
+    {
+     "t": "Disposables on one card",
+     "d": "The single-use devices you go through every day go on the card, reorder after reorder."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on every case\u2019s supplies, keep scope repairs in check, and get paid in full for each procedure.",
+   "table": {
+    "Aria Card": "2% back on biopsy forceps, snares, clips and bowel prep.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each procedure payment checked against your contracted rates. Denied colonoscopy and pathology claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, before and after the procedure.",
+    "Accounts Payable": "Scope repair, pathology and anesthesia invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for case supplies and anesthesia now and settle once the claims are paid.",
+    "CFO Hub": "Procedures, supply cost per case and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by site and procedure type, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "neurology",
+   "name": "Neurology",
+   "group": "specialists",
+   "eyebrow": "For neurology practices",
+   "hook": "Buy infusions and Botox without the cash crunch.",
+   "lead": "EEG, EMG and infusion supplies, on one card.",
+   "rows": [
+    {
+     "name": "Botulinum toxin",
+     "desc": "Chronic migraine, 4 vials",
+     "amt": "\u2212$4,160.00"
+    },
+    {
+     "name": "EEG supplies",
+     "desc": "Electrodes, paste, caps",
+     "amt": "\u2212$412.00"
+    },
+    {
+     "name": "MS infusion therapy",
+     "desc": "Buy-and-bill, 1 dose",
+     "amt": "\u2212$18,900.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most neurology practices spend the bulk of their budget on MS and migraine infusion therapies, botulinum toxin for migraine and spasticity, EEG, EMG and nerve conduction supplies, sleep study equipment and supplies, and EHR and scheduling software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Your largest drug orders on one card",
+     "d": "Infusion and toxin orders can go on the card, with invoices matched to orders."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule distributor payments on the date you choose."
+    },
+    {
+     "t": "Testing labs by service line",
+     "d": "Aria AI is built to code spending to clinic, EEG and EMG, infusion and sleep, so each line\u2019s margin is clear."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Buy infusions and Botox without the cash crunch, earn back on them, and get paid for every study.",
+   "table": {
+    "Aria Card": "2% back on infusion therapies, botulinum toxin and EEG and EMG supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each drug and study payment checked against what the payer owes you. Denied infusion, Botox and EEG claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Drug distributor, sleep lab and equipment invoices read and paid on time.",
+    "Bridge Payments": "Pay for infusions and Botox now and settle once the payer reimburses.",
+    "CFO Hub": "Infusion, toxin and study spend and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by service and synced, with buy-and-bill drugs tracked."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "pulmonology",
+   "name": "Pulmonology & sleep",
+   "group": "specialists",
+   "eyebrow": "For pulmonology & sleep",
+   "hook": "Get paid for every sleep study and biologic.",
+   "lead": "PFT, sleep study and CPAP supplies, in one place.",
+   "rows": [
+    {
+     "name": "Asthma biologic",
+     "desc": "Buy-and-bill, 4 syringes",
+     "amt": "\u2212$7,240.00"
+    },
+    {
+     "name": "Home sleep tests",
+     "desc": "Disposable kits, 10",
+     "amt": "\u2212$1,450.00"
+    },
+    {
+     "name": "CPAP masks",
+     "desc": "Resupply order",
+     "amt": "\u2212$860.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most pulmonary and sleep practices spend the bulk of their budget on pulmonary function testing supplies and calibration, in-lab and home sleep test equipment, CPAP machines, masks and resupply, buy-and-bill biologics for asthma and COPD, and bronchoscopy supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Biologics and devices on one card",
+     "d": "Biologic and CPAP orders can go on the card, with invoices matched to orders."
+    },
+    {
+     "t": "CPAP resupply in one place",
+     "d": "See what you spend on masks and resupply by patient program, and pay each DME vendor from one queue."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule biologic payments on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on PFT, sleep and CPAP spend, pay for biologics on your schedule, and get paid for every study.",
+   "table": {
+    "Aria Card": "2% back on PFT supplies, sleep test kits, CPAP masks and biologics.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each study and resupply payment checked against your contracted rates. Denied sleep study, CPAP and biologic claims ranked, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Sleep equipment, CPAP and bronchoscopy invoices read and paid on time.",
+    "Bridge Payments": "Pay for asthma and COPD biologics now and settle once the payer reimburses.",
+    "CFO Hub": "Studies, CPAP resupply, biologics and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by service line and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "infusion",
+   "name": "Oncology & infusion",
+   "group": "infusion",
+   "eyebrow": "For infusion & oncology",
+   "hook": "Stop fronting cash for costly drugs.",
+   "lead": "Costly infusion drugs up front, paid back later.",
+   "rows": [
+    {
+     "name": "Biologic infusion drug",
+     "desc": "Specialty distributor, 8 vials",
+     "amt": "\u2212$21,400.00"
+    },
+    {
+     "name": "Infusion supplies",
+     "desc": "IV sets, CSTDs",
+     "amt": "\u2212$1,280.00"
+    },
+    {
+     "name": "USP 800 supplies",
+     "desc": "Gowns, chemo gloves",
+     "amt": "\u2212$412.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most infusion and oncology practices spend the bulk of their budget on biologics, immunotherapies and chemotherapy, infusion pumps, IV sets and closed-system transfer devices, hazardous drug compounding and USP 800 supplies, specialty distributor and pharmacy invoices, and chairs, rent and nursing staff. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Your largest drug orders on one card",
+     "d": "Specialty distributor orders can go on the card, and Aria is built to match each invoice to the drug and lot."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule distributor payments on the date you choose."
+    },
+    {
+     "t": "Each insurer payment matched by AI",
+     "d": "Built to match each remittance to its deposit and flag short payments."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Pay for costly drugs on your schedule instead of the payer\u2019s, earn back on them, and catch every short payment.",
+   "table": {
+    "Aria Card": "2% back on biologics, chemotherapy, IV sets and USP 800 supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each drug payment checked against your contracted rate, so short pays get flagged. Denied infusion claims ranked by dollars at stake, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient coinsurance collected by card on file, with clear estimates.",
+    "Accounts Payable": "Specialty distributor and pharmacy invoices read, checked and paid on your dates.",
+    "Bridge Payments": "Pay the distributor now and settle once each infusion claim is paid.",
+    "CFO Hub": "Drug spend, margin per drug and payer deposits for each site, in one view.",
+    "Bookkeeping & Close": "Books coded by site and drug, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "rheumatology",
+   "name": "Rheumatology",
+   "group": "infusion",
+   "eyebrow": "For rheumatology practices",
+   "hook": "Buy biologics now. Pay on your schedule.",
+   "lead": "Buy-and-bill biologics, with payments on your schedule.",
+   "rows": [
+    {
+     "name": "Biologic infusion",
+     "desc": "Buy-and-bill, 6 vials",
+     "amt": "\u2212$14,280.00"
+    },
+    {
+     "name": "Joint injections",
+     "desc": "Corticosteroid, viscosupplement",
+     "amt": "\u2212$1,260.00"
+    },
+    {
+     "name": "Infusion supplies",
+     "desc": "IV sets, filters",
+     "amt": "\u2212$318.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most rheumatology practices spend the bulk of their budget on biologic and infusion therapies, joint injections and viscosupplements, in-office musculoskeletal ultrasound, lab monitoring panels, and infusion chairs and supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Biologic orders on one card",
+     "d": "Infusion drug orders, often your largest spend, can go on the card."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule specialty distributor payments on the date you choose."
+    },
+    {
+     "t": "Each insurer payment matched by AI",
+     "d": "Built to match each remittance to its deposit and flag short payments."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Buy biologics on your schedule, earn back on them, and make sure every payer pays in full.",
+   "table": {
+    "Aria Card": "2% back on biologics, viscosupplements and infusion supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each drug payment checked against your contracted rate. Denied biologic and injection claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient coinsurance collected by card on file, without the calls.",
+    "Accounts Payable": "Drug distributor and lab invoices read, matched and paid on your dates.",
+    "Bridge Payments": "Pay for biologics now and settle once the payer reimburses the infusion.",
+    "CFO Hub": "Infusion, injection and payer deposit totals for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with buy-and-bill drugs tracked on their own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "nephrology",
+   "name": "Nephrology",
+   "group": "infusion",
+   "eyebrow": "For nephrology practices",
+   "hook": "Front ESAs and IV iron without the cash crunch.",
+   "lead": "Labs, buy-and-bill drugs and dialysis access supplies.",
+   "rows": [
+    {
+     "name": "ESA drug order",
+     "desc": "Buy-and-bill, monthly",
+     "amt": "\u2212$7,860.00"
+    },
+    {
+     "name": "Vascular access supplies",
+     "desc": "Balloons, catheters",
+     "amt": "\u2212$3,420.00"
+    },
+    {
+     "name": "Reference lab",
+     "desc": "Renal panels, monthly",
+     "amt": "\u2212$1,140.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most nephrology practices spend the bulk of their budget on ESAs, IV iron and other buy-and-bill drugs, reference lab panels, vascular access catheters, balloons and stents, home dialysis training supplies, and EHR and care management software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Drug orders on one card",
+     "d": "ESA and IV iron orders can go on the card, and Aria is built to match each invoice to its lot."
+    },
+    {
+     "t": "Vascular access spending by case",
+     "d": "Aria AI is built to tie catheter, balloon and stent invoices to the procedures they were for."
+    },
+    {
+     "t": "Lab invoices handled",
+     "d": "Reference lab statements will be read by AI, matched and paid on schedule."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Pay for ESAs and IV iron on your schedule, earn back on them, and get paid in full by every payer.",
+   "table": {
+    "Aria Card": "2% back on ESAs, IV iron, lab panels and access supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against your contracted rates. Denied drug and access procedure claims ranked, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Lab, drug and access supply invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for buy-and-bill drugs now and settle once the payer reimburses.",
+    "CFO Hub": "Drug spend, access procedures and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by service and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "orthopedics",
+   "name": "Orthopedics & spine",
+   "group": "surgical",
+   "eyebrow": "For orthopedics & spine practices",
+   "hook": "Know the margin on every case.",
+   "lead": "Braces, DME, imaging and OR supplies, by case.",
+   "rows": [
+    {
+     "name": "Viscosupplement injections",
+     "desc": "Knee, 10 syringes",
+     "amt": "\u2212$3,450.00"
+    },
+    {
+     "name": "DME",
+     "desc": "Knee braces and CAM boots",
+     "amt": "\u2212$1,180.00"
+    },
+    {
+     "name": "MRI service contract",
+     "desc": "Monthly",
+     "amt": "\u2212$2,900.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most orthopedics & spine practices spend the bulk of their budget on DME, like braces, slings and CAM boots, viscosupplement and joint injections, X-ray and MRI service and leases, implants and instruments for surgical cases, and physical therapy and clinic supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "DME inventory under control",
+     "d": "See what you spend on each brace and boot you dispense, by location, with invoices matched to orders."
+    },
+    {
+     "t": "Injections and implants on one card",
+     "d": "Your highest-cost recurring orders can go on the card."
+    },
+    {
+     "t": "Spending by service line",
+     "d": "Aria AI is built to code spending to clinic, imaging, PT and surgery, so each line\u2019s margin is clear."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on DME, injections and OR supplies, see the margin on each case, and get paid in full for every procedure.",
+   "table": {
+    "Aria Card": "2% back on braces, viscosupplements, implants and clinic supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each case payment checked against your contracted rates. Denied surgery, injection and DME claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances and surgery deposits collected by card on file.",
+    "Accounts Payable": "Implant, imaging lease and DME vendor invoices read and paid on time.",
+    "Bridge Payments": "Pay for implants and injections now and settle once the case is paid.",
+    "CFO Hub": "Cases, DME, imaging and payer deposits for each location, in one view.",
+    "Bookkeeping & Close": "Books coded by location and service line, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "ent",
+   "name": "ENT",
+   "group": "surgical",
+   "eyebrow": "For ENT practices",
+   "hook": "Get paid for every scope and sinus case.",
+   "lead": "Scopes, procedure supplies and allergy, under one roof.",
+   "rows": [
+    {
+     "name": "Sinus dilation devices",
+     "desc": "Balloon kits, 4 units",
+     "amt": "\u2212$3,600.00"
+    },
+    {
+     "name": "Scope repair",
+     "desc": "Flexible laryngoscope",
+     "amt": "\u2212$2,450.00"
+    },
+    {
+     "name": "Allergen extracts",
+     "desc": "Immunotherapy vials",
+     "amt": "\u2212$1,180.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most ENT practices spend the bulk of their budget on flexible scope repair and reprocessing, balloon sinus dilation and in-office procedure devices, in-office CT service and leases, allergen extracts and testing supplies, and hearing aids and audiology equipment. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Spending by service line",
+     "d": "Aria AI is built to code spending to clinic, procedures, allergy and audiology, so each line\u2019s margin is clear."
+    },
+    {
+     "t": "Scope repairs in one queue",
+     "d": "Repair and reprocessing invoices will be read by AI, approved and paid on the date you choose."
+    },
+    {
+     "t": "Procedure devices on one card",
+     "d": "Sinus device and extract orders can go on the card."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on scopes, devices and allergy, see each service line clearly, and get paid for every procedure.",
+   "table": {
+    "Aria Card": "2% back on sinus devices, scope repairs, extracts and hearing aids.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each procedure payment checked against your contracted rates. Denied sinus, allergy and hearing claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances and hearing aid payments collected by card on file.",
+    "Accounts Payable": "Scope repair, CT lease and device invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for balloon sinus devices now and settle once the procedure is paid.",
+    "CFO Hub": "Procedures, allergy, audiology and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by service line and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "urology",
+   "name": "Urology",
+   "group": "surgical",
+   "eyebrow": "For urology practices",
+   "hook": "Buy injectables now. Pay on your schedule.",
+   "lead": "Buy-and-bill drugs and procedure supplies, on one card.",
+   "rows": [
+    {
+     "name": "Hormone therapy injections",
+     "desc": "Buy-and-bill, 12 doses",
+     "amt": "\u2212$9,840.00"
+    },
+    {
+     "name": "Cystoscope repair",
+     "desc": "Flexible scope",
+     "amt": "\u2212$2,650.00"
+    },
+    {
+     "name": "Clinic supplies",
+     "desc": "Catheters, UA strips",
+     "amt": "\u2212$386.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most urology practices spend the bulk of their budget on hormone therapy and other buy-and-bill injectables, intravesical therapy drugs, cystoscope repair and reprocessing, catheters, urinalysis and procedure supplies, and ultrasound and lab equipment. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Your drug orders on one card",
+     "d": "Buy-and-bill injectable orders can go on the card, with invoices matched to orders."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule drug distributor payments on the date you choose."
+    },
+    {
+     "t": "Scope repairs handled",
+     "d": "Repair invoices will be read by AI and paid on the date you choose, from one queue."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Buy hormone therapy and intravesical drugs on your schedule, earn back on them, and get paid in full.",
+   "table": {
+    "Aria Card": "2% back on buy-and-bill drugs, catheters and procedure supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each drug and procedure payment checked against your contracted rates. Denied drug and procedure claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Drug, scope repair and lab invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for injectables now and settle once the payer reimburses.",
+    "CFO Hub": "Drug spend, procedures and payer deposits for each location, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with buy-and-bill drugs tracked on their own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "plastic-surgery",
+   "name": "Plastic surgery",
+   "group": "surgical",
+   "eyebrow": "For plastic surgery practices",
+   "hook": "Earn back on every implant you buy.",
+   "lead": "Implants, OR supplies and anesthesia, by case.",
+   "rows": [
+    {
+     "name": "Breast implants",
+     "desc": "Silicone, 1 pair",
+     "amt": "\u2212$3,200.00"
+    },
+    {
+     "name": "OR supplies",
+     "desc": "Drapes, sutures, anesthesia",
+     "amt": "\u2212$1,980.00"
+    },
+    {
+     "name": "Injectables",
+     "desc": "Aesthetics side, monthly order",
+     "amt": "\u2212$2,640.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every patient payment matched to its deposit",
+     "d": "Card, plan and package payments reconciled."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most plastic surgery practices spend the bulk of their budget on breast implants and tissue expanders, OR supplies, sutures and anesthesia, injectables and skincare for the aesthetics side, facility, accreditation and equipment, and marketing and patient coordinators. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "High-cost orders on one card",
+     "d": "Implant and injectable orders go on the card, with each case\u2019s invoice kept together."
+    },
+    {
+     "t": "OR spending by case",
+     "d": "Aria AI is built to tie supply and implant spending to the procedure, so you can see the true cost of each case."
+    },
+    {
+     "t": "Cards for coordinators",
+     "d": "Your surgical and patient coordinators order inside limits you set."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on implants and OR supplies, see the margin on every case, and collect surgery fees without the chase.",
+   "table": {
+    "Aria Card": "2% back on implants, OR supplies, injectables and skincare.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Reconstructive payments checked against what the payer owes you. Denied reconstructive claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Surgery deposits, balances and payment plans collected by card on file.",
+    "Accounts Payable": "Implant, anesthesia and facility invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for implants now and settle later, on your schedule.",
+    "CFO Hub": "Cases, deposits, implant costs and margin per case, in one view.",
+    "Bookkeeping & Close": "Books coded by surgical and aesthetic, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria handle patient payments?",
+     "a": "Yes. Collect by card on file, payment plans or packages, and see each patient payment matched to its bank deposit."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "podiatry",
+   "name": "Podiatry",
+   "group": "surgical",
+   "eyebrow": "For podiatry practices",
+   "hook": "Get paid in full for every skin substitute.",
+   "lead": "Orthotics, wound care and DME, in one place.",
+   "rows": [
+    {
+     "name": "Orthotics lab",
+     "desc": "Custom functional orthotics, 5 pairs",
+     "amt": "\u2212$1,450.00"
+    },
+    {
+     "name": "Wound care",
+     "desc": "Collagen dressings, foam",
+     "amt": "\u2212$684.20"
+    },
+    {
+     "name": "DME",
+     "desc": "CAM walker boots, 6",
+     "amt": "\u2212$522.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most podiatry practices spend the bulk of their budget on custom orthotics lab fees, advanced wound care dressings and skin substitutes, DME, like CAM boots and post-op shoes, nail and minor surgical instruments, and imaging and rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Orthotics and DME on one card",
+     "d": "Lab and DME vendor invoices can go on the card, with each pair matched to its order."
+    },
+    {
+     "t": "Wound care spending in view",
+     "d": "See exactly what you spend on dressings and skin substitutes each month, by location and provider."
+    },
+    {
+     "t": "Cards for your MAs",
+     "d": "The people who restock dressings and nail nippers order on their own cards, within the limits you set."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on orthotics, wound care and DME, and get paid in full for every skin substitute and procedure.",
+   "table": {
+    "Aria Card": "2% back on orthotics lab fees, wound dressings and DME.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against your contracted rates. Denied wound care and DME claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Orthotics and patient balances collected by card on file.",
+    "Accounts Payable": "Orthotics lab and wound care invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for skin substitutes now and settle once the payer reimburses.",
+    "CFO Hub": "Visits, wound care spend, DME and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded and synced, with skin substitutes tracked on their own."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "general-surgery",
+   "name": "General & vascular surgery",
+   "group": "surgical",
+   "eyebrow": "For general & vascular surgery",
+   "hook": "Buy devices now. Pay on your schedule.",
+   "lead": "Office procedures and supplies, on one card.",
+   "rows": [
+    {
+     "name": "Vein ablation catheters",
+     "desc": "Single-use, 4 units",
+     "amt": "\u2212$3,200.00"
+    },
+    {
+     "name": "Duplex ultrasound service",
+     "desc": "Monthly",
+     "amt": "\u2212$780.00"
+    },
+    {
+     "name": "Procedure supplies",
+     "desc": "Excision trays, suture",
+     "amt": "\u2212$412.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most general and vascular surgery practices spend the bulk of their budget on vein ablation catheters and sclerotherapy supplies, duplex ultrasound service, catheters, balloons and stents for office-based labs, surgical instruments and minor procedure supplies, and compression and wound care. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Spending by procedure",
+     "d": "Aria AI is built to tie catheter, balloon and stent invoices to the procedures they were for."
+    },
+    {
+     "t": "Procedure supplies on one card",
+     "d": "Ablation catheters and procedure supplies go on the card, reorder after reorder."
+    },
+    {
+     "t": "Vascular lab service tracked",
+     "d": "Each ultrasound service contract and its renewal date in one place."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on office-based lab supplies, pay for devices on your schedule, and get paid for every procedure.",
+   "table": {
+    "Aria Card": "2% back on ablation catheters, balloons, stents and procedure supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each procedure payment checked against your contracted rates. Denied vein and vascular claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Device, ultrasound service and supply invoices read and paid on time.",
+    "Bridge Payments": "Pay for catheters and stents now and settle once the case is paid.",
+    "CFO Hub": "Procedures, device spend and payer deposits for each site, in one view.",
+    "Bookkeeping & Close": "Books coded by site and procedure, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "pain-management",
+   "name": "Pain management",
+   "group": "surgical",
+   "eyebrow": "For pain management practices",
+   "hook": "Get paid for every injection and ablation.",
+   "lead": "Injection and ablation supplies, tracked by procedure.",
+   "rows": [
+    {
+     "name": "RF ablation probes",
+     "desc": "Single-use, box of 10",
+     "amt": "\u2212$2,650.00"
+    },
+    {
+     "name": "Injection supplies",
+     "desc": "Spinal needles, contrast",
+     "amt": "\u2212$486.00"
+    },
+    {
+     "name": "C-arm service",
+     "desc": "Monthly contract",
+     "amt": "\u2212$1,150.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most pain management practices spend the bulk of their budget on spinal needles, contrast and injectables, radiofrequency ablation probes and generators, C-arm fluoroscopy service, spinal cord stimulator trials and implants, and procedure suite supplies. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Cost per procedure",
+     "d": "Aria AI is built to tie needles, probes and contrast to each procedure, so you know what an RFA really costs."
+    },
+    {
+     "t": "Procedure supplies on one card",
+     "d": "RF probes and injection supplies go on the card, reorder after reorder."
+    },
+    {
+     "t": "Device invoices handled",
+     "d": "Stimulator and implant invoices will be read by AI and paid on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on injection and ablation supplies, pay for implants on your schedule, and get paid for every procedure.",
+   "table": {
+    "Aria Card": "2% back on needles, contrast, RF probes and stimulator supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each procedure payment checked against your contracted rates. Denied injection and ablation claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file, without the calls.",
+    "Accounts Payable": "Device, fluoroscopy service and supply invoices read and paid on time.",
+    "Bridge Payments": "Pay for stimulator trials and implants now and settle once the case is paid.",
+    "CFO Hub": "Procedures, supply cost per case and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by procedure and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "surgery-center",
+   "name": "Surgery centers",
+   "group": "surgery-centers",
+   "eyebrow": "For ambulatory surgery centers",
+   "hook": "Know the margin on every case.",
+   "lead": "Implants and case supplies, billed per case.",
+   "rows": [
+    {
+     "name": "Spinal implants",
+     "desc": "Bill-only, case 4471",
+     "amt": "\u2212$8,940.00"
+    },
+    {
+     "name": "Custom procedure packs",
+     "desc": "Ortho, case of 10",
+     "amt": "\u2212$2,280.00"
+    },
+    {
+     "name": "Anesthesia drugs",
+     "desc": "Monthly order",
+     "amt": "\u2212$1,620.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most ambulatory surgery centers spend the bulk of their budget on implants, biologics and bill-only devices, custom procedure packs and OR supplies, anesthesia drugs and supplies, sterile processing and instrument repair, and capital equipment and service contracts. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Spending tied to each case",
+     "d": "Aria AI is built to match implant and bill-only invoices to the surgeon, so you can see the supply cost of each procedure."
+    },
+    {
+     "t": "Bill-only invoices handled",
+     "d": "Rep-delivered implant invoices will be read, matched to their purchase orders and routed to your materials manager for approval."
+    },
+    {
+     "t": "The biggest spend on one card",
+     "d": "Pay supply and implant vendors by card where they accept it, and keep spending you can\u2019t avoid in one place."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One center or fifty",
+     "d": "Each new center gets the same cards, budgets and approval rules, and you see every center\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Pay for implants and case supplies on your schedule, earn back on them, and know the margin on every case.",
+   "table": {
+    "Aria Card": "2% back on implants, procedure packs, anesthesia and OR supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each case payment checked against your contracted rates and implant carve-outs. Denied case claims ranked by dollars at stake, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient deposits and balances collected by card before the case.",
+    "Accounts Payable": "Implant, bill-only device and service contract invoices read and paid on time.",
+    "Bridge Payments": "Pay implant and device vendors now and settle once each case is paid.",
+    "CFO Hub": "Cases, cost per case and payer deposits for each center, in one view.",
+    "Bookkeeping & Close": "Books coded by center and service line, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "imaging",
+   "name": "Imaging centers",
+   "group": "surgery-centers",
+   "eyebrow": "For imaging centers",
+   "hook": "Keep scanner leases and service in check.",
+   "lead": "Scanner leases, service and contrast, in one queue.",
+   "rows": [
+    {
+     "name": "Contrast media",
+     "desc": "Iodinated, case of 10",
+     "amt": "\u2212$1,280.00"
+    },
+    {
+     "name": "MRI service contract",
+     "desc": "Monthly",
+     "amt": "\u2212$7,500.00"
+    },
+    {
+     "name": "Teleradiology reads",
+     "desc": "Monthly invoice",
+     "amt": "\u2212$6,240.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most imaging centers spend the bulk of their budget on MRI, CT and ultrasound leases, equipment service contracts, contrast media and injector supplies, radiologist reads and teleradiology, and PACS and RIS software. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Leases and service in one queue",
+     "d": "Each equipment lease and service invoice will be read by AI, routed for approval and paid on the date you choose, with renewal dates tracked."
+    },
+    {
+     "t": "Contrast and supplies on one card",
+     "d": "Contrast and injector supply orders go on the card, reorder after reorder."
+    },
+    {
+     "t": "Cost per scan",
+     "d": "Tie reads, contrast and service costs to modality, so you can see the cost of each scan."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One center or fifty",
+     "d": "Each new center gets the same cards, budgets and approval rules, and you see every center\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Keep scanner leases and service in one queue, earn back on contrast, and get paid in full for every scan.",
+   "table": {
+    "Aria Card": "2% back on contrast, injector supplies and service parts.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each scan payment checked against your contracted rates. Denied scans and authorization denials ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card before the scan.",
+    "Accounts Payable": "Lease, service contract and teleradiology invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for contrast and service now and settle as the scans are paid.",
+    "CFO Hub": "Scans, lease and service costs and payer deposits for each site, in one view.",
+    "Bookkeeping & Close": "Books coded by site and modality, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "clinical-lab",
+   "name": "Clinical labs",
+   "group": "surgery-centers",
+   "eyebrow": "For clinical labs",
+   "hook": "Get paid for every test you run.",
+   "lead": "Reagents, analyzer leases and specimen supplies.",
+   "rows": [
+    {
+     "name": "Chemistry reagents",
+     "desc": "Monthly order",
+     "amt": "\u2212$6,420.00"
+    },
+    {
+     "name": "Analyzer service",
+     "desc": "Monthly contract",
+     "amt": "\u2212$2,800.00"
+    },
+    {
+     "name": "Specimen supplies",
+     "desc": "Tubes and kits for clients",
+     "amt": "\u2212$1,180.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most clinical labs spend the bulk of their budget on reagents, calibrators and controls, analyzer leases and service contracts, specimen collection supplies for clients, courier and logistics, and LIS software and accreditation. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Reagents on one card",
+     "d": "Reagent and control orders, your biggest recurring spend, can go on the card."
+    },
+    {
+     "t": "Service contracts tracked",
+     "d": "Each analyzer lease and service contract, its cost and its renewal date in one place."
+    },
+    {
+     "t": "Courier spend under control",
+     "d": "Give couriers cards limited to fuel and tolls, with receipts matched to each purchase."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One lab or fifty",
+     "d": "Each new lab gets the same cards, budgets and approval rules, and you see every lab\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on reagents and supplies, keep analyzer leases in one queue, and get paid for every test.",
+   "table": {
+    "Aria Card": "2% back on reagents, controls and specimen collection supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each test payment checked against your contracted rates. Denied test claims ranked by dollars at stake, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card or payment link.",
+    "Accounts Payable": "Analyzer lease, reagent and courier invoices read and paid on schedule.",
+    "Bridge Payments": "Pay reagent vendors now and settle as the test claims are paid.",
+    "CFO Hub": "Test volume, reagent spend and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by client and test line, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "anesthesia",
+   "name": "Anesthesia groups",
+   "group": "surgery-centers",
+   "eyebrow": "For anesthesia groups",
+   "hook": "See every site\u2019s drug spend and payments.",
+   "lead": "Anesthetic drugs and equipment for each site.",
+   "rows": [
+    {
+     "name": "Anesthetic drugs",
+     "desc": "Monthly order, 3 sites",
+     "amt": "\u2212$4,860.00"
+    },
+    {
+     "name": "Airway supplies",
+     "desc": "Laryngeal masks, circuits",
+     "amt": "\u2212$1,120.00"
+    },
+    {
+     "name": "Machine service",
+     "desc": "Quarterly contract",
+     "amt": "\u2212$1,950.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most anesthesia groups spend the bulk of their budget on anesthetic and controlled drugs, airway devices and monitoring supplies, anesthesia machine and monitor service, credentialing, licensure and malpractice, and provider travel between sites. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "A card for every site",
+     "d": "Each facility you cover gets a card and budget, so drug and supply spending is tracked by location."
+    },
+    {
+     "t": "Provider costs in one place",
+     "d": "Licensure, DEA renewals, CME and travel on each clinician\u2019s own card."
+    },
+    {
+     "t": "Equipment service tracked",
+     "d": "Machine and monitor service contracts and renewal dates in one queue."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One site or fifty",
+     "d": "Each new site gets the same cards, budgets and approval rules, and you see every site\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Keep drug and equipment spend clear across every site, and get paid in full for every case.",
+   "table": {
+    "Aria Card": "2% back on anesthetic drugs, airway devices and monitoring supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each case payment checked against your contracted rates and units. Denied anesthesia claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card or payment link.",
+    "Accounts Payable": "Equipment service and drug invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for drugs and equipment now and settle as each case is paid.",
+    "CFO Hub": "Cases, drug spend and payer deposits for each facility, in one view.",
+    "Bookkeeping & Close": "Books coded by facility and provider, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "dental",
+   "name": "Dental",
+   "group": "dental",
+   "eyebrow": "For dental practices",
+   "hook": "",
+   "lead": "Dental and med-surg supplies from a dozen vendors, on one card and one bill.",
+   "rows": [
+    {
+     "name": "Med-surg order",
+     "desc": "Anesthetic carpules, needles, gloves",
+     "amt": "\u2212$684.20"
+    },
+    {
+     "name": "Dental supply order",
+     "desc": "Composite, bonding agent, burs",
+     "amt": "\u2212$1,462.30"
+    },
+    {
+     "name": "Dental lab",
+     "desc": "Zirconia crowns, 3 units",
+     "amt": "\u2212$2,180.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "",
+   "card": [
+    {
+     "t": "Dental and med-surg in one cart",
+     "d": "The Aria marketplace will put dental consumables and med-surg supplies from many vendors in one checkout."
+    },
+    {
+     "t": "Each vendor, one queue",
+     "d": "Supply, lab and equipment invoices from each vendor will be read by Aria AI and routed for approval, with duplicates and price increases flagged."
+    },
+    {
+     "t": "Cards and budgets for your team",
+     "d": "Hygienists and assistants order on their own cards with a monthly budget per office, so you see supply spend per operatory and location."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One office or fifty",
+     "d": "Each new office gets the same cards, budgets and approval rules, and you see every office\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn 2% back on everything you order from Henry Schein and other suppliers, keep your books clean without a pricey bookkeeper, and collect on big cases.",
+   "table": {
+    "Aria Card": "2% back on dental and med-surg supplies, with cards for each hygienist and assistant.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "PPO payments checked against your fee schedules, so short pays get flagged. Denied PPO claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Treatment balances and payment plans collected by card on file.",
+    "Accounts Payable": "Lab, supply and equipment invoices read, checked for price increases and paid on time.",
+    "Bridge Payments": "Pay lab and implant vendors now and settle later, on your schedule.",
+    "CFO Hub": "Production, supply spend, lab costs and collections for each office, in one view.",
+    "Bookkeeping & Close": "Every purchase coded by office and synced, so your books are ready each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "ophthalmology",
+   "name": "Ophthalmology",
+   "group": "eye-care",
+   "eyebrow": "For ophthalmology practices",
+   "hook": "Stop fronting cash for anti-VEGF drugs.",
+   "lead": "Anti-VEGF drugs and lenses, with payments on your schedule.",
+   "rows": [
+    {
+     "name": "Anti-VEGF drug order",
+     "desc": "Buy-and-bill, 10 doses",
+     "amt": "\u2212$18,600.00"
+    },
+    {
+     "name": "Intraocular lenses",
+     "desc": "Monofocal and toric IOLs",
+     "amt": "\u2212$4,320.00"
+    },
+    {
+     "name": "Phaco packs",
+     "desc": "Cataract surgery, case of 12",
+     "amt": "\u2212$1,140.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most ophthalmology practices spend the bulk of their budget on anti-VEGF and other buy-and-bill drugs, intraocular lenses and viscoelastics, phaco packs and surgical supplies, OCT, imaging and diagnostic equipment, and ASC and clinic facility costs. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Your largest drug orders on one card",
+     "d": "Injectable drug orders, often your biggest monthly spend, go on the card like any other purchase, with invoices matched to orders."
+    },
+    {
+     "t": "Surgical spending under control",
+     "d": "Give your surgical coordinator a card limited to lenses and packs."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule distributor payments on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Pay for anti-VEGF drugs on your schedule, earn back on them, and make sure every injection is paid in full.",
+   "table": {
+    "Aria Card": "2% back on anti-VEGF drugs, IOLs and phaco packs.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each drug payment checked against your contracted rate. Denied injection and surgery claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Premium lens upgrades and balances collected by card on file.",
+    "Accounts Payable": "Drug distributor, lens and equipment invoices read and paid on your dates.",
+    "Bridge Payments": "Pay for anti-VEGF drugs now and settle once each injection claim is paid.",
+    "CFO Hub": "Injections, surgeries and payer deposits for each location, in one view.",
+    "Bookkeeping & Close": "Books coded by clinic and ASC, with buy-and-bill drugs tracked."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": true
+  },
+  {
+   "slug": "optometry",
+   "name": "Optometry",
+   "group": "eye-care",
+   "eyebrow": "For optometry practices",
+   "hook": "Run the clinic and optical shop on one set of books.",
+   "lead": "A clinic and an optical shop, on one card.",
+   "rows": [
+    {
+     "name": "Frame order",
+     "desc": "Spring frame board, 24 pieces",
+     "amt": "\u2212$2,640.00"
+    },
+    {
+     "name": "Lens lab",
+     "desc": "Progressive lenses, 6 jobs",
+     "amt": "\u2212$1,080.00"
+    },
+    {
+     "name": "Contact lenses",
+     "desc": "Annual supply, toric dailies",
+     "amt": "\u2212$612.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most optometry practices spend the bulk of their budget on frame inventory and boards, spectacle lens lab orders, contact lens annual supplies, diagnostic drops and exam supplies, and equipment, like OCT and autorefractors. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Frames and lenses on one card",
+     "d": "Frame buys and each lens lab invoice go on the card and arrive in your books coded to optical."
+    },
+    {
+     "t": "Cards for opticians",
+     "d": "Your optician orders frames and contacts on their own card, with a monthly limit you set."
+    },
+    {
+     "t": "Lab statements reconciled by AI",
+     "d": "Aria AI is built to match each lens lab charge to the job on the statement, so remakes and credits are easier to catch."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One office or fifty",
+     "d": "Each new office gets the same cards, budgets and approval rules, and you see every office\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on frames, lenses and contacts, see the clinic and optical shop side by side, and collect without the calls.",
+   "table": {
+    "Aria Card": "2% back on frames, lens lab orders and contact lens supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Vision plan and medical payments checked against what you are owed. Denied medical eye claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Glasses and contact balances collected by card on file.",
+    "Accounts Payable": "Lens lab, frame and equipment invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for frame inventory now and settle later, on your schedule.",
+    "CFO Hub": "Exams, optical sales and vision plan deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by clinic and optical, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "med-spa",
+   "name": "Med spa & aesthetics",
+   "group": "aesthetics-rehab",
+   "eyebrow": "For med spas & aesthetics",
+   "hook": "Know the margin on every treatment.",
+   "lead": "Neurotoxins, fillers and retail, on one card.",
+   "rows": [
+    {
+     "name": "Neurotoxin order",
+     "desc": "6 vials",
+     "amt": "\u2212$3,360.00"
+    },
+    {
+     "name": "HA filler",
+     "desc": "Lip and cheek, 10 syringes",
+     "amt": "\u2212$2,950.00"
+    },
+    {
+     "name": "Microneedling cartridges",
+     "desc": "Box of 20",
+     "amt": "\u2212$389.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every patient payment matched to its deposit",
+     "d": "Card, plan and package payments reconciled."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most med spas and aesthetic practices spend the bulk of their budget on neurotoxins and hyaluronic acid fillers, microneedling cartridges, peels and facial treatment tips, laser, IPL and RF device leases and service, backbar and retail skincare, and booking software, marketing and rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Injectables and consumables on one card",
+     "d": "Your biggest recurring orders go on the card, with invoices matched to orders for your records."
+    },
+    {
+     "t": "Cards for injectors and estheticians",
+     "d": "Each provider gets a card limited to their treatment supplies."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One location or fifty",
+     "d": "Each new location gets the same cards, budgets and approval rules, and you see every location\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on toxins and fillers, see the margin on every treatment, and collect packages and memberships cleanly.",
+   "table": {
+    "Aria Card": "2% back on neurotoxins, fillers, device tips and retail skincare.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Patient Payments": "Packages, memberships and balances collected by card on file.",
+    "Accounts Payable": "Device lease, product and marketing invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for toxin and filler orders now and settle later, on your schedule.",
+    "CFO Hub": "Treatments, product cost, memberships and margin for each location, in one view.",
+    "Bookkeeping & Close": "Books coded by treatment and retail, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria handle patient payments?",
+     "a": "Yes. Collect by card on file, payment plans or packages, and see each patient payment matched to its bank deposit."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "physical-therapy",
+   "name": "Physical therapy",
+   "group": "aesthetics-rehab",
+   "eyebrow": "For physical therapy practices",
+   "hook": "Get paid in full for every visit.",
+   "lead": "Equipment, modalities and supplies, in one place.",
+   "rows": [
+    {
+     "name": "Exercise equipment",
+     "desc": "Bands, weights, balance pads",
+     "amt": "\u2212$684.00"
+    },
+    {
+     "name": "Clinic supplies",
+     "desc": "Kinesiology tape, electrodes",
+     "amt": "\u2212$312.40"
+    },
+    {
+     "name": "Modality service",
+     "desc": "E-stim unit calibration",
+     "amt": "\u2212$275.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most physical therapy practices spend the bulk of their budget on treatment tables and exercise equipment, e-stim electrodes, kinesiology tape and hot pack covers, modality equipment and service, EMR and scheduling software, and rent across locations. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Equipment and supplies on one card",
+     "d": "From bands and tape to a new treatment table, purchases go on the card and land in your books by clinic."
+    },
+    {
+     "t": "A budget for every clinic",
+     "d": "Give each clinic director a card with a monthly supply budget, and see spending by location."
+    },
+    {
+     "t": "Each vendor bill in one queue",
+     "d": "Equipment, linen and software invoices approved and paid on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One clinic or fifty",
+     "d": "Each new clinic gets the same cards, budgets and approval rules, and you see every clinic\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Keep equipment and supply spend in check across every clinic, and get paid in full for every visit.",
+   "table": {
+    "Aria Card": "2% back on equipment, electrodes, tape and clinic supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each visit payment checked against your contracted rates. Denied visits and authorization denials ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Copays and cash-pay visits collected by card on file.",
+    "Accounts Payable": "Rent, EMR and equipment invoices read and paid on schedule.",
+    "Bridge Payments": "Pay equipment vendors now and settle as visits are paid.",
+    "CFO Hub": "Visits, payer deposits and spend for each clinic, in one view.",
+    "Bookkeeping & Close": "Books coded by clinic and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "chiropractic",
+   "name": "Chiropractic",
+   "group": "aesthetics-rehab",
+   "eyebrow": "For chiropractic practices",
+   "hook": "See what each office makes.",
+   "lead": "Supplements, supports and table upkeep, on one card.",
+   "rows": [
+    {
+     "name": "Supplement restock",
+     "desc": "Professional-line inventory",
+     "amt": "\u2212$1,140.00"
+    },
+    {
+     "name": "Clinic supplies",
+     "desc": "Headrest paper, table covers",
+     "amt": "\u2212$186.00"
+    },
+    {
+     "name": "Patient marketing",
+     "desc": "Local search ads",
+     "amt": "\u2212$900.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most chiropractic practices spend the bulk of their budget on supplement and support inventory, adjusting table service and equipment, headrest paper, pads and clinic supplies, marketing and patient acquisition, and software and rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Inventory on one card",
+     "d": "Supplement and support restocks go on the card, with receipts matched."
+    },
+    {
+     "t": "Marketing on its own card",
+     "d": "Give your marketing spend its own card and limit, so you know what each patient costs to acquire."
+    },
+    {
+     "t": "Bills paid on the date you choose",
+     "d": "Equipment and software invoices approved and scheduled from one place."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One office or fifty",
+     "d": "Each new office gets the same cards, budgets and approval rules, and you see every office\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on supplements and supplies, see what each office makes, and collect visit plans without the calls.",
+   "table": {
+    "Aria Card": "2% back on supplements, supports and clinic supplies.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Insurer payments checked against what you are owed. Denied visit claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Care plans and memberships collected by card on file.",
+    "Accounts Payable": "Rent, software and table service invoices read and paid on schedule.",
+    "Bridge Payments": "Pay for supplement inventory now and settle later, on your schedule.",
+    "CFO Hub": "Visits, retail sales and spend for each office, in one view.",
+    "Bookkeeping & Close": "Books coded by office and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "home-health",
+   "name": "Home health",
+   "group": "post-acute",
+   "eyebrow": "For home health practices",
+   "hook": "No more chasing mileage and receipts.",
+   "lead": "Mileage and supplies for each clinician in the field.",
+   "rows": [
+    {
+     "name": "Field fuel",
+     "desc": "8 clinicians, weekly",
+     "amt": "\u2212$486.00"
+    },
+    {
+     "name": "Wound care",
+     "desc": "Foam dressings, ostomy supplies",
+     "amt": "\u2212$1,140.00"
+    },
+    {
+     "name": "Documentation software",
+     "desc": "Monthly, per clinician",
+     "amt": "\u2212$720.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most home health practices spend the bulk of their budget on mileage and fuel for field clinicians, wound care, ostomy and catheter supplies, DME and medical equipment deliveries, visit documentation and EVV software, and office rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Cards for field clinicians",
+     "d": "Each nurse or therapist gets a card limited to fuel and supplies, so nobody fronts costs on their own card."
+    },
+    {
+     "t": "Mileage without the spreadsheet",
+     "d": "Mileage logged and reimbursed from the same place as card spending."
+    },
+    {
+     "t": "Supply orders by patient",
+     "d": "Tie wound care and ostomy orders to the order they came from."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One branch or fifty",
+     "d": "Each new branch gets the same cards, budgets and approval rules, and you see every branch\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Give every field clinician a card for mileage and supplies, keep receipts out of shoeboxes, and get paid for every visit.",
+   "table": {
+    "Aria Card": "2% back on fuel, wound care and ostomy supplies, with a card for each clinician.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against what Medicare or the payer owes you. Denied episodes and visit claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Private-pay balances collected by card on file.",
+    "Accounts Payable": "DME, supply and software invoices read and paid on schedule.",
+    "Bridge Payments": "Pay supply and DME vendors now and settle once Medicare or the payer pays.",
+    "CFO Hub": "Visits, field spend and payer deposits for each branch, in one view.",
+    "Bookkeeping & Close": "Books coded by branch and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "hospice",
+   "name": "Hospice",
+   "group": "post-acute",
+   "eyebrow": "For hospice agencies",
+   "hook": "Keep per-diem spend in line.",
+   "lead": "Per-diem spend on meds, equipment and supplies.",
+   "rows": [
+    {
+     "name": "Hospice pharmacy",
+     "desc": "Comfort kits, monthly",
+     "amt": "\u2212$4,280.00"
+    },
+    {
+     "name": "DME rental",
+     "desc": "Hospital beds, oxygen",
+     "amt": "\u2212$3,640.00"
+    },
+    {
+     "name": "Field fuel",
+     "desc": "14 clinicians, weekly",
+     "amt": "\u2212$812.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most hospice agencies spend the bulk of their budget on comfort-care medications and hospice pharmacy, hospital beds, oxygen and other DME, incontinence, wound and personal care supplies, mileage and fuel for field staff, and bereavement and volunteer programs. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Cost per patient day",
+     "d": "Aria AI is built to tie pharmacy, DME and supply spending to each patient, so you can see costs against the per-diem."
+    },
+    {
+     "t": "Cards for field clinicians",
+     "d": "Nurses, aides and chaplains get cards limited to fuel and supplies, with mileage reimbursed from the same place."
+    },
+    {
+     "t": "DME and pharmacy vendors in one queue",
+     "d": "Each DME and hospice pharmacy invoice will be read by AI, matched to its order and paid on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One branch or fifty",
+     "d": "Each new branch gets the same cards, budgets and approval rules, and you see every branch\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Keep per-diem spend on meds, DME and supplies in line, and get paid in full for every day of care.",
+   "table": {
+    "Aria Card": "2% back on comfort meds, DME and supplies, with cards for field staff.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against what Medicare or the payer owes you. Denied hospice claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Room-and-board and private-pay balances collected by card on file.",
+    "Accounts Payable": "Hospice pharmacy and DME invoices read, checked and paid on schedule.",
+    "Bridge Payments": "Pay pharmacy and DME vendors now and settle once Medicare pays.",
+    "CFO Hub": "Census, per-diem cost and payer deposits for each team, in one view.",
+    "Bookkeeping & Close": "Books coded by team and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "skilled-nursing",
+   "name": "Skilled nursing & long-term care",
+   "group": "post-acute",
+   "eyebrow": "For nursing facilities",
+   "hook": "See spend by department, every day.",
+   "lead": "Nursing, kitchen and laundry spend, by department.",
+   "rows": [
+    {
+     "name": "Food service order",
+     "desc": "Weekly, 90 beds",
+     "amt": "\u2212$6,840.00"
+    },
+    {
+     "name": "Incontinence supplies",
+     "desc": "Briefs and underpads",
+     "amt": "\u2212$2,960.00"
+    },
+    {
+     "name": "Staffing agency",
+     "desc": "CNA shifts, weekly",
+     "amt": "\u2212$9,450.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most skilled nursing and long-term care facilities spend the bulk of their budget on food and dietary supplies, incontinence, wound and nursing supplies, infection control and PPE, therapy and staffing agency invoices, and maintenance, laundry and housekeeping. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "A budget for every department",
+     "d": "Dietary, nursing, housekeeping and maintenance each get a card and a monthly budget, and you see spending by department."
+    },
+    {
+     "t": "Agency invoices checked by AI",
+     "d": "Staffing agency invoices will be read by AI and checked against shifts before they are paid."
+    },
+    {
+     "t": "Supplies you burn through on one card",
+     "d": "Food, briefs and nursing supplies go on the card, reorder after reorder."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One facility or fifty",
+     "d": "Each new facility gets the same cards, budgets and approval rules, and you see every facility\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Track spend by department, keep agency and supply invoices in one queue, and get paid for every resident day.",
+   "table": {
+    "Aria Card": "2% back on food, nursing supplies and PPE, with cards for each department.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each payment checked against what the payer owes you. Denied resident-day and therapy claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Private-pay resident balances collected by card or payment link.",
+    "Accounts Payable": "Food, therapy and staffing agency invoices read, checked and paid on time.",
+    "Bridge Payments": "Pay supply and staffing vendors now and settle as Medicare and Medicaid pay.",
+    "CFO Hub": "Census, spend by department and payer deposits for each facility, in one view.",
+    "Bookkeeping & Close": "Books coded by department and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "retail-pharmacy",
+   "name": "Retail pharmacy",
+   "group": "post-acute",
+   "eyebrow": "For retail pharmacies",
+   "hook": "Catch every PBM payment that comes up short.",
+   "lead": "Wholesaler orders and inventory, in one place.",
+   "rows": [
+    {
+     "name": "Wholesaler order",
+     "desc": "Weekly brand and generic order",
+     "amt": "\u2212$18,420.00"
+    },
+    {
+     "name": "Front-store restock",
+     "desc": "OTC and seasonal items",
+     "amt": "\u2212$1,264.80"
+    },
+    {
+     "name": "Vials and labels",
+     "desc": "Amber vials, Rx labels",
+     "amt": "\u2212$342.60"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most retail pharmacies spend the bulk of their budget on primary wholesaler and secondary drug orders, compounding ingredients and supplies, vials, labels, bags and packaging, front-store OTC and seasonal merchandise, and pharmacy management software and rent. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Wholesaler bills, approved and scheduled",
+     "d": "Forward wholesaler and secondary supplier invoices to Aria, approve them, and schedule each payment on the date you choose."
+    },
+    {
+     "t": "Front-store buying on the card",
+     "d": "Front-store and supply orders go on the card, landing in your books with the receipt attached."
+    },
+    {
+     "t": "Cards for technicians and managers",
+     "d": "The people who restock get their own cards, limited by person, vendor and category."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    },
+    {
+     "t": "One store or fifty",
+     "d": "Each new store gets the same cards, budgets and approval rules, and you see every store\u2019s numbers side by side."
+    }
+   ],
+   "pitch": "Earn back on wholesaler orders, pay them on your schedule, and catch every PBM payment that comes up short.",
+   "table": {
+    "Aria Card": "2% back on secondary wholesaler, packaging and front-store orders.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each PBM payment checked against what you should have been paid. Rejected and reversed claims ranked by dollars, with appeals drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Customer balances and house accounts collected by card on file.",
+    "Accounts Payable": "Wholesaler and vendor invoices read, checked for price changes and paid on time.",
+    "Bridge Payments": "Pay your wholesaler now and settle as PBM reimbursements arrive.",
+    "CFO Hub": "Scripts, wholesaler spend and PBM deposits for each store, in one view.",
+    "Bookkeeping & Close": "Books coded by store and category, synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  },
+  {
+   "slug": "specialty-pharmacy",
+   "name": "Compounding & specialty pharmacy",
+   "group": "post-acute",
+   "eyebrow": "For specialty pharmacies",
+   "hook": "Buy specialty drugs now. Pay on your schedule.",
+   "lead": "APIs, bases and cleanroom supplies, on one card.",
+   "rows": [
+    {
+     "name": "APIs and bases",
+     "desc": "Compounding order",
+     "amt": "\u2212$2,860.00"
+    },
+    {
+     "name": "Cleanroom certification",
+     "desc": "Semiannual, USP 797",
+     "amt": "\u2212$1,450.00"
+    },
+    {
+     "name": "Cold-chain shipping",
+     "desc": "Overnight, weekly",
+     "amt": "\u2212$980.00"
+    }
+   ],
+   "outcomes": [
+    {
+     "t": "Every charge by location, provider and vendor",
+     "d": "Seen as it posts, not at month-end."
+    },
+    {
+     "t": "Every insurer payment matched to its deposit",
+     "d": "Short pays and denials flagged."
+    },
+    {
+     "t": "Books closed in days, not weeks",
+     "d": "Every purchase coded and synced."
+    }
+   ],
+   "money": "Most compounding and specialty pharmacies spend the bulk of their budget on active pharmaceutical ingredients and bases, cleanroom certification and sterile supplies, specialty drugs from wholesalers and manufacturers, cold-chain shipping and packaging, and pharmacy software and accreditation. Those are the purchases Aria is designed around.",
+   "card": [
+    {
+     "t": "Ingredients and supplies on one card",
+     "d": "API, base and sterile supply orders go on the card, reorder after reorder."
+    },
+    {
+     "t": "Cold-chain shipping on the card",
+     "d": "Overnight shipping and packaging on a card, with invoices matched to orders."
+    },
+    {
+     "t": "Payments scheduled on your dates",
+     "d": "Schedule specialty drug payments on the date you choose."
+    },
+    {
+     "t": "Controls that hold",
+     "d": "Set limits by provider, location or vendor category. Off-policy purchases are declined at the register, and CE and supply budgets reset each month."
+    }
+   ],
+   "pitch": "Earn back on APIs and specialty drugs, pay for them on your schedule, and get paid in full by every payer.",
+   "table": {
+    "Aria Card": "2% back on APIs, bases, cleanroom supplies and shipping.",
+    "Treasury": "Cash you aren\u2019t using yet earns yield, and what upcoming bills and payroll need stays ready.",
+    "Payment Recovery": "Each PBM and payer payment checked against what you are owed. Rejected and denied claims ranked by dollars, with fixes drafted.",
+    "Claims Advance": "Get paid on submitted insurance claims as soon as the next business day, instead of waiting 30 to 90 days.",
+    "Patient Payments": "Patient balances collected by card on file before shipping.",
+    "Accounts Payable": "Wholesaler, manufacturer and certification invoices read and paid on time.",
+    "Bridge Payments": "Pay for specialty drugs now and settle as the payer reimburses.",
+    "CFO Hub": "Scripts, drug spend and payer deposits, in one view.",
+    "Bookkeeping & Close": "Books coded by line of business and synced each month."
+   },
+   "faqs": [
+    {
+     "q": "Can we set limits by provider or location?",
+     "a": "Yes. Set limits by provider, location, vendor category or card. Purchases outside your policy are declined, and budgets reset monthly or yearly."
+    },
+    {
+     "q": "How do receipts work?",
+     "a": "Staff text or email a photo when they buy. Aria AI is built to match it to the purchase, code it and attach it, so nobody chases receipts at month-end."
+    },
+    {
+     "q": "How much do we earn back?",
+     "a": "2% back on medical supplies and business spend, with no categories to track, and 5% on Aria Marketplace orders. Final rates will be set out in the card terms at launch."
+    },
+    {
+     "q": "Does it work with our accounting software?",
+     "a": "Aria is built to sync with QuickBooks, Xero, NetSuite and Sage Intacct, with each purchase coded to the right location and category."
+    },
+    {
+     "q": "Can Aria track what insurers owe us?",
+     "a": "Yes. Aria is built to match each insurer payment to its bank deposit, flag short pays against your contracts and rank denials by dollars."
+    }
+   ],
+   "calc": false
+  }
+ ]
+}
