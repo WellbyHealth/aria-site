@@ -444,3 +444,11 @@ a.chip:hover{border-color:var(--ink)}
 .vcard.big svg{width:clamp(26px,2.6vw,36px);height:clamp(26px,2.6vw,36px);top:clamp(14px,1.8vw,22px);right:clamp(16px,2vw,24px)}
 .vcard.big .vc-name{left:clamp(18px,2.2vw,28px);bottom:clamp(40px,4.4vw,56px);font-size:clamp(13px,1.3vw,17px)}
 .vcard.big .vc-num{left:clamp(18px,2.2vw,28px);bottom:clamp(16px,2vw,24px);font-size:clamp(13px,1.3vw,17px)}
+
+/* SEO depth sections */
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.checks li{position:relative;padding:0 0 14px 34px;border-bottom:1px solid var(--line);font-size:17px}
+.checks li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--accent-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235651d8' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat}
+.tbl .n{text-align:right;white-space:nowrap;padding-left:16px}
+.tbl thead th{width:auto;color:var(--muted);font-weight:400;font-size:14px}
+.tbl thead th.n{padding-right:0}
