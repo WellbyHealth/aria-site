@@ -66,14 +66,20 @@ const ic = (n, cls = 'ic') => `<svg class="${cls}" viewBox="0 0 32 32" fill="non
 const MARK = `<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" aria-hidden="true" stroke-width="3" stroke-linecap="round"><circle cx="50" cy="50" r="46" stroke-width="3"/><path d="M51.674,31.872 A11,11 0 0 1 39.269,18.582"/><path d="M43.114,12.422 A11,11 0 0 1 58.084,28.460"/><path d="M60.514,35.138 A11,11 0 0 1 56.416,17.425"/><path d="M62.826,14.013 A11,11 0 0 1 67.771,35.388"/><path d="M66.537,42.386 A11,11 0 0 1 71.844,24.998"/><path d="M79.101,25.248 A11,11 0 0 1 72.696,46.231"/><path d="M68.128,51.674 A11,11 0 0 1 81.418,39.269"/><path d="M87.578,43.114 A11,11 0 0 1 71.540,58.084"/><path d="M64.862,60.514 A11,11 0 0 1 82.575,56.416"/><path d="M85.987,62.826 A11,11 0 0 1 64.612,67.771"/><path d="M74.752,79.101 A11,11 0 0 1 53.769,72.696"/><path d="M57.614,66.537 A11,11 0 0 1 75.002,71.844"/><path d="M56.886,87.578 A11,11 0 0 1 41.916,71.540"/><path d="M48.326,68.128 A11,11 0 0 1 60.731,81.418"/><path d="M37.174,85.987 A11,11 0 0 1 32.229,64.612"/><path d="M39.486,64.862 A11,11 0 0 1 43.584,82.575"/><path d="M20.899,74.752 A11,11 0 0 1 27.304,53.769"/><path d="M33.463,57.614 A11,11 0 0 1 28.156,75.002"/><path d="M12.422,56.886 A11,11 0 0 1 28.460,41.916"/><path d="M31.872,48.326 A11,11 0 0 1 18.582,60.731"/><path d="M35.138,39.486 A11,11 0 0 1 17.425,43.584"/><path d="M14.013,37.174 A11,11 0 0 1 35.388,32.229"/><path d="M42.386,33.463 A11,11 0 0 1 24.998,28.156"/><path d="M25.248,20.899 A11,11 0 0 1 46.231,27.304"/></svg>`;
 // The Aria figure: the Financial Hub at the center, five products as petals.
 function figure() {
-  const cx = 300, cy = 300, labs = [['02', 'Aria Card'], ['03', 'Buy-and-bill', 'lending'], ['04', 'Bill pay'], ['05', 'Flex Pay'], ['06', 'Marketplace']];
+  const W = 920, H = 800, cx = 460, cy = 400;
   const pos = (a, r) => [cx + r * Math.sin((a * Math.PI) / 180), cy - r * Math.cos((a * Math.PI) / 180)];
-  let s = `<svg viewBox="0 0 600 600" role="img" aria-label="The Aria figure: the Financial Hub at the center, with the Aria Card, buy-and-bill lending, bill pay, Flex Pay and the marketplace around it" fill="none" stroke="currentColor" stroke-width="1"><circle cx="${cx}" cy="${cy}" r="262" opacity=".55"/>`;
-  for (const a of [0, 72, 144, 216, 288]) s += `<ellipse class="petal" cx="${cx}" cy="${cy - 104}" rx="84" ry="138" transform="rotate(${a} ${cx} ${cy})" opacity=".7"/>`;
-  s += `<circle cx="${cx}" cy="${cy}" r="64" opacity=".8"/><g stroke="none" fill="#171721" font-family="Inter,system-ui,sans-serif" text-anchor="middle"><text x="${cx}" y="${cy - 8}" font-size="11" fill="#787886">01</text><text x="${cx}" y="${cy + 12}" font-size="17">Financial Hub</text>`;
-  labs.forEach(([n, a, b], i) => { const [x, y] = pos(i * 72, 176); s += `<text x="${x}" y="${y - 12}" font-size="11" fill="#787886">${n}</text><text x="${x}" y="${y + 8}" font-size="16">${a}</text>${b ? `<text x="${x}" y="${y + 28}" font-size="16">${b}</text>` : ''}`; });
+  const petals = [['02', 'Aria Card', '2% back on med-surg supplies'], ['03', 'Buy-and-bill lending', 'Repaid when the claim pays'], ['04', 'Bill pay', 'Supplier invoices read and paid'], ['05', 'Flex Pay', 'Big supply bills over 90 days'], ['06', 'Marketplace', 'Gloves to implants, one catalog']];
+  const ring = ['Medicare and Medicaid', 'Commercial payers', '835 remittance files', 'Your bank and payroll', 'Drug and supply distributors'];
+  let s = `<svg class="fig" viewBox="0 0 ${W} ${H}" role="img" aria-label="The Aria financial home: the Financial Hub at the center; the Aria Card, buy-and-bill lending, bill pay, Flex Pay and the marketplace around it; connected to payers, 835 remittance files, your bank and payroll, and distributors" fill="none" stroke="currentColor">`;
+  s += `<circle cx="${cx}" cy="${cy}" r="350" stroke-width="1" opacity=".45" stroke-dasharray="3 6"/>`;
+  for (let k = 0; k < 5; k++) s += `<ellipse cx="${cx}" cy="${cy - 168}" rx="118" ry="160" transform="rotate(${k * 72} ${cx} ${cy})" stroke-width="1.2" opacity=".75"/>`;
+  s += `<circle cx="${cx}" cy="${cy}" r="86" fill="#fff" stroke-width="1.4"/>`;
+  s += `<g stroke="none" font-family="Inter,system-ui,sans-serif" text-anchor="middle"><text x="${cx}" y="${cy - 22}" font-size="12" fill="#787886" letter-spacing="1.5">01</text><text x="${cx}" y="${cy + 2}" font-size="20" fill="#171721">Financial Hub</text><text x="${cx}" y="${cy + 24}" font-size="12.5" fill="#5d5c73">Sees every dollar,</text><text x="${cx}" y="${cy + 40}" font-size="12.5" fill="#5d5c73">claim and payer</text>`;
+  petals.forEach(([n, a, b], k) => { const [x, y] = pos(k * 72, 214); s += `<text x="${x}" y="${y - 16}" font-size="12" fill="#787886" letter-spacing="1.5">${n}</text><text x="${x}" y="${y + 6}" font-size="17" fill="#171721">${a}</text><text x="${x}" y="${y + 26}" font-size="12.5" fill="#5d5c73">${b}</text>`; });
+  ring.forEach((t, k) => { const [x, y] = pos(36 + k * 72, 350), w = t.length * 7.2 + 30; s += `<rect x="${x - w / 2}" y="${y - 15}" width="${w}" height="30" rx="15" fill="#fff" stroke="#dcdae8" stroke-width="1"/><text x="${x}" y="${y + 4.5}" font-size="13" fill="#3f3f4f">${t}</text>`; });
   return s + '</g></svg>';
 }
+const FIG_LIST = [['Financial Hub', 'Sees every dollar, claim and payer, with a 13-week forecast.', '/hub'], ['Aria Card', '2% back on med-surg supplies, a card for every staff member.', '/card'], ['Buy-and-bill lending', 'Pays the distributor now, repaid when the claim pays.', '/lending'], ['Bill pay', 'Supplier invoices read, approved and paid on time.', '/bill-pay'], ['Flex Pay', 'Spread big supply bills over 30, 60 or 90 days.', '/flex-pay'], ['Marketplace', 'Gloves to implants in one catalog, paid on the card.', '/marketplace']];
 const appFrame = (img, alt, url = 'app.ariapractice.com') => `<div class="appframe"><div class="af-bar"><i></i><i></i><i></i><span>${url}</span></div><img src="${img}" alt="${esc(alt)}" width="1600" height="1000" loading="lazy" decoding="async"></div>`;
 
 // ---------------------------------------------------------------- content
@@ -243,6 +249,12 @@ function homePage() {
 <div class="mini"><span>Medline Industries</span><b>−$2,184.20</b><em>+$43.68 cash back</em></div></div>
 </div><p class="stage-note">Aria is a financial technology company, not a bank. Banking services will be provided by licensed partner institutions.</p></div></section>
 
+<section class="sec fig-sec"><div class="wrap">
+<div class="sec-head center"><span class="label">Your financial home</span><h2>Everything your practice runs on, connected.</h2><p class="lead">The Financial Hub sits at the center and sees every dollar. Around it, five tools each do one job for a medical practice. Around those, Aria connects the payers, files and vendors you already work with.</p></div>
+<div class="figure-card fig-wide reveal">${figure()}<div class="figure-cap">Figure A<b>Aria</b></div></div>
+<ol class="fig-list">${FIG_LIST.map(([t, d, u], k) => `<li><a href="${u}"><span>0${k + 1}</span><b>${t}</b><em>${d}</em></a></li>`).join('')}</ol>
+<p class="fig-conn">Connects to Medicare and Medicaid, commercial payers, 835 remittance files, your bank and payroll, and drug and supply distributors.</p>
+</div></section>
 <section class="sec"><div class="wrap">
 <div class="sec-head center"><span class="label">Why Aria</span><h2>We know how your practice gets paid.</h2><p class="lead">A typical bank sees a lump deposit and a card swipe. Aria sees the payer, the claim, the drug and the location behind every dollar.</p></div>
 <div class="vp-grid">
@@ -268,6 +280,11 @@ function homePage() {
 <p class="muted" style="font-size:14px;margin-top:14px">Lending, card and account terms are set at launch with licensed partner institutions and given in writing before you apply.</p>
 </div></section>
 
+<section class="sec" style="padding-top:0"><div class="wrap">
+<div class="sec-head"><span class="label">The platform</span><h2>Everything your practice does with money. All in one place.</h2></div>
+<div class="acc"><div class="acc-list">${acc.map(([k, t, d], i) => `<div class="acc-item${i ? '' : ' open'}"><button type="button" aria-expanded="${!i}">${t}</button><div class="acc-body"><p>${d}</p><img class="m-art" src="${IMG(P[k].img)}" alt="" loading="lazy" width="1200" height="900"><a class="link arrow" href="${P[k].url}">Learn more</a></div></div>`).join('')}</div>
+<div class="acc-art art">${acc.map(([k], i) => `<img class="${i ? '' : 'on'}" src="${IMG(P[k].img)}" alt="" width="1200" height="900"${i ? ' loading="lazy"' : ''}>`).join('')}</div></div></div></section>
+
 <section class="sec"><div class="wrap">
 <div class="hs-rule"></div><h2 class="hs-h">Practice banking’s been a headache. Now it’s a head start.</h2>
 <div class="hs-grid">
@@ -284,18 +301,6 @@ function homePage() {
 <a class="pf reveal" href="/lending"><div class="pf-art"><div class="pf-panel"><span class="pf-k">Buy-and-bill line</span><b class="pf-big">$250,000</b><div class="bar"><i style="width:62%"></i></div><div class="lg"><span><i></i>Drawn for drugs</span><span><i class="l"></i>Available</span></div></div></div><h3>Buy-and-bill lending</h3><p>Pay for injectables and infusions now. Repay automatically when the claim pays.</p><span class="pf-go">→</span></a>
 <a class="pf reveal" href="/flex-pay"><div class="pf-art"><div class="pf-panel"><span class="pf-k">McKesson invoice</span><div class="ring-row"><svg viewBox="0 0 40 40" width="52" height="52"><circle cx="20" cy="20" r="16" fill="none" stroke="#dcdaf5" stroke-width="5"/><circle cx="20" cy="20" r="16" fill="none" stroke="#5651d8" stroke-width="5" stroke-dasharray="33.5 100.5" transform="rotate(-90 20 20)" stroke-linecap="round"/></svg><div><b>$38,400</b> paid in 3 parts<br><span class="muted">1 of 3 paid · next Dec 15</span></div></div></div></div><h3>Flex Pay</h3><p>Spread a large supplier bill over 30, 60 or 90 days while your cash keeps working.</p><span class="pf-go">→</span></a>
 </div></div></section>
-
-<section class="sec"><div class="wrap split">
-<div class="figure-card reveal">${figure()}<div class="figure-cap">Figure A<b>Aria</b></div></div>
-<div><span class="label">One home</span><h2 style="margin-top:18px">One financial home, many everyday uses.</h2>
-<p class="lead" style="margin-top:22px">Banking was never built for a medical practice. Insurers pay weeks late, supplies cost more every year, and the numbers live in six systems. Aria puts them in one place.</p>
-<p style="margin-top:16px">The Financial Hub sits at the center. Around it, the Aria Card, buy-and-bill lending, bill pay, Flex Pay and the supply marketplace each do one job well, and every dollar they touch shows up in the Hub.</p>
-<p style="margin-top:28px"><a class="link arrow" href="/platform">See the platform</a></p></div></div></section>
-
-<section class="sec" style="padding-top:0"><div class="wrap">
-<div class="sec-head"><span class="label">The platform</span><h2>Everything your practice does with money. All in one place.</h2></div>
-<div class="acc"><div class="acc-list">${acc.map(([k, t, d], i) => `<div class="acc-item${i ? '' : ' open'}"><button type="button" aria-expanded="${!i}">${t}</button><div class="acc-body"><p>${d}</p><img class="m-art" src="${IMG(P[k].img)}" alt="" loading="lazy" width="1200" height="900"><a class="link arrow" href="${P[k].url}">Learn more</a></div></div>`).join('')}</div>
-<div class="acc-art art">${acc.map(([k], i) => `<img class="${i ? '' : 'on'}" src="${IMG(P[k].img)}" alt="" width="1200" height="900"${i ? ' loading="lazy"' : ''}>`).join('')}</div></div></div></section>
 
 <section class="sec"><div class="wrap split">
 <div class="cmp reveal"><div class="cmp-col"><b>$12,000</b><div class="cmp-bar" style="height:100%"></div><span>Aria Card</span></div><div class="cmp-col"><b>$0</b><div class="cmp-bar thin" style="height:3%"></div><span>Check or ACH</span></div></div>
@@ -350,7 +355,8 @@ function homePage() {
 <section class="sec" style="padding-top:0"><div class="wrap split" style="align-items:start">
 <div><span class="label">Questions</span><h2 style="margin-top:18px">What practices ask us.</h2></div>
 ${faqHtml(HOME_FAQ)}</div></section>
-${ctaBand()}`;
+${ctaBand()}
+`;
   page({ url: '/', title: 'Aria: radically different banking for healthcare', desc: 'Banking that knows healthcare. Aria matches every insurer deposit to its claims, lends on how practices get paid and earns 2% back on med-surg supplies.', body, priority: '1.0', heroImg: IMG('hero'), graph: [{ '@type': 'WebSite', '@id': SITE + '/#site', name: 'Aria', url: SITE + '/' }, faqLd('/', HOME_FAQ)] });
 }
 
