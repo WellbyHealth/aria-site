@@ -17,7 +17,7 @@ const src = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 
 const PRODUCTS = [
   ['products', '/products', 'Products: cards, bill pay, books and insurer payments',
-   'One platform for your practice’s money: the Aria Card, expenses, bill pay, bookkeeping, underpayment checks, denials, patient payments and claims advance.'],
+   'One platform for your practice’s money: CFO Hub, Bridge Payments, Treasury, the Aria Card, bill pay, bookkeeping, claims advance, payment recovery and patient payments.'],
   ['spend', '/card', 'Aria Card: the business card for medical practices',
    'A card built for medical practices: 2% back on supplies, no annual fee, cards and limits for each staff member, and receipts matched for you.'],
   ['expenses', '/expense-management', 'Expense management for medical practices',
