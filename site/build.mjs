@@ -1,6 +1,7 @@
 // Aria website generator. Writes every page of ariapractice.com into dist/ as static HTML.
 // Pages: home, platform and five products, specialties (index, groups, 39 specialties), marketplace
 // (home, categories, products), blog, security, join, 404. Content lives in this file and site/data/.
+import { GUIDES } from './data/group-guides.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -18,9 +19,11 @@ const write = (rel, html) => { const f = path.join(OUT, rel); fs.mkdirSync(path.
 // ---------------------------------------------------------------- assets
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
+const OGH = (rel) => { const f = path.join(ROOT, 'og', rel + '.jpg'); return fs.existsSync(f) ? `/og/${rel}.jpg?v=${hash(f)}` : null; };
 const cpDir = (from, to) => fs.existsSync(from) && fs.cpSync(from, to, { recursive: true });
 cpDir(path.join(ROOT, 'assets'), path.join(OUT, 'assets'));
 cpDir(path.join(ROOT, 'site/img'), path.join(OUT, 'assets/site'));
+cpDir(path.join(ROOT, 'og'), path.join(OUT, 'og'));
 for (const f of ['favicon.ico', 'apple-touch-icon.png', 'og.png', 'robots.txt', 'privacy.html', 'demo.html']) if (fs.existsSync(path.join(ROOT, f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 const hash = (f) => crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
 fs.copyFileSync(path.join(ROOT, 'site/style.css'), path.join(OUT, 'assets/site/style.css'));
@@ -177,7 +180,7 @@ function footer() {
 <div><h4>Products</h4><ul><li><a href="/platform">Platform</a></li>${PRODUCTS.map((p) => `<li><a href="${p.url}">${p.name}</a></li>`).join('')}</ul></div>
 <div><h4>Specialties</h4><ul>${groups.map(([s, n]) => `<li><a href="${gurl(s)}">${n}</a></li>`).join('')}</ul></div>
 <div><h4>Marketplace</h4><ul>${CATS.slice(0, 8).map((c) => `<li><a href="/marketplace/${c.slug}">${c.name}</a></li>`).join('')}<li><a href="/marketplace">All supplies</a></li></ul></div>
-<div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="/security">Security</a></li><li><a href="${APP}">Try the demo</a></li><li><a href="/join">Join the waitlist</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
+<div><h4>Company</h4><ul><li><a href="/blog">Blog</a></li><li><a href="/tools">Calculators</a></li><li><a href="/security">Security</a></li><li><a href="${APP}">Try the demo</a></li><li><a href="/join">Join the waitlist</a></li><li><a href="/privacy">Privacy</a></li></ul></div>
 </div><div class="legal"><p>Aria is a financial technology company, not a bank. Banking, card and lending services will be provided by licensed partner institutions, which will be named before launch. All products are subject to application and approval, and terms will be provided in writing before you apply.</p><p>Product images and app screens use sample data. They do not show real accounts, patients or customers.</p><p>© 2026 Aria, built by Wellby Health.</p></div></div></footer>`;
 }
 function ld(graph) { return '<script type="application/ld+json">' + JSON.stringify({ '@context': 'https://schema.org', '@graph': graph.filter(Boolean) }).replace(/</g, '\\u003c') + '</script>'; }
@@ -200,10 +203,11 @@ const pages = [];
 function page({ url, title, desc, body, graph = [], priority = '0.6', heroImg, noindex }) {
   if (desc.length < 70) desc = desc.replace(/\.?$/, '.') + ' For independent medical practices, paid on the Aria Card.';
   if (desc.length > 160) desc = clip(desc);
+  const ogImg = (url !== '/' && OGH(url.slice(1))) || '/og.png?v=21', ogAlt = ogImg.startsWith('/og/') ? title.replace(/&amp;/g, '&') : 'Aria: radically different banking for healthcare';
   const full = title.includes('Aria') || title.replace(/&amp;/g, '&').length > 53 ? title : title + ' | Aria';
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(full)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}${url}">
-<meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:site_name" content="Aria"><meta property="og:locale" content="en_US"><meta property="og:image" content="${SITE}/og.png?v=21"><meta property="og:image:secure_url" content="${SITE}/og.png?v=21"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Aria: radically different banking for healthcare"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(full)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${SITE}/og.png?v=21">
+<meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:site_name" content="Aria"><meta property="og:locale" content="en_US"><meta property="og:image" content="${SITE}${ogImg}"><meta property="og:image:secure_url" content="${SITE}${ogImg}"><meta property="og:image:type" content="${ogImg.includes('.jpg') ? 'image/jpeg' : 'image/png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(full)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${SITE}${ogImg}">
 ${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href="/favicon.ico?v=5" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/assets/site/mark.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5"><meta name="theme-color" content="#fbfbfc">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
 ${heroImg ? `<link rel="preload" as="image" href="${heroImg}">` : ''}<link rel="stylesheet" href="${CSS}">
@@ -211,7 +215,7 @@ ${ld([ORG, ...graph])}
 </head><body>
 ${header()}<main id="main">${body}</main>${footer()}<script src="${JS}" defer></script></body></html>`;
   write(url === '/' ? 'index.html' : url.slice(1) + '.html', html);
-  if (!noindex) pages.push({ url, priority });
+  if (!noindex) pages.push({ url, priority, html: body });
 }
 const webPage = (url, name, desc) => ({ '@type': 'WebPage', '@id': SITE + url, url: SITE + url, name, description: desc, isPartOf: { '@type': 'WebSite', name: 'Aria', url: SITE + '/' } });
 
@@ -348,22 +352,50 @@ ${ctaBand()}`;
 const specBy = Object.fromEntries(DATA.specialties.map((s) => [s.slug, s]));
 const groupOf = (s) => DATA.groups.find((g) => g.slug === s.group);
 const map = { card: 'Aria Card', lending: 'Bridge Payments', 'bill-pay': 'Accounts Payable', hub: 'CFO Hub' };
+
+const CALC_FLOAT = `<form class="calc" data-calc="float" onsubmit="return false" aria-label="Injection float calculator"><div><span class="label">Your injection float</span><h3 style="margin:14px 0 22px;font-size:28px">How much cash is sitting in your fridge?</h3><label for="ca">Monthly buy-and-bill drug spend ($)</label><div class="in"><input id="ca" name="a" type="number" inputmode="numeric" min="0" step="5000" value="80000"></div><label for="cb">Days until injection claims are paid</label><div class="in"><input id="cb" name="b" type="number" inputmode="numeric" min="0" max="180" step="5" value="35"></div></div><div class="out"><div><b data-out="float">$0</b><span>tied up in injections at any moment</span></div><div><b data-out="year">$0</b><span>a year back at 2% if it goes on the Aria Card</span></div><p class="fine" style="margin-top:20px">Illustrative only. Card terms are set at launch, and some distributors add a fee for card payments.</p></div></form>`;
+const CALC_BACK = `<form class="calc" data-calc="back" onsubmit="return false" aria-label="Supply cash back calculator"><div><span class="label">Your supply cash back</span><h3 style="margin:14px 0 22px;font-size:28px">What your supply orders could earn.</h3><label for="ca">Monthly med-surg supply spend ($)</label><div class="in"><input id="ca" name="a" type="number" inputmode="numeric" min="0" step="1000" value="25000"></div></div><div class="out"><div><b data-out="year">$0</b><span>a year back at 2% on the Aria Card</span></div><div><b data-out="month">$0</b><span>back every month</span></div><p class="fine" style="margin-top:20px">Illustrative only. Rewards apply to eligible med-surg purchases under the card terms at launch.</p></div></form>`;
+// Questions every specialty page answers, also used in FAQ schema.
+const COMMON_FAQS = [
+  ['Is Aria a bank?', 'No. Aria is a financial technology company, not a bank. Banking, card and lending services will be provided by licensed partner institutions, which will be named before launch.'],
+  ['Do we have to leave our current bank?', 'No. You can connect your current bank to the Financial Hub and keep using it. Aria accounts, cards and lending are there when you want them.'],
+  ['How does the 2% back work?', 'You earn 2% back on medical and surgical supply purchases made on the Aria Card, where the supplier accepts card payment. Full terms are given in writing before you apply.'],
+  ['Does Aria need patient information?', 'The Financial Hub works from bank, card and insurer payment data. Where patient details could be involved, such as remittance files, Aria signs a business associate agreement first.'],
+];
+function publishedPosts() {
+  const dir = path.join(ROOT, 'blog/posts');
+  return fs.readdirSync(dir).filter((f) => f.endsWith('.md')).map((f) => parsePost(path.join(dir, f))).filter((p) => p.date <= TODAY).sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+const guideLinks = () => { const ps = publishedPosts().slice(0, 3); return ps.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Guides</span><h2>Read next.</h2></div><div class="grid g3">${ps.map((p) => `<a class="tile" href="/blog/${p.slug}"><span class="label">${esc(p.category || 'Guide')}</span><h4>${esc(p.title)}</h4><p>${esc(p.description)}</p><span class="more arrow">Read the guide</span></a>`).join('')}</div></div></section>` : ''; };
+// Worked month of spend, payer guidance and a bank checklist for one specialty.
+const amt = (t) => Math.abs(Number(String(t).replace(/[^0-9.]/g, '')) || 0);
+const fmt$ = (n) => '$' + Math.round(n).toLocaleString('en-US');
+function guideSecs(s, who, g) {
+  const G = GUIDES[g.slug]; if (!G) return '';
+  const rows = s.rows.map((r) => [r.name, r.desc, amt(r.amt)]).filter((r) => r[2] > 0);
+  const tot = rows.reduce((a, r) => a + r[2], 0);
+  const month = rows.length ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">A month of spend</span><h2 style="margin-top:18px">What ${esc(who)} could earn back.</h2><p class="lead" style="margin-top:18px">Here are typical orders for one month, with 2% back on each. If your practice places orders like these every month, that is about ${fmt$(tot * 0.02 * 12)} back a year.</p></div>
+<div class="tw"><table class="tbl"><thead><tr><th>Order</th><th class="n">Amount</th><th class="n">2% back</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${esc(r[0])}<small style="display:block;color:var(--muted)">${esc(r[1])}</small></td><td class="n">${fmt$(r[2])}</td><td class="n">${fmt$(r[2] * 0.02)}</td></tr>`).join('')}<tr><td><b>Month total</b></td><td class="n"><b>${fmt$(tot)}</b></td><td class="n"><b>${fmt$(tot * 0.02)}</b></td></tr></tbody></table><p class="muted" style="font-size:14px;margin-top:10px">Example orders, not real customer data. Cash back applies where the supplier accepts card payment.</p></div></div></section>` : '';
+  return `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Getting paid</span><h2 style="margin-top:18px">How ${esc(who)} get paid.</h2></div><div class="prose">${G.paid.map((p) => `<p>${esc(p)}</p>`).join('')}</div></div></section>
+${month}
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Choosing a bank</span><h2 style="margin-top:18px">What to look for in a bank for ${esc(who)}.</h2></div><ul class="checks">${G.look.map((l) => `<li>${esc(l)}</li>`).join('')}</ul></div></section>`;
+}
 function specialtyPage(s) {
   const g = groupOf(s), url = '/specialties/' + s.slug, name = s.name, lower = name.toLowerCase();
   const who = /(care|lab|labs|pharmacy|centers?|imaging|anesthesia|groups?|nursing|health|hospice)$/i.test(name) ? lower : lower + ' practices';
   const hook = s.hook || g.h1;
   const helps = [['card', s.table['Aria Card']], ['lending', s.table['Bridge Payments']], ['bill-pay', s.table['Accounts Payable']], ['hub', [s.table['CFO Hub'], s.table['Payment Recovery']].filter(Boolean).join(' ')]].filter(([, t]) => t);
-  const faqs = s.faqs.map((f) => [f.q, f.a]);
+  const faqs = [...s.faqs.map((f) => [f.q, f.a]), ...COMMON_FAQS];
   const sib = g.members.filter((m) => m !== s.slug).map((m) => specBy[m]).filter(Boolean);
   const cats = (GROUP_CATS[s.group] || []).map((c) => CATS.find((x) => x.slug === c));
   const money = s.money || `Most ${who} spend the bulk of their budget on ${s.rows.map((r) => r.name.toLowerCase()).join(', ')}. Those are the purchases Aria is designed around.`;
-  const calc = s.calc ? `<form class="calc" data-calc="float" onsubmit="return false" aria-label="Injection float calculator"><div><span class="label">Your injection float</span><h3 style="margin:14px 0 22px;font-size:28px">How much cash is sitting in your fridge?</h3><label for="ca">Monthly buy-and-bill drug spend ($)</label><div class="in"><input id="ca" name="a" type="number" inputmode="numeric" min="0" step="5000" value="80000"></div><label for="cb">Days until injection claims are paid</label><div class="in"><input id="cb" name="b" type="number" inputmode="numeric" min="0" max="180" step="5" value="35"></div></div><div class="out"><div><b data-out="float">$0</b><span>tied up in injections at any moment</span></div><div><b data-out="year">$0</b><span>a year back at 2% if it goes on the Aria Card</span></div><p class="fine" style="margin-top:20px">Illustrative only. Card terms are set at launch, and some distributors add a fee for card payments.</p></div></form>`
-    : `<form class="calc" data-calc="back" onsubmit="return false" aria-label="Supply cash back calculator"><div><span class="label">Your supply cash back</span><h3 style="margin:14px 0 22px;font-size:28px">What your supply orders could earn.</h3><label for="ca">Monthly med-surg supply spend ($)</label><div class="in"><input id="ca" name="a" type="number" inputmode="numeric" min="0" step="1000" value="25000"></div></div><div class="out"><div><b data-out="year">$0</b><span>a year back at 2% on the Aria Card</span></div><div><b data-out="month">$0</b><span>back every month</span></div><p class="fine" style="margin-top:20px">Illustrative only. Rewards apply to eligible med-surg purchases under the card terms at launch.</p></div></form>`;
+  const calc = s.calc ? CALC_FLOAT : CALC_BACK;
   const body = `
 <section class="page-head"><div class="wrap split">
 <div>${crumbs([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], gurl(g.slug)], [name, url]])}<span class="label">For ${esc(who)}</span><h1 style="margin-top:18px">${esc(hook)}</h1><p class="lead">${esc(s.lead)} ${esc(s.pitch)}</p><div class="actions"><a class="btn btn-dark" href="/join?specialty=${encodeURIComponent(name)}">Join the waitlist</a><a class="link arrow" href="${APP}">Try the demo</a></div></div>
 <div class="panel" aria-label="Sample card activity"><div class="panel-h">Card activity <span>Sample data</span></div>${s.rows.map((r) => `<div class="panel-r"><div><b>${esc(r.name)}</b><small>${esc(r.desc)}</small></div><div><span class="amt">${esc(r.amt)}</span><span class="back">2% back</span></div></div>`).join('')}</div></div></section>
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Where the money goes</span><h2 style="margin-top:18px">How ${esc(who)} spend.</h2></div><div class="prose"><p class="lead">${esc(money)}</p></div></div></section>
+${guideSecs(s, who, g)}
 <section class="sec tight"><div class="wrap">${calc}</div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">How Aria helps</span><h2>Built for ${esc(who)}.</h2></div>
 <div class="grid g2">${helps.map(([k, t]) => `<a class="tile" href="${P[k].url}">${ic(P[k].icon)}<h4>${P[k].name}</h4><p>${esc(t)}</p><span class="more arrow">Learn more</span></a>`).join('')}</div></div></section>
@@ -372,6 +404,7 @@ function specialtyPage(s) {
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Marketplace</span><h2>Supplies for ${esc(who)}.</h2></div>
 <div class="mk-cats" style="grid-template-columns:repeat(4,1fr)">${cats.map((c) => `<a class="mk-cat" href="/marketplace/${c.slug}"><img src="${IMG('c-' + c.slug)}" alt="" width="800" height="800" loading="lazy"><b>${c.name}</b></a>`).join('')}</div></div></section>
 ${faqs.length ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">What ${esc(who)} ask us.</h2></div>${faqHtml(faqs)}</div></section>` : ''}
+${guideLinks()}
 ${sib.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Related</span><h2>More in ${GROUP_NAME[g.slug].toLowerCase()}</h2></div><div class="chips">${sib.map((x) => `<a class="chip" href="/specialties/${x.slug}">${esc(x.name)}</a>`).join('')}<a class="chip" href="/specialties">All specialties</a></div></div></section>` : ''}
 ${ctaBand('Your practice’s financial home.', `Join the waitlist and we’ll show you what Aria would do for your ${lower} practice.`)}`;
   const base = who.endsWith(' practices') ? name + ' practice' : name;
@@ -385,9 +418,14 @@ function groupPage(g) {
   const body = `
 <section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])}${ic(GROUP_ICON[g.slug], 'ic')}<h1 style="margin-top:18px">${esc(g.h1)}</h1><p class="lead">${esc(g.lead)}</p></div></section>
 <section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g3">${mem.map((s) => `<a class="tile" href="/specialties/${s.slug}"><span class="label">${esc(s.name)}</span><h3>${esc(s.hook || s.lead)}</h3><p>${esc(s.lead)}</p><span class="more arrow">See ${esc(s.name)}</span></a>`).join('')}</div></div></section>
+${GUIDES[g.slug] ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Getting paid</span><h2 style="margin-top:18px">How ${GROUP_NAME[g.slug].toLowerCase()} get paid.</h2></div><div class="prose">${GUIDES[g.slug].paid.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div></section>
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Choosing a bank</span><h2 style="margin-top:18px">What to look for.</h2></div><ul class="checks">${GUIDES[g.slug].look.map((l) => `<li>${esc(l)}</li>`).join('')}</ul></div></section>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">By specialty</span><h2>Where each specialty spends.</h2></div><div class="grid g2">${mem.map((x) => `<div class="tile"><h4><a href="/specialties/${x.slug}">${esc(x.name)}</a></h4><p>${esc(x.money || x.pitch || x.lead)}</p></div>`).join('')}</div></div></section>` : ''}
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">Common questions.</h2></div>${faqHtml(COMMON_FAQS)}</div></section>
+${guideLinks()}
 ${ctaBand()}`;
   const desc = clip(g.h1 + ' ' + g.lead + ' Cards, buy-and-bill lending and bill pay for ' + GROUP_NAME[g.slug].toLowerCase() + '.');
-  page({ url, title: [`Banking and financing for ${GROUP_NAME[g.slug].toLowerCase()}`, `Banking for ${GROUP_NAME[g.slug].toLowerCase()}`].find((t) => t.length <= 53) || GROUP_NAME[g.slug], desc, body, priority: '0.7', graph: [webPage(url, GROUP_NAME[g.slug], desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])] });
+  page({ url, title: [`Banking and financing for ${GROUP_NAME[g.slug].toLowerCase()}`, `Banking for ${GROUP_NAME[g.slug].toLowerCase()}`].find((t) => t.length <= 53) || GROUP_NAME[g.slug], desc, body, priority: '0.7', graph: [webPage(url, GROUP_NAME[g.slug], desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]]), faqLd(url, COMMON_FAQS)] });
 }
 function specialtiesIndex() {
   const body = `
@@ -499,10 +537,49 @@ marketHome();
 for (const c of CATS) { catPage(c); for (const p of c.prods) prodPage(c, p); }
 securityPage();
 joinPage();
+
+// ---------------------------------------------------------------- tools
+const TOOLS = [
+  { slug: 'supply-cash-back-calculator', name: 'Supply cash back calculator', title: 'Medical supply cash back calculator', h1: 'How much could your supply orders earn back?', lead: 'Enter what your practice spends on medical and surgical supplies each month. The calculator shows what 2% back would add up to over a year.', calc: () => CALC_BACK,
+    how: ['Cash back is a percentage of what you spend. At 2%, every $10,000 of supplies paid on the card earns $200 back.', 'The calculator multiplies your monthly supply spend by 12 for a year, then by 2%. A practice spending $25,000 a month on med-surg supplies would earn about $6,000 back a year.'],
+    change: ['Whether each supplier accepts card payment, and whether they add a fee for it', 'Which purchases count as eligible medical and surgical supplies under the card terms', 'Seasonal swings in spend, such as flu season vaccines', 'Paying the card in full each month, so interest never eats the rewards'],
+    faqs: [['Do all medical suppliers accept card payments?', 'Many do, including the large distributors, but some add a fee for card payments or limit card use to smaller orders. Ask each supplier before moving spend to a card.'], ['Is cash back taxable for a practice?', 'Rewards on business purchases are usually treated as a reduction in the cost of what you bought, not as income. Ask your CPA how to record them for your practice.'], ['How is this different from a regular business card?', 'Many business cards earn 1% to 2% on everything, often with exclusions or caps. The Aria Card is designed around med-surg supply spend, with controls and coding built for practices.']] },
+  { slug: 'buy-and-bill-float-calculator', name: 'Buy-and-bill float calculator', title: 'Buy-and-bill cash flow calculator', h1: 'How much cash is tied up in buy-and-bill drugs?', lead: 'Enter your monthly buy-and-bill drug spend and how long injection or infusion claims take to pay. The calculator shows how much cash is waiting on claims at any moment.', calc: () => CALC_FLOAT,
+    how: ['Float is the money you have paid out for drugs that payers have not paid back yet. It equals your daily drug spend multiplied by the days between paying the distributor and receiving the claim payment.', 'The calculator divides monthly spend by 30 to get daily spend, then multiplies by your days to payment. A practice buying $80,000 of drugs a month with claims paid in 35 days carries about $93,000 of float.'],
+    change: ['Distributor payment terms, since longer terms shorten the gap', 'How quickly claims are submitted after the drug is given', 'Denials and resubmissions, which add weeks to the wait', 'Payer mix, since Medicare and commercial plans pay on different timelines'],
+    faqs: [['What is buy and bill?', 'Buy and bill is how most physician-administered drugs are paid for: the practice buys the drug, gives it to the patient, then bills the payer and waits to be paid.'], ['How do practices fund the float?', 'Usually with cash on hand, extended distributor terms or a line of credit. Aria is building buy-and-bill lending that pays the distributor and is repaid from the claim payment.'], ['Does Medicare pay buy-and-bill drugs at cost?', 'Medicare Part B pays most physician-administered drugs at a rate tied to the drug’s average sales price, which is set quarterly. Whether that covers your cost depends on what you paid.']] },
+];
+function toolPage(t) {
+  const url = '/tools/' + t.slug;
+  const body = `
+<section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Tools', '/tools'], [t.name, url]])}<span class="label">Free tool</span><h1 style="margin-top:18px">${esc(t.h1)}</h1><p class="lead">${esc(t.lead)}</p></div></section>
+<section class="sec tight" style="padding-top:0"><div class="wrap">${t.calc()}</div></section>
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">The math</span><h2 style="margin-top:18px">How it works.</h2></div><div class="prose">${t.how.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div></section>
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Your numbers</span><h2 style="margin-top:18px">What changes the result.</h2></div><ul class="checks">${t.change.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div></section>
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">Common questions.</h2></div>${faqHtml(t.faqs)}</div></section>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More tools</span></div><div class="grid g2">${TOOLS.filter((x) => x !== t).map((x) => `<a class="tile" href="/tools/${x.slug}"><h4>${x.name}</h4><p>${esc(x.lead)}</p><span class="more arrow">Open</span></a>`).join('')}</div></div></section>
+${ctaBand()}`;
+  page({ url, title: t.title, desc: clip(t.lead), body, priority: '0.7', graph: [webPage(url, t.title, t.lead), crumbsLd([['Aria', '/'], ['Tools', '/tools'], [t.name, url]]), faqLd(url, t.faqs), { '@type': 'WebApplication', name: t.title, url: SITE + url, applicationCategory: 'FinanceApplication', operatingSystem: 'Any', offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } }] });
+}
+function toolsIndex() {
+  const body = `<section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Tools', '/tools']])}<span class="label">Free tools</span><h1 style="margin-top:18px">Calculators for practice finances.</h1><p class="lead">Quick math for the decisions practices make every month. No sign-up needed.</p></div></section>
+<section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g2">${TOOLS.map((x) => `<a class="tile" href="/tools/${x.slug}"><h3>${x.name}</h3><p>${esc(x.lead)}</p><span class="more arrow">Open the calculator</span></a>`).join('')}</div></div></section>${ctaBand()}`;
+  page({ url: '/tools', title: 'Free calculators for medical practices', desc: 'Free calculators for medical practices: supply cash back and buy-and-bill drug float. Quick math for monthly money decisions, no sign-up needed.', body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Tools', '/tools']])] });
+}
+toolsIndex(); TOOLS.forEach(toolPage);
 const nPosts = blogPages();
 // 404 (not in the sitemap)
 page({ url: '/404', title: 'Page not found', desc: 'That page could not be found.', noindex: true, body: `<section class="page-head"><div class="wrap"><span class="label">404</span><h1 style="margin-top:18px">We couldn’t find that page.</h1><p class="lead">It may have moved. Try one of these instead.</p><div class="actions"><a class="btn btn-dark" href="/">Home</a><a class="btn btn-line" href="/platform">Platform</a><a class="btn btn-line" href="/specialties">Specialties</a><a class="btn btn-line" href="/marketplace">Marketplace</a></div></div></section>` });
 fs.writeFileSync(path.join(OUT, 'assets/site/mark.svg'), MARK.replace('<svg ', '<svg xmlns="http://www.w3.org/2000/svg" ').replace('stroke="currentColor"', 'stroke="#171721"'));
-write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + pages.map((p) => `  <url><loc>${SITE}${p.url === '/' ? '/' : p.url}</loc><lastmod>${TODAY}</lastmod><priority>${p.priority}</priority></url>`).join('\n') + '\n</urlset>\n');
-write('llms.txt', `# Aria\n\n> Aria is the financial home for independent medical practices. Keep more of every dollar you make.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
+// Real last-modified dates: a page's date changes only when its content does.
+const LM_FILE = path.join(ROOT, 'site/data/lastmod.json');
+const lastmod = fs.existsSync(LM_FILE) ? JSON.parse(fs.readFileSync(LM_FILE, 'utf8')) : {};
+for (const p of pages) {
+  const h = crypto.createHash('sha1').update((p.html || '').replace(/cta-[a-z0-9]{2,6}/g, '')).digest('hex').slice(0, 12);
+  if (!lastmod[p.url] || lastmod[p.url].h !== h) lastmod[p.url] = { h, d: TODAY };
+  p.lastmod = lastmod[p.url].d;
+}
+fs.writeFileSync(LM_FILE, JSON.stringify(lastmod, null, 0).replace(/},"/g, '},\n"'));
+write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + pages.map((p) => `  <url><loc>${SITE}${p.url === '/' ? '/' : p.url}</loc><lastmod>${p.lastmod}</lastmod><priority>${p.priority}</priority></url>`).join('\n') + '\n</urlset>\n');
+write('llms.txt', `# Aria\n\n> Aria is the financial home for independent medical practices. Keep more of every dollar you make.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Tools\n${TOOLS.map((t) => `- [${t.name}](${SITE}/tools/${t.slug}): ${t.lead}`).join('\n')}\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
 console.log(`built ${pages.length} pages: ${DATA.specialties.length} specialties, ${CATS.length} categories, ${CATS.reduce((a, c) => a + c.prods.length, 0)} products, ${nPosts} posts`);
