@@ -1,4 +1,7 @@
 // Records an Aria waitlist or "talk to us" sign-up from the site's forms.
+// Each sign-up is saved as its own JSON file in the private "aria-leads" Blob store (leads/...), so nothing
+// depends on log retention. Export them all as CSV from /api/leads?key=LEADS_ADMIN_KEY.
+import { put } from '@vercel/blob';
 // Every sign-up is written to the function log (Vercel > aria project > Logs, search "ARIA_WAITLIST").
 // If the LIGHTFIELD_WEBHOOK_URL (or WAITLIST_WEBHOOK_URL) environment variable is set, the sign-up is
 // also forwarded there as JSON, for example to a Lightfield workflow, Zapier or a Google Sheet.
@@ -24,6 +27,16 @@ export default async function handler(req, res) {
   entry.country = String(req.headers['x-vercel-ip-country'] || '');
   entry.region = String(req.headers['x-vercel-ip-country-region'] || '');
   console.log('ARIA_WAITLIST ' + JSON.stringify(entry));
+  let saved = false;
+  if (process.env.BLOB_READ_WRITE_TOKEN) {
+    try {
+      const id = entry.received_at.replace(/[:.]/g, '-') + '-' + Math.random().toString(36).slice(2, 8);
+      await put(`leads/${id}.json`, JSON.stringify(entry), { access: 'private', contentType: 'application/json', addRandomSuffix: false });
+      saved = true;
+    } catch (e) {
+      console.error('ARIA_WAITLIST_SAVE_FAILED ' + (e && e.message));
+    }
+  }
   const hook = process.env.LIGHTFIELD_WEBHOOK_URL || process.env.WAITLIST_WEBHOOK_URL;
   if (hook) {
     try {
@@ -33,5 +46,5 @@ export default async function handler(req, res) {
       console.error('ARIA_WAITLIST_FORWARD_FAILED ' + (e && e.message));
     }
   }
-  return res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true, saved });
 }
