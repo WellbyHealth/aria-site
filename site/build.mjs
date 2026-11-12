@@ -191,7 +191,9 @@ const ctaBand = (h = 'Your practice’s financial home.', p = 'Join the waitlist
 
 const pages = [];
 function page({ url, title, desc, body, graph = [], priority = '0.6', heroImg, noindex }) {
-  const full = title.includes('Aria') ? title : title + ' | Aria';
+  if (desc.length < 70) desc = desc.replace(/\.?$/, '.') + ' For independent medical practices, paid on the Aria Card.';
+  if (desc.length > 160) desc = desc.slice(0, 157).replace(/[\s,;:]+\S*$/, '') + '.';
+  const full = title.includes('Aria') || title.replace(/&amp;/g, '&').length > 53 ? title : title + ' | Aria';
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(full)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}${url}">
 <meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:image" content="${SITE}/og.png?v=20"><meta name="twitter:card" content="summary_large_image">
@@ -199,7 +201,7 @@ ${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href=
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
 ${heroImg ? `<link rel="preload" as="image" href="${heroImg}">` : ''}<link rel="stylesheet" href="${CSS}">
 ${ld([ORG, ...graph])}
-<script async src="/_vercel/insights/script.js"></script></head><body>
+</head><body>
 ${header()}<main id="main">${body}</main>${footer()}<script src="${JS}" defer></script></body></html>`;
   write(url === '/' ? 'index.html' : url.slice(1) + '.html', html);
   if (!noindex) pages.push({ url, priority });
@@ -332,7 +334,7 @@ ${p.shot ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><
 <div class="grid g4">${others.map((o) => `<a class="tile" href="${o.url}">${ic(o.icon)}<h4>${o.name}</h4><p>${o.short}</p><span class="more arrow">Learn more</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
   const desc = p.lead.slice(0, 155).replace(/\s\S*$/, '') + '.';
-  page({ url: p.url, title: p.title, desc, body, priority: '0.8', graph: [webPage(p.url, p.title, desc), crumbsLd([['Aria', '/'], ['Platform', '/platform'], [p.name, p.url]]), faqLd(p.url, p.faqs)] });
+  page({ url: p.url, title: p.title, desc, body, priority: '0.8', graph: [webPage(p.url, p.title, desc), crumbsLd([['Aria', '/'], ['Platform', '/platform'], [p.name, p.url]]), faqLd(p.url, p.faqs), { '@type': ({ card: 'CreditCard', lending: 'LoanOrCredit', 'flex-pay': 'LoanOrCredit' })[p.key] || 'Service', '@id': SITE + p.url + '#product', name: 'Aria ' + p.name.replace(/^Aria /, ''), description: desc, url: SITE + p.url, provider: { '@id': SITE + '/#org' }, areaServed: 'US', audience: { '@type': 'BusinessAudience', name: 'Independent medical practices' } }] });
 }
 
 // ---------------------------------------------------------------- specialties
@@ -341,7 +343,7 @@ const groupOf = (s) => DATA.groups.find((g) => g.slug === s.group);
 const map = { card: 'Aria Card', lending: 'Bridge Payments', 'bill-pay': 'Accounts Payable', hub: 'CFO Hub' };
 function specialtyPage(s) {
   const g = groupOf(s), url = '/specialties/' + s.slug, name = s.name, lower = name.toLowerCase();
-  const who = /(care|lab|labs|pharmacy|centers?|imaging|anesthesia|nursing|health|hospice)$/i.test(name) ? lower : lower + ' practices';
+  const who = /(care|lab|labs|pharmacy|centers?|imaging|anesthesia|groups?|nursing|health|hospice)$/i.test(name) ? lower : lower + ' practices';
   const hook = s.hook || g.h1;
   const helps = [['card', s.table['Aria Card']], ['lending', s.table['Bridge Payments']], ['bill-pay', s.table['Accounts Payable']], ['hub', [s.table['CFO Hub'], s.table['Payment Recovery']].filter(Boolean).join(' ')]].filter(([, t]) => t);
   const faqs = s.faqs.map((f) => [f.q, f.a]);
@@ -365,7 +367,8 @@ function specialtyPage(s) {
 ${faqs.length ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">What ${esc(who)} ask us.</h2></div>${faqHtml(faqs)}</div></section>` : ''}
 ${sib.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Related</span><h2>More in ${GROUP_NAME[g.slug].toLowerCase()}</h2></div><div class="chips">${sib.map((x) => `<a class="chip" href="/specialties/${x.slug}">${esc(x.name)}</a>`).join('')}<a class="chip" href="/specialties">All specialties</a></div></div></section>` : ''}
 ${ctaBand('Your practice’s financial home.', `Join the waitlist and we’ll show you what Aria would do for your ${lower} practice.`)}`;
-  const title = `Business card, financing and bill pay for ${who}`;
+  const base = who.endsWith(' practices') ? name + ' practice' : name;
+  const title = [' banking, cards and financing', ' banking and financing', ' banking', ''].map((x) => base + x).find((t) => t.replace(/&amp;/g, '&').length <= 53);
   const desc = (hook + ' ' + s.lead + ' The Aria Card earns 2% back on med-surg supplies.').slice(0, 158).replace(/\s\S*$/, '') + '.';
   page({ url, title, desc, body, priority: '0.7', graph: [webPage(url, 'Aria for ' + name, desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], gurl(g.slug)], [name, url]]), faqLd(url, faqs)] });
 }
@@ -377,7 +380,7 @@ function groupPage(g) {
 <section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g3">${mem.map((s) => `<a class="tile" href="/specialties/${s.slug}"><span class="label">${esc(s.name)}</span><h3>${esc(s.hook || s.lead)}</h3><p>${esc(s.lead)}</p><span class="more arrow">See ${esc(s.name)}</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
   const desc = (g.h1 + ' ' + g.lead + ' Cards, buy-and-bill lending and bill pay for ' + GROUP_NAME[g.slug].toLowerCase() + '.').slice(0, 158);
-  page({ url, title: `Aria for ${GROUP_NAME[g.slug].toLowerCase()}: cards, lending and bill pay`, desc, body, priority: '0.7', graph: [webPage(url, GROUP_NAME[g.slug], desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])] });
+  page({ url, title: [`Banking and financing for ${GROUP_NAME[g.slug].toLowerCase()}`, `Banking for ${GROUP_NAME[g.slug].toLowerCase()}`].find((t) => t.length <= 53) || GROUP_NAME[g.slug], desc, body, priority: '0.7', graph: [webPage(url, GROUP_NAME[g.slug], desc), crumbsLd([['Aria', '/'], ['Specialties', '/specialties'], [GROUP_NAME[g.slug], url]])] });
 }
 function specialtiesIndex() {
   const body = `
@@ -415,7 +418,7 @@ function catPage(c) {
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More categories</span></div><div class="chips">${CATS.filter((x) => x !== c).map((x) => `<a class="chip" href="/marketplace/${x.slug}">${x.name}</a>`).join('')}</div></div></section>
 ${ctaBand('Get first access to the marketplace.', 'Join the waitlist to request quotes now and order as soon as checkout opens.')}`;
   const desc = (c.name + ' for medical practices: ' + c.prods.map((p) => p.name.toLowerCase()).join(', ') + '. Paid on the Aria Card.').slice(0, 158);
-  page({ url, title: `${c.name} for medical practices`, desc, body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]]), { '@type': 'CollectionPage', name: c.name, url: SITE + url, hasPart: c.prods.map((p) => ({ '@type': 'Product', name: p.name, url: SITE + url + '/' + p.slug })) }] });
+  page({ url, title: `${c.name} for medical practices`, desc, body, priority: '0.6', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]]), { '@type': 'CollectionPage', name: c.name, url: SITE + url, mainEntity: { '@type': 'ItemList', itemListElement: c.prods.map((p, i) => ({ '@type': 'ListItem', position: i + 1, name: p.name, url: SITE + url + '/' + p.slug })) } }] });
 }
 function prodPage(c, p) {
   const url = `/marketplace/${c.slug}/${p.slug}`;
@@ -428,7 +431,7 @@ function prodPage(c, p) {
 <p class="signup-note">Pays on the Aria Card. Price and availability depend on your supplier agreement.</p></div></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">More ${c.name.toLowerCase()}</span></div><div class="grid g3">${c.prods.filter((x) => x !== p).map((x) => `<a class="tile" href="/marketplace/${c.slug}/${x.slug}"><h4>${esc(x.name)}</h4><p>${esc(x.desc)}</p><span class="more arrow">View</span></a>`).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>`;
   const desc = (p.name + '. ' + p.desc + ' ' + Object.entries(p.specs).map(([k, v]) => k + ': ' + v).join('. ')).slice(0, 158);
-  page({ url, title: `${p.name} for medical practices`, desc, body, priority: '0.5', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]]), { '@type': 'Product', name: p.name, description: p.desc, category: c.name, image: SITE + IMG('c-' + c.slug), additionalProperty: Object.entries(p.specs).map(([k, v]) => ({ '@type': 'PropertyValue', name: k, value: v })) }] });
+  page({ url, title: `${p.name} for medical practices`, desc, body, priority: '0.5', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]]), webPage(url, p.name + ' for medical practices', p.desc)] });
 }
 
 // ---------------------------------------------------------------- platform, security, join, blog, 404
