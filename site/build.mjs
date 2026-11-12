@@ -154,6 +154,12 @@ const NAV_PRODUCTS = `<div class="mega-in"><div class="mega-lead"><b class="mega
 <a class="mega-demo" href="${APP}">Try the demo ↗</a></div>
 ${MEGA_COLS.map(([h, d, l]) => `<div class="mega-col"><b>${h}</b><p>${d}</p><span class="mega-k">Products</span>${l.map(([n, u]) => `<a href="${u}">${n}</a>`).join('')}</div>`).join('')}</div>
 <a class="mega-foot" href="/join"><b>Join the waitlist <i>→</i></b><span>Be first to open an account when Aria launches.</span></a>`;
+const ICO = {
+  eye: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+  snow: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2"/></svg>',
+  sliders: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>',
+  pen: '<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"><path d="M4 20l4-1L19 8l-3-3L5 16l-1 4z"/></svg>',
+};
 function header() {
   return `<header class="hdr"><div class="wrap hdr-row">
 <a class="brand" href="/" aria-label="Aria home">${MARK}<b>ARIA</b></a>
@@ -229,6 +235,14 @@ function homePage() {
 <a class="hs reveal" href="/hub"><div class="hs-art"><div class="alert"><span class="al-k">Insight</span><b>Aetna paid 18% under contract on 42 claims</b><p>$6,310 owed since September. Appeal letters are drafted.</p><span class="al-btn">Review claims</span></div></div><h3>Know what needs you</h3><p>The Hub watches your deposits, payers and spend, and flags the money you’re owed before it slips away.</p></a>
 </div></div></section>
 
+<section class="sec" style="padding-top:0"><div class="wrap">
+<h2 class="center-h">An entire financial platform, powered by your Aria account.</h2>
+<div class="pf-grid">
+<a class="pf reveal" href="/card"><div class="pf-art pf-cards"><div class="ghost">Supplies</div><div class="ghost">Front desk</div><div class="ghost">Surgery center</div><div class="ghost">Dr. Patel</div><div class="vcard"><span class="vc-top"><i></i>Active</span>${MARK}<span class="vc-name">Supplies</span><span class="vc-num">•••• 0001</span></div><div class="ghost">Marketing</div><div class="ghost">Lab</div><div class="ghost">Software</div><div class="ghost">Travel</div></div><h3>Aria Card</h3><p>Earn 2% back on the med-surg supplies you already buy, with a card for every staff member.</p><span class="pf-go">→</span></a>
+<a class="pf reveal" href="/lending"><div class="pf-art"><div class="pf-panel"><span class="pf-k">Buy-and-bill line</span><b class="pf-big">$250,000</b><div class="bar"><i style="width:62%"></i></div><div class="lg"><span><i></i>Drawn for drugs</span><span><i class="l"></i>Available</span></div></div></div><h3>Buy-and-bill lending</h3><p>Pay for injectables and infusions now. Repay automatically when the claim pays.</p><span class="pf-go">→</span></a>
+<a class="pf reveal" href="/flex-pay"><div class="pf-art"><div class="pf-panel"><span class="pf-k">McKesson invoice</span><div class="ring-row"><svg viewBox="0 0 40 40" width="52" height="52"><circle cx="20" cy="20" r="16" fill="none" stroke="#dcdaf5" stroke-width="5"/><circle cx="20" cy="20" r="16" fill="none" stroke="#5651d8" stroke-width="5" stroke-dasharray="33.5 100.5" transform="rotate(-90 20 20)" stroke-linecap="round"/></svg><div><b>$38,400</b> paid in 3 parts<br><span class="muted">1 of 3 paid · next Dec 15</span></div></div></div></div><h3>Flex Pay</h3><p>Spread a large supplier bill over 30, 60 or 90 days while your cash keeps working.</p><span class="pf-go">→</span></a>
+</div></div></section>
+
 <section class="sec"><div class="wrap split">
 <div class="figure-card reveal">${figure()}<div class="figure-cap">Figure A<b>Aria</b></div></div>
 <div><span class="label">One home</span><h2 style="margin-top:18px">One financial home, many everyday uses.</h2>
@@ -241,12 +255,31 @@ function homePage() {
 <div class="acc"><div class="acc-list">${acc.map(([k, t, d], i) => `<div class="acc-item${i ? '' : ' open'}"><button type="button" aria-expanded="${!i}">${t}</button><div class="acc-body"><p>${d}</p><img class="m-art" src="${IMG(P[k].img)}" alt="" loading="lazy" width="1200" height="900"><a class="link arrow" href="${P[k].url}">Learn more</a></div></div>`).join('')}</div>
 <div class="acc-art art">${acc.map(([k], i) => `<img class="${i ? '' : 'on'}" src="${IMG(P[k].img)}" alt="" width="1200" height="900"${i ? ' loading="lazy"' : ''}>`).join('')}</div></div></div></section>
 
-<section class="sec dark"><div class="wrap split">
-<div><span class="label">Aria Card</span><h2 style="margin-top:18px">2% back on the supplies you already buy.</h2>
-<p class="lead" style="margin-top:22px">Gloves, syringes, injectables and devices. Put the med-surg orders your practice already places on the Aria Card and earn 2% back, with a card for every staff member and receipts matched for you.</p>
-<div class="stats" style="margin-top:40px"><div><b>2%</b><span>back on med-surg supplies</span></div><div><b>1</b><span>card for every staff member</span></div><div><b>0</b><span>receipts to chase</span></div></div>
-<p style="margin-top:32px"><a class="link arrow" href="/card">Explore the Aria Card</a></p></div>
-<div class="art reveal"><img src="${IMG('p-card')}" alt="The Aria Card" width="1200" height="900" loading="lazy"></div></div></section>
+<section class="sec"><div class="wrap split">
+<div class="cmp reveal"><div class="cmp-col"><b>$12,000</b><div class="cmp-bar" style="height:100%"></div><span>Aria Card</span></div><div class="cmp-col"><b>$0</b><div class="cmp-bar thin" style="height:3%"></div><span>Check or ACH</span></div></div>
+<div><h2 class="sm-h">Keep more of what you already spend on supplies.</h2><p style="margin-top:24px"><a class="btn btn-soft" href="/card">Learn more</a></p>
+<ul class="arrows"><li>A practice buying $50,000 of med-surg supplies a month earns about $12,000 back a year on the Aria Card.</li><li>Paying the same invoices by check or ACH earns nothing.</li></ul></div></div></section>
+<section class="sec" style="padding-top:0"><div class="wrap split">
+<div><h2 class="sm-h">Control spend effortlessly with rules that fit a practice.</h2>
+<ul class="arrows"><li>Give front desk, nursing and billing staff only the cards and accounts they need</li><li>Require approval for large orders and choose who can pay without it</li><li>Lock a card to one supplier, like Henry Schein or Medline, with its own monthly limit</li></ul></div>
+<div class="cc-stage reveal"><div class="cc"><div class="cc-h"><span>Front desk card</span><i>×</i></div>
+<div class="wcard"><div class="wc-top"><span class="vc-top"><i></i>Active</span>${MARK}</div><div class="wc-chip"></div><div class="wc-foot"><div><b>Front desk card</b><span>•••• •••• •••• 0001</span></div></div></div>
+<div class="cc-acts"><span>${ICO.eye}Details</span><span>${ICO.snow}Freeze</span><span>${ICO.sliders}Limits</span><span>${ICO.pen}Nickname</span></div>
+<div class="cc-limit"><span>Monthly limit</span><b>$2,500.00</b></div>
+<div class="cc-rows"><div><i></i>Posted<em>−$1,815.00</em></div><div><i class="l"></i>Pending<em>−$212.40</em></div><div><i class="g"></i>Available to spend<em class="g">$472.60</em></div></div>
+<div class="cc-det"><b>Details</b><div><span>Merchant lock</span><span>Henry Schein</span></div></div></div></div></div></section>
+
+
+<section class="sec" style="padding-top:0"><div class="wrap split rev">
+<div><h2 class="sm-h">Money that moves itself, on your rules.</h2>
+<ul class="arrows"><li>Separate accounts for operating, payroll, supplies and taxes</li><li>Sweep every insurer deposit into operating the day it lands</li><li>Top up payroll before every run so it never comes up short</li></ul>
+<p style="margin-top:28px"><a class="link arrow" href="/hub">See the Financial Hub</a></p></div>
+<div class="acct reveal"><div class="acct-h"><b>Accounts</b><span class="pill">+ Create account</span></div><span class="pf-k">Available</span><b class="acct-big">$612,480<sup>.32</sup></b>
+<div class="acct-t"><div class="acct-r head"><span>Account</span><span>Balance</span><span>Rule</span></div>
+<div class="acct-r"><span>${MARK}Operating</span><span>$318,204<sup>.11</sup></span><span><i class="r1"></i>Sweep insurer deposits here<em>Daily</em></span></div>
+<div class="acct-r"><span>${MARK}Payroll</span><span>$142,000<sup>.00</sup></span><span><i class="r2"></i>Restore to $140,000<em>Before each run</em></span></div>
+<div class="acct-r"><span>${MARK}Supplies</span><span>$61,776<sup>.21</sup></span><span><i class="r3"></i>Pay Aria Card in full<em>Every 15th</em></span></div>
+<div class="acct-r"><span>${MARK}Tax reserve</span><span>$90,500<sup>.00</sup></span><span><i class="r4"></i>Save 25% of net income<em>Monthly</em></span></div></div></div></div></section>
 
 <section class="sec"><div class="wrap">
 <div class="sec-head"><span class="label">The app</span><h2>See your practice the way your CFO would.</h2><p class="lead">Cash, insurer payments and what needs you, on one screen. This is the real app with sample data.</p></div>
