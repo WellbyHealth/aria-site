@@ -459,3 +459,25 @@ a.chip:hover{border-color:var(--ink)}
 .cmp-t thead .hl{border-radius:12px 12px 0 0;color:var(--accent-ink)}
 @media (max-width:760px){.cmp-t{min-width:640px}}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+
+/* Value props */
+.hero2 .pill-note{background:#fff;border-color:var(--line)}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.vp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.vp{display:flex;flex-direction:column;color:inherit;background:#f1f0f8;border-radius:20px;padding:24px 24px 28px;transition:background .2s}
+.vp:hover{background:#ebe9f6}
+.vp-art{aspect-ratio:4/3;border-radius:12px;background:#f8f7fd;display:grid;place-items:center;margin-bottom:22px;padding:18px}
+.vp-k{font-size:13px;letter-spacing:.14em;color:var(--accent-ink)}
+.vp h3{font-size:24px;font-weight:400;letter-spacing:-.015em;margin-top:8px}
+.vp p{color:var(--muted);margin-top:10px;flex:1}
+.vp-line{margin-top:20px;padding-top:16px;border-top:1px solid #e1dff0;font-family:Newsreader,serif;font-style:italic;font-size:19px;color:var(--ink)}
+.dep,.loan,.rw{width:100%;max-width:330px;background:#fff;border-radius:12px;padding:16px 18px;font-size:13.5px;box-shadow:0 18px 40px -28px rgba(30,25,80,.4)}
+.dep-h{display:flex;justify-content:space-between;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:6px}.dep-h b{font-weight:500}
+.dep-r{display:flex;justify-content:space-between;gap:10px;padding:7px 0;color:var(--muted)}.dep-r em{font-style:normal;color:#2f8a5b}
+.dep-r.warn{color:var(--ink)}.dep-r.warn em{color:#b4552d;font-weight:500}
+.loan>div:not(.arrow-d){display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:8px}.loan b{font-weight:500}.loan .on{background:var(--accent-soft)}
+.arrow-d{height:12px;margin-left:16px;border-left:1.5px dashed #c9c6e6}
+.pos{color:#2f8a5b}
+.rw>div{display:flex;justify-content:space-between;gap:10px;padding:7px 0;color:var(--muted)}.rw em{font-style:normal;color:#2f8a5b}
+.rw .tot{border-top:1px solid var(--line);margin-top:6px;padding-top:10px;color:var(--ink)}.rw .tot b{font-weight:500;color:var(--accent-ink)}
+@media (max-width:960px){.vp-grid{grid-template-columns:1fr}}

@@ -232,8 +232,9 @@ function homePage() {
   const groups = DATA.groups;
   const body = `
 <section class="hero2"><div class="wrap">
+<span class="pill-note"><i>835</i>Banking that speaks healthcare</span>
 <h1>Radically different banking for healthcare.</h1>
-<p class="lead">Join our waitlist to experience banking unlike anything that’s come before. Built for healthcare providers by people who understand how a practice gets paid, buys and grows.</p>
+<p class="lead">Your bank sees deposits. Aria sees the claims behind them, lends the way you get paid and earns 2% back on the supplies you already buy. Join the waitlist for banking unlike anything that’s come before.</p>
 <div class="hero-ctas"><form class="pill-form" data-signup="hero" data-next="/join"><label class="sr" for="em-hero">Work email</label><input id="em-hero" type="email" name="email" placeholder="Enter your email" autocomplete="email" required><button class="btn btn-accent" type="submit">Join the waitlist</button></form><a class="btn btn-ghost" href="${APP}">Try the demo</a></div>
 </div>
 <div class="wrap"><div class="stage" style="--hero:url(${IMG('hero')})">
@@ -241,6 +242,31 @@ function homePage() {
 <div class="stage-side"><div class="vcard"><span class="vc-top"><i></i>Active</span>${MARK}<span class="vc-name">Supplies</span><span class="vc-num">•••• 0001</span><span class="vc-back">2% back</span></div>
 <div class="mini"><span>Medline Industries</span><b>−$2,184.20</b><em>+$43.68 cash back</em></div></div>
 </div><p class="stage-note">Aria is a financial technology company, not a bank. Banking services will be provided by licensed partner institutions.</p></div></section>
+
+<section class="sec"><div class="wrap">
+<div class="sec-head center"><span class="label">Why Aria</span><h2>We know how your practice gets paid.</h2><p class="lead">A typical bank sees a lump deposit and a card swipe. Aria sees the payer, the claim, the drug and the location behind every dollar.</p></div>
+<div class="vp-grid">
+<a class="vp reveal" href="/hub"><div class="vp-art"><div class="dep"><div class="dep-h"><span>UnitedHealthcare deposit</span><b>$12,480.00</b></div><div class="dep-r"><span>Claim 4471 · 99214</span><em>Paid in full</em></div><div class="dep-r"><span>Claim 4472 · 20610</span><em>Paid in full</em></div><div class="dep-r warn"><span>Claim 4475 · J0702</span><em>$310 short</em></div></div></div>
+<span class="vp-k">01</span><h3>We see your claims.</h3><p>Every insurer deposit is matched to the remittance behind it, so short pays and denials surface the day the money lands, not at month end.</p><span class="vp-line">Your bank sees deposits. We see claims.</span></a>
+<a class="vp reveal" href="/lending"><div class="vp-art"><div class="loan"><div><span>Eylea order funded</span><b>−$18,600</b></div><div class="arrow-d"></div><div><span>Medicare claim paid</span><b class="pos">+$21,240</b></div><div class="arrow-d"></div><div class="on"><span>Repaid from claim</span><b>Keep $2,640</b></div></div></div>
+<span class="vp-k">02</span><h3>Credit built on how you get paid.</h3><p>Banks lend on last year’s tax return. Aria’s buy-and-bill lending is sized to your drug volume and repaid when the claim pays, not on a fixed monthly schedule.</p><span class="vp-line">Lending that waits for Medicare, so you don’t have to.</span></a>
+<a class="vp reveal" href="/card"><div class="vp-art"><div class="rw"><div><span>Medline · exam gloves</span><em>+$83.68</em></div><div><span>McKesson · syringes</span><em>+$52.70</em></div><div><span>Henry Schein · wound care</span><em>+$41.20</em></div><div class="tot"><span>Back this month</span><b>$177.58</b></div></div></div>
+<span class="vp-k">03</span><h3>Rewards where you actually spend.</h3><p>Generic cards reward flights and ads. The Aria Card earns 2% back on the med-surg supplies that make up most of a practice’s spending.</p><span class="vp-line">2% back on gloves, not airline miles.</span></a>
+</div></div></section>
+
+<section class="sec" style="padding-top:0"><div class="wrap">
+<div class="sec-head"><span class="label">The difference</span><h2>Aria vs. a typical business bank.</h2></div>
+<div class="tw"><table class="tbl cmp-t"><thead><tr><th></th><th>Typical business bank</th><th class="hl">Aria</th></tr></thead><tbody>
+<tr><th>Insurer deposits</th><td>One lump sum from the payer</td><td class="hl">Matched to each claim, with short pays flagged</td></tr>
+<tr><th>Cash forecast</th><td>Last month projected forward</td><td class="hl">13 weeks ahead, based on when each payer usually pays</td></tr>
+<tr><th>Lending</th><td>Underwritten on tax returns, fixed monthly payments</td><td class="hl">Sized to drug volume, repaid from claim payments</td></tr>
+<tr><th>Card rewards</th><td>Travel, software and ads</td><td class="hl">2% on medical and surgical supplies</td></tr>
+<tr><th>Books</th><td>Sorted by vendor</td><td class="hl">By provider, location and payer</td></tr>
+<tr><th>Patient data</th><td>Often won’t sign a BAA</td><td class="hl">Signs a BAA before handling remittance files</td></tr>
+<tr><th>Built for</th><td>Every kind of business</td><td class="hl">39 healthcare specialties, from retina to home health</td></tr>
+</tbody></table></div>
+<p class="muted" style="font-size:14px;margin-top:14px">Lending, card and account terms are set at launch with licensed partner institutions and given in writing before you apply.</p>
+</div></section>
 
 <section class="sec"><div class="wrap">
 <div class="hs-rule"></div><h2 class="hs-h">Practice banking’s been a headache. Now it’s a head start.</h2>
@@ -325,7 +351,7 @@ function homePage() {
 <div><span class="label">Questions</span><h2 style="margin-top:18px">What practices ask us.</h2></div>
 ${faqHtml(HOME_FAQ)}</div></section>
 ${ctaBand()}`;
-  page({ url: '/', title: 'Aria: radically different banking for healthcare', desc: 'Banking built for healthcare providers. Keep more of every dollar your practice makes. The Aria Card earns 2% back on med-surg supplies, with buy-and-bill lending, bill pay and a financial hub built for independent medical practices.', body, priority: '1.0', heroImg: IMG('hero'), graph: [{ '@type': 'WebSite', '@id': SITE + '/#site', name: 'Aria', url: SITE + '/' }, faqLd('/', HOME_FAQ)] });
+  page({ url: '/', title: 'Aria: radically different banking for healthcare', desc: 'Banking that knows healthcare. Aria matches every insurer deposit to its claims, lends on how practices get paid and earns 2% back on med-surg supplies.', body, priority: '1.0', heroImg: IMG('hero'), graph: [{ '@type': 'WebSite', '@id': SITE + '/#site', name: 'Aria', url: SITE + '/' }, faqLd('/', HOME_FAQ)] });
 }
 
 // ---------------------------------------------------------------- platform and products
@@ -594,5 +620,5 @@ for (const p of pages) {
 }
 fs.writeFileSync(LM_FILE, JSON.stringify(lastmod, null, 0).replace(/},"/g, '},\n"'));
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + pages.map((p) => `  <url><loc>${SITE}${p.url === '/' ? '/' : p.url}</loc><lastmod>${p.lastmod}</lastmod><priority>${p.priority}</priority></url>`).join('\n') + '\n</urlset>\n');
-write('llms.txt', `# Aria\n\n> Aria is the financial home for independent medical practices. Keep more of every dollar you make.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Tools\n${TOOLS.map((t) => `- [${t.name}](${SITE}/tools/${t.slug}): ${t.lead}`).join('\n')}\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
+write('llms.txt', `# Aria\n\n> Aria is banking built for healthcare practices. It matches insurer deposits to the claims behind them, offers buy-and-bill lending repaid from claim payments, and earns 2% back on medical and surgical supplies.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Tools\n${TOOLS.map((t) => `- [${t.name}](${SITE}/tools/${t.slug}): ${t.lead}`).join('\n')}\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
 console.log(`built ${pages.length} pages: ${DATA.specialties.length} specialties, ${CATS.length} categories, ${CATS.reduce((a, c) => a + c.prods.length, 0)} products, ${nPosts} posts`);
