@@ -263,7 +263,7 @@ function homePage() {
 <tr><th>Card rewards</th><td>Travel, software and ads</td><td class="hl">2% on medical and surgical supplies</td></tr>
 <tr><th>Books</th><td>Sorted by vendor</td><td class="hl">By provider, location and payer</td></tr>
 <tr><th>Patient data</th><td>Often won’t sign a BAA</td><td class="hl">Signs a BAA before handling remittance files</td></tr>
-<tr><th>Built for</th><td>Every kind of business</td><td class="hl">39 healthcare specialties, from retina to home health</td></tr>
+<tr><th>Built for</th><td>Every kind of business</td><td class="hl">39 healthcare specialties, from retina to dentistry</td></tr>
 </tbody></table></div>
 <p class="muted" style="font-size:14px;margin-top:14px">Lending, card and account terms are set at launch with licensed partner institutions and given in writing before you apply.</p>
 </div></section>
