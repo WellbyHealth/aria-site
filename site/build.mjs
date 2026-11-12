@@ -2,6 +2,7 @@
 // Pages: home, platform and five products, specialties (index, groups, 39 specialties), marketplace
 // (home, categories, products), blog, security, join, 404. Content lives in this file and site/data/.
 import { GUIDES } from './data/group-guides.mjs';
+import { DEPTH } from './data/product-depth.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -328,6 +329,7 @@ ${ctaBand()}`;
 
 // ---------------------------------------------------------------- platform and products
 function productPage(p) {
+  const pf = [...p.faqs, ...((DEPTH[p.key] || {}).faqs || [])];
   const others = PRODUCTS.filter((x) => x !== p);
   const specs = DATA.specialties.filter((s) => (p.key === 'lending' ? BUYBILL.has(s.slug) : true)).slice(0, 12);
   const body = `
@@ -340,12 +342,14 @@ function productPage(p) {
 <div class="grid g3">${p.features.map(([i, t, d]) => `<div class="tile">${ic(i)}<h4>${t}</h4><p>${d}</p></div>`).join('')}</div></div></section>
 ${p.shot ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">In the app</span><h2>See it with sample data.</h2></div><div class="art frame reveal">${appFrame(p.shot, p.name + ' in the Aria app, sample data')}</div></div></section>` : ''}
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Specialties</span><h2>Popular with</h2></div><div class="chips">${specs.map((s) => `<a class="chip" href="/specialties/${s.slug}">${esc(s.name)}</a>`).join('')}<a class="chip" href="/specialties">All specialties</a></div></div></section>
-<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">About ${p.name}</h2></div>${faqHtml(p.faqs)}</div></section>
+${DEPTH[p.key] ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">An example</span><h2 style="margin-top:18px">What it looks like in a practice.</h2></div><div class="prose">${DEPTH[p.key].example.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div></section>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Compared</span><h2>How practices handle it today.</h2></div><div class="tw"><table class="tbl cmp-t"><thead><tr><th></th>${DEPTH[p.key].compare.cols.map((c, i, a) => `<th${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</th>`).join('')}</tr></thead><tbody>${DEPTH[p.key].compare.rows.map((r) => `<tr><th>${esc(r[0])}</th>${r.slice(1).map((c, i, a) => `<td${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div></section>` : ''}
+<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">About ${p.name}</h2></div>${faqHtml(pf)}</div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Works with ${p.name}</span><h2>The rest of your financial home.</h2></div>
 <div class="grid g4">${others.map((o) => `<a class="tile" href="${o.url}">${ic(o.icon)}<h4>${o.name}</h4><p>${o.short}</p><span class="more arrow">Learn more</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
   const desc = clip(p.lead);
-  page({ url: p.url, title: p.title, desc, body, priority: '0.8', graph: [webPage(p.url, p.title, desc), crumbsLd([['Aria', '/'], ['Platform', '/platform'], [p.name, p.url]]), faqLd(p.url, p.faqs), { '@type': ({ card: 'CreditCard', lending: 'LoanOrCredit', 'flex-pay': 'LoanOrCredit' })[p.key] || 'Service', '@id': SITE + p.url + '#product', name: 'Aria ' + p.name.replace(/^Aria /, ''), description: desc, url: SITE + p.url, provider: { '@id': SITE + '/#org' }, areaServed: 'US', audience: { '@type': 'BusinessAudience', name: 'Independent medical practices' } }] });
+  page({ url: p.url, title: p.title, desc, body, priority: '0.8', graph: [webPage(p.url, p.title, desc), crumbsLd([['Aria', '/'], ['Platform', '/platform'], [p.name, p.url]]), faqLd(p.url, pf), { '@type': ({ card: 'CreditCard', lending: 'LoanOrCredit', 'flex-pay': 'LoanOrCredit' })[p.key] || 'Service', '@id': SITE + p.url + '#product', name: 'Aria ' + p.name.replace(/^Aria /, ''), description: desc, url: SITE + p.url, provider: { '@id': SITE + '/#org' }, areaServed: 'US', audience: { '@type': 'BusinessAudience', name: 'Independent medical practices' } }] });
 }
 
 // ---------------------------------------------------------------- specialties

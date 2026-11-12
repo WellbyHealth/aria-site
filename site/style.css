@@ -452,3 +452,10 @@ a.chip:hover{border-color:var(--ink)}
 .tbl .n{text-align:right;white-space:nowrap;padding-left:16px}
 .tbl thead th{width:auto;color:var(--muted);font-weight:400;font-size:14px}
 .tbl thead th.n{padding-right:0}
+.cmp-t th,.cmp-t td{padding:16px 18px 16px 0;width:auto}
+.cmp-t thead th{font-size:14px;color:var(--muted);font-weight:500}
+.cmp-t tbody th{font-weight:500;color:var(--ink);width:22%}
+.cmp-t .hl{background:var(--accent-soft);color:var(--ink);padding-left:18px}
+.cmp-t thead .hl{border-radius:12px 12px 0 0;color:var(--accent-ink)}
+@media (max-width:760px){.cmp-t{min-width:640px}}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
