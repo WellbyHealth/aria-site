@@ -13,7 +13,7 @@ export default function Bills() {
       <div className="kpi"><span className="lbl">Outstanding</span><div className="v">{out.length}</div><span className="meta">{usd(out.reduce((s, b) => s + b.cents, 0))}</span></div>
       <div className="kpi"><span className="lbl">Ready to approve</span><div className="v">{ready.length}</div><span className="meta">{usd(ready.reduce((s, b) => s + b.cents, 0))}</span></div>
       <div className="kpi"><span className="lbl">Overdue</span><div className="v bad">{overdue.length}</div><span className="meta">{usd(overdue.reduce((s, b) => s + b.cents, 0))}</span></div>
-      <div className="kpi"><span className="lbl">Due in 7 days</span><div className="v">2</div><span className="meta">$7,036.86</span></div>
+      <div className="kpi"><span className="lbl">Due in 7 days</span><div className="v">2</div><span className="meta">$703,475.00</span></div>
     </div>
     <section className="card">
       <header><h2>Bills</h2><span className="lbl"><Icon name="spark" size={14} /> Read and coded by Aria. Check before you approve.</span></header>
