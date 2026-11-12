@@ -26,6 +26,7 @@ const cpDir = (from, to) => fs.existsSync(from) && fs.cpSync(from, to, { recursi
 cpDir(path.join(ROOT, 'assets'), path.join(OUT, 'assets'));
 cpDir(path.join(ROOT, 'site/img'), path.join(OUT, 'assets/site'));
 cpDir(path.join(ROOT, 'og'), path.join(OUT, 'og'));
+cpDir(path.join(ROOT, 'icons'), path.join(OUT, 'icons'));
 for (const f of ['favicon.ico', 'apple-touch-icon.png', 'og.png', 'robots.txt', 'privacy.html', 'demo.html']) if (fs.existsSync(path.join(ROOT, f))) fs.copyFileSync(path.join(ROOT, f), path.join(OUT, f));
 const hash = (f) => crypto.createHash('md5').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
 fs.copyFileSync(path.join(ROOT, 'site/style.css'), path.join(OUT, 'assets/site/style.css'));
@@ -216,7 +217,7 @@ function page({ url, title, desc, body, graph = [], priority = '0.6', heroImg, n
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(full)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}${url}">
 <meta property="og:type" content="website"><meta property="og:title" content="${esc(full)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${SITE}${url}"><meta property="og:site_name" content="Aria"><meta property="og:locale" content="en_US"><meta property="og:image" content="${SITE}${ogImg}"><meta property="og:image:secure_url" content="${SITE}${ogImg}"><meta property="og:image:type" content="${ogImg.includes('.jpg') ? 'image/jpeg' : 'image/png'}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="${esc(ogAlt)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(full)}"><meta name="twitter:description" content="${esc(desc)}"><meta name="twitter:image" content="${SITE}${ogImg}">
-${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href="/favicon.ico?v=5" sizes="48x48"><link rel="icon" type="image/svg+xml" href="/assets/site/mark.svg"><link rel="apple-touch-icon" href="/apple-touch-icon.png?v=5"><meta name="theme-color" content="#fbfbfc">
+${noindex ? '<meta name="robots" content="noindex">' : ''}<link rel="icon" href="/icons/aria.ico" sizes="any"><link rel="icon" type="image/svg+xml" href="/icons/aria.svg"><link rel="icon" type="image/png" sizes="32x32" href="/icons/aria-32.png"><link rel="icon" type="image/png" sizes="16x16" href="/icons/aria-16.png"><link rel="apple-touch-icon" sizes="180x180" href="/icons/aria-180.png"><link rel="mask-icon" href="/icons/aria.svg" color="#171721"><link rel="manifest" href="/icons/site.webmanifest"><meta name="theme-color" content="#fbfbfc">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300..600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap">
 ${heroImg ? `<link rel="preload" as="image" href="${heroImg}">` : ''}<link rel="stylesheet" href="${CSS}">
 ${ld([ORG, ...graph])}
