@@ -1,9 +1,8 @@
-// The Aria card mark, same as the website.
+// The Aria mark: twelve linked rings, one for each tribe, inside a circle. Same as the website.
 export function Logo({ size = 20 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true">
-      <defs><linearGradient id="aria-card-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#8f86f0" /><stop offset="1" stopColor="#f0a3c8" /></linearGradient></defs>
-      <g transform="rotate(-14 50 50)"><rect x="8" y="22" width="84" height="56" rx="12" fill="url(#aria-card-g)" /><rect x="18" y="36" width="17" height="13" rx="3.5" fill="#f2c94c" /><g fill="#fff"><rect x="68" y="54" width="8" height="18" rx="4" /><rect x="63" y="59" width="18" height="8" rx="4" /></g></g>
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" aria-hidden="true" style={{ color: 'currentColor' }}>
+      <circle cx="50" cy="50" r="46" strokeWidth="3"/><path d="M51.674,31.872 A11,11 0 0 1 39.269,18.582"/><path d="M43.114,12.422 A11,11 0 0 1 58.084,28.460"/><path d="M60.514,35.138 A11,11 0 0 1 56.416,17.425"/><path d="M62.826,14.013 A11,11 0 0 1 67.771,35.388"/><path d="M66.537,42.386 A11,11 0 0 1 71.844,24.998"/><path d="M79.101,25.248 A11,11 0 0 1 72.696,46.231"/><path d="M68.128,51.674 A11,11 0 0 1 81.418,39.269"/><path d="M87.578,43.114 A11,11 0 0 1 71.540,58.084"/><path d="M64.862,60.514 A11,11 0 0 1 82.575,56.416"/><path d="M85.987,62.826 A11,11 0 0 1 64.612,67.771"/><path d="M74.752,79.101 A11,11 0 0 1 53.769,72.696"/><path d="M57.614,66.537 A11,11 0 0 1 75.002,71.844"/><path d="M56.886,87.578 A11,11 0 0 1 41.916,71.540"/><path d="M48.326,68.128 A11,11 0 0 1 60.731,81.418"/><path d="M37.174,85.987 A11,11 0 0 1 32.229,64.612"/><path d="M39.486,64.862 A11,11 0 0 1 43.584,82.575"/><path d="M20.899,74.752 A11,11 0 0 1 27.304,53.769"/><path d="M33.463,57.614 A11,11 0 0 1 28.156,75.002"/><path d="M12.422,56.886 A11,11 0 0 1 28.460,41.916"/><path d="M31.872,48.326 A11,11 0 0 1 18.582,60.731"/><path d="M35.138,39.486 A11,11 0 0 1 17.425,43.584"/><path d="M14.013,37.174 A11,11 0 0 1 35.388,32.229"/><path d="M42.386,33.463 A11,11 0 0 1 24.998,28.156"/><path d="M25.248,20.899 A11,11 0 0 1 46.231,27.304"/>
     </svg>
   );
 }

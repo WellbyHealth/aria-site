@@ -14,7 +14,7 @@ export default async function Login({ searchParams }: { searchParams: Promise<{ 
   const sp = await searchParams;
   return (
     <main className="login"><div className="card">
-      <div className="brand" style={{ padding: "0 0 18px" }}><Logo size={26} />Aria CFO Hub</div>
+      <div className="brand" style={{ padding: "0 0 18px" }}><Logo size={26} /><span style={{ letterSpacing: ".28em", fontWeight: 500 }}>ARIA</span></div>
       <h1 style={{ fontSize: 22, marginBottom: 16 }}>Sign in</h1>
       {sp.error && <div className="banner err">That email and password don’t match.</div>}
       {isDemo() && <div className="banner">Demo mode with sample data. Sign in as <b>{DEMO_EMAIL}</b>, password <b>{DEMO_PASSWORD}</b>.</div>}
