@@ -123,18 +123,18 @@
    "rows": [
     {
      "name": "Flu vaccine pre-book",
-     "desc": "Quadrivalent, 10-dose vials",
-     "amt": "\u2212$3,840.00"
+     "desc": "Quadrivalent, full-season pre-book",
+     "amt": "\u2212$384,000.00"
     },
     {
      "name": "Reference lab",
      "desc": "Monthly invoice, CBC and CMP panels",
-     "amt": "\u2212$1,120.00"
+     "amt": "\u2212$249,480.00"
     },
     {
      "name": "POC test kits",
      "desc": "Strep A and flu A/B",
-     "amt": "\u2212$486.40"
+     "amt": "\u2212$186,320.00"
     }
    ],
    "outcomes": [
@@ -221,17 +221,17 @@
     {
      "name": "Private-stock vaccines",
      "desc": "DTaP, MMR and RSV fall order",
-     "amt": "\u2212$5,210.00"
+     "amt": "\u2212$521,000.00"
     },
     {
      "name": "Well-child supplies",
      "desc": "Otoscope specula, swabs",
-     "amt": "\u2212$248.90"
+     "amt": "\u2212$179,700.00"
     },
     {
      "name": "Vaccine refrigerator monitor",
      "desc": "Digital data logger",
-     "amt": "\u2212$189.00"
+     "amt": "\u2212$163,190.00"
     }
    ],
    "outcomes": [
@@ -313,18 +313,18 @@
    "rows": [
     {
      "name": "Contraceptive devices",
-     "desc": "Hormonal IUDs, 6 units",
-     "amt": "\u2212$4,980.00"
+     "desc": "Hormonal IUDs, quarterly stock",
+     "amt": "\u2212$473,100.00"
     },
     {
      "name": "Reference lab",
      "desc": "Prenatal panels and Paps",
-     "amt": "\u2212$1,320.00"
+     "amt": "\u2212$297,250.00"
     },
     {
      "name": "Procedure supplies",
      "desc": "Colposcopy, biopsy",
-     "amt": "\u2212$412.00"
+     "amt": "\u2212$197,760.00"
     }
    ],
    "outcomes": [
@@ -407,17 +407,17 @@
     {
      "name": "POC test kits",
      "desc": "Strep A, flu A/B, COVID",
-     "amt": "\u2212$1,240.00"
+     "amt": "\u2212$248,000.00"
     },
     {
      "name": "Laceration supplies",
      "desc": "Trays, suture, skin adhesive",
-     "amt": "\u2212$386.50"
+     "amt": "\u2212$164,910.00"
     },
     {
      "name": "Radiology reads",
      "desc": "Monthly invoice",
-     "amt": "\u2212$1,150.00"
+     "amt": "\u2212$241,550.00"
     }
    ],
    "outcomes": [
@@ -503,18 +503,18 @@
    "rows": [
     {
      "name": "EHR and telehealth",
-     "desc": "Monthly, 12 clinicians",
-     "amt": "\u2212$540.00"
+     "desc": "Annual, 120 clinicians",
+     "amt": "\u2212$244,160.00"
     },
     {
      "name": "Testing materials",
      "desc": "Neuropsych protocols and scoring",
-     "amt": "\u2212$860.00"
+     "amt": "\u2212$287,350.00"
     },
     {
      "name": "Office sublease",
      "desc": "Monthly",
-     "amt": "\u2212$2,400.00"
+     "amt": "\u2212$411,540.00"
     }
    ],
    "outcomes": [
@@ -597,17 +597,17 @@
     {
      "name": "Allergen extracts",
      "desc": "Standardized mites, grasses, trees",
-     "amt": "\u2212$1,640.00"
+     "amt": "\u2212$210,220.00"
     },
     {
      "name": "Biologic",
-     "desc": "Buy-and-bill, 4 syringes",
-     "amt": "\u2212$6,980.00"
+     "desc": "Buy-and-bill, quarterly order",
+     "amt": "\u2212$349,000.00"
     },
     {
      "name": "Skin testing supplies",
      "desc": "Multi-test devices",
-     "amt": "\u2212$312.00"
+     "amt": "\u2212$117,610.00"
     }
    ],
    "outcomes": [
@@ -689,18 +689,18 @@
    "rows": [
     {
      "name": "Hearing aids",
-     "desc": "Manufacturer order, 2 pairs",
-     "amt": "\u2212$3,960.00"
+     "desc": "Manufacturer order, quarterly",
+     "amt": "\u2212$396,000.00"
     },
     {
      "name": "Earmolds and repairs",
      "desc": "Monthly lab invoice",
-     "amt": "\u2212$420.00"
+     "amt": "\u2212$180,570.00"
     },
     {
      "name": "Batteries and domes",
      "desc": "Quarterly restock",
-     "amt": "\u2212$286.00"
+     "amt": "\u2212$157,840.00"
     }
    ],
    "outcomes": [
@@ -779,17 +779,17 @@
     {
      "name": "Radiopharmaceuticals",
      "desc": "Nuclear stress, weekly",
-     "amt": "\u2212$2,140.00"
+     "amt": "\u2212$348,610.00"
     },
     {
      "name": "Echo service contract",
      "desc": "Monthly",
-     "amt": "\u2212$1,850.00"
+     "amt": "\u2212$331,290.00"
     },
     {
      "name": "Event monitors",
-     "desc": "Patch monitors, 10",
-     "amt": "\u2212$1,200.00"
+     "desc": "Patch monitors, quarterly order",
+     "amt": "\u2212$284,710.00"
     }
    ],
    "outcomes": [
@@ -871,18 +871,18 @@
    "rows": [
     {
      "name": "Neurotoxin order",
-     "desc": "Cosmetic, 4 vials",
-     "amt": "\u2212$2,240.00"
+     "desc": "Cosmetic, quarterly order",
+     "amt": "\u2212$364,900.00"
     },
     {
      "name": "Dermatopathology",
      "desc": "Monthly biopsy reads",
-     "amt": "\u2212$1,860.00"
+     "amt": "\u2212$341,910.00"
     },
     {
      "name": "Mohs supplies",
      "desc": "Trays, sutures, histology",
-     "amt": "\u2212$726.50"
+     "amt": "\u2212$246,050.00"
     }
    ],
    "outcomes": [
@@ -964,18 +964,18 @@
    "rows": [
     {
      "name": "A1c test cartridges",
-     "desc": "Point-of-care, box of 20",
-     "amt": "\u2212$486.00"
+     "desc": "Point-of-care, annual supply",
+     "amt": "\u2212$217,650.00"
     },
     {
      "name": "Bone health injection",
-     "desc": "Buy-and-bill, 4 doses",
-     "amt": "\u2212$5,280.00"
+     "desc": "Buy-and-bill, quarterly order",
+     "amt": "\u2212$501,600.00"
     },
     {
      "name": "DXA service contract",
      "desc": "Monthly",
-     "amt": "\u2212$640.00"
+     "amt": "\u2212$239,660.00"
     }
    ],
    "outcomes": [
@@ -1058,17 +1058,17 @@
     {
      "name": "Culture media",
      "desc": "Embryology lab, monthly",
-     "amt": "\u2212$3,860.00"
+     "amt": "\u2212$386,000.00"
     },
     {
      "name": "Liquid nitrogen",
      "desc": "Cryostorage refill",
-     "amt": "\u2212$740.00"
+     "amt": "\u2212$216,530.00"
     },
     {
      "name": "Genetic testing lab",
-     "desc": "PGT-A, 6 embryos",
-     "amt": "\u2212$2,400.00"
+     "desc": "PGT-A, quarterly invoice",
+     "amt": "\u2212$326,860.00"
     }
    ],
    "outcomes": [
@@ -1143,17 +1143,17 @@
     {
      "name": "Endoscopy disposables",
      "desc": "Biopsy forceps, snares, clips",
-     "amt": "\u2212$2,860.00"
+     "amt": "\u2212$314,780.00"
     },
     {
      "name": "Scope repair",
      "desc": "Colonoscope insertion tube",
-     "amt": "\u2212$4,200.00"
+     "amt": "\u2212$360,100.00"
     },
     {
      "name": "Pathology",
      "desc": "Monthly biopsy reads",
-     "amt": "\u2212$1,940.00"
+     "amt": "\u2212$274,800.00"
     }
    ],
    "outcomes": [
@@ -1235,18 +1235,18 @@
    "rows": [
     {
      "name": "Botulinum toxin",
-     "desc": "Chronic migraine, 4 vials",
-     "amt": "\u2212$4,160.00"
+     "desc": "Chronic migraine, quarterly order",
+     "amt": "\u2212$222,540.00"
     },
     {
      "name": "EEG supplies",
      "desc": "Electrodes, paste, caps",
-     "amt": "\u2212$412.00"
+     "amt": "\u2212$100,410.00"
     },
     {
      "name": "MS infusion therapy",
-     "desc": "Buy-and-bill, 1 dose",
-     "amt": "\u2212$18,900.00"
+     "desc": "Buy-and-bill, quarterly order",
+     "amt": "\u2212$378,000.00"
     }
    ],
    "outcomes": [
@@ -1328,18 +1328,18 @@
    "rows": [
     {
      "name": "Asthma biologic",
-     "desc": "Buy-and-bill, 4 syringes",
-     "amt": "\u2212$7,240.00"
+     "desc": "Buy-and-bill, quarterly order",
+     "amt": "\u2212$362,000.00"
     },
     {
      "name": "Home sleep tests",
-     "desc": "Disposable kits, 10",
-     "amt": "\u2212$1,450.00"
+     "desc": "Disposable kits, annual order",
+     "amt": "\u2212$206,200.00"
     },
     {
      "name": "CPAP masks",
      "desc": "Resupply order",
-     "amt": "\u2212$860.00"
+     "amt": "\u2212$171,740.00"
     }
    ],
    "outcomes": [
@@ -1421,18 +1421,18 @@
    "rows": [
     {
      "name": "Biologic infusion drug",
-     "desc": "Specialty distributor, 8 vials",
-     "amt": "\u2212$21,400.00"
+     "desc": "Specialty distributor, monthly order",
+     "amt": "\u2212$428,000.00"
     },
     {
      "name": "Infusion supplies",
      "desc": "IV sets, CSTDs",
-     "amt": "\u2212$1,280.00"
+     "amt": "\u2212$159,710.00"
     },
     {
      "name": "USP 800 supplies",
      "desc": "Gowns, chemo gloves",
-     "amt": "\u2212$412.00"
+     "amt": "\u2212$107,400.00"
     }
    ],
    "outcomes": [
@@ -1514,18 +1514,18 @@
    "rows": [
     {
      "name": "Biologic infusion",
-     "desc": "Buy-and-bill, 6 vials",
-     "amt": "\u2212$14,280.00"
+     "desc": "Buy-and-bill, monthly order",
+     "amt": "\u2212$285,600.00"
     },
     {
      "name": "Joint injections",
      "desc": "Corticosteroid, viscosupplement",
-     "amt": "\u2212$1,260.00"
+     "amt": "\u2212$122,100.00"
     },
     {
      "name": "Infusion supplies",
      "desc": "IV sets, filters",
-     "amt": "\u2212$318.00"
+     "amt": "\u2212$100,320.00"
     }
    ],
    "outcomes": [
@@ -1608,17 +1608,17 @@
     {
      "name": "ESA drug order",
      "desc": "Buy-and-bill, monthly",
-     "amt": "\u2212$7,860.00"
+     "amt": "\u2212$393,000.00"
     },
     {
      "name": "Vascular access supplies",
      "desc": "Balloons, catheters",
-     "amt": "\u2212$3,420.00"
+     "amt": "\u2212$293,700.00"
     },
     {
      "name": "Reference lab",
      "desc": "Renal panels, monthly",
-     "amt": "\u2212$1,140.00"
+     "amt": "\u2212$199,950.00"
     }
    ],
    "outcomes": [
@@ -1700,18 +1700,18 @@
    "rows": [
     {
      "name": "Viscosupplement injections",
-     "desc": "Knee, 10 syringes",
-     "amt": "\u2212$3,450.00"
+     "desc": "Knee, quarterly order",
+     "amt": "\u2212$345,000.00"
     },
     {
      "name": "DME",
      "desc": "Knee braces and CAM boots",
-     "amt": "\u2212$1,180.00"
+     "amt": "\u2212$237,000.00"
     },
     {
      "name": "MRI service contract",
      "desc": "Monthly",
-     "amt": "\u2212$2,900.00"
+     "amt": "\u2212$324,650.00"
     }
    ],
    "outcomes": [
@@ -1793,18 +1793,18 @@
    "rows": [
     {
      "name": "Sinus dilation devices",
-     "desc": "Balloon kits, 4 units",
-     "amt": "\u2212$3,600.00"
+     "desc": "Balloon kits, quarterly order",
+     "amt": "\u2212$360,000.00"
     },
     {
      "name": "Scope repair",
      "desc": "Flexible laryngoscope",
-     "amt": "\u2212$2,450.00"
+     "amt": "\u2212$314,630.00"
     },
     {
      "name": "Allergen extracts",
      "desc": "Immunotherapy vials",
-     "amt": "\u2212$1,180.00"
+     "amt": "\u2212$243,640.00"
     }
    ],
    "outcomes": [
@@ -1886,18 +1886,18 @@
    "rows": [
     {
      "name": "Hormone therapy injections",
-     "desc": "Buy-and-bill, 12 doses",
-     "amt": "\u2212$9,840.00"
+     "desc": "Buy-and-bill, quarterly order",
+     "amt": "\u2212$492,000.00"
     },
     {
      "name": "Cystoscope repair",
      "desc": "Flexible scope",
-     "amt": "\u2212$2,650.00"
+     "amt": "\u2212$310,850.00"
     },
     {
      "name": "Clinic supplies",
      "desc": "Catheters, UA strips",
-     "amt": "\u2212$386.00"
+     "amt": "\u2212$158,390.00"
     }
    ],
    "outcomes": [
@@ -1979,18 +1979,18 @@
    "rows": [
     {
      "name": "Breast implants",
-     "desc": "Silicone, 1 pair",
-     "amt": "\u2212$3,200.00"
+     "desc": "Silicone, quarterly consignment",
+     "amt": "\u2212$320,000.00"
     },
     {
      "name": "OR supplies",
      "desc": "Drapes, sutures, anesthesia",
-     "amt": "\u2212$1,980.00"
+     "amt": "\u2212$270,510.00"
     },
     {
      "name": "Injectables",
      "desc": "Aesthetics side, monthly order",
-     "amt": "\u2212$2,640.00"
+     "amt": "\u2212$299,160.00"
     }
    ],
    "outcomes": [
@@ -2072,18 +2072,18 @@
    "rows": [
     {
      "name": "Orthotics lab",
-     "desc": "Custom functional orthotics, 5 pairs",
-     "amt": "\u2212$1,450.00"
+     "desc": "Custom functional orthotics, quarterly",
+     "amt": "\u2212$290,000.00"
     },
     {
      "name": "Wound care",
      "desc": "Collagen dressings, foam",
-     "amt": "\u2212$684.20"
+     "amt": "\u2212$222,960.00"
     },
     {
      "name": "DME",
-     "desc": "CAM walker boots, 6",
-     "amt": "\u2212$522.00"
+     "desc": "CAM walker boots, annual stock",
+     "amt": "\u2212$202,820.00"
     }
    ],
    "outcomes": [
@@ -2165,18 +2165,18 @@
    "rows": [
     {
      "name": "Vein ablation catheters",
-     "desc": "Single-use, 4 units",
-     "amt": "\u2212$3,200.00"
+     "desc": "Single-use, quarterly order",
+     "amt": "\u2212$320,000.00"
     },
     {
      "name": "Duplex ultrasound service",
      "desc": "Monthly",
-     "amt": "\u2212$780.00"
+     "amt": "\u2212$195,250.00"
     },
     {
      "name": "Procedure supplies",
      "desc": "Excision trays, suture",
-     "amt": "\u2212$412.00"
+     "amt": "\u2212$156,160.00"
     }
    ],
    "outcomes": [
@@ -2258,18 +2258,18 @@
    "rows": [
     {
      "name": "RF ablation probes",
-     "desc": "Single-use, box of 10",
-     "amt": "\u2212$2,650.00"
+     "desc": "Single-use, quarterly order",
+     "amt": "\u2212$410,100.00"
     },
     {
      "name": "Injection supplies",
      "desc": "Spinal needles, contrast",
-     "amt": "\u2212$486.00"
+     "amt": "\u2212$226,510.00"
     },
     {
      "name": "C-arm service",
      "desc": "Monthly contract",
-     "amt": "\u2212$1,150.00"
+     "amt": "\u2212$306,200.00"
     }
    ],
    "outcomes": [
@@ -2351,18 +2351,18 @@
    "rows": [
     {
      "name": "Spinal implants",
-     "desc": "Bill-only, case 4471",
-     "amt": "\u2212$8,940.00"
+     "desc": "Bill-only, monthly cases",
+     "amt": "\u2212$447,000.00"
     },
     {
      "name": "Custom procedure packs",
-     "desc": "Ortho, case of 10",
-     "amt": "\u2212$2,280.00"
+     "desc": "Ortho, quarterly order",
+     "amt": "\u2212$277,090.00"
     },
     {
      "name": "Anesthesia drugs",
      "desc": "Monthly order",
-     "amt": "\u2212$1,620.00"
+     "amt": "\u2212$245,850.00"
     }
    ],
    "outcomes": [
@@ -2448,18 +2448,18 @@
    "rows": [
     {
      "name": "Contrast media",
-     "desc": "Iodinated, case of 10",
-     "amt": "\u2212$1,280.00"
+     "desc": "Iodinated, quarterly order",
+     "amt": "\u2212$201,970.00"
     },
     {
      "name": "MRI service contract",
      "desc": "Monthly",
-     "amt": "\u2212$7,500.00"
+     "amt": "\u2212$375,000.00"
     },
     {
      "name": "Teleradiology reads",
      "desc": "Monthly invoice",
-     "amt": "\u2212$6,240.00"
+     "amt": "\u2212$351,620.00"
     }
    ],
    "outcomes": [
@@ -2546,17 +2546,17 @@
     {
      "name": "Chemistry reagents",
      "desc": "Monthly order",
-     "amt": "\u2212$6,420.00"
+     "amt": "\u2212$321,000.00"
     },
     {
      "name": "Analyzer service",
      "desc": "Monthly contract",
-     "amt": "\u2212$2,800.00"
+     "amt": "\u2212$240,090.00"
     },
     {
      "name": "Specimen supplies",
      "desc": "Tubes and kits for clients",
-     "amt": "\u2212$1,180.00"
+     "amt": "\u2212$177,430.00"
     }
    ],
    "outcomes": [
@@ -2642,18 +2642,18 @@
    "rows": [
     {
      "name": "Anesthetic drugs",
-     "desc": "Monthly order, 3 sites",
-     "amt": "\u2212$4,860.00"
+     "desc": "Quarterly order, 3 sites",
+     "amt": "\u2212$416,680.00"
     },
     {
      "name": "Airway supplies",
      "desc": "Laryngeal masks, circuits",
-     "amt": "\u2212$1,120.00"
+     "amt": "\u2212$249,290.00"
     },
     {
      "name": "Machine service",
      "desc": "Quarterly contract",
-     "amt": "\u2212$1,950.00"
+     "amt": "\u2212$302,690.00"
     }
    ],
    "outcomes": [
@@ -2740,17 +2740,17 @@
     {
      "name": "Med-surg order",
      "desc": "Anesthetic carpules, needles, gloves",
-     "amt": "\u2212$684.20"
+     "amt": "\u2212$249,180.00"
     },
     {
      "name": "Dental supply order",
      "desc": "Composite, bonding agent, burs",
-     "amt": "\u2212$1,462.30"
+     "amt": "\u2212$325,060.00"
     },
     {
      "name": "Dental lab",
-     "desc": "Zirconia crowns, 3 units",
-     "amt": "\u2212$2,180.00"
+     "desc": "Zirconia crowns, quarterly invoice",
+     "amt": "\u2212$373,820.00"
     }
    ],
    "outcomes": [
@@ -2836,18 +2836,18 @@
    "rows": [
     {
      "name": "Anti-VEGF drug order",
-     "desc": "Buy-and-bill, 10 doses",
-     "amt": "\u2212$18,600.00"
+     "desc": "Buy-and-bill, monthly order",
+     "amt": "\u2212$372,000.00"
     },
     {
      "name": "Intraocular lenses",
      "desc": "Monofocal and toric IOLs",
-     "amt": "\u2212$4,320.00"
+     "amt": "\u2212$223,170.00"
     },
     {
      "name": "Phaco packs",
-     "desc": "Cataract surgery, case of 12",
-     "amt": "\u2212$1,140.00"
+     "desc": "Cataract surgery, quarterly order",
+     "amt": "\u2212$140,000.00"
     }
    ],
    "outcomes": [
@@ -2929,18 +2929,18 @@
    "rows": [
     {
      "name": "Frame order",
-     "desc": "Spring frame board, 24 pieces",
-     "amt": "\u2212$2,640.00"
+     "desc": "Spring frame board, full reset",
+     "amt": "\u2212$408,560.00"
     },
     {
      "name": "Lens lab",
-     "desc": "Progressive lenses, 6 jobs",
-     "amt": "\u2212$1,080.00"
+     "desc": "Progressive lenses, quarterly invoice",
+     "amt": "\u2212$298,810.00"
     },
     {
      "name": "Contact lenses",
      "desc": "Annual supply, toric dailies",
-     "amt": "\u2212$612.00"
+     "amt": "\u2212$244,940.00"
     }
    ],
    "outcomes": [
@@ -3026,18 +3026,18 @@
    "rows": [
     {
      "name": "Neurotoxin order",
-     "desc": "6 vials",
-     "amt": "\u2212$3,360.00"
+     "desc": "Quarterly order",
+     "amt": "\u2212$336,000.00"
     },
     {
      "name": "HA filler",
-     "desc": "Lip and cheek, 10 syringes",
-     "amt": "\u2212$2,950.00"
+     "desc": "Lip and cheek, quarterly order",
+     "amt": "\u2212$321,040.00"
     },
     {
      "name": "Microneedling cartridges",
-     "desc": "Box of 20",
-     "amt": "\u2212$389.00"
+     "desc": "Annual supply",
+     "amt": "\u2212$157,980.00"
     }
    ],
    "outcomes": [
@@ -3118,17 +3118,17 @@
     {
      "name": "Exercise equipment",
      "desc": "Bands, weights, balance pads",
-     "amt": "\u2212$684.00"
+     "amt": "\u2212$342,000.00"
     },
     {
      "name": "Clinic supplies",
      "desc": "Kinesiology tape, electrodes",
-     "amt": "\u2212$312.40"
+     "amt": "\u2212$259,960.00"
     },
     {
      "name": "Modality service",
      "desc": "E-stim unit calibration",
-     "amt": "\u2212$275.00"
+     "amt": "\u2212$248,610.00"
     }
    ],
    "outcomes": [
@@ -3215,17 +3215,17 @@
     {
      "name": "Supplement restock",
      "desc": "Professional-line inventory",
-     "amt": "\u2212$1,140.00"
+     "amt": "\u2212$228,000.00"
     },
     {
      "name": "Clinic supplies",
      "desc": "Headrest paper, table covers",
-     "amt": "\u2212$186.00"
+     "amt": "\u2212$120,880.00"
     },
     {
      "name": "Patient marketing",
      "desc": "Local search ads",
-     "amt": "\u2212$900.00"
+     "amt": "\u2212$209,900.00"
     }
    ],
    "outcomes": [
@@ -3311,18 +3311,18 @@
    "rows": [
     {
      "name": "Field fuel",
-     "desc": "8 clinicians, weekly",
-     "amt": "\u2212$486.00"
+     "desc": "8 clinicians, annual",
+     "amt": "\u2212$169,180.00"
     },
     {
      "name": "Wound care",
      "desc": "Foam dressings, ostomy supplies",
-     "amt": "\u2212$1,140.00"
+     "amt": "\u2212$228,000.00"
     },
     {
      "name": "Documentation software",
      "desc": "Monthly, per clinician",
-     "amt": "\u2212$720.00"
+     "amt": "\u2212$194,130.00"
     }
    ],
    "outcomes": [
@@ -3409,17 +3409,17 @@
     {
      "name": "Hospice pharmacy",
      "desc": "Comfort kits, monthly",
-     "amt": "\u2212$4,280.00"
+     "amt": "\u2212$386,270.00"
     },
     {
      "name": "DME rental",
      "desc": "Hospital beds, oxygen",
-     "amt": "\u2212$3,640.00"
+     "amt": "\u2212$364,980.00"
     },
     {
      "name": "Field fuel",
-     "desc": "14 clinicians, weekly",
-     "amt": "\u2212$812.00"
+     "desc": "14 clinicians, annual",
+     "amt": "\u2212$215,890.00"
     }
    ],
    "outcomes": [
@@ -3506,17 +3506,17 @@
     {
      "name": "Food service order",
      "desc": "Weekly, 90 beds",
-     "amt": "\u2212$6,840.00"
+     "amt": "\u2212$343,690.00"
     },
     {
      "name": "Incontinence supplies",
      "desc": "Briefs and underpads",
-     "amt": "\u2212$2,960.00"
+     "amt": "\u2212$256,360.00"
     },
     {
      "name": "Staffing agency",
      "desc": "CNA shifts, weekly",
-     "amt": "\u2212$9,450.00"
+     "amt": "\u2212$384,850.00"
     }
    ],
    "outcomes": [
@@ -3603,17 +3603,17 @@
     {
      "name": "Wholesaler order",
      "desc": "Weekly brand and generic order",
-     "amt": "\u2212$18,420.00"
+     "amt": "\u2212$368,400.00"
     },
     {
      "name": "Front-store restock",
      "desc": "OTC and seasonal items",
-     "amt": "\u2212$1,264.80"
+     "amt": "\u2212$144,270.00"
     },
     {
      "name": "Vials and labels",
      "desc": "Amber vials, Rx labels",
-     "amt": "\u2212$342.60"
+     "amt": "\u2212$100,340.00"
     }
    ],
    "outcomes": [
@@ -3700,17 +3700,17 @@
     {
      "name": "APIs and bases",
      "desc": "Compounding order",
-     "amt": "\u2212$2,860.00"
+     "amt": "\u2212$399,450.00"
     },
     {
      "name": "Cleanroom certification",
      "desc": "Semiannual, USP 797",
-     "amt": "\u2212$1,450.00"
+     "amt": "\u2212$314,930.00"
     },
     {
      "name": "Cold-chain shipping",
      "desc": "Overnight, weekly",
-     "amt": "\u2212$980.00"
+     "amt": "\u2212$274,580.00"
     }
    ],
    "outcomes": [
