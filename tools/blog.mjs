@@ -67,7 +67,7 @@ function md(src) {
 const fmtDate = (d) => new Date(d + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 const words = (s) => s.split(/\s+/).filter(Boolean).length;
 
-function shell({ title, desc, url, head = '', body, og = '/og.png?v=8' }) {
+function shell({ title, desc, url, head = '', body, og = '/og.png?v=9' }) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -164,7 +164,7 @@ footer a{color:var(--muted)}
 ${head}
 </head>
 <body>
-<header class="top"><div class="bar"><a class="logo" href="/"><img src="/assets/brand/wellby-flower-96.webp" alt="" width="32" height="32">Aria</a><nav class="nav" aria-label="Main"><a href="/products">Products</a><a href="/specialties">Specialties</a><a href="/blog" aria-current="page">Blog</a><a class="cta" href="/#waitlist">Join the waitlist</a></nav></div></header>
+<header class="top"><div class="bar"><a class="logo" href="/"><svg width="30" height="30" viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="bl-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8f86f0"/><stop offset="1" stop-color="#f0a3c8"/></linearGradient></defs><g transform="rotate(-14 50 50)"><rect x="8" y="22" width="84" height="56" rx="12" fill="url(#bl-g)"/><rect x="18" y="36" width="17" height="13" rx="3.5" fill="#f2c94c"/><g fill="#fff"><rect x="68" y="54" width="8" height="18" rx="4"/><rect x="63" y="59" width="18" height="8" rx="4"/></g></g></svg>Aria</a><nav class="nav" aria-label="Main"><a href="/products">Products</a><a href="/specialties">Specialties</a><a href="/blog" aria-current="page">Blog</a><a class="cta" href="/#waitlist">Join the waitlist</a></nav></div></header>
 <main id="main">
 ${body}
 </main>
@@ -201,7 +201,7 @@ export function buildBlog({ root, out, today, ld }) {
     const related = live.filter((q) => q !== p && q.category === p.category).slice(0, 3);
     const fill = live.filter((q) => q !== p && !related.includes(q)).slice(0, 3 - related.length);
     const graph = [
-      { '@type': 'BlogPosting', '@id': SITE + url + '#post', headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, url: SITE + url, mainEntityOfPage: SITE + url, image: SITE + (cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=8'), articleSection: p.category, wordCount: words(p.body), inLanguage: 'en-US', author: { '@type': 'Organization', name: 'Aria', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Aria', logo: { '@type': 'ImageObject', url: SITE + '/apple-touch-icon.png' } } },
+      { '@type': 'BlogPosting', '@id': SITE + url + '#post', headline: p.title, description: p.description, datePublished: p.date, dateModified: p.date, url: SITE + url, mainEntityOfPage: SITE + url, image: SITE + (cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=9'), articleSection: p.category, wordCount: words(p.body), inLanguage: 'en-US', author: { '@type': 'Organization', name: 'Aria', url: SITE + '/' }, publisher: { '@type': 'Organization', name: 'Aria', logo: { '@type': 'ImageObject', url: SITE + '/apple-touch-icon.png' } } },
       { '@type': 'BreadcrumbList', itemListElement: [['Aria', '/'], ['Blog', '/blog'], [p.title, url]].map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: SITE + u })) },
     ];
     const body = `<div class="wrap"><div class="phead"><div><p class="crumbs"><a href="/">Aria</a> / <a href="/blog">Blog</a> / ${esc(p.category)}</p><h1>${esc(p.title)}</h1><p class="lede">${esc(p.description)}</p><p class="meta">By the Aria team · <time datetime="${p.date}">${fmtDate(p.date)}</time> · ${mins} min read</p></div>${cover(p.slug) ? '' : `<span class="art" style="--t:${tint}" aria-hidden="true"><img src="/assets/i/icon-${art}-cut.webp" alt="" width="170" height="170"></span>`}</div>${cover(p.slug) ? `<figure class="pcover" style="--t:${tint}"><img src="${cover(p.slug)}-1280.webp" srcset="${cover(p.slug)}-640.webp 640w, ${cover(p.slug)}-1280.webp 1280w" sizes="(max-width:1200px) 100vw, 1120px" alt="" width="1280" height="714" fetchpriority="high"></figure>` : ''}
@@ -212,7 +212,7 @@ ${html}
 <section class="endcta"><img class="endcta-art" src="/assets/i/spot-join-480.webp" alt="" width="480" height="480" loading="lazy" decoding="async"><div><h2>Aria is the financial home for independent practices</h2><p>Cards, bill pay, books and insurer payments in one place, run by an AI CFO. Join the waitlist to be first in line.</p><a class="btn" href="/#waitlist">Join the waitlist</a></div></section>
 </div><aside class="side">${toc.length > 2 ? '<nav class="toc" aria-label="On this page"><b>On this page</b>' + toc.map(([id, t]) => '<a href="#' + id + '">' + inline(t) + '</a>').join('') + '</nav>' : ''}<div class="join"><h3>Get Aria early</h3><p>Built for practice owners and office managers. No cost to join the waitlist.</p><a class="btn" href="/#waitlist">Join the waitlist</a></div></aside></div></div>
 <section class="more"><div class="wrap"><h2>Keep reading</h2><ul class="grid">${related.concat(fill).map(card).join('')}</ul></div></section>`;
-    write('blog/' + p.slug + '.html', shell({ title: p.title + ' | Aria', desc: p.description, url, head: ld(graph), body, og: cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=8' }));
+    write('blog/' + p.slug + '.html', shell({ title: p.title + ' | Aria', desc: p.description, url, head: ld(graph), body, og: cover(p.slug) ? cover(p.slug) + '-1280.webp' : '/og.png?v=9' }));
     pages.push({ url, priority: '0.6', lastmod: p.date });
   }
 
