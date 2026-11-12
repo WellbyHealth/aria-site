@@ -70,7 +70,7 @@ function figure() {
   const pos = (a, r) => [cx + r * Math.sin((a * Math.PI) / 180), cy - r * Math.cos((a * Math.PI) / 180)];
   const petals = [['02', 'Aria Card', '2% back on med-surg supplies'], ['03', 'Buy-and-bill lending', 'Repaid when the claim pays'], ['04', 'Bill pay', 'Supplier invoices read and paid'], ['05', 'Flex Pay', 'Big supply bills over 90 days'], ['06', 'Marketplace', 'Gloves to implants, one catalog']];
   const ring = ['Medicare and Medicaid', 'Commercial payers', '835 remittance files', 'Your bank and payroll', 'Drug and supply distributors'];
-  let s = `<svg class="fig" viewBox="0 0 ${W} ${H}" role="img" aria-label="The Aria financial home: the Financial Hub at the center; the Aria Card, buy-and-bill lending, bill pay, Flex Pay and the marketplace around it; connected to payers, 835 remittance files, your bank and payroll, and distributors" fill="none" stroke="currentColor">`;
+  let s = `<svg class="fig" viewBox="0 0 ${W} ${H}" role="img" aria-label="The Aria financial suite: the Financial Hub at the center; the Aria Card, buy-and-bill lending, bill pay, Flex Pay and the marketplace around it; connected to payers, 835 remittance files, your bank and payroll, and distributors" fill="none" stroke="currentColor">`;
   s += `<circle cx="${cx}" cy="${cy}" r="350" stroke-width="1" opacity=".45" stroke-dasharray="3 6"/>`;
   for (let k = 0; k < 5; k++) s += `<ellipse cx="${cx}" cy="${cy - 168}" rx="118" ry="160" transform="rotate(${k * 72} ${cx} ${cy})" stroke-width="1.2" opacity=".75"/>`;
   s += `<circle cx="${cx}" cy="${cy}" r="86" fill="#fff" stroke-width="1.4"/>`;
@@ -103,7 +103,7 @@ const PRODUCTS = [
     title: 'Buy-and-bill financing for medical practices', h1: 'Pay for the drug now. Repay when the claim pays.',
     lead: 'Buy-and-bill practices pay distributors weeks before insurers pay them. Aria lending covers that gap, so a growing injection or infusion volume never squeezes payroll.',
     steps: [['Order as usual', 'Buy anti-VEGF, oncology and infusion drugs from your distributor on the Aria Card.'], ['Aria covers the gap', 'Draw on your line for the order. The Hub ties each draw to its claims.'], ['Repay from the claim', 'When the insurer pays, the draw is repaid from the deposit, on terms you agreed to up front.']],
-    features: [['vial', 'Built for buy-and-bill', 'Sized to your drug spend and your payers’ real days to pay.'], ['chart', 'Tied to your claims', 'See each draw next to the claims it is waiting on.'], ['calendar', 'Repayment that follows cash', 'Repay as insurer deposits arrive, not on a fixed date that ignores them.'], ['card', 'Still earn on the card', 'Drug orders go on the Aria Card, so you keep the card rewards that apply.'], ['shield', 'Terms in writing first', 'Rates, limits and fees in writing before you draw a dollar.'], ['hub', 'Part of your financial home', 'Lending, cash and payers in the same Hub.']],
+    features: [['vial', 'Built for buy-and-bill', 'Sized to your drug spend and your payers’ real days to pay.'], ['chart', 'Tied to your claims', 'See each draw next to the claims it is waiting on.'], ['calendar', 'Repayment that follows cash', 'Repay as insurer deposits arrive, not on a fixed date that ignores them.'], ['card', 'Still earn on the card', 'Drug orders go on the Aria Card, so you keep the card rewards that apply.'], ['shield', 'Terms in writing first', 'Rates, limits and fees in writing before you draw a dollar.'], ['hub', 'Part of your financial suite', 'Lending, cash and payers in the same Hub.']],
     faqs: [['Who provides the financing?', 'Financing will be provided by a licensed lending partner, named before launch. Terms will be in writing before you apply.'], ['What can I use it for?', 'Drug and supply orders for buy-and-bill care, such as injections and infusions, where you pay before the insurer pays you.'], ['How is it repaid?', 'From insurer deposits as claims pay, on terms agreed up front.']] },
   { key: 'bill-pay', url: '/bill-pay', name: 'Bill pay', icon: 'bill', img: 'p-billpay', shot: '/assets/i/app-payments.webp',
     short: 'Every vendor bill read, approved and paid on time, then synced to your books.',
@@ -121,7 +121,7 @@ const PRODUCTS = [
     faqs: [['Who provides Flex Pay?', 'Flex Pay will be offered with a licensed lending partner, named before launch, with terms in writing before you use it.'], ['Which bills qualify?', 'Approved supplier and equipment bills in Aria bill pay, within the limit you are approved for.'], ['Does it affect our credit?', 'The terms, including any credit checks, will be set out in writing before you apply.']] },
 ];
 const P = Object.fromEntries(PRODUCTS.map((p) => [p.key, p]));
-const HOME_FAQ = [['What is Aria?', 'Aria is the financial home for independent medical practices: a Financial Hub that connects all your accounts and insurer payments, the Aria Card with 2% back on med-surg supplies, buy-and-bill lending, bill pay, Flex Pay and a supply marketplace.'], ['Is Aria a bank?', 'No. Aria is a financial technology company. Accounts, cards and lending will be provided by licensed partner institutions, which we will name before launch.'], ['Do we have to switch banks?', 'No. Connect the bank you have today and start with the card. Move more over only when it helps.'], ['What will it cost?', 'Pricing isn’t final. You will see pricing and terms in writing before you apply for anything, and joining the waitlist is free.'], ['Does it work with our accounting software?', 'Yes. Aria syncs with QuickBooks and Xero, and NetSuite and Sage Intacct for larger groups.'], ['Does it work across multiple locations?', 'Yes. Cards, budgets and reports work by location, and every view can be filtered by site.']];
+const HOME_FAQ = [['What is Aria?', 'Aria is the financial suite for healthcare practices: a Financial Hub that connects all your accounts and insurer payments, the Aria Card with 2% back on med-surg supplies, buy-and-bill lending, bill pay, Flex Pay and a supply marketplace.'], ['Is Aria a bank?', 'No. Aria is a financial technology company. Accounts, cards and lending will be provided by licensed partner institutions, which we will name before launch.'], ['Do we have to switch banks?', 'No. Connect the bank you have today and start with the card. Move more over only when it helps.'], ['What will it cost?', 'Pricing isn’t final. You will see pricing and terms in writing before you apply for anything, and joining the waitlist is free.'], ['Does it work with our accounting software?', 'Yes. Aria syncs with QuickBooks and Xero, and NetSuite and Sage Intacct for larger groups.'], ['Does it work across multiple locations?', 'Yes. Cards, budgets and reports work by location, and every view can be filtered by site.']];
 
 const GURL = { 'primary-care': 'primary-and-behavioral-care', infusion: 'infusion-and-buy-and-bill' };
 const gurl = (slug) => '/specialties/' + (GURL[slug] || slug);
@@ -184,7 +184,7 @@ function header() {
 function footer() {
   const groups = Object.entries(GROUP_NAME);
   return `<footer class="ftr"><div class="wrap"><div class="ftr-grid">
-<div><a class="brand" href="/">${MARK}<b>ARIA</b></a><p style="max-width:300px">Your practice’s financial home. Keep more of every dollar you make.</p></div>
+<div><a class="brand" href="/">${MARK}<b>ARIA</b></a><p style="max-width:300px">Your financial suite for healthcare practices. Keep more of every dollar you make.</p></div>
 <div><h4>Products</h4><ul><li><a href="/platform">Platform</a></li>${PRODUCTS.map((p) => `<li><a href="${p.url}">${p.name}</a></li>`).join('')}</ul></div>
 <div><h4>Specialties</h4><ul>${groups.map(([s, n]) => `<li><a href="${gurl(s)}">${n}</a></li>`).join('')}</ul></div>
 <div><h4>Marketplace</h4><ul>${CATS.slice(0, 8).map((c) => `<li><a href="/marketplace/${c.slug}">${c.name}</a></li>`).join('')}<li><a href="/marketplace">All supplies</a></li></ul></div>
@@ -192,13 +192,13 @@ function footer() {
 </div><div class="legal"><p>Aria is a financial technology company, not a bank. Banking, card and lending services will be provided by licensed partner institutions, which will be named before launch. All products are subject to application and approval, and terms will be provided in writing before you apply.</p><p>Product images and app screens use sample data. They do not show real accounts, patients or customers.</p><p>© 2026 Aria, built by Wellby Health.</p></div></div></footer>`;
 }
 function ld(graph) { return '<script type="application/ld+json">' + JSON.stringify({ '@context': 'https://schema.org', '@graph': graph.filter(Boolean) }).replace(/</g, '\\u003c') + '</script>'; }
-const ORG = { '@type': 'Organization', '@id': SITE + '/#org', name: 'Aria', url: SITE + '/', logo: SITE + '/apple-touch-icon.png', description: 'Aria is the financial home for independent medical practices: a financial hub, the Aria Card, buy-and-bill lending, bill pay and a supply marketplace.' };
+const ORG = { '@type': 'Organization', '@id': SITE + '/#org', name: 'Aria', url: SITE + '/', logo: SITE + '/apple-touch-icon.png', description: 'Aria is the financial suite for healthcare practices: a financial hub, the Aria Card, buy-and-bill lending, bill pay and a supply marketplace.' };
 const crumbsLd = (list) => ({ '@type': 'BreadcrumbList', itemListElement: list.map(([n, u], i) => ({ '@type': 'ListItem', position: i + 1, name: n, item: SITE + u })) });
 const faqLd = (url, qa) => (qa.length ? { '@type': 'FAQPage', '@id': SITE + url + '#faq', mainEntity: qa.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) } : null);
 const crumbs = (list) => `<nav class="crumbs" aria-label="Breadcrumb">${list.map(([n, u], i) => (i < list.length - 1 ? `<a href="${u}">${esc(n)}</a> / ` : esc(n))).join('')}</nav>`;
 const faqHtml = (qa) => `<div class="faq">${qa.map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</div>`;
 const signup = (form, cls = '') => `<form class="signup ${cls}" data-signup="${form}" data-next="/join"><label class="sr" for="em-${form}">Work email</label><input id="em-${form}" class="field" type="email" name="email" placeholder="Work email" autocomplete="email" required><button class="btn btn-dark" type="submit">Join the waitlist</button></form>`;
-const ctaBand = (h = 'Your practice’s financial home.', p = 'Join the waitlist and we’ll reach out as we open access. No cost, no commitment.') => `<section class="sec tight"><div class="wrap"><div class="cta-band reveal"><h2>${h}</h2><p class="lead">${p}</p>${signup('cta-' + Math.random().toString(36).slice(2, 6))}<p class="signup-note">Pricing and terms in writing before you apply for anything.</p></div></div></section>`;
+const ctaBand = (h = 'Your financial suite for healthcare practices.', p = 'Join the waitlist and we’ll reach out as we open access. No cost, no commitment.') => `<section class="sec tight"><div class="wrap"><div class="cta-band reveal"><h2>${h}</h2><p class="lead">${p}</p>${signup('cta-' + Math.random().toString(36).slice(2, 6))}<p class="signup-note">Pricing and terms in writing before you apply for anything.</p></div></div></section>`;
 
 // Cut a description to 160 characters at a sentence end when possible, else at a word.
 function clip(t, max = 160) {
@@ -211,7 +211,7 @@ const pages = [];
 function page({ url, title, desc, body, graph = [], priority = '0.6', heroImg, noindex }) {
   if (desc.length < 70) desc = desc.replace(/\.?$/, '.') + ' For independent medical practices, paid on the Aria Card.';
   if (desc.length > 160) desc = clip(desc);
-  const ogImg = (url !== '/' && OGH(url.slice(1))) || '/og.png?v=21', ogAlt = ogImg.startsWith('/og/') ? title.replace(/&amp;/g, '&') : 'Aria: radically different banking for healthcare';
+  const ogImg = (url !== '/' && OGH(url.slice(1))) || '/og.png?v=22', ogAlt = ogImg.startsWith('/og/') ? title.replace(/&amp;/g, '&') : 'Aria: radically different banking for healthcare';
   const full = title.includes('Aria') || title.replace(/&amp;/g, '&').length > 53 ? title : title + ' | Aria';
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(full)}</title><meta name="description" content="${esc(desc)}"><link rel="canonical" href="${SITE}${url}">
@@ -238,7 +238,7 @@ function homePage() {
   const groups = DATA.groups;
   const body = `
 <section class="hero2"><div class="wrap">
-<span class="pill-note"><i>835</i>Banking that speaks healthcare</span>
+<span class="pill-note"><i>NEW</i>Your financial suite for healthcare practices</span>
 <h1>Radically different banking for healthcare.</h1>
 <p class="lead">Your bank sees deposits. Aria sees the claims behind them, lends the way you get paid and earns 2% back on the supplies you already buy. Join the waitlist for banking unlike anything that’s come before.</p>
 <div class="hero-ctas"><form class="pill-form" data-signup="hero" data-next="/join"><label class="sr" for="em-hero">Work email</label><input id="em-hero" type="email" name="email" placeholder="Enter your email" autocomplete="email" required><button class="btn btn-accent" type="submit">Join the waitlist</button></form><a class="btn btn-ghost" href="${APP}">Try the demo</a></div>
@@ -250,7 +250,7 @@ function homePage() {
 </div><p class="stage-note">Aria is a financial technology company, not a bank. Banking services will be provided by licensed partner institutions.</p></div></section>
 
 <section class="sec fig-sec"><div class="wrap">
-<div class="sec-head center"><span class="label">Your financial home</span><h2>Everything your practice runs on, connected.</h2><p class="lead">The Financial Hub sits at the center and sees every dollar. Around it, five tools each do one job for a medical practice. Around those, Aria connects the payers, files and vendors you already work with.</p></div>
+<div class="sec-head center"><span class="label">Your financial suite</span><h2>Everything your practice runs on, connected.</h2><p class="lead">The Financial Hub sits at the center and sees every dollar. Around it, five tools each do one job for a medical practice. Around those, Aria connects the payers, files and vendors you already work with.</p></div>
 <div class="figure-card fig-wide reveal">${figure()}<div class="figure-cap">Figure A<b>Aria</b></div></div>
 <ol class="fig-list">${FIG_LIST.map(([t, d, u], k) => `<li><a href="${u}"><span>0${k + 1}</span><b>${t}</b><em>${d}</em></a></li>`).join('')}</ol>
 <p class="fig-conn">Connects to Medicare and Medicaid, commercial payers, 835 remittance files, your bank and payroll, and drug and supply distributors.</p>
@@ -357,7 +357,7 @@ function homePage() {
 ${faqHtml(HOME_FAQ)}</div></section>
 ${ctaBand()}
 `;
-  page({ url: '/', title: 'Aria: radically different banking for healthcare', desc: 'Banking that knows healthcare. Aria matches every insurer deposit to its claims, lends on how practices get paid and earns 2% back on med-surg supplies.', body, priority: '1.0', heroImg: IMG('hero'), graph: [{ '@type': 'WebSite', '@id': SITE + '/#site', name: 'Aria', url: SITE + '/' }, faqLd('/', HOME_FAQ)] });
+  page({ url: '/', title: 'Aria: radically different banking for healthcare', desc: 'Your financial suite for healthcare practices. Aria matches every insurer deposit to its claims, lends the way practices get paid and earns 2% back on supplies.', body, priority: '1.0', heroImg: IMG('hero'), graph: [{ '@type': 'WebSite', '@id': SITE + '/#site', name: 'Aria', url: SITE + '/' }, faqLd('/', HOME_FAQ)] });
 }
 
 // ---------------------------------------------------------------- platform and products
@@ -378,7 +378,7 @@ ${p.shot ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><
 ${DEPTH[p.key] ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">An example</span><h2 style="margin-top:18px">What it looks like in a practice.</h2></div><div class="prose">${DEPTH[p.key].example.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Compared</span><h2>How practices handle it today.</h2></div><div class="tw"><table class="tbl cmp-t"><thead><tr><th></th>${DEPTH[p.key].compare.cols.map((c, i, a) => `<th${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</th>`).join('')}</tr></thead><tbody>${DEPTH[p.key].compare.rows.map((r) => `<tr><th>${esc(r[0])}</th>${r.slice(1).map((c, i, a) => `<td${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div></section>` : ''}
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">About ${p.name}</h2></div>${faqHtml(pf)}</div></section>
-<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Works with ${p.name}</span><h2>The rest of your financial home.</h2></div>
+<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Works with ${p.name}</span><h2>The rest of your financial suite.</h2></div>
 <div class="grid g4">${others.map((o) => `<a class="tile" href="${o.url}">${ic(o.icon)}<h4>${o.name}</h4><p>${o.short}</p><span class="more arrow">Learn more</span></a>`).join('')}</div></div></section>
 ${ctaBand()}`;
   const desc = clip(p.lead);
@@ -443,7 +443,7 @@ ${guideSecs(s, who, g)}
 ${faqs.length ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">What ${esc(who)} ask us.</h2></div>${faqHtml(faqs)}</div></section>` : ''}
 ${guideLinks()}
 ${sib.length ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Related</span><h2>More in ${GROUP_NAME[g.slug].toLowerCase()}</h2></div><div class="chips">${sib.map((x) => `<a class="chip" href="/specialties/${x.slug}">${esc(x.name)}</a>`).join('')}<a class="chip" href="/specialties">All specialties</a></div></div></section>` : ''}
-${ctaBand('Your practice’s financial home.', `Join the waitlist and we’ll show you what Aria would do for your ${lower} practice.`)}`;
+${ctaBand('Your financial suite for healthcare practices.', `Join the waitlist and we’ll show you what Aria would do for your ${lower} practice.`)}`;
   const base = who.endsWith(' practices') ? name + ' practice' : name;
   const title = [' banking, cards and financing', ' banking and financing', ' banking', ''].map((x) => base + x).find((t) => t.replace(/&amp;/g, '&').length <= 53);
   const desc = clip(hook + ' ' + s.lead + ' The Aria Card earns 2% back on med-surg supplies.');
@@ -527,13 +527,13 @@ ${usedHtml(c.slug)}
 // ---------------------------------------------------------------- platform, security, join, blog, 404
 function platformPage() {
   const body = `
-<section class="page-head"><div class="wrap split"><div>${crumbs([['Aria', '/'], ['Platform', '/platform']])}<span class="label">Platform</span><h1 style="margin-top:18px">One financial home for your practice.</h1><p class="lead">The Financial Hub at the center, and five tools around it that each do one job well. Every dollar they touch shows up in one place.</p><div class="actions"><a class="btn btn-dark" href="/join">Join the waitlist</a><a class="link arrow" href="${APP}">Try the demo</a></div></div>
+<section class="page-head"><div class="wrap split"><div>${crumbs([['Aria', '/'], ['Platform', '/platform']])}<span class="label">Platform</span><h1 style="margin-top:18px">One financial suite for your practice.</h1><p class="lead">The Financial Hub at the center, and five tools around it that each do one job well. Every dollar they touch shows up in one place.</p><div class="actions"><a class="btn btn-dark" href="/join">Join the waitlist</a><a class="link arrow" href="${APP}">Try the demo</a></div></div>
 <div class="figure-card reveal">${figure()}<div class="figure-cap">Figure A<b>Aria</b></div></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="grid g3">${PRODUCTS.map((p) => `<a class="tile img" href="${p.url}"><div class="ph"><img src="${IMG(p.img)}" alt="" width="1200" height="900" loading="lazy"></div><div class="tx"><span class="label">${p.name}</span><h3>${esc(p.h1)}</h3><p>${p.short}</p></div></a>`).join('')}<a class="tile img" href="/marketplace"><div class="ph"><img src="${IMG('market')}" alt="" width="2000" height="857" loading="lazy"></div><div class="tx"><span class="label">Marketplace</span><h3>Every supply your practice reorders.</h3><p>One catalog, paid on the Aria Card.</p></div></a></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Connects to</span><h2>No new system. It plugs into what you use.</h2></div><div class="chips"><span class="chip">Your bank</span><span class="chip">QuickBooks</span><span class="chip">Xero</span><span class="chip">NetSuite</span><span class="chip">Your clearinghouse (835 files)</span><span class="chip">Your EHR</span><span class="chip">Gusto, ADP and other payroll</span></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="art frame reveal">${appFrame('/assets/i/app-home.webp', 'The Aria Financial Hub with sample data')}</div></div></section>
 ${ctaBand()}`;
-  page({ url: '/platform', title: 'Financial platform for independent medical practices', desc: 'The Financial Hub, the Aria Card, buy-and-bill lending, bill pay, Flex Pay and a supply marketplace, in one financial home for independent medical practices.', body, priority: '0.9', graph: [crumbsLd([['Aria', '/'], ['Platform', '/platform']])] });
+  page({ url: '/platform', title: 'Financial platform for independent medical practices', desc: 'The Financial Hub, the Aria Card, buy-and-bill lending, bill pay, Flex Pay and a supply marketplace, in one financial suite for healthcare practices.', body, priority: '0.9', graph: [crumbsLd([['Aria', '/'], ['Platform', '/platform']])] });
 }
 function securityPage() {
   const items = [['bank', 'Licensed partners', 'Deposits, cards and lending will be provided by licensed partner institutions, named before launch. Aria is a financial technology company, not a bank.'], ['lock', 'Read-only connections', 'Bank connections are read-only. Aria cannot move money from an account it reads.'], ['shield', 'A BAA before patient data', 'We sign a business associate agreement before taking in remittance files or any other information that may contain patient data.'], ['check', 'Approvals on every payment', 'Nothing is paid, moved or changed without a person at your practice approving it.'], ['users', 'Roles and permissions', 'Decide who can see balances, approve bills, issue cards and change settings.'], ['receipt', 'An audit trail', 'Every approval, payment and change is recorded with who did it and when.']];
@@ -543,7 +543,7 @@ function securityPage() {
 }
 function joinPage() {
   const roles = ['Owner or partner', 'Practice or office manager', 'Accountant or bookkeeper', 'Other'];
-  const body = `<section class="page-head"><div class="wrap split" style="align-items:start"><div>${crumbs([['Aria', '/'], ['Join the waitlist', '/join']])}<span class="label">Join the waitlist</span><h1 style="margin-top:18px">Your practice’s financial home.</h1><p class="lead">Tell us about your practice and we’ll reach out as we open access. No cost, no commitment, and pricing and terms in writing before you apply for anything.</p></div>
+  const body = `<section class="page-head"><div class="wrap split" style="align-items:start"><div>${crumbs([['Aria', '/'], ['Join the waitlist', '/join']])}<span class="label">Join the waitlist</span><h1 style="margin-top:18px">Your financial suite for healthcare practices.</h1><p class="lead">Tell us about your practice and we’ll reach out as we open access. No cost, no commitment, and pricing and terms in writing before you apply for anything.</p></div>
 <form class="tile" data-signup="join" style="gap:14px"><label>Work email<input class="field" style="width:100%;border-radius:12px;margin-top:6px" type="email" name="email" required autocomplete="email"></label>
 <label>Your name<input class="field" style="width:100%;border-radius:12px;margin-top:6px" name="name" autocomplete="name"></label>
 <label>Practice name<input class="field" style="width:100%;border-radius:12px;margin-top:6px" name="practice" autocomplete="organization"></label>
@@ -626,5 +626,5 @@ for (const p of pages) {
 }
 fs.writeFileSync(LM_FILE, JSON.stringify(lastmod, null, 0).replace(/},"/g, '},\n"'));
 write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + pages.map((p) => `  <url><loc>${SITE}${p.url === '/' ? '/' : p.url}</loc><lastmod>${p.lastmod}</lastmod><priority>${p.priority}</priority></url>`).join('\n') + '\n</urlset>\n');
-write('llms.txt', `# Aria\n\n> Aria is banking built for healthcare practices. It matches insurer deposits to the claims behind them, offers buy-and-bill lending repaid from claim payments, and earns 2% back on medical and surgical supplies.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Tools\n${TOOLS.map((t) => `- [${t.name}](${SITE}/tools/${t.slug}): ${t.lead}`).join('\n')}\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
+write('llms.txt', `# Aria\n\n> Aria is the financial suite for healthcare practices. It matches insurer deposits to the claims behind them, offers buy-and-bill lending repaid from claim payments, and earns 2% back on medical and surgical supplies.\n\n## Products\n${PRODUCTS.map((p) => `- [${p.name}](${SITE}${p.url}): ${p.short}`).join('\n')}\n- [Marketplace](${SITE}/marketplace): medical supplies paid on the Aria Card.\n\n## Tools\n${TOOLS.map((t) => `- [${t.name}](${SITE}/tools/${t.slug}): ${t.lead}`).join('\n')}\n\n## Specialties\n${DATA.specialties.map((s) => `- [${s.name}](${SITE}/specialties/${s.slug})`).join('\n')}\n`);
 console.log(`built ${pages.length} pages: ${DATA.specialties.length} specialties, ${CATS.length} categories, ${CATS.reduce((a, c) => a + c.prods.length, 0)} products, ${nPosts} posts`);
