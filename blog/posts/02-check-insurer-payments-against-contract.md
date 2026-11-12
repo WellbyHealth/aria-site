@@ -1,5 +1,5 @@
 ---
-title: "Insurance Underpayments: How to Check Payments Against Your Contract"
+title: How to Spot Insurance Underpayments Against Your Contract
 description: How to find insurance underpayments by checking what payers allowed against your contracted rates, and how to get the money back.
 slug: check-insurer-payments-against-contract
 category: Getting paid

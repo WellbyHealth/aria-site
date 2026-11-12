@@ -1,5 +1,5 @@
 ---
-title: Common Claim Denial Reasons and How to Fix Them Before Resubmitting
+title: Common Claim Denial Reasons and How to Fix Them
 description: The most common claim denial reasons, what the codes usually mean, and how to fix each one so the resubmitted claim gets paid.
 slug: common-claim-denial-reasons
 category: Getting paid
