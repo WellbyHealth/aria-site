@@ -491,3 +491,37 @@ a.chip:hover{border-color:var(--ink)}
 .fig-list b{font-weight:500}.fig-list em{font-style:normal;color:var(--muted);font-size:15px}
 .fig-conn{text-align:center;color:var(--muted);font-size:15px;margin:22px auto 0;max-width:640px;display:none}
 @media (max-width:700px){.fig-list,.fig-conn{display:block}.fig-wide{padding:12px}.fig-wide .figure-cap{display:none}.fig-conn{text-align:left}}
+.cover{border-radius:var(--r-lg);overflow:hidden;aspect-ratio:16/9;background:var(--wash);margin:0 0 40px}.cover img{width:100%;height:100%;object-fit:cover}
+.side-art{border-radius:var(--r-lg);overflow:hidden;max-width:460px}.side-art img{width:100%;height:100%;object-fit:cover}
+@media (max-width:860px){.side-art{max-width:none}}
+
+/* Realistic Aria Card */
+.rcard{position:relative;container-type:inline-size;aspect-ratio:1.586;border-radius:4.6% / 7.3%;overflow:hidden;color:#fff;background:linear-gradient(160deg,#3a3956 0%,#2b2a42 55%,#24233a 100%);box-shadow:0 1px 0 rgba(255,255,255,.12) inset,0 30px 60px -28px rgba(30,25,70,.6),0 8px 18px -10px rgba(30,25,70,.35);text-align:left}
+.rcard .rc-waves{position:absolute;left:0;top:0;width:100%;height:62%;color:rgba(255,255,255,.2)}
+.rcard::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.1),transparent 35%,transparent 65%,rgba(255,255,255,.05));pointer-events:none}
+.rc-top{position:absolute;left:8%;right:7%;top:12%;display:flex;align-items:center;gap:4cqw}
+.rc-chip{width:15cqw;height:auto}
+.rc-nfc{width:7cqw;height:7cqw;color:rgba(255,255,255,.85)}
+.rc-mark{margin-left:auto;width:11cqw;height:11cqw}.rc-mark svg{width:100%;height:100%;color:#fff}
+.rc-band{position:absolute;left:0;right:0;bottom:0;height:38%;background:#222136;display:flex;align-items:flex-end;justify-content:space-between;padding:0 7% 7.5%}
+.rc-name{display:block;font-size:4.6cqw;opacity:.9;margin-bottom:1.5cqw}
+.rc-num{display:block;font-size:4.6cqw;letter-spacing:.12em}
+.rc-brand{font-size:5cqw;letter-spacing:.32em;font-weight:500;text-align:right;line-height:1}.rc-brand small{display:block;font-size:2.8cqw;letter-spacing:.18em;opacity:.7;margin-top:1.5cqw;font-weight:400}
+.rcard.ghost{background:#fbfaff;color:#c9c5ec;box-shadow:0 0 0 1px #dcd9f3 inset}
+.rcard.ghost::after{display:none}
+.rcard.ghost .rc-waves{color:#dcd8f4;height:100%}
+.rc-gl{position:absolute;left:8%;top:36%;font-size:6cqw;color:#bcb8e3}
+.rc-gn{position:absolute;left:8%;top:52%;font-size:4.4cqw;letter-spacing:.1em;color:#c9c5ec}
+.rc-gm{position:absolute;right:7%;bottom:10%;width:11cqw;height:11cqw;color:#c9c5ec}.rc-gm svg{width:100%;height:100%}
+/* placements */
+.stage-side .rcard{width:100%}
+.stage-side>.rcard{max-width:none}
+.hs-card{width:min(64%,360px);position:relative;margin-top:10%}
+.issue{position:absolute;inset:0;overflow:hidden;display:grid;place-items:center}
+.issue-g{display:grid;grid-template-columns:repeat(3,42%);gap:4%;width:100%;justify-content:center;align-content:center;transform:translateY(0)}
+.issue-g .rcard{width:100%}
+.issue-g .rcard:not(.ghost){transform:scale(1.04);z-index:2}
+.pf-issue{position:relative;padding:0;background:#f4f2fd}
+.card-issue-sec .issue{position:relative;inset:auto;aspect-ratio:3/2;border-radius:var(--r-lg);background:#f1effc}
+.card-issue-sec .issue-g{grid-template-columns:repeat(3,44%);gap:3.5%}
+@media (max-width:860px){.stage-side .rcard{max-width:320px;margin:0 auto}}
