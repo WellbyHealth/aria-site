@@ -501,7 +501,7 @@ const NFC = `<svg class="rc-nfc" viewBox="0 0 24 24" fill="none" stroke="current
 const NETWORK = fs.existsSync(path.join(ROOT, 'site/img/network-mark.svg')) ? `<img class="rc-official" src="/assets/site/network-mark.svg" alt="Mastercard">` : '';
 function rcard(name = 'Supplies', last = '0001', ghost = false, label = '') {
   if (ghost) return `<div class="rcard ghost">${WAVES}${label ? `<span class="rc-gl">${esc(label)}</span><span class="rc-gn">•••• ${last}</span>` : ''}<span class="rc-gm">${MARK}</span></div>`;
-  return `<div class="rcard">${WAVES}${GRAIN}<span class="rc-tl">${MARK}</span><span class="rc-name">${esc(name)}<small>•••• ${last}</small></span><span class="rc-net"><em>business</em>${NETWORK || `<b class="rc-word">ARIA</b>`}</span><i class="rc-sheen"></i></div>`;
+  return `<div class="rcard">${WAVES}${GRAIN}<span class="rc-tl">${MARK}<b>ARIA</b></span><span class="rc-net"><em>business</em>${NETWORK || '<i class="rc-netph"></i>'}</span><i class="rc-sheen"></i></div>`;
 }
 const issueGrid = () => `<div class="issue"><div class="issue-g">${rcard('', '0001', true, 'Office supplies')}${rcard('', '4207', true, 'Front desk')}${rcard('', '3318', true, 'Lab fees')}${rcard('', '', true)}${rcard('Supplies', '0001')}${rcard('', '8820', true, 'Virtual card')}${rcard('', '5561', true, 'Surgery center')}${rcard('', '', true)}${rcard('', '1109', true, 'Virtual card')}</div></div>`;
 const BLOG_IMG = { 'Getting paid': 'b-getting-paid', 'Cash flow': 'b-cash-flow', 'Books & close': 'b-books-close', 'Spend & cards': 'b-spend-cards', 'Running the practice': 'b-running-practice' };
