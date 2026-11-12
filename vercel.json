@@ -17,7 +17,7 @@
   "redirects": [
     {
       "source": "/eye",
-      "destination": "/for/ophthalmology?ref=eye",
+      "destination": "/specialties/ophthalmology?ref=eye",
       "permanent": false
     },
     {
@@ -26,58 +26,103 @@
       "permanent": false
     },
     {
-      "source": "/card",
-      "destination": "/banking",
+      "source": "/products",
+      "destination": "/platform",
       "permanent": true
     },
     {
-      "source": "/treasury",
-      "destination": "/banking",
+      "source": "/banking",
+      "destination": "/platform",
       "permanent": true
     },
     {
-      "source": "/expense-management",
-      "destination": "/banking",
+      "source": "/payments",
+      "destination": "/platform",
       "permanent": true
     },
     {
-      "source": "/bill-pay",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/bridge",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/claims-advance",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/underpayments",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/denials",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/patient-payments",
-      "destination": "/payments",
-      "permanent": true
-    },
-    {
-      "source": "/bookkeeping",
-      "destination": "/cfo",
+      "source": "/cfo",
+      "destination": "/hub",
       "permanent": true
     },
     {
       "source": "/cfo-hub",
-      "destination": "/cfo",
+      "destination": "/hub",
+      "permanent": true
+    },
+    {
+      "source": "/treasury",
+      "destination": "/platform",
+      "permanent": true
+    },
+    {
+      "source": "/expense-management",
+      "destination": "/card",
+      "permanent": true
+    },
+    {
+      "source": "/bridge",
+      "destination": "/lending",
+      "permanent": true
+    },
+    {
+      "source": "/claims-advance",
+      "destination": "/lending",
+      "permanent": true
+    },
+    {
+      "source": "/underpayments",
+      "destination": "/hub",
+      "permanent": true
+    },
+    {
+      "source": "/denials",
+      "destination": "/hub",
+      "permanent": true
+    },
+    {
+      "source": "/patient-payments",
+      "destination": "/hub",
+      "permanent": true
+    },
+    {
+      "source": "/bookkeeping",
+      "destination": "/bill-pay",
+      "permanent": true
+    },
+    {
+      "source": "/for/veterinary",
+      "destination": "/specialties",
+      "permanent": true
+    },
+    {
+      "source": "/for/pet-care",
+      "destination": "/specialties",
+      "permanent": true
+    },
+    {
+      "source": "/industries/veterinary",
+      "destination": "/specialties",
+      "permanent": true
+    },
+    {
+      "source": "/for/:slug",
+      "destination": "/specialties/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/industries/primary-care",
+      "destination": "/specialties/primary-and-behavioral-care",
+      "permanent": true
+    },
+    {
+      "source": "/industries/infusion",
+      "destination": "/specialties/infusion-and-buy-and-bill",
+      "permanent": true
+    },
+    {
+      "source": "/industries/:slug",
+      "destination": "/specialties/:slug",
       "permanent": true
     }
   ]
