@@ -42,7 +42,7 @@ export default async function Payments({ searchParams }: { searchParams: Promise
   const open = reqs.filter(r => r.status === 'open').reduce((t, r) => t + Number(r.amount_cents), 0);
   return (<>
     <div className="head"><div><h1>Patient payments</h1><p>Patients pay your practice directly through Stripe. Payouts land in your bank account.</p></div>
-      {acct?.charges_enabled ? <span className="chip ok">Payments on</span> : stripeConfigured() ? <form action={startOnboarding}><button className="btn">{acct ? 'Finish Stripe setup' : 'Turn on patient payments'}</button></form> : <span className="chip warn">Stripe keys not set</span>}</div>
+      <div className="hd-acts"><a className="btn" href="/hub/payments/checkout">Front desk checkout</a>{acct?.charges_enabled ? <span className="chip ok">Payments on</span> : stripeConfigured() ? <form action={startOnboarding}><button className="btn">{acct ? 'Finish Stripe setup' : 'Turn on patient payments'}</button></form> : <span className="chip warn">Stripe keys not set</span>}</div></div>
     {sp.err && <div className="banner err">{sp.err}</div>}
     {sp.created && <div className="banner ok">Payment link created for statement {sp.created}. Copy it from the list below and text or email it to the patient.</div>}
     <div className="kpis">

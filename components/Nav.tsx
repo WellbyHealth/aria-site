@@ -18,6 +18,7 @@ const SECTIONS: { key: string; label: string; items: Item[] }[] = [
     { href: '/hub/payers', label: 'Payers', icon: 'payers', sub: true },
     { href: '/hub/providers', label: 'Providers', icon: 'providers', sub: true },
     { href: '/hub/payments', label: 'Patient payments', icon: 'card' },
+    { href: '/hub/payments/checkout', label: 'Front desk', icon: 'card', sub: true },
     { href: '/hub/remittances', label: 'Insurer files (835)', icon: 'file' },
   ] },
   { key: 'insights', label: 'Insights', items: [
