@@ -15,7 +15,19 @@ export const CARDS = [
   { id: 'front', name: 'Front desk', holder: 'Jamie Chen', mask: '4207', type: 'Physical', limit: 25000000, posted: 18150000, pending: 2124000, lock: 'Office supplies', status: 'Active' },
   { id: 'surgery', name: 'Surgery center', holder: 'Dr. Ana Patel', mask: '3318', type: 'Physical', limit: 15000000, posted: 9420000, pending: 0, lock: 'Medical suppliers', status: 'Active' },
   { id: 'software', name: 'Software', holder: 'Practice admin', mask: '8820', type: 'Virtual', limit: 30000000, posted: 11890000, pending: 0, lock: 'Software only', status: 'Active' },
-  { id: 'travel', name: 'CME travel', holder: 'Dr. Sam Okafor', mask: '5561', type: 'Physical', limit: 40000000, posted: 0, pending: 0, lock: 'Travel', status: 'Frozen' },
+  { id: 'travel', name: 'CME travel', holder: 'Dr. Sam Rivera', mask: '5561', type: 'Physical', limit: 40000000, posted: 0, pending: 0, lock: 'Travel', status: 'Frozen' },
+  { id: 'labs', name: 'Lab fees', holder: 'Practice admin', mask: '7714', type: 'Virtual', limit: 20000000, posted: 9840000, pending: 0, lock: 'Quest, Labcorp', status: 'Active' },
+  { id: 'inject', name: 'Injectables', holder: 'Dr. Ana Patel', mask: '2290', type: 'Virtual', limit: 50000000, posted: 31275000, pending: 0, lock: 'McKesson', status: 'Single-use' },
+  { id: 'oldmed', name: 'Medline orders', holder: 'Maria Lopez', mask: '6012', type: 'Virtual', limit: 10000000, posted: 0, pending: 0, lock: 'Medline', status: 'Suspended' },
+];
+// Which account pays each card off.
+export const CARD_ACCOUNT: Record<string, string> = { supplies: 'Supplies ••4296', front: 'Operating ••1038', surgery: 'Operating ••1038', software: 'Operating ••1038', travel: 'Operating ••1038', labs: 'Supplies ••4296', inject: 'Buy-and-bill line', oldmed: 'Supplies ••4296' };
+export const SUBS = [
+  { vendor: 'athenahealth', cards: ['Software ••8820', 'Front desk ••4207', 'Surgery center ••3318'], cents: 11890000, every: 'Monthly', last: 'Nov 6', dup: true },
+  { vendor: 'Weave', cards: ['Software ••8820'], cents: 3480000, every: 'Monthly', last: 'Nov 2', dup: false },
+  { vendor: 'Doximity', cards: ['Software ••8820'], cents: 1920000, every: 'Annual', last: 'Oct 18', dup: false },
+  { vendor: 'Microsoft 365', cards: ['Software ••8820', 'Front desk ••4207'], cents: 2260000, every: 'Monthly', last: 'Nov 1', dup: true },
+  { vendor: 'Stericycle', cards: ['Supplies ••0001'], cents: 6490000, every: 'Monthly', last: 'Nov 9', dup: false },
 ];
 
 export const CARD_TXNS = [

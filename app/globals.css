@@ -238,3 +238,28 @@ tr.sel td{background:var(--accent-soft)}
 /* Home: product row. */
 .ccbar{height:8px;border-radius:4px;background:var(--rule-soft);overflow:hidden;margin:14px 0 8px}.ccbar i{display:block;height:100%;background:var(--accent)}
 .stat2{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}.stat2 .lbl{font-size:13.5px}.stat2 div>div{font-size:17px;margin-top:2px}
+/* Home: money movement and transactions */
+.head2{display:flex;align-items:center;gap:12px;margin:40px 0 16px}.head2 h2{font-size:22px;font-weight:400;margin:0 8px 0 0}.head2>a:not(.iconbtn){color:var(--accent-ink);font-size:15px}
+.head2 span:not(.iconbtn){font-size:16px;min-width:84px;text-align:center}.iconbtn.off{opacity:.3}
+.mm .mm-big{margin:4px 0 18px;padding-bottom:18px;border-bottom:1px solid var(--rule-soft)}.mm .mm-big.pos .big{color:var(--good)}
+.mm-sub{font-size:15px;margin-bottom:4px}
+.ic.av{font-size:11.5px;font-weight:500;background:var(--hover);border:0;color:var(--slate)}
+.mm-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:12px -28px -24px;padding:18px 28px;border-top:1px solid var(--rule-soft)}
+.mm-foot .num{font-size:17px;margin-top:4px}
+.mbars{width:120px;height:40px}.mbars rect{fill:var(--accent);opacity:.25}.mbars rect.cur{opacity:.8}
+.tabs2{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tabs2 a{font-size:14.5px;padding:7px 14px;border-radius:999px;border:1px solid var(--rule);color:var(--ink)}.tabs2 a.on{background:var(--accent-soft,#eeedfc);border-color:transparent}
+.who{display:flex;align-items:center;gap:12px}.who .ic{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;flex:none}
+/* Cards: Mercury-style manage table */
+.utabs{display:flex;gap:28px;border-bottom:1px solid var(--rule);margin:4px 0 20px}
+.utabs a{padding:10px 0;color:var(--slate);font-size:15.5px;border-bottom:2px solid transparent;margin-bottom:-1px}.utabs a.on{color:var(--ink);border-color:var(--accent)}
+.fbar{display:flex;align-items:center;gap:16px;margin-bottom:14px}.fbar .lbl{padding-left:16px;border-left:1px solid var(--rule)}
+.ctable td.holder{color:var(--slate);border-bottom-color:transparent;white-space:nowrap}
+.cardrow2{display:flex;align-items:center;gap:10px;color:var(--ink)}
+.thumb{width:40px;height:26px;border-radius:4px;background:linear-gradient(135deg,#8576ff,#4c3fd8);position:relative;flex:none}
+.thumb::after{content:"";position:absolute;left:6px;top:6px;width:7px;height:5px;border-radius:1px;background:rgba(255,255,255,.85)}
+.thumb.v{background:#f1effc;box-shadow:inset 0 0 0 1px #dcd9f3}.thumb.v::after{background:#c3bfe9}
+.thumb.off{opacity:.45}
+.chip.warnchip{background:#fbeee6;color:#b4541f}
+.ctable .tw{max-height:none;overflow:visible}
+.ctable td{white-space:nowrap}.ctable td.lbl{white-space:normal;min-width:140px}
