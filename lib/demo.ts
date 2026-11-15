@@ -116,6 +116,10 @@ export async function seedDemo(d: Db) {
   await matchPractice(P, d);
   await matchPayouts(P, d);
   await d.query(`insert into stripe_accounts (practice_id, account_id, charges_enabled, payouts_enabled, details_submitted) values ($1,'acct_demo',true,true,true)`, [P]);
+  await d.query(`insert into terminal_readers (reader_id, practice_id, location_id, label, device_type, status) values ('tmr_demo_front', $1, $2, 'Front desk', 'bbpos_wisepos_e', 'online'), ('tmr_demo_north', $1, $3, 'North Clinic desk', 'stripe_s700', 'online')`, [P, main, north]);
+  for (const [name, brand, last4, m, y] of [['R. Patel', 'visa', '4242', 8, 2028], ['L. Brooks', 'mastercard', '5454', 3, 2027], ['M. Chen', 'amex', '0005', 11, 2029]] as const)
+    await d.query(`insert into saved_cards (practice_id, patient_name, patient_contact, stripe_customer_id, payment_method_id, brand, last4, exp_month, exp_year, consent_at)
+      values ($1,$2,'patient@example.com',$3,$4,$5,$6,$7,$8, now() - interval '20 days')`, [P, name, `cus_demo_${last4}`, `pm_demo_${last4}`, brand, last4, m, y]);
   const pr = [['J. Alvarez', 18_500, 'paid', 2], ['M. Chen', 42_000, 'paid', 5], ['T. Okafor', 9_500, 'open', 1], ['R. Patel', 126_000, 'open', 19], ['L. Brooks', 31_000, 'paid', 9]] as const;
   for (const [name, cents, status, ago] of pr)
     await d.query(`insert into payment_requests (practice_id, location_id, statement_ref, patient_name, patient_contact, amount_cents, status, checkout_url, created_at, paid_at) values ($1,$2,$3,$4,'patient@example.com',$5,$6,'#demo', now() - ($7 || ' days')::interval, case when $6='paid' then now() - (($7::int - 1) || ' days')::interval end)`,

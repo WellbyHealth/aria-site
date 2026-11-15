@@ -153,3 +153,34 @@ create table if not exists stripe_payouts (
   status text not null,
   matched_entry_id uuid references ledger_entries(id) on delete set null
 );
+-- Front desk: how a payment was taken, the PaymentIntent behind reader and saved-card charges.
+alter table payment_requests add column if not exists method text not null default 'link';
+alter table payment_requests add column if not exists stripe_payment_intent_id text;
+alter table payment_requests add column if not exists reader_id text;
+alter table payment_requests add column if not exists failure text;
+alter table locations add column if not exists stripe_terminal_location_id text;
+create table if not exists terminal_readers (
+  reader_id text primary key, -- Stripe tmr_...
+  practice_id uuid not null references practices(id) on delete cascade,
+  location_id uuid references locations(id) on delete set null,
+  label text not null,
+  device_type text,
+  status text,
+  created_at timestamptz not null default now()
+);
+-- Cards patients agreed to keep on file. Only Stripe ids and display details; never card numbers.
+create table if not exists saved_cards (
+  id uuid primary key default gen_random_uuid(),
+  practice_id uuid not null references practices(id) on delete cascade,
+  patient_name text not null,
+  patient_contact text,
+  stripe_customer_id text not null,
+  payment_method_id text not null unique,
+  brand text,
+  last4 text,
+  exp_month int,
+  exp_year int,
+  consent_at timestamptz not null default now(),
+  removed_at timestamptz,
+  created_at timestamptz not null default now()
+);
