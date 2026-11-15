@@ -405,7 +405,7 @@ function productPage(p) {
 ${p.shot ? `<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">In the app</span><h2>See it with sample data.</h2></div><div class="art frame reveal">${appFrame(p.shot, p.name + ' in the Aria app, sample data')}</div></div></section>` : ''}
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Specialties</span><h2>Popular with</h2></div><div class="chips">${specs.map((s) => `<a class="chip" href="/specialties/${s.slug}">${esc(s.name)}</a>`).join('')}<a class="chip" href="/specialties">All specialties</a></div></div></section>
 ${p.key === 'card' ? `<section class="sec tight card-issue-sec"><div class="wrap split"><div class="reveal">${issueGrid(true)}</div><div><span class="label">Issue cards</span><h2 style="margin-top:18px">A card for every person, supplier and purchase.</h2><ul class="arrows"><li>Physical cards for providers and staff, each with its own limit</li><li>Virtual cards in seconds, one per supplier, so a leaked number stops at one vendor</li><li>Cards locked to a merchant, like Henry Schein or Medline, or to a category like medical supplies</li><li>Freeze, change limits or close a card from the app at any time</li></ul></div></div></section>` : ''}
-${p.key === 'card' ? spendTabs() : ''}
+${p.key === 'card' ? spendTabs() + justStart() : ''}
 ${DEPTH[p.key] ? `<section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">An example</span><h2 style="margin-top:18px">What it looks like in a practice.</h2></div><div class="prose">${DEPTH[p.key].example.map((x) => `<p>${esc(x)}</p>`).join('')}</div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Compared</span><h2>How practices handle it today.</h2></div><div class="tw"><table class="tbl cmp-t"><thead><tr><th></th>${DEPTH[p.key].compare.cols.map((c, i, a) => `<th${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</th>`).join('')}</tr></thead><tbody>${DEPTH[p.key].compare.rows.map((r) => `<tr><th>${esc(r[0])}</th>${r.slice(1).map((c, i, a) => `<td${i === a.length - 1 ? ' class="hl"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div></section>` : ''}
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Questions</span><h2 style="margin-top:18px">About ${p.name}</h2></div>${faqHtml(pf)}</div></section>
@@ -502,6 +502,21 @@ function specialtiesIndex() {
 <section class="sec tight" style="padding-top:0"><div class="wrap"><div class="spec-groups">${DATA.groups.map((g) => `<div class="spec-g">${ic(GROUP_ICON[g.slug])}<h3><a href="${gurl(g.slug)}">${GROUP_NAME[g.slug]}</a></h3><ul>${g.members.map((m) => `<li><a href="/specialties/${m}">${esc(specBy[m].name)}</a></li>`).join('')}</ul></div>`).join('')}</div></div></section>
 ${ctaBand('Don’t see your specialty?', 'Join the waitlist and tell us what you do. We are adding specialties every month.')}`;
   page({ url: '/specialties', title: 'Financial tools for every medical specialty', desc: 'Cards, buy-and-bill lending, bill pay and a financial hub for primary care, specialists, surgical practices, eye care, dental, infusion and more.', body, priority: '0.8', graph: [crumbsLd([['Aria', '/'], ['Specialties', '/specialties']])] });
+}
+
+// "The card is just the start": five product tiles, each with a small piece of the app.
+function justStart() {
+  const ok = '<svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M5 8.2l2 2 4-4.4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const row = (l, n, k, t) => `<div class="js-row"><span class="js-av">${l}</span><div><b>${n}</b><small>${k}</small></div><em title="${t}">${ok}<span class="sr">${t}</span></em></div>`;
+  const tiles = [
+    ['/card', 'Business cards', 'A card for every provider and supplier, with limits you set.', `<div class="js-cards">${rcard('Supplies', '0001')}${rcard('Dr. Rivera', '4417')}</div>`],
+    ['/card', 'Expense management', 'Receipts matched and coded to your books as staff spend.', `<div class="js-stack">${row('M', 'Medline', 'SUPPLIES', 'Approved')}${row('Q', 'Quest', 'LABS', 'Approved')}</div>`],
+    ['/marketplace', 'Supply marketplace', 'Med-surg supplies on the card, with 2% back on every order.', `<div class="js-stack"><div class="js-box"><div class="js-h"><b>Order</b><em>${ok}Placed</em></div><div class="js-prod">${hasImg('m-nitrile-exam-gloves') ? `<img src="${IMG('m-nitrile-exam-gloves')}" alt="" width="56" height="56" loading="lazy">` : ''}<div><b>Nitrile gloves</b><small>40 CASES · $18,400</small></div></div></div></div>`],
+    ['/bill-pay', 'Bill pay', 'Invoices read for you, approved in one tap and paid on time.', `<div class="js-stack"><div class="js-pill">${ok}Invoice read</div><div class="js-box js-inv"><div class="js-h"><b>Invoice</b><span><small>BALANCE DUE</small>$212,480.00</span></div><i></i><i></i><i></i></div></div>`],
+    ['/hub', 'Cash and forecasting', 'See when insurers will pay and what you can spend this week.', `<div class="js-chart"><span class="js-tag"><b>$318,204</b><small>ABOVE YOUR FLOOR</small></span><svg viewBox="0 0 240 150" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150 L0 120 C40 112 60 118 90 98 S150 84 170 60 S215 30 240 18 L240 150Z" fill="#e4e1fb"/><path d="M0 150 L0 132 C50 128 80 124 110 112 S170 92 195 76 S225 58 240 52 L240 150Z" fill="#5651d8"/></svg></div>`],
+  ];
+  return `<section class="sec just"><div class="wrap"><div class="sec-head center"><h2>The card is just the start.</h2><p class="lead">Everything a practice spends, pays and collects, in one place and without the manual work.</p></div>
+<div class="js-grid">${tiles.map(([u, t, d, art]) => `<a class="js-tile" href="${u}"><h3>${t}</h3><p>${d}</p><div class="js-art" aria-hidden="true">${art}</div></a>`).join('')}</div></div></section>`;
 }
 
 // ---------------------------------------------------------------- marketplace
