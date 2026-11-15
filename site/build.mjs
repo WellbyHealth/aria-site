@@ -34,6 +34,7 @@ fs.copyFileSync(path.join(ROOT, 'site/app.js'), path.join(OUT, 'assets/site/app.
 const CSS = '/assets/site/style.css?v=' + hash(path.join(ROOT, 'site/style.css'));
 const JS = '/assets/site/app.js?v=' + hash(path.join(ROOT, 'site/app.js'));
 const IMG = (n) => '/assets/site/' + n + '.webp';
+const hasImg = (n) => fs.existsSync(path.join(ROOT, 'site/img', n + '.webp'));
 
 // ---------------------------------------------------------------- drawings
 const I = {
@@ -170,10 +171,11 @@ const MEGA_COLS = [
   ['Lending', 'Capital that follows how a practice gets paid.', [['Buy-and-bill lending', '/lending'], ['Flex Pay', '/flex-pay']]],
   ['Payments & Accounting', 'Pay vendors, collect insurer checks and keep the books current.', [['Bill pay', '/bill-pay'], ['Lockbox', '/lockbox'], ['Flex Pay', '/flex-pay'], ['Accounting sync', '/bill-pay']]],
 ];
+const MEGA_ICON = ['i-hub', 'i-cards', 'i-lending', 'i-payments'];
 const NAV_PRODUCTS = `<div class="mega-in"><div class="mega-lead"><b class="mega-h">Practice banking</b><p>Manage your practice’s money at every stage of growth.</p>
 <a class="mega-row" href="/specialties"><b>Specialties</b><span>Built for 39 kinds of practice</span></a><a class="mega-row" href="/marketplace"><b>Marketplace</b><span>Med-surg supplies with 2% back</span></a>
 <a class="mega-demo" href="${APP}">Try the demo ↗</a></div>
-<div class="mega-grid">${MEGA_COLS.map(([h, d, l]) => `<div class="mega-col"><b>${h}</b><p>${d}</p><span class="mega-k">Products</span>${l.map(([n, u]) => `<a href="${u}">${n}</a>`).join('')}</div>`).join('')}</div></div>
+<div class="mega-grid">${MEGA_COLS.map(([h, d, l], k) => `<div class="mega-col">${hasImg(MEGA_ICON[k]) ? `<img class="mega-ic" src="${IMG(MEGA_ICON[k])}" alt="" width="56" height="56" loading="lazy">` : ''}<b>${h}</b><p>${d}</p><span class="mega-k">Products</span>${l.map(([n, u]) => `<a href="${u}">${n}</a>`).join('')}</div>`).join('')}</div></div>
 <a class="mega-foot" href="/join"><b>Join the waitlist <i>→</i></b><span>Be first to open an account when Aria launches.</span></a>`;
 const SPARK = '<svg class="spark" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"><path d="M10 3l1.6 5.4L17 10l-5.4 1.6L10 17l-1.6-5.4L3 10l5.4-1.6z"/><path d="M18 3v4M16 5h4"/></svg>';
 const ICO = {
@@ -509,13 +511,14 @@ const CAT_TONE = { gloves: ['#ece9fb', '#5651d8'], 'wound-care': ['#e8f0fa', '#3
 const CAT_ICON = { gloves: 'drop', 'wound-care': 'shield', 'syringes-needles': 'vial', 'exam-room': 'stethoscope', ppe: 'shield', sharps: 'box', 'specimen-collection': 'microscope', cleaning: 'sparkle', equipment: 'stethoscope', dental: 'tooth' };
 const packOf = (p) => p.specs.Pack || p.specs.Size || p.specs.Volume || '';
 function pkgArt(c, p) {
+  if (hasImg('m-' + p.slug)) return `<div class="pk pk-photo"><img src="${IMG('m-' + p.slug)}" alt="" width="640" height="640" loading="lazy"></div>`;
   const [bg, ink] = CAT_TONE[c.slug] || ['#ece9fb', '#5651d8'];
   const label = esc(p.name.split(',')[0]);
   return `<div class="pk" style="--pk-bg:${bg};--pk-ink:${ink}"><svg viewBox="0 0 240 170" aria-hidden="true"><path d="M48 52 L120 30 L192 52 L120 74 Z" fill="var(--pk-ink)" opacity=".18"/><path d="M48 52 L120 74 L120 150 L48 128 Z" fill="#fff"/><path d="M120 74 L192 52 L192 128 L120 150 Z" fill="var(--pk-ink)" opacity=".1"/><path d="M48 52 L120 74 L192 52 M120 74 L120 150" stroke="var(--pk-ink)" stroke-opacity=".25" fill="none"/><path d="M48 104 L120 126 L120 150 L48 128 Z" fill="var(--pk-ink)" opacity=".85"/></svg><span class="pk-ic">${ic(CAT_ICON[c.slug] || 'box')}</span><span class="pk-l">${label}</span><span class="pk-m">${MARK}</span></div>`;
 }
 const prodCard = (c, p) => `<article class="pc" data-cat="${c.slug}" data-ster="${/^Sterile$/.test(p.specs.Sterility || '') ? 'sterile' : /sterile/i.test(p.specs.Sterility || '') ? 'both' : 'non'}" data-name="${esc((p.name + ' ' + p.desc + ' ' + c.name).toLowerCase())}"><a class="pc-art" href="/marketplace/${c.slug}/${p.slug}" tabindex="-1" aria-hidden="true">${pkgArt(c, p)}</a><div class="pc-b"><span class="pc-cat">${esc(c.name)}</span><h3><a href="/marketplace/${c.slug}/${p.slug}">${esc(p.name)}</a></h3><p>${esc(packOf(p))}</p><div class="pc-a"><a class="btn btn-accent btn-sm" href="/join?product=${encodeURIComponent(p.name)}">Request a quote</a><button class="pc-save" type="button" aria-label="Save ${esc(p.name)}" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button></div></div></article>`;
 const shopBar = (active = '') => `<section class="shopbar"><div class="wrap"><div class="sb-top"><label class="sr" for="mk-find">Search supplies</label><div class="sb-search"><input id="mk-find" type="search" placeholder="Search gloves, gauze, syringes, sharps containers…" autocomplete="off"><span>${ic('search')}</span></div><a class="sb-card" href="/card">Paid on the Aria Card, 2% back</a></div>
-<nav class="sb-cats" aria-label="Categories"><a href="/marketplace"${active ? '' : ' aria-current="page"'}>All</a>${CATS.map((c) => `<a href="/marketplace/${c.slug}"${active === c.slug ? ' aria-current="page"' : ''}>${c.name}</a>`).join('')}</nav></div></section>
+<nav class="sb-cats" aria-label="Categories"><a href="/marketplace"${active ? '' : ' aria-current="page"'}>All</a>${CATS.map((c) => `<a href="/marketplace/${c.slug}"${active === c.slug ? ' aria-current="page"' : ''}>${hasImg('m-' + c.prods[0].slug) ? `<img src="${IMG('m-' + c.prods[0].slug)}" alt="" width="28" height="28" loading="lazy">` : ''}${c.name}</a>`).join('')}</nav></div></section>
 <div class="sb-req"><div class="wrap">Can’t find what you buy? <a href="/join?request=supply">Request it</a> and we’ll add it.</div></div>`;
 function marketHome() {
   const all = CATS.flatMap((c) => c.prods.map((p) => [c, p]));
@@ -593,7 +596,7 @@ function prodPage(c, p) {
   const url = `/marketplace/${c.slug}/${p.slug}`;
   const body = `
 <section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, '/marketplace/' + c.slug], [p.name, url]])}
-<div class="prod"><div class="ph"><img src="${IMG('c-' + c.slug)}" alt="${esc(p.name)}" width="800" height="800" fetchpriority="high"></div>
+<div class="prod"><div class="ph"><img src="${IMG(hasImg('m-' + p.slug) ? 'm-' + p.slug : 'c-' + c.slug)}" alt="${esc(p.name)}" width="800" height="800" fetchpriority="high"></div>
 <div><span class="label">${c.name}</span><h1 style="margin-top:18px;font-size:clamp(34px,4vw,52px)">${esc(p.name)}</h1><p class="lead">${esc(p.desc)}</p>
 <table class="tbl" style="margin-top:28px"><tbody>${Object.entries(p.specs).map(([k, v]) => `<tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`).join('')}</tbody></table>
 <form class="signup" data-signup="quote" style="margin-top:28px;max-width:none"><input type="hidden" name="product" value="${esc(p.name)}"><label class="sr" for="q-em">Work email</label><input id="q-em" class="field" type="email" name="email" placeholder="Work email" required><button class="btn btn-dark" type="submit">Request a quote</button></form>
