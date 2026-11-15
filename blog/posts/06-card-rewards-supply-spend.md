@@ -3,7 +3,7 @@ title: "Business Card Rewards on Medical Supplies: What They're Worth"
 description: What business card rewards on medical supplies are really worth to a practice, and the vendor fees and habits that can quietly cancel them out.
 slug: card-rewards-supply-spend
 category: Spend & cards
-date: 2026-11-20
+date: 2026-10-28
 number: 6
 ---
 Business card rewards on medical supplies look small on any single order. Over a year of gloves, syringes, exam paper, impression material and sutures, they add up to real money, as long as nothing else eats them. Here's how to figure out what you actually earn and what can wipe it out.

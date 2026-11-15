@@ -3,7 +3,7 @@ title: Credentialing and Enrollment Gaps That Quietly Block Payment
 description: How provider credentialing and enrollment gaps turn into denials, and a simple routine to find and close them before claims go out.
 slug: credentialing-enrollment-gaps
 category: Getting paid
-date: 2027-01-04
+date: 2026-11-12
 number: 21
 ---
 Credentialing and enrollment gaps are one of the most common reasons a clean claim still doesn't get paid. The coding can be perfect and the documentation thorough, but if the payer doesn't show the rendering provider as enrolled and linked to your practice, the claim stops.

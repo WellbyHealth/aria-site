@@ -3,7 +3,7 @@ title: Timely filing limits and why good claims go unpaid
 description: What timely filing limits are, why they vary by payer and contract, and a simple routine to keep every claim inside its filing window.
 slug: timely-filing-limits
 category: Getting paid
-date: 2026-12-17
+date: 2026-11-06
 number: 15
 ---
 Timely filing limits are one of the quietest ways a practice loses money. Most denials can be fixed: you correct a code, add a modifier, send records and resubmit. But if a claim reaches the payer after its filing deadline, it can be denied even when the care was documented and the coding was right.

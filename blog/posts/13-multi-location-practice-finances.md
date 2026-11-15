@@ -3,7 +3,7 @@ title: Multi-location practice finances without the spreadsheet mess
 description: How to manage multi-location practice finances: tag spending by site, split shared costs fairly, and get location reports that add up.
 slug: multi-location-practice-finances
 category: Running the practice
-date: 2026-12-11
+date: 2026-11-04
 number: 13
 ---
 Multi-location practice finances get messy fast. Open a second office and suddenly you need to know which site bought the new X-ray sensor, which one carries more denials, and whether the newer location is pulling its weight.

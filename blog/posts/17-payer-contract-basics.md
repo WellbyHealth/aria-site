@@ -3,7 +3,7 @@ title: Payer contract basics: fee schedules, carve-outs and negotiation
 description: Payer contract basics for independent practices: how fee schedules and carve-outs work, which terms cost money and how to prepare to negotiate.
 slug: payer-contract-basics
 category: Getting paid
-date: 2026-12-23
+date: 2026-11-08
 number: 17
 ---
 Your payer contracts decide what you get paid for almost everything you do. Yet plenty of practices sign a payer contract once, file it away and don't open it again until something goes wrong.

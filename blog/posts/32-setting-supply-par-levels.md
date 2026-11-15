@@ -3,7 +3,7 @@ title: How to Set Par Levels for Medical Office Supplies
 description: How to set par levels for medical office supplies: a simple formula, a worked example and a routine that stops over- and under-ordering.
 slug: setting-supply-par-levels
 category: Spend & cards
-date: 2027-02-06
+date: 2026-12-01
 number: 32
 ---
 Setting par levels for medical office supplies is one of the least glamorous jobs in a practice, and one of the most useful. A par level is the amount of an item you want on the shelf right after you restock. Get it right and you stop running out of gloves on a Thursday, and you stop finding expired kits behind three boxes of the same thing.

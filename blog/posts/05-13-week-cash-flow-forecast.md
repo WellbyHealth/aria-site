@@ -3,7 +3,7 @@ title: "13-Week Cash Flow Forecast for a Medical Practice: Step by Step"
 description: How to build a 13-week cash flow forecast for a medical practice, from starting cash to insurance receipts, payroll, and a weekly update routine.
 slug: 13-week-cash-flow-forecast
 category: Cash flow
-date: 2026-11-17
+date: 2026-10-27
 number: 5
 ---
 A 13-week cash flow forecast shows, week by week, how much cash your practice expects to have over the next quarter. It's one of the most useful tools for answering the question every practice owner eventually asks: "Are we going to be OK on payroll in six weeks?"

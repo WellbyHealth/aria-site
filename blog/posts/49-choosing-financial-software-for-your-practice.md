@@ -3,7 +3,7 @@ title: Choosing financial software for a medical practice: what matters
 description: Choosing financial software for a medical practice: what really matters, from integrations and HIPAA to approvals, data export and total cost.
 slug: choosing-financial-software-for-your-practice
 category: Running the practice
-date: 2027-03-29
+date: 2027-01-04
 number: 49
 ---
 Choosing financial software for a medical practice is mostly about fit, not features. Demos are built to impress, and almost every tool looks good for forty-five minutes. What matters is how it works on a busy Tuesday, with your systems, your staff and your patients' data.

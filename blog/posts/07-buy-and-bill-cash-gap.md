@@ -3,7 +3,7 @@ title: "Buy-and-Bill Cash Flow: Closing the Gap Before Payment"
 description: How buy-and-bill cash flow works for physician-administered drugs, how to size the gap, and practical ways to shrink it.
 slug: buy-and-bill-cash-gap
 category: Cash flow
-date: 2026-11-23
+date: 2026-10-29
 number: 7
 ---
 Buy-and-bill cash flow comes down to one problem: the practice pays for the drug before anyone pays the practice. Oncology, rheumatology, ophthalmology, urology and allergy practices all live with this for injectables and infusions, and with expensive products the gap can tie up a big share of the practice's cash.

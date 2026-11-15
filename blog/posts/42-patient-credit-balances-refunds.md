@@ -3,7 +3,7 @@ title: Patient Credit Balances and Refunds: How to Handle Them Correctly
 description: How to handle patient credit balances and refunds at your practice: find the cause, decide who's owed, refund promptly and document every step.
 slug: patient-credit-balances-refunds
 category: Getting paid
-date: 2027-03-08
+date: 2026-12-21
 number: 42
 ---
 Patient credit balances and refunds are easy to ignore because nobody's calling to complain about them. A credit balance just sits there on the account. But that money isn't yours, and letting credits pile up creates real problems with patients, with payers and in your books.

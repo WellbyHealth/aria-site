@@ -3,7 +3,7 @@ title: How to write a staff spending policy people actually follow
 description: How to write a one-page staff spending policy for your practice: who can buy what, spending limits, fast approvals and receipts.
 slug: staff-spending-policy
 category: Spend & cards
-date: 2026-12-05
+date: 2026-11-02
 number: 11
 ---
 Most practices already have a staff spending policy. It just isn't written down. It lives in the office manager's head, in a few old emails, and in the habit of "check with the doctor first." That works until someone new starts, someone goes on vacation, or a $900 order shows up that nobody remembers approving.

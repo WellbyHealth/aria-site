@@ -3,7 +3,7 @@ title: Separating personal and practice finances (and why it matters)
 description: Why separating personal and practice finances matters for taxes, liability and clean books, and how to untangle them step by step.
 slug: separating-personal-and-practice-finances
 category: Books & close
-date: 2027-04-01
+date: 2027-01-06
 number: 50
 ---
 Separating personal and practice finances sounds basic, and most owners know they should. But it's common for the lines to blur, especially in the early years. A personal card covers a supply order when the practice account is low. The practice account pays for a family phone plan. A loan from the owner never gets written down.

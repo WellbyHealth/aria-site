@@ -137,10 +137,6 @@
     });
   });
 
-  // Reveal on scroll
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .15 });
-    $$('.reveal').forEach(function (el) { io.observe(el); });
-  } else $$('.reveal').forEach(function (el) { el.classList.add('in'); });
-  setTimeout(function () { $$('.reveal').forEach(function (el) { el.classList.add('in'); }); }, 2500);
+  // Sections render in place; no scroll fade-ins.
+  $$('.reveal').forEach(function (el) { el.classList.add('in'); });
 })();

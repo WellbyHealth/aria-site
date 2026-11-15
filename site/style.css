@@ -665,3 +665,50 @@ box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 -1px 0 rgba(20,10,80,.35)
 @media (max-width:860px){.fdet>summary{display:flex;align-items:center;justify-content:space-between;list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:15px;background:#fff}
 .fdet>summary::-webkit-details-marker{display:none}.fdet>summary::after{content:"+";font-size:20px;color:var(--muted)}.fdet[open]>summary::after{content:"−"}
 .fdet[open] .filters{margin-top:12px}}
+
+/* mega menu: intro column + 2x2 product groups, like Mercury */
+.mega-in{grid-template-columns:minmax(260px,1fr) 2.4fr}
+.mega-grid{display:grid;grid-template-columns:1fr 1fr;padding:0!important}
+.mega-grid>.mega-col{padding:32px 36px 28px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mega-grid>.mega-col:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
+.mega-grid>.mega-col:nth-child(n+3){border-bottom:0}
+.mega-col p{min-height:0;max-width:34ch}
+.dd-panel .mega-k{margin:18px 0 8px}
+.mega-grid .mega-col a{display:inline-block;margin-right:18px}
+
+/* Apple-style pass: semibold tight headlines, light grey grounds, still sections, hover lift */
+h1,h2{font-weight:500}
+h1{letter-spacing:-.045em}
+h2{letter-spacing:-.038em}
+.js .reveal{opacity:1!important;transform:none!important}
+.js .figure-card.reveal .petal{stroke-dashoffset:0!important}
+a.tile,.pc,.wcard,.hs-card{transition:transform .25s ease,box-shadow .25s ease}
+a.tile:hover,.pc:hover,.wcard:hover{transform:translateY(-2px);box-shadow:0 22px 44px -26px rgba(23,23,33,.28)}
+a.tile .ph,.pc .pk{overflow:hidden}
+a.tile .ph img,.pc .pk>*{transition:transform .5s ease}
+a.tile:hover .ph img,.pc:hover .pk>*{transform:scale(1.03)}
+a.tile.img .ph{background:#f5f5f7;border-radius:18px}
+@media (prefers-reduced-motion:reduce){a.tile,.pc,.wcard,a.tile .ph img,.pc .pk>*{transition:none}a.tile:hover,.pc:hover,.wcard:hover{transform:none}}
+
+/* three-column glance section */
+.trio-sec{background:#f5f5f7}
+.trio{display:grid;grid-template-columns:1fr 1.05fr 1fr;gap:28px;align-items:end}
+.tcol{display:grid;gap:20px}.tcol-mid{align-self:start}
+.tcol-mid .rcard{width:100%;max-width:none}
+.tp{background:#fff;border-radius:18px;padding:24px 26px;box-shadow:0 1px 0 rgba(23,23,33,.04),0 18px 40px -30px rgba(23,23,33,.3);position:relative}
+.tp-k{display:block;font-size:15px;color:var(--muted)}.tp-k.sm{font-size:13px;margin-top:16px}
+.tp-big{display:block;font-size:clamp(30px,2.6vw,40px);font-weight:400;letter-spacing:-.03em;color:var(--ink);margin-top:6px}
+.tp sup{font-size:.48em;vertical-align:.85em;margin-left:1px}
+.tp-rows{margin:18px -26px -24px;padding:16px 26px 20px;border-top:1px solid var(--line-2);display:grid;gap:10px}
+.tp-rows>div{display:flex;justify-content:space-between;gap:12px;font-size:16px}.tp-rows b{font-weight:400;color:var(--ink)}
+.tp-rows i{display:inline-block;width:2px;height:15px;margin-right:9px;vertical-align:-2px;background:#2f7d54}.tp-rows i.out{background:var(--accent)}
+.tp .pos{color:#2f7d54}
+.tp-bar{display:flex;height:9px;border-radius:999px;background:#ececf2;overflow:hidden;margin:16px 0 10px}.tp-bar i{background:var(--accent)}.tp-bar i.pend{background:#b9b6f3}
+.tp-leg{display:flex;gap:16px;font-size:14px;color:var(--body);align-items:center}.tp-leg i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;vertical-align:1px}.tp-leg i.pend{background:#b9b6f3}.tp-leg em{margin-left:auto;font-style:normal}
+.tp-chip{position:absolute;right:22px;top:22px;font-size:12.5px;padding:4px 10px;border-radius:6px;background:#e6f4ec;color:#2f7d54}
+.tp-chart{padding:14px 0 6px}.tp-chart svg{width:100%;height:auto;display:block}
+.tp-chart text{font-size:12px;fill:var(--muted);font-family:var(--sans)}
+.tp-grid line{stroke:var(--line-2)}.a-in{fill:#2f7d54;opacity:.07}.l-in,.l-out{fill:none;stroke-width:1.6}.l-in{stroke:#2f7d54}.l-out{stroke:var(--accent)}
+.tp-table{padding:0;overflow:hidden}.tp-th{background:#f0f0f4;padding:16px 24px;font-size:16px}.tp-th b{font-weight:400}
+.tp-tr{display:grid;grid-template-columns:1fr 1fr 1fr;padding:13px 24px;font-size:15px;border-top:1px solid var(--line-2)}.tp-tr span:not(:first-child){text-align:right}.tp-tr.head{font-size:13px;color:var(--muted);border-top:0}
+@media (max-width:900px){.trio{grid-template-columns:1fr;max-width:460px;margin:0 auto}.tcol-mid{order:-1}}

@@ -3,7 +3,7 @@ title: How to Reduce Medical Supply Costs Without Cutting Quality
 description: How to reduce medical supply costs without cutting quality: practical steps on pricing, waste, standardization and invoice checks.
 slug: cutting-supply-costs-without-cutting-quality
 category: Spend & cards
-date: 2027-02-12
+date: 2026-12-05
 number: 34
 ---
 If you want to reduce medical supply costs without cutting quality, the answer usually isn't "buy the cheapest version." It's buying the right things, in the right amounts, at a price you've actually checked. Most of the savings in a small practice come from waste, duplication and unchecked invoices, not from switching to lower-grade products.

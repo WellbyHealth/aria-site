@@ -3,7 +3,7 @@ title: "Collecting Patient Balances: Estimates, Card on File, Statements"
 description: Practical ways to improve collecting patient balances, using clear estimates, a fair card-on-file policy and statements patients understand.
 slug: collecting-patient-balances
 category: Getting paid
-date: 2026-12-02
+date: 2026-11-01
 number: 10
 ---
 Collecting patient balances has become a bigger part of getting paid. Deductibles, coinsurance and self-pay visits mean the patient now owes more of each visit, and a balance that's easy to collect at the front desk gets much harder once the patient has gone home.

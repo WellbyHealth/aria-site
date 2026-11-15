@@ -3,7 +3,7 @@ title: Common Claim Denial Reasons and How to Fix Them
 description: The most common claim denial reasons, what the codes usually mean, and how to fix each one so the resubmitted claim gets paid.
 slug: common-claim-denial-reasons
 category: Getting paid
-date: 2026-11-11
+date: 2026-10-25
 number: 3
 ---
 Most claim denial reasons fall into a handful of buckets, and once you know them, fixing a denied claim gets a lot faster. The trick is to figure out *why* a claim was denied before you touch it. A blind resubmission usually just earns a second denial.

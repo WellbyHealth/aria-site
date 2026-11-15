@@ -3,7 +3,7 @@ title: How to Reconcile Insurer Deposits to Your Bank Statement
 description: A step-by-step way to reconcile insurer deposits to your bank statement each month, plus the usual reasons the numbers don't match.
 slug: reconcile-insurer-deposits-bank-statement
 category: Books & close
-date: 2027-01-16
+date: 2026-11-17
 number: 25
 ---
 Reconciling insurer deposits to your bank statement answers a simple question. Does everything your books say came in actually appear in the bank, and does everything in the bank appear in your books?

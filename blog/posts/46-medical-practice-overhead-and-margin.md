@@ -3,7 +3,7 @@ title: Medical practice overhead and margin: where your money goes
 description: How to calculate medical practice overhead and margin, which costs to watch, and how to see where each collected dollar actually goes.
 slug: medical-practice-overhead-and-margin
 category: Running the practice
-date: 2027-03-20
+date: 2026-12-29
 number: 46
 ---
 Medical practice overhead is usually the answer when collections look healthy but the bank balance doesn't. The schedule is full, the claims are going out, and somehow there's less left at the end of the month than you expected.

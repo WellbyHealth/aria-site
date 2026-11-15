@@ -3,7 +3,7 @@ title: How to prevent prior authorization denials in your practice
 description: A practical process to prevent prior authorization denials, from checking requirements at scheduling to matching claims against approvals.
 slug: prior-authorization-denials
 category: Getting paid
-date: 2026-12-20
+date: 2026-11-07
 number: 16
 ---
 Prior authorization denials are some of the most frustrating losses a practice takes, because the care was already delivered. The good news is that most prior authorization denials trace back to a gap in your front-end process, which means you can fix them.

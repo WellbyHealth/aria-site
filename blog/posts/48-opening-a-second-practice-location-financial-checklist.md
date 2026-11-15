@@ -3,7 +3,7 @@ title: Opening a second practice location: a financial checklist
 description: A financial checklist for opening a second practice location: startup costs, ramp-up cash, payer enrollment, leases and separate books by site.
 slug: opening-a-second-practice-location-financial-checklist
 category: Running the practice
-date: 2027-03-26
+date: 2027-01-02
 number: 48
 ---
 Opening a second practice location is one of the biggest financial bets an independent practice makes. The clinical side often feels like the easy part. The money side, from build-out costs to the months before the new site pays its own way, is where plans tend to slip.

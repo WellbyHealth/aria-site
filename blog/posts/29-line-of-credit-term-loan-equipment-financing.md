@@ -3,7 +3,7 @@ title: Line of Credit vs. Term Loan vs. Equipment Financing for Practices
 description: Line of credit vs. term loan vs. equipment financing: how each works for a medical practice and what to ask a lender before you apply.
 slug: line-of-credit-term-loan-equipment-financing
 category: Cash flow
-date: 2027-01-28
+date: 2026-11-25
 number: 29
 ---
 Line of credit, term loan or equipment financing? If you own or manage an independent medical practice, you'll probably face that choice at some point. Maybe you're adding an exam room, replacing an aging ultrasound, or riding out a slow quarter while insurance payments catch up.

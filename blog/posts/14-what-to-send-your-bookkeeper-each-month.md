@@ -3,7 +3,7 @@ title: What to send your bookkeeper each month (and what to ask back)
 description: A monthly bookkeeping checklist for practice owners: what to send your bookkeeper or CPA each month, and the questions to ask once the books close.
 slug: what-to-send-your-bookkeeper-each-month
 category: Books & close
-date: 2026-12-14
+date: 2026-11-05
 number: 14
 ---
 If you've ever wondered what to send your bookkeeper each month, you're not alone. Plenty of practices pay for bookkeeping and still feel behind: the books close late, reports arrive and go unread, and questions pile up until tax season.

@@ -3,7 +3,7 @@ title: Payment Posting and Why Every Deposit Should Match a Remittance
 description: Medical payment posting basics: why every insurance deposit should match a remittance, what to do when it doesn't, and how to catch underpayments.
 slug: payment-posting-deposit-remittance
 category: Getting paid
-date: 2027-01-13
+date: 2026-11-15
 number: 24
 ---
 Payment posting in a medical practice means bringing together two halves of every insurance payment. The money lands in your bank account, and the explanation arrives separately as an electronic remittance or a paper explanation of benefits.

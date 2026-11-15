@@ -3,7 +3,7 @@ title: A 30-minute weekly money routine for practice owners
 description: A 30-minute weekly money routine for practice owners: check cash, claims, bills and spending each week so month end holds no surprises.
 slug: weekly-money-routine-for-practice-owners
 category: Cash flow
-date: 2027-04-07
+date: 2027-01-10
 number: 52
 ---
 A weekly money routine is the cheapest financial control a practice owner can have. Thirty minutes, same time each week, looking at the same handful of things. That's it.

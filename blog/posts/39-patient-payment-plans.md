@@ -3,7 +3,7 @@ title: Patient Payment Plans That Work for Patients and the Practice
 description: How to set up patient payment plans that patients can stick to and your practice can manage, with clear terms, simple math and steady follow-up.
 slug: patient-payment-plans
 category: Getting paid
-date: 2027-02-27
+date: 2026-12-15
 number: 39
 ---
 Patient payment plans are one of the most practical tools an independent practice has for collecting balances. When a patient owes more than they can pay at once, a clear plan often means you get paid in full over a few months instead of chasing a balance that eventually goes to collections or gets written off.
