@@ -92,11 +92,33 @@
       g.classList.toggle('hide', !any);
     });
   });
-  var mf = $('#mk-find');
-  if (mf) mf.addEventListener('input', function () {
-    var t = mf.value.trim().toLowerCase();
-    $$('[data-name]').forEach(function (el) { el.style.display = !t || el.getAttribute('data-name').indexOf(t) >= 0 ? '' : 'none'; });
-  });
+  // Marketplace: search, filters and sort over the product cards.
+  var mf = $('#mk-find'), grid = $('#mk-grid') || $('.pgrid');
+  var fd = $('.fdet'); if (fd && matchMedia('(max-width:860px)').matches) fd.open = false;
+  if (mf && grid) {
+    var cards = $$('.pc', grid), order = cards.slice(), sort = $('#mk-sort'), cnt = $('[data-count]'), none = $('#mk-none');
+    var vals = function (n) { return $$('input[name=' + n + ']:checked').map(function (i) { return i.value; }); };
+    var run = function () {
+      var t = mf.value.trim().toLowerCase(), cs = vals('cat'), ss = vals('ster'), gs = vals('grp').join(' ').split(' ').filter(Boolean), shown = 0;
+      cards.forEach(function (c) {
+        var ok = (!t || c.getAttribute('data-name').indexOf(t) >= 0) && (!cs.length || cs.indexOf(c.dataset.cat) >= 0) && (!ss.length || ss.indexOf(c.dataset.ster) >= 0) && (!gs.length || gs.indexOf(c.dataset.cat) >= 0);
+        c.hidden = !ok; if (ok) shown++;
+      });
+      if (cnt) cnt.textContent = 'Showing ' + shown + ' of ' + cards.length + ' products';
+      if (none) none.hidden = shown > 0;
+    };
+    var resort = function () {
+      var v = sort ? sort.value : 'featured', list = order.slice();
+      if (v === 'az') list.sort(function (a, b) { return $('h3', a).textContent.localeCompare($('h3', b).textContent); });
+      if (v === 'cat') list.sort(function (a, b) { return a.dataset.cat.localeCompare(b.dataset.cat); });
+      list.forEach(function (c) { grid.appendChild(c); });
+    };
+    mf.addEventListener('input', run);
+    $$('.filters input').forEach(function (i) { i.addEventListener('change', run); });
+    if (sort) sort.addEventListener('change', resort);
+    var clr = $('#mk-clear'); if (clr) clr.addEventListener('click', function () { $$('.filters input').forEach(function (i) { i.checked = false; }); mf.value = ''; run(); });
+    $$('.pc-save').forEach(function (b) { b.addEventListener('click', function () { b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'); }); });
+  }
 
   // Tabs (spend management)
   $$('[data-tabs]').forEach(function (root) {

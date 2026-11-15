@@ -37,6 +37,7 @@ const IMG = (n) => '/assets/site/' + n + '.webp';
 
 // ---------------------------------------------------------------- drawings
 const I = {
+  search: '<circle cx="14" cy="14" r="8"/><path d="M20 20l6 6"/>',
   hub: '<circle cx="16" cy="16" r="4.5"/><ellipse cx="16" cy="9" rx="4" ry="7"/><ellipse cx="16" cy="9" rx="4" ry="7" transform="rotate(72 16 16)"/><ellipse cx="16" cy="9" rx="4" ry="7" transform="rotate(144 16 16)"/><ellipse cx="16" cy="9" rx="4" ry="7" transform="rotate(216 16 16)"/><ellipse cx="16" cy="9" rx="4" ry="7" transform="rotate(288 16 16)"/>',
   card: '<rect x="3.5" y="8" width="25" height="16" rx="3"/><path d="M3.5 13h25M8 19.5h5"/>',
   vial: '<path d="M12 4h8M13 4v4l-3 4v14a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V12l-3-4V4M10 16h12"/>',
@@ -494,17 +495,35 @@ ${ctaBand('Don’t see your specialty?', 'Join the waitlist and tell us what you
 
 // ---------------------------------------------------------------- marketplace
 const PREVIEW = `<div class="notice">${ic('box', 'ic" style="width:22px;height:22px;flex:none')}<span>The marketplace is in preview. Products and specs are listed now. Prices and checkout open as supplier agreements are signed, and waitlist members can request quotes today.</span></div>`;
+// Shop pieces: package art, product card and the shop bar, shared by the marketplace and category pages.
+const CAT_TONE = { gloves: ['#ece9fb', '#5651d8'], 'wound-care': ['#e8f0fa', '#3f6fb5'], 'syringes-needles': ['#eef0f6', '#4d5a86'], 'exam-room': ['#f1effa', '#7a6fd6'], ppe: ['#e6f2ee', '#2f7d64'], sharps: ['#f3eef8', '#7a4fa8'], 'specimen-collection': ['#eaf2f8', '#356f95'], cleaning: ['#eef5ea', '#4c7a3a'], equipment: ['#efeff3', '#3f3f55'], dental: ['#f0eefb', '#5a4fc0'] };
+const CAT_ICON = { gloves: 'drop', 'wound-care': 'shield', 'syringes-needles': 'vial', 'exam-room': 'stethoscope', ppe: 'shield', sharps: 'box', 'specimen-collection': 'microscope', cleaning: 'sparkle', equipment: 'stethoscope', dental: 'tooth' };
+const packOf = (p) => p.specs.Pack || p.specs.Size || p.specs.Volume || '';
+function pkgArt(c, p) {
+  const [bg, ink] = CAT_TONE[c.slug] || ['#ece9fb', '#5651d8'];
+  const label = esc(p.name.split(',')[0]);
+  return `<div class="pk" style="--pk-bg:${bg};--pk-ink:${ink}"><svg viewBox="0 0 240 170" aria-hidden="true"><path d="M48 52 L120 30 L192 52 L120 74 Z" fill="var(--pk-ink)" opacity=".18"/><path d="M48 52 L120 74 L120 150 L48 128 Z" fill="#fff"/><path d="M120 74 L192 52 L192 128 L120 150 Z" fill="var(--pk-ink)" opacity=".1"/><path d="M48 52 L120 74 L192 52 M120 74 L120 150" stroke="var(--pk-ink)" stroke-opacity=".25" fill="none"/><path d="M48 104 L120 126 L120 150 L48 128 Z" fill="var(--pk-ink)" opacity=".85"/></svg><span class="pk-ic">${ic(CAT_ICON[c.slug] || 'box')}</span><span class="pk-l">${label}</span><span class="pk-m">${MARK}</span></div>`;
+}
+const prodCard = (c, p) => `<article class="pc" data-cat="${c.slug}" data-ster="${/^Sterile$/.test(p.specs.Sterility || '') ? 'sterile' : /sterile/i.test(p.specs.Sterility || '') ? 'both' : 'non'}" data-name="${esc((p.name + ' ' + p.desc + ' ' + c.name).toLowerCase())}"><a class="pc-art" href="/marketplace/${c.slug}/${p.slug}" tabindex="-1" aria-hidden="true">${pkgArt(c, p)}</a><div class="pc-b"><span class="pc-cat">${esc(c.name)}</span><h3><a href="/marketplace/${c.slug}/${p.slug}">${esc(p.name)}</a></h3><p>${esc(packOf(p))}</p><div class="pc-a"><a class="btn btn-accent btn-sm" href="/join?product=${encodeURIComponent(p.name)}">Request a quote</a><button class="pc-save" type="button" aria-label="Save ${esc(p.name)}" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h12v18l-6-4-6 4z"/></svg></button></div></div></article>`;
+const shopBar = (active = '') => `<section class="shopbar"><div class="wrap"><div class="sb-top"><label class="sr" for="mk-find">Search supplies</label><div class="sb-search"><input id="mk-find" type="search" placeholder="Search gloves, gauze, syringes, sharps containers…" autocomplete="off"><span>${ic('search')}</span></div><a class="sb-card" href="/card">Paid on the Aria Card, 2% back</a></div>
+<nav class="sb-cats" aria-label="Categories"><a href="/marketplace"${active ? '' : ' aria-current="page"'}>All</a>${CATS.map((c) => `<a href="/marketplace/${c.slug}"${active === c.slug ? ' aria-current="page"' : ''}>${c.name}</a>`).join('')}</nav></div></section>
+<div class="sb-req"><div class="wrap">Can’t find what you buy? <a href="/join?request=supply">Request it</a> and we’ll add it.</div></div>`;
 function marketHome() {
+  const all = CATS.flatMap((c) => c.prods.map((p) => [c, p]));
   const body = `
-<section class="page-head"><div class="wrap">${crumbs([['Aria', '/'], ['Marketplace', '/marketplace']])}<span class="label">Marketplace</span><h1 style="margin-top:18px">Every supply your practice reorders.</h1><p class="lead">One catalog for gloves, wound care, syringes, PPE and exam room basics, paid on the Aria Card so every order earns back.</p>
-<div class="finder"><label class="sr" for="mk-find">Search supplies</label><input id="mk-find" class="field" type="search" placeholder="Search supplies, for example nitrile gloves" autocomplete="off" style="width:100%"></div></div></section>
-<section class="sec tight" style="padding-top:0"><div class="wrap"><div class="art" style="aspect-ratio:21/8;margin-bottom:48px"><img src="${IMG('market')}" alt="Medical supplies arranged on a table" width="2000" height="857"></div>
-<div class="sec-head"><span class="label">Categories</span><h2>Shop by category.</h2></div>
-<div class="mk-cats">${CATS.map((c) => `<a class="mk-cat" data-name="${esc((c.name + ' ' + c.short + ' ' + c.prods.map((p) => p.name).join(' ')).toLowerCase())}" href="/marketplace/${c.slug}"><img src="${IMG('c-' + c.slug)}" alt="" width="800" height="800" loading="lazy"><b>${c.name}</b></a>`).join('')}</div>
-<div style="margin-top:32px">${PREVIEW}</div></div></section>
+${shopBar()}
+<section class="sec tight shop"><div class="wrap">
+<div class="shop-h"><div>${crumbs([['Aria', '/'], ['Marketplace', '/marketplace']])}<h1>Every supply your practice reorders.</h1><p class="muted" data-count>Showing ${all.length} of ${all.length} products</p></div>
+<label class="sort"><span>Sort by</span><select id="mk-sort"><option value="featured">Featured</option><option value="az">Name, A to Z</option><option value="cat">Category</option></select></label></div>
+<div class="shop-g"><details class="fdet" open><summary>Filters</summary><aside class="filters" aria-label="Filters">
+<fieldset><legend>Category</legend>${CATS.map((c) => `<label><input type="checkbox" name="cat" value="${c.slug}"> ${c.name} <em>${c.prods.length}</em></label>`).join('')}</fieldset>
+<fieldset><legend>Sterility</legend><label><input type="checkbox" name="ster" value="sterile"> Sterile</label><label><input type="checkbox" name="ster" value="both"> Sterile or non-sterile</label><label><input type="checkbox" name="ster" value="non"> Non-sterile</label></fieldset>
+<fieldset><legend>Popular with</legend>${Object.entries(GROUP_NAME).map(([g, n]) => `<label><input type="checkbox" name="grp" value="${(GROUP_CATS[g] || []).join(' ')}"> ${n}</label>`).join('')}</fieldset>
+<button class="link" type="button" id="mk-clear">Clear filters</button></aside></details>
+<div><div class="pgrid" id="mk-grid">${all.map(([c, p]) => prodCard(c, p)).join('')}</div><p class="muted" id="mk-none" hidden>No products match. <a class="link" href="/join?request=supply">Request it</a></p>
+<div style="margin-top:32px">${PREVIEW}</div></div></div></div></section>
 <section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">How it works</span><h2>Reorder in minutes, earn on every order.</h2></div>
 <ol class="steps"><li><h4>Find what you buy</h4><p>Search by name or browse by category and specialty.</p></li><li><h4>Pay on the Aria Card</h4><p>Every order goes on the card, so it earns back and the receipt is matched for you.</p></li><li><h4>Books done for you</h4><p>Each order is coded to the right supply category and synced to your books.</p></li></ol></div></section>
-<section class="sec tight"><div class="wrap"><div class="sec-head"><span class="label">Shop by specialty</span><h2>Supplies for your specialty.</h2></div><div class="chips">${Object.entries(GROUP_NAME).map(([s, n]) => `<a class="chip" href="${gurl(s)}">${n}</a>`).join('')}</div></div></section>
 ${ctaBand('Get first access to the marketplace.', 'Join the waitlist to request quotes now and order as soon as checkout opens.')}`;
   page({ url: '/marketplace', title: 'Medical supply marketplace for independent practices', desc: 'Gloves, wound care, syringes, PPE, exam room and dental supplies in one catalog for independent medical practices, paid on the Aria Card.', body, priority: '0.8', graph: [crumbsLd([['Aria', '/'], ['Marketplace', '/marketplace']])] });
 }
@@ -548,10 +567,11 @@ const mfaqHtml = (slug) => (MFAQ[slug] ? `<section class="sec tight"><div class=
 function catPage(c) {
   const url = '/marketplace/' + c.slug;
   const body = `
+${shopBar(c.slug)}
 <section class="page-head"><div class="wrap split">
 <div>${crumbs([['Aria', '/'], ['Marketplace', '/marketplace'], [c.name, url]])}<span class="label">Marketplace</span><h1 style="margin-top:18px">${c.name}</h1><p class="lead">${esc(c.short)}</p></div>
 <div class="art" style="aspect-ratio:4/3"><img src="${IMG('c-' + c.slug)}" alt="${esc(c.name)}" width="800" height="800" fetchpriority="high"></div></div></section>
-<section class="sec tight" style="padding-top:0"><div class="wrap"><div class="grid g4">${c.prods.map((p) => `<a class="tile img" href="${url}/${p.slug}"><div class="ph"><img src="${IMG('c-' + c.slug)}" alt="" width="800" height="800" loading="lazy"></div><div class="tx"><h4>${esc(p.name)}</h4><p>${esc(p.desc)}</p></div></a>`).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>
+<section class="sec tight" style="padding-top:0"><div class="wrap"><div class="pgrid g4">${c.prods.map((p) => prodCard(c, p)).join('')}</div><div style="margin-top:28px">${PREVIEW}</div></div></section>
 <section class="sec tight"><div class="wrap split" style="align-items:start"><div><span class="label">Buying guide</span><h2 style="margin-top:18px">How to buy ${c.name.toLowerCase()}.</h2></div><div class="prose"><p class="lead">${esc(c.guide)}</p></div></div></section>
 ${mfaqHtml(c.slug)}
 ${usedHtml(c.slug)}
