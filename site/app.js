@@ -98,6 +98,23 @@
     $$('[data-name]').forEach(function (el) { el.style.display = !t || el.getAttribute('data-name').indexOf(t) >= 0 ? '' : 'none'; });
   });
 
+  // Tabs (spend management)
+  $$('[data-tabs]').forEach(function (root) {
+    var tabs = $$('[role=tab]', root);
+    function show(t, focus) {
+      tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute('aria-controls')).hidden = !on; });
+      if (focus) t.focus();
+      t.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { show(t); });
+      t.addEventListener('keydown', function (e) {
+        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (n) { e.preventDefault(); show(tabs[(i + n + tabs.length) % tabs.length], true); }
+      });
+    });
+  });
+
   // Reveal on scroll
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { threshold: .15 });
