@@ -718,3 +718,33 @@ a.tile.img .ph{background:#f5f5f7;border-radius:18px}
 .mega-ic{display:block;width:48px;height:48px;border-radius:12px;background:#fff;margin-bottom:14px;object-fit:cover}
 .sb-cats a img{width:26px;height:26px;border-radius:50%;object-fit:cover;margin-right:8px;vertical-align:middle;background:#f4f4f6}
 @media (max-width:560px){.pc-save{display:none}.pc-a .btn{width:100%;justify-content:center}}
+
+/* The card is just the start: five tiles */
+.js-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.js-tile{display:flex;flex-direction:column;background:#f5f5f7;border-radius:24px;padding:28px 24px 0;min-height:440px;overflow:hidden;color:inherit;transition:transform .25s ease,box-shadow .25s ease}
+.js-tile:hover{transform:translateY(-2px);box-shadow:0 22px 44px -28px rgba(23,23,33,.3)}
+.js-tile h3{font-size:clamp(22px,1.9vw,28px);font-weight:500;letter-spacing:-.03em;line-height:1.1}
+.js-tile p{color:var(--body);font-size:16px;line-height:1.45;margin-top:10px}
+.js-art{margin-top:auto;padding:24px 0 24px;position:relative}
+.js-cards{position:relative;height:190px;margin:0 -24px -24px}
+.js-cards .rcard{position:absolute;width:250px;max-width:none;transform:rotate(-24deg);left:4px;top:30px}
+.js-cards .rcard+.rcard{left:70px;top:76px}
+.js-stack{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+.js-row,.js-box,.js-pill{background:#fff;border-radius:14px;box-shadow:0 1px 0 rgba(23,23,33,.04),0 10px 24px -18px rgba(23,23,33,.3)}
+.js-row{display:flex;align-items:center;gap:10px;padding:12px}
+.js-row>div{min-width:0;flex:1}.js-row b,.js-prod b{display:block;font-size:13.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.js-row small,.js-prod small,.js-h small,.js-tag small{display:block;font:500 10px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:var(--muted);margin-top:2px}
+.js-av{width:30px;height:30px;border-radius:8px;flex:none;display:grid;place-items:center;font-size:13px;font-weight:600;color:#fff;background:var(--accent)}
+.js-row:nth-child(2) .js-av{background:#2f7d54}
+.js-row em,.js-h em{display:inline-flex;align-items:center;gap:4px;font-style:normal;font-size:11.5px;font-weight:500;color:#fff;background:var(--accent);border-radius:999px;padding:3px 8px 3px 5px;flex:none}
+.js-row em svg,.js-h em svg,.js-pill svg{width:13px;height:13px}
+.js-box{padding:14px}.js-h{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}.js-h b{font-size:15px;font-weight:500}
+.js-h span{text-align:right;font-size:14px}.js-h span small{margin:0 0 2px}
+.js-prod{display:flex;align-items:center;gap:10px;margin-top:12px}.js-prod img{width:48px;height:48px;border-radius:10px;object-fit:cover;background:#f4f4f6}.js-prod>div{flex:1;min-width:0}.js-prod span{font-size:13.5px;font-weight:500}
+.js-pill{display:flex;align-items:center;gap:8px;padding:11px 14px;font-size:13.5px;color:var(--ink)}.js-pill svg{color:var(--accent);width:16px;height:16px}
+.js-inv i{display:block;height:9px;border-radius:4px;background:#ececf2;margin-top:10px}.js-inv i:nth-of-type(1){width:45%;margin-top:18px}
+.js-chart{position:relative;margin:0 -24px -24px}.js-chart svg{display:block;width:100%;height:170px}
+.js-tag{position:absolute;left:28px;top:18px;background:#fff;border-radius:10px;padding:8px 12px;box-shadow:0 10px 24px -16px rgba(23,23,33,.35)}.js-tag b{font-size:15px;font-weight:600}
+@media (max-width:1100px){.js-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.js-grid{grid-template-columns:1fr}.js-tile{min-height:0}}
+.js-row em{padding:5px;border-radius:50%}.js-row em svg{width:14px;height:14px}
