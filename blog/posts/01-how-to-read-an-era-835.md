@@ -3,7 +3,7 @@ title: How to Read an ERA (835) and Spot a Short Payment
 description: How to read an ERA (835) line by line, what the adjustment codes mean, and how to tell when an insurer paid you less than your contract says.
 slug: how-to-read-an-era-835
 category: Getting paid
-date: 2026-11-05
+date: 2026-10-23
 number: 1
 ---
 If you know how to read an ERA, you can catch short payments that most practices never notice. An ERA (electronic remittance advice, technically the ASC X12 835 transaction) is the insurer's explanation of what it paid on your claims and why.

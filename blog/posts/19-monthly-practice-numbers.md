@@ -3,7 +3,7 @@ title: Medical practice financial metrics to review every month
 description: Eight medical practice financial metrics to check monthly, with simple formulas, worked examples and what to do when a number moves.
 slug: monthly-practice-numbers
 category: Running the practice
-date: 2026-12-29
+date: 2026-11-10
 number: 19
 ---
 You don't need a finance degree to run a healthy practice, but you do need a handful of medical practice financial metrics you check every month. Eight numbers, reviewed the same way each time, will tell most owners and office managers what they need to know in under an hour.

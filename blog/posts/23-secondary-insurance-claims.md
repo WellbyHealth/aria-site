@@ -3,7 +3,7 @@ title: Secondary Insurance Claims and Getting the Second Payer to Pay
 description: A practical guide to secondary insurance claims: what to send, where they get stuck, and how to follow up so balances don't go uncollected.
 slug: secondary-insurance-claims
 category: Getting paid
-date: 2027-01-10
+date: 2026-11-14
 number: 23
 ---
 Secondary insurance claims are where a lot of practices quietly lose money. The primary pays, the account looks settled, and the remaining balance either lands on the patient or gets written off, even though a second plan may owe part of it.

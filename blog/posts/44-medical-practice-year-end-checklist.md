@@ -3,7 +3,7 @@ title: A Year-End Financial Checklist for Medical Practices
 description: A year-end financial checklist for medical practices: close the books, prepare payroll and 1099 forms, meet with your accountant and plan ahead.
 slug: medical-practice-year-end-checklist
 category: Books & close
-date: 2027-03-14
+date: 2026-12-25
 number: 44
 ---
 A year-end financial checklist for your medical practice saves you from the January scramble. December is busy enough with patients trying to use their benefits before deductibles reset, and the last thing you want is to discover in February that three months of card transactions were never categorized.

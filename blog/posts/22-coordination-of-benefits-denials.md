@@ -3,7 +3,7 @@ title: Coordination of Benefits Denials and How to Clear Them
 description: Why coordination of benefits denials happen, how to tell which plan is primary, and a step-by-step way to clear them and stop repeats.
 slug: coordination-of-benefits-denials
 category: Getting paid
-date: 2027-01-07
+date: 2026-11-13
 number: 22
 ---
 A coordination of benefits denial means the payer thinks another plan should pay first. Sometimes it's right, and sometimes it's working from stale information, but either way the claim won't move until the order of payers is settled.

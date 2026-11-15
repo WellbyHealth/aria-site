@@ -3,7 +3,7 @@ title: The Cost of Patient No-Shows and How to Reduce Them
 description: How to calculate the cost of patient no-shows at your practice, and practical ways to reduce missed appointments without frustrating patients.
 slug: cost-of-patient-no-shows
 category: Running the practice
-date: 2027-03-05
+date: 2026-12-19
 number: 41
 ---
 The cost of patient no-shows is easy to underestimate because it never shows up as a bill. Nobody sends you an invoice for an empty exam room. But every missed appointment is time you've already paid for, with a provider, staff and a room ready to go, and nothing to show for it.

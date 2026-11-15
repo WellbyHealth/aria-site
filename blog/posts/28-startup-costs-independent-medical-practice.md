@@ -3,7 +3,7 @@ title: The Real Startup Costs of Opening an Independent Medical Practice
 description: A practical checklist of the startup costs of opening an independent medical practice, including the ones owners miss and how to plan working capital.
 slug: startup-costs-independent-medical-practice
 category: Running the practice
-date: 2027-01-25
+date: 2026-11-23
 number: 28
 ---
 The startup costs of opening an independent medical practice go well beyond the lease, the build-out and the equipment. Those get the attention, and they should, but the costs that catch owners off guard are quieter: months of payroll before claims pay, deposits nobody mentioned, and small subscriptions that add up.

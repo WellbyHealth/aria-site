@@ -3,7 +3,7 @@ title: Leasing vs. Buying Medical Equipment: Questions to Ask First
 description: Leasing vs. buying medical equipment? The questions that separate a good deal from an expensive one, plus a simple way to compare total cost.
 slug: leasing-or-buying-equipment
 category: Cash flow
-date: 2027-01-31
+date: 2026-11-27
 number: 30
 ---
 Leasing vs. buying medical equipment is one of those decisions that looks simple in a sales meeting and gets complicated in the contract. Whether you lease or buy, the terms you sign matter as much as the device.

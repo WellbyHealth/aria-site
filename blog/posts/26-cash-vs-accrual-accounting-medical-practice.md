@@ -3,7 +3,7 @@ title: Cash vs. Accrual Accounting for a Medical Practice
 description: Cash vs. accrual accounting for a medical practice in plain terms: how each shows your results and what to ask your accountant.
 slug: cash-vs-accrual-accounting-medical-practice
 category: Books & close
-date: 2027-01-19
+date: 2026-11-19
 number: 26
 ---
 Cash vs. accrual accounting comes down to when your medical practice records income and expenses. Record them when money moves and you're on the cash method. Record them when they're earned or incurred and you're on the accrual method.

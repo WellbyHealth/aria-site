@@ -3,7 +3,7 @@ title: Revenue cycle metrics: clean claim, denial and net collection rate
 description: Revenue cycle metrics explained: how to calculate clean claim rate, denial rate and net collection rate, with worked examples for your practice.
 slug: revenue-cycle-metrics-explained
 category: Getting paid
-date: 2027-03-23
+date: 2026-12-31
 number: 47
 ---
 Three revenue cycle metrics tell you most of what you need to know about how your practice gets paid: clean claim rate, denial rate and net collection rate. Each answers a different question, and together they show where money gets stuck.

@@ -3,7 +3,7 @@ title: How to Reimburse Staff Mileage and Expenses at a Medical Practice
 description: How to reimburse staff mileage and out-of-pocket expenses at a medical practice with a simple policy, clean records and fewer surprises.
 slug: reimbursing-staff-mileage-expenses
 category: Spend & cards
-date: 2027-02-21
+date: 2026-12-11
 number: 37
 ---
 Reimbursing staff mileage and expenses sounds like a small job until it isn't. In most independent medical practices, staff spend their own money on practice business more often than the owner realizes, and a loose process turns those small amounts into a real headache.

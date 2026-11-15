@@ -3,7 +3,7 @@ title: Internal Controls for a Small Medical Practice: A Simple Guide
 description: Internal controls for a small medical practice: simple, realistic checks on cash, payments and access that protect the practice and the team.
 slug: simple-internal-controls-small-practice
 category: Books & close
-date: 2027-02-18
+date: 2026-12-09
 number: 36
 ---
 Internal controls for a small medical practice don't have to mean thick policy binders. They're just the habits that make sure money goes where it should and mistakes get caught. In a practice with five or ten people, a few well-chosen controls do most of the work.

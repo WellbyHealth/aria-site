@@ -3,7 +3,7 @@ title: What Is a Group Purchasing Organization (GPO) for Medical Practices?
 description: What a group purchasing organization (GPO) is, how GPOs make money, and the questions an independent practice should ask before joining one.
 slug: group-purchasing-organizations
 category: Spend & cards
-date: 2027-02-09
+date: 2026-12-03
 number: 33
 ---
 A group purchasing organization, or GPO, pools the buying power of many healthcare providers to negotiate lower prices on supplies, drugs, equipment and services. For an independent practice that buys in small quantities, joining a GPO can mean access to pricing you couldn't get on your own.

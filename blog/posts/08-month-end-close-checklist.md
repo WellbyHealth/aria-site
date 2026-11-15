@@ -3,7 +3,7 @@ title: A Month-End Close Checklist for Medical Practices
 description: A practical month-end close checklist for medical and dental practices, from bank reconciliations and payer deposits to a 20-minute owner review.
 slug: month-end-close-checklist
 category: Books & close
-date: 2026-11-26
+date: 2026-10-30
 number: 8
 ---
 A month-end close checklist keeps a medical practice's books accurate while problems are still small. You record and match every dollar that came in or went out, explain anything odd, then lock the month so the numbers stop moving.

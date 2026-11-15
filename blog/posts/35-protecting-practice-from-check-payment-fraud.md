@@ -3,7 +3,7 @@ title: How to Prevent Check and Payment Fraud in a Medical Practice
 description: How to prevent check and payment fraud in a medical practice: practical safeguards for checks, ACH, vendor payments and email scams.
 slug: protecting-practice-from-check-payment-fraud
 category: Running the practice
-date: 2027-02-15
+date: 2026-12-07
 number: 35
 ---
 Knowing how to prevent check and payment fraud in a medical practice matters more than most owners realize. Small practices move real money: payroll, rent, vendor bills, patient refunds. And many run with lean teams where one person handles most of it. That's exactly the setup fraudsters look for.

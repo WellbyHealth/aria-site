@@ -3,7 +3,7 @@ title: What an AI CFO can and can't do for a medical practice
 description: An honest look at what an AI CFO can and can't do for a medical practice: where it helps, where it falls short, and how to protect patient data.
 slug: what-an-ai-cfo-can-and-cant-do
 category: Running the practice
-date: 2027-04-04
+date: 2027-01-08
 number: 51
 ---
 An AI CFO for a medical practice is software that reads your financial data and helps with the work a finance person would do: checking, sorting, summarizing and flagging. It's not a person, it isn't licensed, and it doesn't replace your accountant.

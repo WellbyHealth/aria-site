@@ -3,7 +3,7 @@ title: Payroll Cash Flow Planning for Medical Practices
 description: Payroll cash flow planning for medical practices: a simple calendar, a reserve target and early warnings so payday never feels tight.
 slug: planning-cash-around-payroll
 category: Cash flow
-date: 2027-02-03
+date: 2026-11-29
 number: 31
 ---
 Payroll cash flow planning sounds like a big-company exercise, but for a small medical practice it's mostly about timing. Payroll arrives on a fixed date. Insurance payments don't. When those two schedules drift apart, the days before payday get tense, even in a practice that's profitable on paper.

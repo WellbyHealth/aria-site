@@ -3,7 +3,7 @@ title: Selling a medical practice? Get your finances ready first
 description: Selling a medical practice or adding a partner? How to prepare your books, adjusted earnings, contracts and records before due diligence starts.
 slug: practice-finances-sale-ready
 category: Books & close
-date: 2027-01-01
+date: 2026-11-11
 number: 20
 ---
 If you're thinking about selling a medical practice, bringing in a partner or talking with an investor, the other side will go through your finances line by line. How that review goes depends mostly on how organized things are before anyone asks.

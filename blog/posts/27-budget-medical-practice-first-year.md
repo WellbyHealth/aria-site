@@ -3,7 +3,7 @@ title: How to Budget Your Medical Practice's First Year
 description: How to build a realistic first-year medical practice budget, including the revenue ramp, payer lag and the cash cushion you'll need.
 slug: budget-medical-practice-first-year
 category: Cash flow
-date: 2027-01-22
+date: 2026-11-21
 number: 27
 ---
 A first-year medical practice budget is less about predicting the future and more about seeing where the risks are. New practices rarely get into trouble because the clinician isn't good. They get into trouble because cash runs out before revenue catches up.

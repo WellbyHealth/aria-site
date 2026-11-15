@@ -3,7 +3,7 @@ title: Medical Practice Record Retention: Which Receipts and Records to Keep
 description: A practical guide to medical practice record retention: which receipts and financial records to keep, how long, and how to stay ready for a review.
 slug: medical-practice-record-retention
 category: Books & close
-date: 2027-02-24
+date: 2026-12-13
 number: 38
 ---
 Medical practice record retention isn't anyone's favorite topic, but it becomes urgent fast. When a payer requests documentation, a lender asks for statements, or your accountant has a question about a deduction from two years ago, the practices that kept good records answer in an afternoon. Everyone else spends a week digging through email and shoeboxes.

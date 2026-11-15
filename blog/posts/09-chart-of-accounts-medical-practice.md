@@ -3,7 +3,7 @@ title: How to Set Up a Chart of Accounts for a Medical Practice
 description: How to set up a chart of accounts for a medical or dental practice, with a sample layout and tips to keep it simple and useful.
 slug: chart-of-accounts-medical-practice
 category: Books & close
-date: 2026-11-29
+date: 2026-10-31
 number: 9
 ---
 A chart of accounts for a medical practice is the list of categories your bookkeeping sorts every dollar into. When it fits the practice, your reports answer real questions. When it doesn't, you get a profit and loss full of "miscellaneous" and "other" that nobody can act on.

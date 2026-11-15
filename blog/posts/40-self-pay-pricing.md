@@ -3,7 +3,7 @@ title: Self-Pay Pricing for Medical Practices: Set Clear, Simple Prices
 description: How to set self-pay pricing for your medical practice: build prices from real costs, write them in plain language and give patients clear estimates.
 slug: self-pay-pricing
 category: Getting paid
-date: 2027-03-02
+date: 2026-12-17
 number: 40
 ---
 Self-pay pricing is one of those things many independent medical practices handle on the fly. A patient without insurance calls and asks what a visit costs, and the person at the front desk either guesses, puts them on hold, or says "it depends." None of those answers builds trust, and all of them make it harder to collect.

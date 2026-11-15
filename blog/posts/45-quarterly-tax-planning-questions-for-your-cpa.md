@@ -3,7 +3,7 @@ title: Quarterly tax planning: the questions to bring to your CPA
 description: Quarterly tax planning for medical practices: the questions to bring to your CPA about estimated taxes, owner pay, purchases and year-end.
 slug: quarterly-tax-planning-questions-for-your-cpa
 category: Books & close
-date: 2027-03-17
+date: 2026-12-27
 number: 45
 ---
 Quarterly tax planning is the habit that keeps April from being a surprise. Most practice owners talk to their CPA once a year, in a hurry, about a year that's already over, and by then the choices that could have changed the outcome are gone.

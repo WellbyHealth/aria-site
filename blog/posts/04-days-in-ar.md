@@ -3,7 +3,7 @@ title: "Days in A/R: What It Measures and How to Calculate It"
 description: What days in A/R measures for a medical practice, how to calculate it with a simple worked example, and what to watch when the number moves.
 slug: days-in-ar
 category: Cash flow
-date: 2026-11-14
+date: 2026-10-26
 number: 4
 ---
 Days in A/R tells you, roughly, how many days of billing are sitting out there uncollected. It's one of the simplest numbers a practice can track, and one of the most useful, as long as you calculate it the same way every month and know what can push it around.

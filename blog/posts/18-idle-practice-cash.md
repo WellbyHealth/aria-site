@@ -3,7 +3,7 @@ title: Medical practice cash management: keep idle cash safe
 description: A simple medical practice cash management plan that keeps payroll and bills covered and protects extra cash above deposit insurance limits.
 slug: idle-practice-cash
 category: Cash flow
-date: 2026-12-26
+date: 2026-11-09
 number: 18
 ---
 Good medical practice cash management isn't about clever moves. It's about knowing which dollars are for payroll, which are for a bad month and which are sitting idle, then keeping each group where it belongs.

@@ -3,7 +3,7 @@ title: Telehealth Billing Basics for Independent Medical Practices
 description: Telehealth billing basics for independent practices: what to check with each payer, what to document and how to catch telehealth denials early.
 slug: telehealth-billing-basics
 category: Getting paid
-date: 2027-03-11
+date: 2026-12-23
 number: 43
 ---
 Telehealth billing is one of the trickiest parts of the revenue cycle for independent practices, mostly because the rules keep moving. What a payer covered last year may not be what it covers now, and two payers can treat the same video visit in completely different ways.

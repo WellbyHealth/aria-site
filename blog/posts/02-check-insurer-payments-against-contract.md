@@ -3,7 +3,7 @@ title: How to Spot Insurance Underpayments Against Your Contract
 description: How to find insurance underpayments by checking what payers allowed against your contracted rates, and how to get the money back.
 slug: check-insurer-payments-against-contract
 category: Getting paid
-date: 2026-11-08
+date: 2026-10-24
 number: 2
 ---
 Insurance underpayments are the quietest revenue leak in a medical practice. The claim gets paid, the ERA balances, the patient gets a statement, and nobody notices that the allowed amount was a few dollars lower than your contract says.

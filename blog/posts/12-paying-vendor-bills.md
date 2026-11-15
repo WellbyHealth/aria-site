@@ -3,7 +3,7 @@ title: Paying vendor bills without duplicates, late fees or surprises
 description: A simple routine for paying vendor bills at your practice: one bill inbox, a weekly payment run, and checks that stop duplicate payments.
 slug: paying-vendor-bills
 category: Cash flow
-date: 2026-12-08
+date: 2026-11-03
 number: 12
 ---
 Paying vendor bills sounds simple until you count how many ways they arrive. Some come by mail, some go to whoever placed the order, and some vendors send a statement and an invoice for the same charge. Others auto-charge a card and then mail a bill anyway.
